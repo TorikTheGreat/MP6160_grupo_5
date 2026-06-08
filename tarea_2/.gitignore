@@ -1,0 +1,17 @@
+# Toolchain local de la tarea — regenerado por ./setup.sh, NO commitear.
+# Se compila desde el código fuente (rpath/binarios no relocalizables); cada
+# integrante lo reconstruye con ./setup.sh.
+tools/
+
+# Artefactos de compilación
+examples/sanity/hello_tlm
+*.o
+
+# Waveforms y logs de simulación
+*.vcd
+*.fst
+
+# Editor / SO
+.vscode/
+*.swp
+.DS_Store

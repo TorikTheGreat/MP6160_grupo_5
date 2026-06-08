@@ -1,0 +1,21 @@
+# Artefactos de compilación de LaTeX — regenerables con 'make'.
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+
+# PDF generado del artículo (NO ignorar las PDFs de referencia como
+# ieee-taxonomy.pdf o IEEEtran_HOWTO.pdf, por eso se nombra explícito).
+conference_101719.pdf
