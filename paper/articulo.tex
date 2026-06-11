@@ -1,0 +1,196 @@
+%% =====================================================================
+%%  ARTÍCULO DEL PROYECTO FINAL — MP-6160 Diseño de Alto Nivel
+%%  Acelerador de la transformada Walsh-Hadamard (WHT)
+%%
+%%  Compilar con:  make   (genera articulo.pdf)
+%%
+%% =====================================================================
+
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+
+\begin{document}
+
+%% --------------------------- TÍTULO ---------------------------------
+%% Título PROVISIONAL y general (el enunciado pide no amarrar la técnica).
+\title{A Resource-Efficient Hardware Accelerator for Lossless Image
+Compression Based on the Walsh--Hadamard Transform}
+
+%% --------------------------- AUTORES --------------------------------
+%% TODO: poner los 5 nombres reales del grupo y los correos.
+\author{
+\IEEEauthorblockN{1\textsuperscript{st} Marco Zolla Salazar}
+\IEEEauthorblockA{\textit{Maestría en Ingeniería Electrónica} \\
+\textit{Instituto Tecnológico de Costa Rica}\\
+Costa Rica \\ mzolla@estudiantec.cr}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Nombre Apellido}
+\IEEEauthorblockA{\textit{Maestría en Ingeniería Electrónica} \\
+\textit{Instituto Tecnológico de Costa Rica}\\
+Costa Rica \\ correo@estudiantec.cr}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Nombre Apellido}
+\IEEEauthorblockA{\textit{Maestría en Ingeniería Electrónica} \\
+\textit{Instituto Tecnológico de Costa Rica}\\
+Costa Rica \\ correo@estudiantec.cr}
+\and
+\IEEEauthorblockN{4\textsuperscript{th} Nombre Apellido}
+\IEEEauthorblockA{\textit{Maestría en Ingeniería Electrónica} \\
+\textit{Instituto Tecnológico de Costa Rica}\\
+Costa Rica \\ correo@estudiantec.cr}
+\and
+\IEEEauthorblockN{5\textsuperscript{th} Nombre Apellido}
+\IEEEauthorblockA{\textit{Maestría en Ingeniería Electrónica} \\
+\textit{Instituto Tecnológico de Costa Rica}\\
+Costa Rica \\ correo@estudiantec.cr}
+}
+
+\maketitle
+
+%% --------------------------- ABSTRACT -------------------------------
+%% Para avance posterior (máx 250 palabras). Placeholder para que compile.
+\begin{abstract}
+% TODO (avance final): problema, propuesta, método experimental y resultados.
+Placeholder abstract. To be written for the final article (max.\ 250 words).
+\end{abstract}
+
+%% Keywords TOMADOS DEL IEEE Thesaurus/Taxonomy (verificados en ieee-taxonomy.pdf).
+%% Nota: "Walsh-Hadamard transform" NO existe en la taxonomía (ni "Hadamard"/"Walsh");
+%% el término indexable más cercano es "Discrete transforms". La WHT se deletrea en
+%% el título y el abstract.
+\begin{IEEEkeywords}
+Discrete transforms, Image coding, Data compression, Field programmable gate
+arrays, Hardware acceleration, High level synthesis
+\end{IEEEkeywords}
+
+%% =====================================================================
+%%  I. INTRODUCTION        (ASIGNADO A: <compañero>)  — máx 1 página
+%% =====================================================================
+\section{Introduction}
+% Estructura sugerida (un párrafo por viñeta). Las \cite ya están puestas.
+%
+% (1) CONTEXTO/PROBLEMA: los sistemas con cámaras de alta tasa de cuadros
+%     (p. ej. vehículos inteligentes) generan grandes volúmenes de datos que
+%     deben procesarse/almacenarse con baja latencia y, en muchos casos, SIN
+%     pérdida (lossless). Motivar por qué la compresión lossless en tiempo
+%     real en el borde es un problema relevante.
+%     % TODO: conseguir 1 cita de motivación (tasas de datos / compresión en
+%     %       tiempo real en sistemas embebidos o automotrices).
+%
+% (2) POR QUÉ TRANSFORMADA / WHT: las transformadas decorrelacionan la imagen
+%     antes de codificar; la WHT es atractiva en hardware porque usa solo
+%     sumas y restas (matriz de $\pm 1$) \cite{manjarres2021,hafizullah2018}.
+%
+% (3) LIMITACIÓN DEL ESTADO DEL ARTE: las soluciones existentes son en su
+%     mayoría lossy o no están optimizadas para bajo consumo de recursos en el
+%     caso lossless: WHT pero no lossless \cite{manjarres2021}, o lossless pero no
+%     WHT \cite{regorsek2024}.
+%
+% (4) CONTRIBUCIÓN (en viñetas): proponemos un acelerador de WHT (entera/
+%     reversible) eficiente en recursos para compresión lossless de baja
+%     latencia, modelado en alto nivel (SystemC/HLS) y evaluado en FPGA.
+%
+% (5) ORGANIZACIÓN del artículo.
+%
+\textit{[Sección a redactar por el compañero asignado. Ver guía en los comentarios.]}
+
+%% =====================================================================
+%%  II. BACKGROUND AND RELATED WORK     (ASIGNADO A: <yo>)  — máx 1 página
+%% =====================================================================
+\section{Background and Related Work}
+%% Background and Related Work.
+
+The Walsh--Hadamard transform (WHT) decomposes a signal into Walsh basis functions
+whose values are restricted to $\pm 1$. For a signal of $2^n$ samples the transform is
+a multiplication by the $2^n \times 2^n$ Hadamard matrix, and since its entries are
+$\pm 1$ it can be evaluated with additions and subtractions alone. The fast WHT (FWHT)
+lowers the arithmetic cost from $O(N^2)$ to $O(N\log_2 N)$ through Cooley--Tukey-style
+factorizations \cite{manjarres2021}, and its parallel-pipeline hardware implementations
+follow processor structures first developed for the fast Fourier transform
+\cite{wold1984}.
+
+Exact reconstruction is what keeps the WHT from being lossless. Its inverse normalizes
+by the transform size $N$, a division that integer arithmetic cannot represent exactly,
+so a direct WHT loses information over a round trip through the transform and its
+inverse. Integer, reversible formulations remove this limitation. The unified lossless
+WHT (ULWHT) recovers the original data exactly while lowering the per-coefficient
+entropy of natural images \cite{jung1997}, and a lossless two-dimensional WHT has also
+been derived \cite{komatsu2001}. For hardware there is a caveat: the one-dimensional
+lossless WHT still contains multiplications, and making it fully multiplier-free needs a
+more elaborate construction \cite{komatsu2001}.
+
+Two closely related solutions provide reproducible results with public code, and between
+them they cover both sides of the problem. One is an FPGA WHT accelerator: a
+configurable parallel-pipeline FWHT produced by high-level synthesis, with its HLS
+source openly released \cite{manjarres2021}. The other is a parallel lossless compressor
+for raw Bayer images on an FPGA-based high-speed camera that sustains $40.1$\,Gbit/s at
+$320$\,MHz on a Zynq UltraScale+ device, using adaptive Golomb--Rice coding and a public
+reference implementation \cite{regorsek2024}. One supplies the transform, the other a
+low-latency lossless pipeline; bringing the two together is the open problem.
+
+Five further works address parts of the problem. In hardware, a multiplier-free WHT
+running at $162$\,MHz takes the place of the Photo Core Transform in JPEG~XR
+\cite{hafizullah2018}, an FPGA JPEG\,2000 accelerator performs on-board lossless
+compression \cite{ghodhbani2024}, and an ANS-based coder reduces the complexity of
+JPEG-LS \cite{alonso2021}. The integer lossless WHT formulations achieve bit-exact
+compression but stop at the algorithmic level, with no hardware realization
+\cite{jung1997,komatsu2001}. Earlier WHT processors based on distributed arithmetic
+\cite{amira2007}, the sequency-ordered complex Hadamard transform \cite{bi2008}, and a
+radix-2 Walsh--Hadamard--Fourier pipeline \cite{liu2015} were built for high throughput
+and small area, drawing on the low complexity of the $\pm 1$ kernel \cite{nayak2022}.
+
+The WHT also appears outside compression, in image watermarking \cite{ho2003}, ultrasonic
+coded excitation \cite{weng2024}, and the simulation of quantum algorithms
+\cite{kobori2020}. Across this literature we found no hardware accelerator from the past
+decade that performs lossless, WHT-based compression of high-frame-rate image streams.
+The reproducible accelerators cover either the transform \cite{manjarres2021} or the
+lossless coding \cite{regorsek2024}, and the lossless integer WHT has stayed at the
+algorithmic level \cite{jung1997,komatsu2001}. Closing this gap is the aim of the present
+work.
+
+%% =====================================================================
+%%  III. PROPOSED SOLUTION / ARCHITECTURE   (Avance I — semana 6)
+%% =====================================================================
+% \section{Proposed Solution}
+% TODO (Avance I): arquitectura de II nivel (diagrama de bloques, caja gris/
+% blanca), cómo resuelve cada desafío, herramienta de modelado de III nivel.
+
+%% =====================================================================
+%%  IV. RESULTS AND ANALYSIS                 (Avance II — semana 9)
+%% =====================================================================
+% \section{Results and Analysis}
+% TODO (Avance II): plan de experimentos, métricas (recursos, latencia,
+% frecuencia, throughput) y resultados preliminares.
+
+%% =====================================================================
+%%  V. CONCLUSIONS AND FUTURE WORK           (entrega final)
+%% =====================================================================
+% \section{Conclusions and Future Work}
+% TODO (final): síntesis de hallazgos, limitaciones y trabajo futuro.
+
+%% --------------------------- REFERENCIAS ----------------------------
+\begin{thebibliography}{00}
+\bibitem{manjarres2021} A. Manjarres Garcia, C. Osorio Quero, J. Rangel-Magdaleno, J. Martinez-Carranza, and D. Durini Romero, ``Parallel-pipeline fast Walsh-Hadamard transform implementation using HLS,'' in \emph{Proc. Int. Conf. Field-Programmable Technology (ICFPT)}, 2021, doi: 10.1109/ICFPT52863.2021.9609874.
+\bibitem{jung1997} H.-Y. Jung, R. Prost, and T.-Y. Choi, ``A unified mathematical form of the Walsh--Hadamard transform for lossless image data compression,'' \emph{Signal Process.}, vol. 63, pp. 35--43, 1997, doi: 10.1016/S0165-1684(97)00138-2.
+\bibitem{komatsu2001} K. Komatsu and K. Sezaki, ``Lossless 2D discrete Walsh-Hadamard transform,'' in \emph{Proc. IEEE Int. Conf. Acoust., Speech, Signal Process. (ICASSP)}, 2001, doi: 10.1109/ICASSP.2001.941320.
+\bibitem{hafizullah2018} S. Hafizullah, M. S. S. V. S. Manideep, V. Sharma, P. K. Nath, A. Naugarhiya, and S. Verma, ``An efficient hardware implementation of Walsh Hadamard transform for JPEG XR,'' in \emph{Proc. 15th IEEE India Council Int. Conf. (INDICON)}, 2018, doi: 10.1109/INDICON45594.2018.8987180.
+\bibitem{regorsek2024} \v{Z}. Regor\v{s}ek, A. Gorki\v{c}, and A. Trost, ``Parallel lossless compression of raw Bayer images on FPGA-based high-speed camera,'' \emph{Sensors}, vol. 24, no. 20, art. 6632, 2024, doi: 10.3390/s24206632.
+\bibitem{ghodhbani2024} R. Ghodhbani, T. Saidani, L. Horrigue, A. M. Algarni, and M. Alshammari, ``An FPGA accelerator for real-time hyperspectral image compression based on JPEG2000 standard,'' \emph{Eng. Technol. Appl. Sci. Res.}, vol. 14, no. 2, pp. 13118--13123, 2024, doi: 10.48084/etasr.6853.
+\bibitem{alonso2021} T. Alonso, G. Sutter, and J. E. L\'opez de Vergara, ``LOCO-ANS: An optimization of JPEG-LS using an efficient and low-complexity coder based on ANS,'' \emph{IEEE Access}, vol. 9, pp. 106606--106626, 2021, doi: 10.1109/ACCESS.2021.3100747.
+\bibitem{nayak2022} D. Nayak, K. Ray, T. Kar, and C. Kwan, ``Walsh--Hadamard kernel feature-based image compression using DCT with bi-level quantization,'' \emph{Computers}, vol. 11, no. 7, art. 110, 2022, doi: 10.3390/computers11070110.
+\bibitem{weng2024} C. Weng, X. Gu, and H. Jin, ``Coded excitation for ultrasonic testing: A review,'' \emph{Sensors}, vol. 24, no. 7, art. 2167, 2024, doi: 10.3390/s24072167.
+\bibitem{kobori2020} A. Kobori, R. Takahashi, and M. Nakanishi, ``A hardware architecture for the Walsh--Hadamard transform toward fast simulation of quantum algorithms,'' \emph{CCF Trans. High Perform. Comput.}, vol. 2, pp. 211--220, 2020, doi: 10.1007/s42514-020-00028-7.
+\bibitem{amira2007} A. Amira and S. Chandrasekaran, ``Power modeling and efficient FPGA implementation of FHT for signal processing,'' \emph{IEEE Trans. Very Large Scale Integr. (VLSI) Syst.}, vol. 15, no. 3, pp. 286--295, 2007, doi: 10.1109/TVLSI.2007.893606.
+\bibitem{bi2008} G. Bi, A. Aung, and B. P. Ng, ``Pipelined hardware structure for sequency-ordered complex Hadamard transform,'' \emph{IEEE Signal Process. Lett.}, vol. 15, pp. 401--404, 2008, doi: 10.1109/LSP.2008.922515.
+\bibitem{liu2015} J. Liu, Q. Xing, X. Yin, X. Mao, and F. Yu, ``Pipelined architecture for a radix-2 fast Walsh--Hadamard--Fourier transform algorithm,'' \emph{IEEE Trans. Circuits Syst. II, Exp. Briefs}, vol. 62, no. 11, pp. 1083--1087, 2015, doi: 10.1109/TCSII.2015.2456371.
+\bibitem{wold1984} E. Wold and A. Despain, ``Pipeline and parallel-pipeline FFT processors for VLSI implementations,'' \emph{IEEE Trans. Comput.}, vol. C-33, no. 5, pp. 414--426, 1984, doi: 10.1109/TC.1984.1676458.
+\bibitem{ho2003} A. T. Ho, J. Shen, A. K. Chow, and J. Woon, ``Robust digital image-in-image watermarking algorithm using the fast Hadamard transform,'' in \emph{Proc. Int. Symp. Circuits Syst. (ISCAS)}, 2003, doi: 10.1109/ISCAS.2003.1205147.
+\end{thebibliography}
+
+\end{document}
