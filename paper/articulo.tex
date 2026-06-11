@@ -35,10 +35,10 @@ Costa Rica \\ mzolla@estudiantec.cr}
 \textit{Instituto Tecnológico de Costa Rica}\\
 Costa Rica \\ correo@estudiantec.cr}
 \and
-\IEEEauthorblockN{3\textsuperscript{rd} Nombre Apellido}
+\IEEEauthorblockN{3\textsuperscript{rd} Simón Fallas Villalobos}
 \IEEEauthorblockA{\textit{Maestría en Ingeniería Electrónica} \\
 \textit{Instituto Tecnológico de Costa Rica}\\
-Costa Rica \\ correo@estudiantec.cr}
+Costa Rica \\ simonfallasv@estudiantec.cr}
 \and
 \IEEEauthorblockN{4\textsuperscript{th} Nombre Apellido}
 \IEEEauthorblockA{\textit{Maestría en Ingeniería Electrónica} \\
@@ -97,8 +97,23 @@ arrays, Hardware acceleration, High level synthesis
 %     latencia, modelado en alto nivel (SystemC/HLS) y evaluado en FPGA.
 %
 % (5) ORGANIZACIÓN del artículo.
-%
-\textit{[Sección a redactar por el compañero asignado. Ver guía en los comentarios.]}
+
+
+Modern high-frame-rate camera systems, such as those deployed in intelligent vehicles and satellite imaging, generate massive volumes of data that must be processed and stored with minimal latency. In many of these edge-computing scenarios, lossless compression is essential because the uncertainty introduced by quantization noise in lossy systems is often inadmissible for maintaining system robustness or meeting legal requirements \cite{alonso2021}. Implementing these codecs in real-time at the edge is a critical challenge, as embedded video processors must handle high-speed transform computations while operating under strict limitations regarding hardware area, power consumption, and thermal dissipation \cite{amira2007}.
+
+Transform methods are a fundamental component of image compression because they decorrelate spatial data before encoding, concentrating information into a smaller number of coefficients. Among these, the Walsh-Hadamard Transform (WHT) is particularly attractive for hardware implementations due to its significant computational advantages over sinusoidal transforms like the DFT or DCT. Because the WHT kernel matrix consists entirely of integer values of +1 and -1, the transform can be implemented very efficiently using only additions and subtractions, thereby eliminating the need for costly and time-consuming multipliers \cite{manjarres2021,hafizullah2018}.
+
+Despite its advantages, state-of-the-art literature reveals limitations in existing solutions, which are frequently optimized for lossy applications or general neural network acceleration rather than resource-efficient lossless compression. For example, some high-throughput WHT-based architectures are designed for signal processing but rely on 32-bit floating-point arithmetic, which is not ideal for exact, low-resource lossless operation \cite{manjarres2021}. Conversely, other lossless approaches, such as those based on the JPEG-LS standard, provide competitive compression but often do not leverage the unique hardware-friendly properties of the WHT \cite{alonso2021}.
+
+In this paper, we propose a resource-efficient integer/reversible WHT accelerator specifically designed for low-latency lossless compression. Our main contributions are:
+\begin{itemize}
+    \item An optimized (integer/reversible) WHT architecture that ensures mathematically exact data reconstruction for lossless applications.
+    \item The development of a flexible design modeled at a high level (SystemC/HLS), allowing for rapid design space exploration and the generation of parallel-pipeline layouts.
+    \item A comprehensive evaluation on FPGA hardware to verify performance metrics, demonstrating improvements in throughput and area efficiency compared to existing implementations.
+\end{itemize}
+
+The remainder of this paper presents the \textit{Background and Related Work}, providing a review of the WHT mathematical foundations and current hardware implementation strategies. The \textit{Proposed Solution / Architecture}, describing our high-level modeling approach and the specific hardware structures of the integer WHT accelerator. \textit{Results and Analysis}, detailing the experimental setup and providing a comparative analysis of our results on FPGA. And finally, the \textit{Conclusions and Future Work}, which summarizes our findings and outlines potential avenues for further optimization in real-time edge compression.
+
 
 %% =====================================================================
 %%  II. BACKGROUND AND RELATED WORK     (ASIGNADO A: <yo>)  — máx 1 página
@@ -153,6 +168,9 @@ The reproducible accelerators cover either the transform \cite{manjarres2021} or
 lossless coding \cite{regorsek2024}, and the lossless integer WHT has stayed at the
 algorithmic level \cite{jung1997,komatsu2001}. Closing this gap is the aim of the present
 work.
+
+
+
 
 %% =====================================================================
 %%  III. PROPOSED SOLUTION / ARCHITECTURE   (Avance I — semana 6)
