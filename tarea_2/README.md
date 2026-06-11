@@ -91,6 +91,23 @@ tarea_2/
   tools/                # SystemC compilado — NO se commitea (lo regenera setup.sh)
 ```
 
+## Mapa de Memoria
+
+El espacio de direcciones del sistema se divide de la siguiente manera. La comunicación se realiza a través de un bus TLM que enruta las transacciones al componente correspondiente según la dirección.
+
+| Rango de Direcciones      | Tamaño | Componente          | Dueño | Descripción                                          |
+|---------------------------|--------|---------------------|-------|------------------------------------------------------|
+| `0x0000_0000-0x03FF_FFFF` | 64 MB  | **Memoria RAM**     | P3    | Espacio de trabajo principal.                        |
+| `↳ 0x0000_0000`           | ~6 MB  | Buffer de Entrada   | -     | Imagen RAW RGB 1080p (1920x1080x3 bytes).             |
+| `↳ 0x0200_0000`           | ~2 MB  | Buffer de Salida    | -     | Imagen en escala de grises (1920x1080x1 byte).        |
+| `0x4000_0000-0x4000_000F` | 16 B   | **Acelerador Regs** | P5    | Registros de control para el acelerador.             |
+| `↳ 0x4000_0000`           | 4 B    | `CONTROL`           | -     | Registro de control (e.g., `START=1`, `DONE` flag).    |
+| `↳ 0x4000_0004`           | 4 B    | `ADDR_INPUT`        | -     | Dirección base del buffer de entrada en RAM.         |
+| `↳ 0x4000_0008`           | 4 B    | `ADDR_OUTPUT`       | -     | Dirección base del buffer de salida en RAM.          |
+| `↳ 0x4000_000C`           | 4 B    | `NUM_PIXELS`        | -     | Cantidad de píxeles a procesar.                      |
+
+El acceso al **Almacenamiento Persistente** (P4) no está mapeado en memoria. Se modela a través de llamadas a funciones directas (por ejemplo, `ram.load_from_file(...)`) que simulan la E/S del disco, orquestadas por la CPU (P2).
+
 ## Por qué `tools/` no se commitea
 
 SystemC se compila desde el código fuente y sus binarios no son relocalizables

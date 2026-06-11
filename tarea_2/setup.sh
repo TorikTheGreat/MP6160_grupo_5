@@ -55,7 +55,8 @@ else
     cmake .. \
         -DCMAKE_INSTALL_PREFIX="$ROOT/tools/systemc" \
         -DCMAKE_CXX_STANDARD=17 \
-        -DBUILD_SHARED_LIBS=ON
+        -DBUILD_SHARED_LIBS=ON \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     make -j"$(nproc)"
     make install
     cd "$ROOT"
