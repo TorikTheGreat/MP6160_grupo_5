@@ -1,0 +1,5 @@
+# Imágenes de entrada/salida del testbench (no versionar el contenido).
+# Pon aquí tu input.ppm; el resultado se escribe como output.pgm.
+# Este .gitignore conserva el directorio en el repo.
+*
+!.gitignore
