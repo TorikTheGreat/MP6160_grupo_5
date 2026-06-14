@@ -9,18 +9,20 @@
 
 class RAM : public sc_module {
 public:
-    // ... (anteriormente definido)
-    tlm_utils::simple_target_socket<RAM> socket;
+    // Dos sockets target: uno para CPU, otro para Accelerator
+    tlm_utils::simple_target_socket<RAM> socket_cpu;
+    tlm_utils::simple_target_socket<RAM> socket_acc;
 
     SC_HAS_PROCESS(RAM);
 
     RAM(sc_module_name name, uint64_t size = 64 * 1024 * 1024)
-        : sc_module(name), socket("socket"), m_size(size) {
+        : sc_module(name), socket_cpu("socket_cpu"), socket_acc("socket_acc"), m_size(size) {
         
         m_data = new uint8_t[m_size];
         memset(m_data, 0, m_size);
 
-        socket.register_b_transport(this, &RAM::b_transport);
+        socket_cpu.register_b_transport(this, &RAM::b_transport);
+        socket_acc.register_b_transport(this, &RAM::b_transport);
         
         cout << "RAM: " << name << " creada con " << m_size / (1024*1024) << " MB" << endl;
     }

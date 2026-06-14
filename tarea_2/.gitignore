@@ -15,3 +15,8 @@ examples/sanity/hello_tlm
 .vscode/
 *.swp
 .DS_Store
+
+#CMAKE
+builds/
+build/
+CMakeLists.txt
