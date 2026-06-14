@@ -1,0 +1,11 @@
+# Artefactos generados por el testbench
+tb_accelerator
+input.rgb
+input_img.rgb
+output.gray
+output_img.gray
+*.o
+*.vcd
+*.ppm
+*.pgm
+# Las imágenes (images/input.ppm, images/output.pgm) se ignoran en images/.gitignore
