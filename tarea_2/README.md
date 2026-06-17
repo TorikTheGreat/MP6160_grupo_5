@@ -164,3 +164,10 @@ así que compila sin configurar nada y permite edición simultánea.
 | Al ejecutar: `libsystemc.so: cannot open shared object file` | Idem: `source activate.sh` define `LD_LIBRARY_PATH`. |
 | GTKWave: `__libc_pthread_init ... GLIBC_PRIVATE` | Ejecútalo tras `source activate.sh`; o `unset LD_LIBRARY_PATH; gtkwave archivo.vcd`. |
 | `setup.sh` falla en `apt` por `sudo` | Instala a mano: `sudo apt install build-essential cmake git curl gtkwave`. |
+
+
+## Declaración sobre el uso de inteligencia artificial
+Para el presente trabajo se hizo uso de la herramienta Claude Code de forma conversacional para:
+- Generar un resumen de conceptos relacionados a system C utilizando el standard IEEE Std 1666‐2023
+- Revisión y sugerencias de código (por medio del comando code-review)
+- Generación de la estructura básica 
