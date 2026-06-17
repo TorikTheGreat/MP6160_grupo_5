@@ -170,4 +170,4 @@ así que compila sin configurar nada y permite edición simultánea.
 Para el presente trabajo se hizo uso de la herramienta Claude Code de forma conversacional para:
 - Generar un resumen de conceptos relacionados a system C utilizando el standard IEEE Std 1666‐2023
 - Revisión y sugerencias de código (por medio del comando code-review)
-- Generación de la estructura básica 
+- Generación de la estructura básica del readme
