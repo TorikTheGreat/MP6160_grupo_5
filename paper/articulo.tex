@@ -118,7 +118,7 @@ The remainder of this paper presents the \textit{Background and Related Work}, p
 
 
 %% =====================================================================
-%%  II. BACKGROUND AND RELATED WORK     (ASIGNADO A: <yo>)  — máx 1 página
+%%  II. BACKGROUND AND RELATED WORK     (ASIGNADO A: )  — máx 1 página
 %% =====================================================================
 \section{Background and Related Work}
 %% Background and Related Work.
@@ -174,12 +174,67 @@ work.
 
 
 
+
+
 %% =====================================================================
 %%  III. PROPOSED SOLUTION / ARCHITECTURE   (Avance I — semana 6)
 %% =====================================================================
-% \section{Proposed Solution}
+\section{Proposed Solution}
 % TODO (Avance I): arquitectura de II nivel (diagrama de bloques, caja gris/
 % blanca), cómo resuelve cada desafío, herramienta de modelado de III nivel.
+\subsection{Study of Other Solutions in the State of the Art}
+
+An analysis of recent literature over the past ten years reveals that implementations oriented 
+toward image compression bifurcate into approaches that partially cover the problem but lack 
+an efficient architectural integration specifically oriented toward a multiplier-free design 
+for lossless video streams.
+
+\subsubsection{Hardware Accelerators for Transforms (Lossy Approach)}
+Hardware accelerators for transforms oriented toward lossy approaches have demonstrated 
+remarkable efficiency in the real-time domain. These architectures achieve high data processing 
+throughput by utilizing parallel and pipelined logic structures (\textit{parallel-pipeline}) \cite{manjarres2021},
+also proving the physical feasibility of operating at high clock frequencies, such as $162\text{ MHz}$,
+completely omitting advanced DSP logic blocks \cite{hafizullah2018}. Despite these strengths, 
+these solutions present severe limitations when considered for lossless environments, as they
+are optimized for generic processing or traditional lossy schemes relying on 32-bit 
+floating-point arithmetic \cite{manjarres2021}. Furthermore, using the conventional inverse 
+transform introduces division operations for normalization that integer-based systems cannot 
+represent exactly, injecting quantization noise that destroys the possibility of exact data 
+reconstruction \cite{jung1997}. Consequently, while these designs represent a valuable metric 
+baseline for evaluating hardware cost in terms of area and speed, they are unfeasible for strictly 
+lossless compression applications.
+
+\subsubsection{Lossless Hardware Compressors (Complete Pipelines)}
+On the other hand, developments focused on complete lossless compression pipelines offer robust, 
+low-latency alternatives essential for edge computing. Solutions such as parallel compressors 
+for raw Bayer images implemented on FPGAs \cite{regorsek2024} and structural optimizations a
+pplied to the JPEG-LS standard under advanced coding architectures \cite{alonso2021} can sustain
+massive data transfer rates in real-time. However, the main deficiency of this approach is that 
+optimization efforts are directly concentrated on the entropy coding and packaging stages, 
+omitting or completely replacing the spatial decorrelation phase based on discrete transforms 
+such as the WHT \cite{alonso2021}. This omission makes them highly viable for general-purpose 
+compression at the edge, but unfeasible if the architectural design goal is to maximize datapath
+efficiency by exploiting a multiplier-free transformation core composed exclusively of $+1$ and $-1$
+coefficients \cite{hafizullah2018}.
+
+\subsubsection{Reversible WHT Algorithmic Formulations}
+Finally, proposals focused on the theoretical formulations of the reversible transform resolve the 
+mathematical limitations of information loss in the inverse process. Mathematical models such as 
+the unified lossless Walsh-Hadamard transform (ULWHT) and its two-dimensional derivations formally 
+demonstrate that it is viable to recover data exactly bit-by-bit, significantly reducing the entropy 
+per coefficient without resorting to complex multiplication operations \cite{jung1997, komatsu2001}. 
+The major weakness of this approach lies in its purely abstract nature, given that these formulations 
+have remained strictly in the algorithmic domain and lack a tangible realization or microarchitectural 
+mapping in hardware for embedded systems \cite{jung1997}. Thus, although they are completely viable as
+the numerical reference model for the system, they are unfeasible for direct physical deployment 
+without a profound process of architectural exploration and synthesis.
+
+\subsection{Observed Challenges}
+
+Based on the critical study of the state of the art, the fundamental architectural challenges that justify the contribution of this research are identified and outlined. The first challenge consists of properly delimiting the functional scope of the accelerator. Since the WHT transform acts solely as a spatial decorrelator and not as an autonomous codec, it is imperative to narrow the architecture to a dedicated transform core accelerator, structured in such a way that it can be seamlessly integrated into a larger lossless pipeline without diverting logic efforts toward complex entropy coding. The second technical challenge lies in performing a direct mapping from the abstract algorithmic domain to a real physical architecture with zero use of DSP blocks. Although the literature describes theoretical reversible and multiplier-free versions \cite{komatsu2001}, their implementation through high-level synthesis (SystemC/HLS) requires optimizing subexpression reuse and designing aggressive pipelining to mitigate FPGA resource consumption.
+
+As a third challenge, there is a need to strongly justify the choice of the WHT over competing integer transforms such as the DCT or wavelets. Because the WHT exhibits inferior performance in lossy compression quality \cite{regorsek2024}, the defense of the project must be empirically grounded in its superiority regarding logic area cost and maximum operating frequency in a lossless environment. The fourth challenge focuses on ensuring real-time operational performance for high-frame-rate video streams, which forces the design of a datapath with a highly optimized transaction-level data flow that minimizes stall cycles under the strict thermal and power constraints of embedded systems \cite{amira2007}. Finally, the fifth challenge corresponds to the verification of bit-exact reproducibility. To ensure an identical reconstruction of the original image without compromising fidelity, a robust reference model will be developed in simulation environments such as MATLAB and Simulink, which will serve as the definitive benchmark to validate the behavior of the SystemC transactional model and the synthesized hardware through rigorous testing.
+
 
 %% =====================================================================
 %%  IV. RESULTS AND ANALYSIS                 (Avance II — semana 9)
