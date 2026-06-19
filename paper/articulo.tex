@@ -236,7 +236,76 @@ Based on the critical study of the state of the art, the fundamental architectur
 As a third challenge, there is a need to strongly justify the choice of the WHT over competing integer transforms such as the DCT or wavelets. Because the WHT exhibits inferior performance in lossy compression quality \cite{regorsek2024}, the defense of the project must be empirically grounded in its superiority regarding logic area cost and maximum operating frequency in a lossless environment. The fourth challenge focuses on ensuring real-time operational performance for high-frame-rate video streams, which forces the design of a datapath with a highly optimized transaction-level data flow that minimizes stall cycles under the strict thermal and power constraints of embedded systems \cite{amira2007}. Finally, the fifth challenge corresponds to the verification of bit-exact reproducibility. To ensure an identical reconstruction of the original image without compromising fidelity, a robust reference model will be developed in simulation environments such as MATLAB and Simulink, which will serve as the definitive benchmark to validate the behavior of the SystemC transactional model and the synthesized hardware through rigorous testing.
 
 
-%% =====================================================================
+\subsection{Scope and Design Philosophy}
+Based on the analysis presented in Section II, there is currently no FPGA-based hardware accelerator that implements a lossless Walsh-Hadamard Transform (WHT) while maintaining optimized resource utilization and real-time operation. Therefore, this work focuses on the development of an accelerator dedicated exclusively to the execution of the transform.
+The proposed system performs an integer and reversible Walsh-Hadamard Transform on pixel blocks obtained from a high-speed video stream. The output consists of transform coefficients that can subsequently be processed by an entropy coding stage, such as Golomb-Rice or ANS coding.
+This design boundary allows the evaluation of only the hardware associated with the transform itself, quantifying its efficiency in terms of resource utilization and performance without being influenced by the compression ratio of a complete codec.
+\subsection{High-Level Architecture}
+
+The proposed architecture consists of four main functional blocks, as illustrated in Fig. 1.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.42\textwidth]{wht_architecture.png}
+\caption{High-level architecture of the proposed lossless WHT accelerator.}
+\label{fig:wht_architecture}
+\end{figure}
+
+\subsubsection{Input Buffer and Interface (IF)}
+
+This block receives pixels from the camera or memory subsystem and organizes them into $N \times N$ blocks, where $N \in \{8,16,32\}$. The final block size will be determined during the design space exploration phase, as it directly affects the trade-off between decorrelation capability, memory requirements, and processing latency.
+
+\subsubsection{Lossless WHT Core}
+
+This stage performs the integer and reversible Walsh-Hadamard Transform. The implementation follows a multiplier-free approach, using only additions, subtractions, and arithmetic right shifts. This significantly reduces hardware resource utilization because dedicated DSP blocks are not required for multiplication operations. Instead, the implementation relies mainly on LUTs and Flip-Flops available within the target FPGA.
+
+Bit-exact reconstruction is achieved through an integer lifting-based approximation \cite{jung1997}, enabling a multiplier-free implementation while guaranteeing lossless operation.
+
+\subsubsection{Control Unit}
+
+The control unit manages the overall operation of the accelerator. Although it does not directly perform the WHT computation, it coordinates when pixel blocks enter the system, when temporary data are stored in registers, and when results are forwarded to the next pipeline stage. Furthermore, it synchronizes processing to prevent data conflicts and enables architectural parallelism through control signals such as enable, valid, and ready.
+
+\subsubsection{Memory Interface (AXI/TLM)}
+
+This module manages data transfers between the accelerator and the external memory subsystem. The use of AXI/TLM interfaces facilitates integration into FPGA-SoC platforms such as the Kria KV260 and Alveo U55C, allowing the accelerator to be incorporated into larger embedded processing systems.
+\subsection{Challenge--Solution Mapping}
+
+The proposed architecture aims to address the main challenges identified during the literature review. Table~\ref{tab:challenge_solution} summarizes how each challenge is considered within the proposed solution.
+
+\begin{table}[htbp]
+\caption{Challenge--Solution Mapping}
+\label{tab:challenge_solution}
+\centering
+\begin{tabular}{|p{2.1cm}|p{5.2cm}|}
+\hline
+\textbf{Challenge} & \textbf{Proposed Solution} \\
+\hline
+
+D1 -- Codec Scope &
+This work focuses only on the WHT stage. Entropy coding (e.g., Golomb-Rice, ANS) is considered a later processing stage, allowing the transform hardware to be evaluated independently.
+\\ \hline
+
+D2 -- DSP-Free FPGA Implementation &
+The WHT core uses only additions, subtractions, and arithmetic right shifts based on the lifting construction from \cite{jung1997}, minimizing DSP usage and mapping entirely to LUTs and Flip-Flops.
+\\ \hline
+
+D3 -- WHT vs. DCT/Wavelets &
+The proposed architecture will be compared against integer DCT implementations using hardware resource metrics (LUT/FF/DSP), justifying the WHT on hardware efficiency grounds.
+\\ \hline
+
+D4 -- Real-Time Throughput &
+A fully pipelined datapath is proposed to support real-time video processing, sustaining one block per $N$ clock cycles.
+\\ \hline
+
+D5 -- Bit-Exact Lossless Reconstruction &
+The reversible lifting-based formulation guarantees exact reconstruction. A Python/C reference model will be used to perform sample-by-sample comparison against hardware output.
+\\ \hline
+
+\end{tabular}
+\end{table}
+
+Overall, the proposed architecture provides a feasible FPGA implementation of a lossless Walsh-Hadamard Transform while addressing the main limitations identified in previous studies.
+
+
 %%  IV. RESULTS AND ANALYSIS                 (Avance II — semana 9)
 %% =====================================================================
 % \section{Results and Analysis}
