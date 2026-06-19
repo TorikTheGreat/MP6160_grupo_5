@@ -194,7 +194,7 @@ Hardware accelerators for transforms oriented toward lossy approaches have demon
 remarkable efficiency in the real-time domain. These architectures achieve high data processing 
 throughput by utilizing parallel and pipelined logic structures (\textit{parallel-pipeline}) \cite{manjarres2021},
 also proving the physical feasibility of operating at high clock frequencies, such as $162\text{ MHz}$,
-completely omitting advanced digital signal processing (DSP) logic blocks \cite{hafizullah2018}. Despite these strengths, 
+completely omitting advanced DSP logic blocks \cite{hafizullah2018}. Despite these strengths, 
 these solutions present severe limitations when considered for lossless environments, as they
 are optimized for generic processing or traditional lossy schemes relying on 32-bit 
 floating-point arithmetic \cite{manjarres2021}. Furthermore, using the conventional inverse 
@@ -237,69 +237,11 @@ As a third challenge, there is a need to strongly justify the choice of the WHT 
 
 
 %% =====================================================================
-%%  IV. RESULTS AND ANALYSIS        (Avance I: plan de experimentos)
+%%  IV. RESULTS AND ANALYSIS                 (Avance II — semana 9)
 %% =====================================================================
-% Avance I requiere el PLAN de experimentos, métricas y herramientas (con
-% versiones); los resultados preliminares se reportan en el Avance II.
-\section{Results and Analysis}
-
-This section presents the experimental methodology used to evaluate the proposed
-accelerator and to contrast it against the state of the art, covering the modeling
-and synthesis toolchain, the experiments and baselines, and the metrics collected
-for the comparison.
-
-\subsection{Experimental Setup and Toolchain}
-The accelerator behavior is captured with a loosely-timed
-SystemC~2.3.4 transaction-level model compiled with g++~13.3.0, and a
-Python~3.12 golden model provides the bit-exact numerical reference used for
-verification. The register-transfer implementation is then obtained through
-high-level synthesis with AMD Xilinx Vitis~HLS and synthesized with Vivado,
-targeting the AMD Kria~KV260 (Zynq UltraScale+ MPSoC) platform; synthesis and
-on-board measurements are executed on that device.
-
-\subsection{Experiments and Baselines}
-The evaluation sweeps the transform block size $N \in \{8, 16, 32\}$ and two data
-domains: frames from high-frame-rate camera streams and generic integer signals.
-Each configuration is contrasted against four baselines:
-\begin{itemize}
-  \item the \emph{same} lossless WHT realized \emph{with} multipliers (a standard
-        lifting/ladder mapping) synthesized on the same target, which isolates the
-        DSP savings attributable to the multiplier-free core;
-  \item the multiplier-free \emph{lossy} WHT of~\cite{hafizullah2018}, used only as
-        a hardware-cost reference (logic resources and maximum frequency), not for
-        compression;
-  \item the open-source HLS parallel-pipeline FWHT of~\cite{manjarres2021}; and
-  \item an integer DCT/wavelet transform and a standard lossless coder such as
-        JPEG-LS~\cite{alonso2021}, for the compression comparison.
-\end{itemize}
-Since~\cite{hafizullah2018} targets an older Spartan-3 device, the hardware-cost
-baselines are re-synthesized on the Kria~KV260 (or the technology difference is
-normalized and explicitly reported) so that resource and frequency figures remain
-comparable across designs.
-
-\subsection{Evaluation Metrics}
-Two metric axes are collected (Table~\ref{tab:expplan}). Hardware efficiency is
-measured by look-up table (LUT), flip-flop (FF), and DSP-block utilization, the
-maximum operating frequency ($f_{\max}$), processing latency, throughput in
-operations per second, and estimated power.
-Compression behavior is assessed by bit-exact lossless verification against the
-golden model and, given the transform-core scope, by the per-coefficient entropy
-reduction in bits per pixel~\cite{jung1997, komatsu2001}; a full compression ratio
-is reported only if an entropy-coding stage is added to the pipeline.
-
-\begin{table}[t]
-\caption{Evaluation Metrics}
-\label{tab:expplan}
-\centering
-\begin{tabular}{@{}ll@{}}
-\hline
-\textbf{Axis} & \textbf{Metrics} \\
-\hline
-Hardware cost & LUT, FF, DSP, $f_{\max}$, latency, throughput (OP/s), power \\
-Compression   & bit-exact verification, entropy reduction (bits/pixel) \\
-\hline
-\end{tabular}
-\end{table}
+% \section{Results and Analysis}
+% TODO (Avance II): plan de experimentos, métricas (recursos, latencia,
+% frecuencia, throughput) y resultados preliminares.
 
 %% =====================================================================
 %%  V. CONCLUSIONS AND FUTURE WORK           (entrega final)
