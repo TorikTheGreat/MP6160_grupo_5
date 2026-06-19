@@ -21,6 +21,9 @@ su propio entorno aislado.
 
 ---
 
+Para visualizar mejor los diagramas propuestos, se recomienda visualizar este documento mediante Visual Studio Code.
+
+---
 ## Requisitos
 
 - **Linux Debian** o **Ubuntu 24.04** (x86_64). En Windows: WSL2 con Ubuntu. En macOS: VM Linux.
@@ -145,6 +148,7 @@ tarea_2/
   sapo_perro_gray.raw       # salida RAW en escala de grises, 1 byte por píxel 
   sapo_perro.rgb            # imagen RAW RGB de entrada, 1920 × 1080 y 3 bytes por píxel 
   sapo_perro_gray.png       # representación PNG de la salida para inspección visual
+  diagrama_arqui.png        # diagrama de arquitectura propuesta
 ```
 
 ## Mapa de Memoria
@@ -573,3 +577,4 @@ Adicionalmente, se utilizó la herramienta ChatGPT, desarrollada por OpenAI, de 
 -Sugerir correcciones en el código y en las transacciones de comunicación.
 -Sugerir una organización visual de diagrama de arquitectura en sus módulos y conexiones.
 -Verificar los resultados obtenidos en las pruebas.
+-Propuesta de diagrama de arquitectura.
