@@ -79,8 +79,9 @@ SC_MODULE(Testbench) {
         cpu->run_accelerator_job(ACC_BASE, job.src, job.dst, job.num);
         wait(10, SC_NS);
         
-        // Esperar a que termine (polling)
-        if( !cpu->wait_for_accelerator_done(ACC_BASE) ) {
+        // Esperar a que termine (polling). El watchdog se escala con el tamaño:
+        // el acelerador modela ~1 ns/pixel, y cada sondeo espera 10 ns.
+        if( !cpu->wait_for_accelerator_done(ACC_BASE, job.num + 100000) ) {
             std::cout << "ERROR: El acelerador no respondió a tiempo\n";
         } else {
             std::cout << "CPU: job '" << job.name << "' completado\n";
@@ -158,9 +159,44 @@ SC_MODULE(Testbench) {
         }
         
         std::cout << "\n========================================\n";
-        std::cout << "RESULTADO: " << (ok ? "PASA" : "FALLA") 
+        std::cout << "RESULTADO 8x8 (sanity): " << (ok ? "PASA" : "FALLA")
                   << "  (" << (N1 - fallos) << "/" << N1 << " pixeles correctos)\n";
         std::cout << "========================================\n\n";
+
+        // ============ Job 2: Imagen real 1080p (1920x1080) ============
+        // Flujo completo del enunciado: disco -> RAM -> acelerador -> RAM -> disco,
+        // y verificacion bit-exact contra un golden (misma conversion BT.709).
+        const uint32_t W2 = 1920, H2 = 1080, N2 = W2 * H2;
+        const uint64_t SRC2 = 0x00000000ull;   // buffer de entrada (RGB)  -> mapa de memoria
+        const uint64_t DST2 = 0x02000000ull;   // buffer de salida  (gris)
+
+        std::cout << "--- Job 2: Imagen 1080p (1920x1080) ---\n";
+        if (!cpu->load_image_to_ram("images/input.rgb", SRC2)) {
+            std::cout << "ERROR: no se pudo cargar images/input.rgb "
+                      << "(genera la imagen primero)\n";
+        } else {
+            process_job(Job{(uint32_t)SRC2, (uint32_t)DST2, N2, "1080p"});
+            wait(100, SC_NS);
+            cpu->save_image_from_ram("images/output.gray", DST2, N2);
+
+            // Golden: recalcular el gris desde la entrada y comparar byte a byte
+            std::vector<uint8_t> rgb(static_cast<size_t>(N2) * 3), gray(N2);
+            { std::ifstream f("images/input.rgb",  std::ios::binary);
+              f.read(reinterpret_cast<char*>(rgb.data()),  rgb.size()); }
+            { std::ifstream f("images/output.gray", std::ios::binary);
+              f.read(reinterpret_cast<char*>(gray.data()), N2); }
+
+            uint32_t fallos2 = 0;
+            for (uint32_t i = 0; i < N2; ++i)
+                if (gray[i] != rgb_to_gray(rgb[3*i], rgb[3*i+1], rgb[3*i+2])) ++fallos2;
+
+            std::cout << "  entrada: " << N2 << " px (" << rgb.size() << " bytes)"
+                      << " -> salida: " << N2 << " bytes (images/output.gray)\n";
+            std::cout << "\n========================================\n";
+            std::cout << "RESULTADO 1080p: " << (fallos2 == 0 ? "PASA" : "FALLA")
+                      << "  (" << (N2 - fallos2) << "/" << N2 << " pixeles correctos)\n";
+            std::cout << "========================================\n\n";
+        }
 
         sc_stop();
     }

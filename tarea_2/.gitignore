@@ -5,7 +5,13 @@ tools/
 
 # Artefactos de compilación
 examples/sanity/hello_tlm
+tests/tb_cpu_ram_accel
 *.o
+
+# Scratch del testbench de sistema (el job 8x8 escribe en tests/);
+# los deliverables 1080p viven en tests/images/ y SÍ se versionan.
+tests/input.rgb
+tests/output.gray
 
 # Waveforms y logs de simulación
 *.vcd
