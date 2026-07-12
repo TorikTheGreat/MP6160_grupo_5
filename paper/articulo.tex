@@ -256,9 +256,11 @@ This block receives pixels from the camera or memory subsystem and organizes the
 
 \subsubsection{Lossless WHT Core}
 
-This stage performs the integer and reversible Walsh-Hadamard Transform. The implementation follows a multiplier-free approach, using only additions, subtractions, and arithmetic right shifts. This significantly reduces hardware resource utilization because dedicated DSP blocks are not required for multiplication operations. Instead, the implementation relies mainly on LUTs and Flip-Flops available within the target FPGA.
+The computational core of the accelerator was designed in Vitis HLS utilizing a fully parallel, multiplier-free architecture. To satisfy the requirements of a lossless environment (zero quantization noise) while keeping DSP utilization at zero, the standard fast Walsh-Hadamard butterfly was replaced by an integer lifting-based scheme (S-Transform) \cite{jung1997}. 
 
-Bit-exact reconstruction is achieved through an integer lifting-based approximation \cite{jung1997}, enabling a multiplier-free implementation while guaranteeing lossless operation.
+The fundamental spatial decorrelation step between two pixels $a$ and $b$ is implemented purely through high-frequency differences ($d = a - b$) and low-frequency shifted averages ($s = a - (d \gg 1)$). This specific subexpression routing is synthesized by the HLS compiler completely into LUTs and Flip-Flops, bypassing any DSP slice instantiation.
+
+To maximize datapath throughput for real-time video, the transform operations for a block size of $N=8$ were flattened into three pipeline stages. We enforce maximal hardware concurrency by applying the \texttt{\#pragma HLS PIPELINE II=1} and \texttt{\#pragma HLS UNROLL} directives. Additionally, variables were strictly constrained using HLS arbitrary precision integers (\texttt{ap\_int<16>}), which prevents the datapath from unnecessarily routing 32-bit standard C++ integer bounds, ensuring a highly resource-efficient mapping on the Kria KV260 architecture. The complete HLS source code for the transform core is publicly available in our repository \cite{repo_grupo5}.
 
 \subsubsection{Control Unit}
 
@@ -308,7 +310,7 @@ Overall, the proposed architecture provides a feasible FPGA implementation of a 
 
 %%  IV. RESULTS AND ANALYSIS                 (Avance II — semana 9)
 %% =====================================================================
-% \section{Results and Analysis}
+\section{Results and Analysis}
 % TODO (Avance II): plan de experimentos, métricas (recursos, latencia,
 % frecuencia, throughput) y resultados preliminares.
 
@@ -344,6 +346,7 @@ manuscript critically for factual accuracy against the cited sources.
 \bibitem{liu2015} J. Liu, Q. Xing, X. Yin, X. Mao, and F. Yu, ``Pipelined architecture for a radix-2 fast Walsh--Hadamard--Fourier transform algorithm,'' \emph{IEEE Trans. Circuits Syst. II, Exp. Briefs}, vol. 62, no. 11, pp. 1083--1087, 2015, doi: 10.1109/TCSII.2015.2456371.
 \bibitem{wold1984} E. Wold and A. Despain, ``Pipeline and parallel-pipeline FFT processors for VLSI implementations,'' \emph{IEEE Trans. Comput.}, vol. C-33, no. 5, pp. 414--426, 1984, doi: 10.1109/TC.1984.1676458.
 \bibitem{ho2003} A. T. Ho, J. Shen, A. K. Chow, and J. Woon, ``Robust digital image-in-image watermarking algorithm using the fast Hadamard transform,'' in \emph{Proc. Int. Symp. Circuits Syst. (ISCAS)}, 2003, doi: 10.1109/ISCAS.2003.1205147.
+\bibitem{repo_grupo5} MP-6160 Grupo 5, ``WHT Lossless Accelerator Repository.'' [Online]. Available: https://github.com/MP6160-Grupo-5/MP6160\_grupo\_5
 \end{thebibliography}
 
 \end{document}
