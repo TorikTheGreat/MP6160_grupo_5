@@ -1,0 +1,6 @@
+# SConscript del harness de prueba (Hito A). Se compila junto al acelerador con:
+#   scons build/ARM/gem5.opt EXTRAS=<...>/vp_accel:<...>/harness
+Import('*')
+
+SimObject('CfgStimulus.py', sim_objects=['CfgStimulus'])
+Source('cfg_stimulus.cc')

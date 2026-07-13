@@ -1,0 +1,6 @@
+# SConscript — registra nuestro SimObject y compila el wrapper dentro de gem5.
+# Se activa con:  scons build/ARM/gem5.opt EXTRAS=<ruta-a-este-dir>
+Import('*')
+
+SimObject('RgbToGrayAccel.py', sim_objects=['RgbToGrayAccel'])
+Source('sc_rgb2gray.cc')

@@ -1,0 +1,25 @@
+digraph topologia {
+  rankdir=LR; bgcolor="white"; pad=0.3; nodesep=0.5; ranksep=0.7;
+  node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=11, margin="0.12,0.08"];
+  edge [fontname="DejaVu Sans", fontsize=9, color="#555555"];
+
+  subgraph cluster_gem5 {
+    label="gem5 — ARM64 full-system   (SystemC_Kernel co-ejecuta el módulo)";
+    labelloc="t"; style="rounded"; color="#999999"; fontname="DejaVu Sans Bold"; fontsize=12;
+
+    cpu     [label="CPU ARM64\n(programa en C)", fillcolor="#D6E8F7"];
+    iobus   [label="iobus", fillcolor="#ECECEC"];
+    cfgb    [label="Gem5ToTlmBridge32\n@ ACC_BASE = 0x1003_0000", fillcolor="#FBE6C2"];
+    accel   [label="RgbToGrayAccel  (sc_module)\ncfg_socket (target) · mem_socket (initiator)\nAccelerator RGB → gris (BT.709)", fillcolor="#CDEBCD"];
+    memb    [label="TlmToGem5Bridge32", fillcolor="#FBE6C2"];
+    iocache [label="iocache\n(coherente)", fillcolor="#ECECEC"];
+    membus  [label="membus", fillcolor="#ECECEC"];
+    dram    [label="DRAM", fillcolor="#D6E8F7"];
+  }
+
+  cpu   -> iobus [label="MMIO  4 B"];
+  iobus -> cfgb;
+  cfgb  -> accel [label="TLM b_transport\ncontrol (cfg)"];
+  accel -> memb  [label="TLM b_transport\nDMA (mem) — troceado 64 B"];
+  memb  -> iocache -> membus -> dram;
+}

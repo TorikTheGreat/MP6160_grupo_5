@@ -1,0 +1,3 @@
+[hito_a] corriendo con NUM_PIXELS=2073600 (RGB=6220800 B, gris=2073600 B)
+Info: CfgStimulus: DONE observado
+HITO_A_PASS: 2073600 pixeles bit-exact via DMA a memoria de gem5

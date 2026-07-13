@@ -1,0 +1,21 @@
+# Evidencia end-to-end: programa en C manejando el acelerador RGB->gris en gem5 (full-system ARM64)
+# Config: vp_run_test.py (ATOMIC 2 cores, disco NOPASSWD, mem=1536M, DMA troceado a 64B)
+# Fecha de corrida: 
+
+## Kernel command line:
+Kernel command line: console=ttyAMA0 lpj=19988480 norandmaps root=/dev/vda2 disk_device=/dev/vda rw mem=2147483648 mem=1536M iomem=relaxed systemd.mask=cloud-init-local.service systemd.mask=cloud-init.service systemd.mask=cloud-config.service systemd.mask=cloud-final.service systemd.mask=systemd-networkd-wait-online.service systemd.mask=NetworkManager-wait-online.service systemd.mask=snapd.service systemd.mask=snapd.seeded.service systemd.mask=ModemManager.service
+
+## Salida de acctest (consola del guest):
+ACCTEST_INJECT_START
+uid=1000(gem5) gid=1000(gem5) groups=1000(gem5),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),101(lxd)
+ACCTEST_RUN
+ACCTEST_START npix=256 ACC_BASE=0x10030000 BUF_PHYS=0xe0000000
+ACCTEST_STEP /dev/mem abierto (fd=3)
+ACCTEST_STEP regs mapeados en 0xfffff7ffc000
+ACCTEST_STEP buf mapeado en 0xfffff6ffc000
+ACCTEST_STEP MMIO regcheck: NUM_PIXELS escrito=256 leido=256 -> OK
+ACCTEST_STEP disparando START (in=0xe0000000 out=0xe0800000 n=256)
+ACCTEST_STEP DONE observado (guard=621)
+ACCTEST_STEP muestras out[0..3]=0,13,26,39 golden[0..3]=0,13,26,39
+ACCTEST_PASS 256 pixeles bit-exact via MMIO+DMA
+ACCTEST_DONE rc=0
