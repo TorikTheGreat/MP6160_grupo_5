@@ -312,6 +312,7 @@ Overall, the proposed architecture provides a feasible FPGA implementation of a 
 %% =====================================================================
 \section{Results and Analysis}
 
+
 At this preliminary stage we report the functional verification of the
 transform core and its effect on the coding cost of the data. Resource and
 timing figures from logic synthesis (LUT, FF, DSP utilization and maximum
@@ -385,6 +386,42 @@ datapath is 16 bits wide. The gap
 between the one- and two-dimensional results motivates a two-dimensional core as
 future work.
 
+
+To validate the proposed architecture, a functional baseline implementation of the
+forward Walsh--Hadamard Transform (FWHT) was developed in C++. This reference
+implementation serves as the golden model for future hardware verification and
+ensures that the arithmetic operations of the lifting-based transform are
+correct before synthesis.
+
+
+
+
+Table II summarizes the verification results obtained from the C++ baseline implementation.
+\begin{table}[h]
+\centering
+\caption{Verification Results of the Baseline FWHT Implementation}
+\begin{tabular}{lc}
+\hline
+Metric & Result\\
+\hline
+Input size & 8 samples\\
+Implementation & C++ baseline\\
+Expected output & Matched\\
+Test status & PASS\\
+\hline
+\end{tabular}
+\end{table}
+
+These values were compared against the expected reference output and the test
+bench reported a successful execution (PASS), confirming the correctness of the
+baseline implementation.
+The execution log generated during verification is available in the project repository.
+
+The next stage of the project will integrate the architecture into the HLS flow
+to obtain synthesis metrics including latency, throughput, maximum operating
+frequency, LUT utilization, flip-flops, DSP usage and BRAM consumption. These
+metrics will be compared against conventional integer-based Walsh--Hadamard and
+Discrete Cosine Transform implementations reported in the literature.
 %% =====================================================================
 %%  V. CONCLUSIONS AND FUTURE WORK           (entrega final)
 %% =====================================================================
