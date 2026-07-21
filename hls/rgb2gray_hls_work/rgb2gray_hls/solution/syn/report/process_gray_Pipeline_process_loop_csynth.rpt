@@ -1,0 +1,175 @@
+
+
+================================================================
+== Vitis HLS Report for 'process_gray_Pipeline_process_loop'
+================================================================
+* Date:           Mon Jul 20 18:48:35 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        rgb2gray_hls
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: versalaicore
+* Target device:  xcvc1902-vsva2197-2MP-e-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  2.807 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+-----------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval |                    Pipeline                   |
+    |   min   |   max   |    min   |    max   | min | max |                      Type                     |
+    +---------+---------+----------+----------+-----+-----+-----------------------------------------------+
+    |        ?|        ?|         ?|         ?|    0|    0|  loop auto-rewind stp(delay=0 clock cycles(s))|
+    +---------+---------+----------+----------+-----+-----+-----------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name   |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- process_loop  |        ?|        ?|         8|          1|          1|     ?|       yes|
+        +----------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+---------+--------+-----+
+|       Name      | BRAM_18K|  DSP |    FF   |   LUT  | URAM|
++-----------------+---------+------+---------+--------+-----+
+|DSP              |        -|     3|        -|       -|    -|
+|Expression       |        -|     -|        0|      49|    -|
+|FIFO             |        -|     -|        -|       -|    -|
+|Instance         |        -|     1|        0|       0|    -|
+|Memory           |        -|     -|        -|       -|    -|
+|Multiplexer      |        -|     -|        0|      96|    -|
+|Register         |        -|     -|       63|       -|    -|
++-----------------+---------+------+---------+--------+-----+
+|Total            |        0|     4|       63|     145|    0|
++-----------------+---------+------+---------+--------+-----+
+|Available        |     1934|  1968|  1799680|  899840|  463|
++-----------------+---------+------+---------+--------+-----+
+|Utilization (%)  |        0|    ~0|       ~0|      ~0|    0|
++-----------------+---------+------+---------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------+---------------------+---------+----+---+----+-----+
+    |         Instance        |        Module       | BRAM_18K| DSP| FF| LUT| URAM|
+    +-------------------------+---------------------+---------+----+---+----+-----+
+    |mul_8ns_14ns_21_1_1_U11  |mul_8ns_14ns_21_1_1  |        0|   1|  0|   0|    0|
+    +-------------------------+---------------------+---------+----+---+----+-----+
+    |Total                    |                     |        0|   1|  0|   0|    0|
+    +-------------------------+---------------------+---------+----+---+----+-----+
+
+    * DSP: 
+    +-------------------------------------+---------------------------------+----------------+
+    |               Instance              |              Module             |   Expression   |
+    +-------------------------------------+---------------------------------+----------------+
+    |am_addmul_18ns_22ns_23ns_45_4_1_U14  |am_addmul_18ns_22ns_23ns_45_4_1  |  (i0 + i1) * i2|
+    |mac_muladd_10ns_8ns_13ns_18_4_1_U13  |mac_muladd_10ns_8ns_13ns_18_4_1  |    i0 * i1 + i2|
+    |mac_muladd_12ns_8ns_21ns_22_4_1_U12  |mac_muladd_12ns_8ns_21ns_22_4_1  |    i0 + i1 * i2|
+    +-------------------------------------+---------------------------------+----------------+
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------+----------+----+---+----+------------+------------+
+    |       Variable Name       | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------+----------+----+---+----+------------+------------+
+    |i_1_fu_105_p2              |         +|   0|  0|  32|          32|           1|
+    |icmp_ln68_fu_99_p2         |      icmp|   0|  0|  13|          32|          32|
+    |ap_block_pp0_stage0_01001  |        or|   0|  0|   2|           1|           1|
+    |ap_enable_pp0              |       xor|   0|  0|   2|           1|           2|
+    +---------------------------+----------+----+---+----+------------+------------+
+    |Total                      |          |   0|  0|  49|          66|          36|
+    +---------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   8|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   8|          2|    1|          2|
+    |ap_sig_allocacmp_i_2     |  32|          2|   32|         64|
+    |i_fu_56                  |  32|          2|   32|         64|
+    |stream_gray_blk_n        |   8|          2|    1|          2|
+    |stream_rgb_blk_n         |   8|          2|    1|          2|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  96|         12|   68|        136|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------+----+----+-----+-----------+
+    |               Name               | FF | LUT| Bits| Const Bits|
+    +----------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                         |   1|   0|    1|          0|
+    |ap_done_reg                       |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter3           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter4           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter5           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter6           |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter7           |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg  |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter2_reg  |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter3_reg  |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter4_reg  |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter5_reg  |   1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter6_reg  |   1|   0|    1|          0|
+    |i_fu_56                           |  32|   0|   32|          0|
+    |pixel_g_reg_258                   |   8|   0|    8|          0|
+    |pixel_g_reg_258_pp0_iter2_reg     |   8|   0|    8|          0|
+    +----------------------------------+----+----+-----+-----------+
+    |Total                             |  63|   0|   63|          0|
+    +----------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------+-----+-----+------------+------------------------------------+--------------+
+|          RTL Ports         | Dir | Bits|  Protocol  |            Source Object           |    C Type    |
++----------------------------+-----+-----+------------+------------------------------------+--------------+
+|ap_clk                      |   in|    1|  ap_ctrl_hs|  process_gray_Pipeline_process_loop|  return value|
+|ap_rst                      |   in|    1|  ap_ctrl_hs|  process_gray_Pipeline_process_loop|  return value|
+|ap_start                    |   in|    1|  ap_ctrl_hs|  process_gray_Pipeline_process_loop|  return value|
+|ap_done                     |  out|    1|  ap_ctrl_hs|  process_gray_Pipeline_process_loop|  return value|
+|ap_idle                     |  out|    1|  ap_ctrl_hs|  process_gray_Pipeline_process_loop|  return value|
+|ap_ready                    |  out|    1|  ap_ctrl_hs|  process_gray_Pipeline_process_loop|  return value|
+|stream_rgb_dout             |   in|   24|     ap_fifo|                          stream_rgb|       pointer|
+|stream_rgb_num_data_valid   |   in|    5|     ap_fifo|                          stream_rgb|       pointer|
+|stream_rgb_fifo_cap         |   in|    5|     ap_fifo|                          stream_rgb|       pointer|
+|stream_rgb_empty_n          |   in|    1|     ap_fifo|                          stream_rgb|       pointer|
+|stream_rgb_read             |  out|    1|     ap_fifo|                          stream_rgb|       pointer|
+|stream_gray_din             |  out|    8|     ap_fifo|                         stream_gray|       pointer|
+|stream_gray_num_data_valid  |   in|    5|     ap_fifo|                         stream_gray|       pointer|
+|stream_gray_fifo_cap        |   in|    5|     ap_fifo|                         stream_gray|       pointer|
+|stream_gray_full_n          |   in|    1|     ap_fifo|                         stream_gray|       pointer|
+|stream_gray_write           |  out|    1|     ap_fifo|                         stream_gray|       pointer|
+|num_pixels_load             |   in|   32|     ap_none|                     num_pixels_load|        scalar|
++----------------------------+-----+-----+------------+------------------------------------+--------------+
+

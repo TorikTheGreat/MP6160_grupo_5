@@ -1,0 +1,49 @@
+../rgb2gray_kernel.cpp:35:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_rgb_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE off
+        ^
+../rgb2gray_kernel.cpp:38:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_rgb_XLX_SEP_ PragmaOptions=II=1 rewind_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1 rewind
+        ^
+../rgb2gray_kernel.cpp:66:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=process_gray_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE off
+        ^
+../rgb2gray_kernel.cpp:69:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=process_gray_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+../rgb2gray_kernel.cpp:88:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=store_gray_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INLINE off
+        ^
+../rgb2gray_kernel.cpp:91:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=store_gray_XLX_SEP_ PragmaOptions=II=1 rewind_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1 rewind
+        ^
+C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Evaluaciones_Cortas/3-HLS/MP6160_grupo_5/hls/run_synthesis.tcl:36:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=rgb2gray_top_XLX_SEP_ PragmaOptions=name=rgb2gray_top_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLSDIRECTIVE TOP name=rgb2gray_top
+        ^
+../rgb2gray_kernel.cpp:123:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=rgb2gray_top_XLX_SEP_ PragmaOptions=m_axi port=m_axi_in offset=slave bundle=gmem_in depth=512_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi port=m_axi_in offset=slave bundle=gmem_in depth=512
+        ^
+../rgb2gray_kernel.cpp:125:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=rgb2gray_top_XLX_SEP_ PragmaOptions=m_axi port=m_axi_out offset=slave bundle=gmem_out depth=512_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi port=m_axi_out offset=slave bundle=gmem_out depth=512
+        ^
+../rgb2gray_kernel.cpp:127:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=rgb2gray_top_XLX_SEP_ PragmaOptions=s_axilite port=addr_in_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port=addr_in
+        ^
+../rgb2gray_kernel.cpp:128:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=rgb2gray_top_XLX_SEP_ PragmaOptions=s_axilite port=addr_out_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port=addr_out
+        ^
+../rgb2gray_kernel.cpp:129:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=rgb2gray_top_XLX_SEP_ PragmaOptions=s_axilite port=num_pixels_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port=num_pixels
+        ^
+../rgb2gray_kernel.cpp:130:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=rgb2gray_top_XLX_SEP_ PragmaOptions=s_axilite port=return_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE s_axilite port=return
+        ^
+../rgb2gray_kernel.cpp:133:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dataflow_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=rgb2gray_top_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS DATAFLOW
+        ^
+../rgb2gray_kernel.cpp:136:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=rgb2gray_top_XLX_SEP_ PragmaOptions=variable=stream_rgb depth=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable=stream_rgb depth=16
+        ^
+../rgb2gray_kernel.cpp:137:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=rgb2gray_top_XLX_SEP_ PragmaOptions=variable=stream_gray depth=16_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS STREAM variable=stream_gray depth=16
+        ^
+16 warnings generated.

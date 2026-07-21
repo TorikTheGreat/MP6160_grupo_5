@@ -1,0 +1,71 @@
+{
+    "0": {
+        "name": "rgb2gray_top",
+        "file": "rgb2gray_kernel.cpp",
+        "fileloc": "114",
+        "instructions": "49",
+        "total_instructions": "183",
+        "calls": "5 2 3 1",
+        "basicblocks": "1"
+    },
+    "1": {
+        "name": "store_gray",
+        "file": "..\/rgb2gray_kernel.cpp",
+        "fileloc": "84",
+        "instructions": "39",
+        "total_instructions": "39",
+        "calls": "",
+        "basicblocks": "6",
+        "loops": {
+            "L": "1"
+        }
+    },
+    "2": {
+        "name": "load_rgb",
+        "file": "..\/rgb2gray_kernel.cpp",
+        "fileloc": "31",
+        "instructions": "44",
+        "total_instructions": "44",
+        "calls": "",
+        "basicblocks": "6",
+        "loops": {
+            "L": "1"
+        }
+    },
+    "3": {
+        "name": "process_gray",
+        "file": "..\/rgb2gray_kernel.cpp",
+        "fileloc": "64",
+        "instructions": "9",
+        "total_instructions": "44",
+        "calls": "4",
+        "basicblocks": "1"
+    },
+    "4": {
+        "name": "process_gray_Pipeline_process_loop",
+        "file": "..\/rgb2gray_kernel.cpp",
+        "fileloc": "64",
+        "instructions": "35",
+        "total_instructions": "35",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "1"
+        },
+        "stores": {
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "5": {
+        "name": "entry_proc",
+        "file": "rgb2gray_kernel.cpp",
+        "fileloc": "0",
+        "instructions": "7",
+        "total_instructions": "7",
+        "calls": "",
+        "basicblocks": "1"
+    }
+}

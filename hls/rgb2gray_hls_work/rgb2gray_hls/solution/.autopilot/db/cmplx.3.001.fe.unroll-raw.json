@@ -1,0 +1,59 @@
+{
+  "0": {
+    "basicblocks": 1,
+    "calls": "4 3 2",
+    "file": "rgb2gray_kernel.cpp",
+    "fileloc": 114,
+    "instructions": 31,
+    "name": "rgb2gray_top",
+    "total_instructions": 119
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "rgb2gray_kernel.cpp",
+    "fileloc": 13,
+    "instructions": 16,
+    "name": "rgb_to_gray_pixel",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 16
+  },
+  "2": {
+    "basicblocks": 6,
+    "calls": "",
+    "file": "rgb2gray_kernel.cpp",
+    "fileloc": 83,
+    "instructions": 15,
+    "name": "store_gray",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 15
+  },
+  "3": {
+    "basicblocks": 7,
+    "calls": "1",
+    "file": "rgb2gray_kernel.cpp",
+    "fileloc": 62,
+    "instructions": 24,
+    "loads": {
+      "L": 1
+    },
+    "name": "process_gray",
+    "total_instructions": 40
+  },
+  "4": {
+    "basicblocks": 6,
+    "calls": "",
+    "file": "rgb2gray_kernel.cpp",
+    "fileloc": 30,
+    "instructions": 33,
+    "loads": {
+      "L": 3
+    },
+    "name": "load_rgb",
+    "total_instructions": 33
+  }
+}

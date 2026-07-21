@@ -1,0 +1,243 @@
+
+
+================================================================
+== Vitis HLS Report for 'process_gray_Pipeline_process_loop'
+================================================================
+* Date:           Mon Jul 20 18:48:19 2026
+
+* Version:        2024.1 (Build 5069499 on May 21 2024)
+* Project:        rgb2gray_hls
+* Solution:       solution (Vitis Kernel Flow Target)
+* Product family: versalaicore
+* Target device:  xcvc1902-vsva2197-2MP-e-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  2.807 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+-----------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval |                    Pipeline                   |
+    |   min   |   max   |    min   |    max   | min | max |                      Type                     |
+    +---------+---------+----------+----------+-----+-----+-----------------------------------------------+
+    |        ?|        ?|         ?|         ?|    0|    0|  loop auto-rewind stp(delay=0 clock cycles(s))|
+    +---------+---------+----------+----------+-----+-----+-----------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name   |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- process_loop  |        ?|        ?|         8|          1|          1|     ?|       yes|
+        +----------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 8
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 8
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 8, States = { 1 2 3 4 5 6 7 8 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.66>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%i = alloca i32 1" [../rgb2gray_kernel.cpp:68]   --->   Operation 11 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i24 %stream_rgb, void @empty_14, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 12 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i8 %stream_gray, void @empty_14, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%muxLogicCE_to_num_pixels_load_read = muxlogic"   --->   Operation 14 'muxlogic' 'muxLogicCE_to_num_pixels_load_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%num_pixels_load_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %num_pixels_load" [../rgb2gray_kernel.cpp:64]   --->   Operation 15 'read' 'num_pixels_load_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%muxLogicData_to_store_ln68 = muxlogic i32 0"   --->   Operation 16 'muxlogic' 'muxLogicData_to_store_ln68' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%muxLogicAddr_to_store_ln68 = muxlogic i32 %i"   --->   Operation 17 'muxlogic' 'muxLogicAddr_to_store_ln68' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.40ns)   --->   "%store_ln68 = store i32 0, i32 %i" [../rgb2gray_kernel.cpp:68]   --->   Operation 18 'store' 'store_ln68' <Predicate = true> <Delay = 0.40>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%br_ln68 = br void %for.inc" [../rgb2gray_kernel.cpp:68]   --->   Operation 19 'br' 'br_ln68' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%MuxLogicAddr_to_i_2 = muxlogic i32 %i"   --->   Operation 20 'muxlogic' 'MuxLogicAddr_to_i_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%i_2 = load i32 %i" [../rgb2gray_kernel.cpp:68]   --->   Operation 21 'load' 'i_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.71ns)   --->   "%icmp_ln68 = icmp_eq  i32 %i_2, i32 %num_pixels_load_read" [../rgb2gray_kernel.cpp:68]   --->   Operation 22 'icmp' 'icmp_ln68' <Predicate = true> <Delay = 0.71> <CoreInst = "ICmp_EQ">   --->   Core 156 'ICmp_EQ' <Latency = 0> <II = 1> <Delay = 0.71> <FuncUnit> <Opcode : 'seteq' 'setne'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%br_ln68 = br i1 %icmp_ln68, void %for.inc.split, void %for.end.loopexit.exitStub" [../rgb2gray_kernel.cpp:68]   --->   Operation 23 'br' 'br_ln68' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.86ns)   --->   "%i_1 = add i32 %i_2, i32 1" [../rgb2gray_kernel.cpp:68]   --->   Operation 24 'add' 'i_1' <Predicate = (!icmp_ln68)> <Delay = 0.86> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.86> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%muxLogicData_to_store_ln68 = muxlogic i32 %i_1"   --->   Operation 25 'muxlogic' 'muxLogicData_to_store_ln68' <Predicate = (!icmp_ln68)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%muxLogicAddr_to_store_ln68 = muxlogic i32 %i"   --->   Operation 26 'muxlogic' 'muxLogicAddr_to_store_ln68' <Predicate = (!icmp_ln68)> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.40ns)   --->   "%store_ln68 = store i32 %i_1, i32 %i" [../rgb2gray_kernel.cpp:68]   --->   Operation 27 'store' 'store_ln68' <Predicate = (!icmp_ln68)> <Delay = 0.40>
+
+State 2 <SV = 1> <Delay = 1.20>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%muxLogicCE_to_stream_rgb_read = muxlogic"   --->   Operation 28 'muxlogic' 'muxLogicCE_to_stream_rgb_read' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.80ns)   --->   "%stream_rgb_read = read i24 @_ssdm_op_Read.ap_fifo.volatile.i24P0A, i24 %stream_rgb" [../rgb2gray_kernel.cpp:71]   --->   Operation 29 'read' 'stream_rgb_read' <Predicate = true> <Delay = 0.80> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.77> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 24> <Depth = 16> <FIFO>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%pixel_r = trunc i24 %stream_rgb_read" [../rgb2gray_kernel.cpp:71]   --->   Operation 30 'trunc' 'pixel_r' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%pixel_g = partselect i8 @_ssdm_op_PartSelect.i8.i24.i32.i32, i24 %stream_rgb_read, i32 8, i32 15" [../rgb2gray_kernel.cpp:71]   --->   Operation 31 'partselect' 'pixel_g' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%zext_ln18 = zext i8 %pixel_r" [../rgb2gray_kernel.cpp:18->../rgb2gray_kernel.cpp:72]   --->   Operation 32 'zext' 'zext_ln18' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%tmp = partselect i8 @_ssdm_op_PartSelect.i8.i24.i32.i32, i24 %stream_rgb_read, i32 16, i32 23" [../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72]   --->   Operation 33 'partselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "%zext_ln19_3 = zext i8 %tmp" [../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72]   --->   Operation 34 'zext' 'zext_ln19_3' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%muxLogicI0_to_mul_ln19 = muxlogic i20 %zext_ln18"   --->   Operation 35 'muxlogic' 'muxLogicI0_to_mul_ln19' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%muxLogicI1_to_mul_ln19 = muxlogic i20 2126"   --->   Operation 36 'muxlogic' 'muxLogicI1_to_mul_ln19' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 37 [3/3] (0.39ns) (grouped into DSP with root node add_ln20_1)   --->   "%mul_ln19 = mul i20 %zext_ln18, i20 2126" [../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72]   --->   Operation 37 'mul' 'mul_ln19' <Predicate = true> <Delay = 0.39> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%muxLogicI0_to_mul_ln19_2 = muxlogic i18 %zext_ln19_3"   --->   Operation 38 'muxlogic' 'muxLogicI0_to_mul_ln19_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "%muxLogicI1_to_mul_ln19_2 = muxlogic i18 722"   --->   Operation 39 'muxlogic' 'muxLogicI1_to_mul_ln19_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 40 [3/3] (0.39ns) (grouped into DSP with root node add_ln20_2)   --->   "%mul_ln19_2 = mul i18 %zext_ln19_3, i18 722" [../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72]   --->   Operation 40 'mul' 'mul_ln19_2' <Predicate = true> <Delay = 0.39> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 3 <SV = 2> <Delay = 0.79>
+ST_3 : Operation 41 [2/3] (0.79ns) (grouped into DSP with root node add_ln20_1)   --->   "%mul_ln19 = mul i20 %zext_ln18, i20 2126" [../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72]   --->   Operation 41 'mul' 'mul_ln19' <Predicate = true> <Delay = 0.79> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_3 : Operation 42 [2/3] (0.79ns) (grouped into DSP with root node add_ln20_2)   --->   "%mul_ln19_2 = mul i18 %zext_ln19_3, i18 722" [../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72]   --->   Operation 42 'mul' 'mul_ln19_2' <Predicate = true> <Delay = 0.79> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 4 <SV = 3> <Delay = 2.80>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%zext_ln19 = zext i8 %pixel_g" [../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72]   --->   Operation 43 'zext' 'zext_ln19' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 44 [1/3] (0.00ns) (grouped into DSP with root node add_ln20_1)   --->   "%mul_ln19 = mul i20 %zext_ln18, i20 2126" [../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72]   --->   Operation 44 'mul' 'mul_ln19' <Predicate = true> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 45 [1/1] (0.00ns) (grouped into DSP with root node add_ln20_1)   --->   "%zext_ln19_1 = zext i20 %mul_ln19" [../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72]   --->   Operation 45 'zext' 'zext_ln19_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "%muxLogicI0_to_mul_ln19_1 = muxlogic i21 %zext_ln19"   --->   Operation 46 'muxlogic' 'muxLogicI0_to_mul_ln19_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "%muxLogicI1_to_mul_ln19_1 = muxlogic i21 7152"   --->   Operation 47 'muxlogic' 'muxLogicI1_to_mul_ln19_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 48 [1/1] (2.01ns)   --->   "%mul_ln19_1 = mul i21 %zext_ln19, i21 7152" [../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72]   --->   Operation 48 'mul' 'mul_ln19_1' <Predicate = true> <Delay = 2.01> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 0> <II = 1> <Delay = 2.01> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%zext_ln19_2 = zext i21 %mul_ln19_1" [../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72]   --->   Operation 49 'zext' 'zext_ln19_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 50 [1/3] (0.00ns) (grouped into DSP with root node add_ln20_2)   --->   "%mul_ln19_2 = mul i18 %zext_ln19_3, i18 722" [../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72]   --->   Operation 50 'mul' 'mul_ln19_2' <Predicate = true> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 51 [2/2] (0.79ns) (root node of the DSP)   --->   "%add_ln20_1 = add i22 %zext_ln19_2, i22 %zext_ln19_1" [../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72]   --->   Operation 51 'add' 'add_ln20_1' <Predicate = true> <Delay = 0.79> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_4 : Operation 52 [2/2] (0.79ns) (root node of the DSP)   --->   "%add_ln20_2 = add i18 %mul_ln19_2, i18 5000" [../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72]   --->   Operation 52 'add' 'add_ln20_2' <Predicate = true> <Delay = 0.79> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 5 <SV = 4> <Delay = 1.56>
+ST_5 : Operation 53 [1/2] (0.31ns) (root node of the DSP)   --->   "%add_ln20_1 = add i22 %zext_ln19_2, i22 %zext_ln19_1" [../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72]   --->   Operation 53 'add' 'add_ln20_1' <Predicate = true> <Delay = 0.31> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 54 [1/2] (0.31ns) (root node of the DSP)   --->   "%add_ln20_2 = add i18 %mul_ln19_2, i18 5000" [../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72]   --->   Operation 54 'add' 'add_ln20_2' <Predicate = true> <Delay = 0.31> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 55 [1/1] (0.00ns)   --->   "%zext_ln20 = zext i18 %add_ln20_2" [../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72]   --->   Operation 55 'zext' 'zext_ln20' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 56 [1/1] (0.85ns) (grouped into DSP with root node mul_ln20)   --->   "%add_ln20 = add i22 %zext_ln20, i22 %add_ln20_1" [../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72]   --->   Operation 56 'add' 'add_ln20' <Predicate = true> <Delay = 0.85> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_5 : Operation 57 [1/1] (0.00ns) (grouped into DSP with root node mul_ln20)   --->   "%zext_ln20_1 = zext i22 %add_ln20" [../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72]   --->   Operation 57 'zext' 'zext_ln20_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 58 [1/1] (0.00ns)   --->   "%muxLogicI0_to_mul_ln20 = muxlogic i45 %zext_ln20_1"   --->   Operation 58 'muxlogic' 'muxLogicI0_to_mul_ln20' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 59 [1/1] (0.00ns)   --->   "%muxLogicI1_to_mul_ln20 = muxlogic i45 6871948"   --->   Operation 59 'muxlogic' 'muxLogicI1_to_mul_ln20' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 60 [4/4] (0.39ns) (root node of the DSP)   --->   "%mul_ln20 = mul i45 %zext_ln20_1, i45 6871948" [../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72]   --->   Operation 60 'mul' 'mul_ln20' <Predicate = true> <Delay = 0.39> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 6 <SV = 5> <Delay = 0.75>
+ST_6 : Operation 61 [3/4] (0.75ns) (root node of the DSP)   --->   "%mul_ln20 = mul i45 %zext_ln20_1, i45 6871948" [../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72]   --->   Operation 61 'mul' 'mul_ln20' <Predicate = true> <Delay = 0.75> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+State 7 <SV = 6> <Delay = 0.75>
+ST_7 : Operation 62 [2/4] (0.75ns) (root node of the DSP)   --->   "%mul_ln20 = mul i45 %zext_ln20_1, i45 6871948" [../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72]   --->   Operation 62 'mul' 'mul_ln20' <Predicate = true> <Delay = 0.75> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_7 : Operation 70 [1/1] (0.38ns)   --->   "%ret_ln0 = ret"   --->   Operation 70 'ret' 'ret_ln0' <Predicate = (icmp_ln68)> <Delay = 0.38>
+
+State 8 <SV = 7> <Delay = 0.66>
+ST_8 : Operation 63 [1/1] (0.00ns)   --->   "%specpipeline_ln69 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_0" [../rgb2gray_kernel.cpp:69]   --->   Operation 63 'specpipeline' 'specpipeline_ln69' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 64 [1/1] (0.00ns)   --->   "%specloopname_ln68 = specloopname void @_ssdm_op_SpecLoopName, void @empty_15" [../rgb2gray_kernel.cpp:68]   --->   Operation 64 'specloopname' 'specloopname_ln68' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 65 [1/4] (0.00ns) (root node of the DSP)   --->   "%mul_ln20 = mul i45 %zext_ln20_1, i45 6871948" [../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72]   --->   Operation 65 'mul' 'mul_ln20' <Predicate = true> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 129 'DSP48' <Latency = 3> <II = 1> <Delay = 0.79> <IPBlock> <Opcode : '' 'add' 'sub' 'mul' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_8 : Operation 66 [1/1] (0.00ns)   --->   "%gray = partselect i8 @_ssdm_op_PartSelect.i8.i45.i32.i32, i45 %mul_ln20, i32 36, i32 43" [../rgb2gray_kernel.cpp:21->../rgb2gray_kernel.cpp:72]   --->   Operation 66 'partselect' 'gray' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 67 [1/1] (0.00ns)   --->   "%muxLogicData_to_write_ln73 = muxlogic i8 %gray"   --->   Operation 67 'muxlogic' 'muxLogicData_to_write_ln73' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 68 [1/1] (0.66ns)   --->   "%write_ln73 = write void @_ssdm_op_Write.ap_fifo.volatile.i8P0A, i8 %stream_gray, i8 %gray" [../rgb2gray_kernel.cpp:73]   --->   Operation 68 'write' 'write_ln73' <Predicate = true> <Delay = 0.66> <CoreInst = "FIFO_SRL">   --->   Core 84 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 0.76> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 16> <FIFO>
+ST_8 : Operation 69 [1/1] (0.00ns)   --->   "%br_ln68 = br void %for.inc" [../rgb2gray_kernel.cpp:68]   --->   Operation 69 'br' 'br_ln68' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.000ns, clock uncertainty: 1.080ns.
+
+ <State 1>: 1.665ns
+The critical path consists of the following:
+	'store' operation 0 bit ('store_ln68', ../rgb2gray_kernel.cpp:68) of constant 0 on local variable 'i', ../rgb2gray_kernel.cpp:68 [11]  (0.400 ns)
+	'load' operation 32 bit ('i', ../rgb2gray_kernel.cpp:68) on local variable 'i', ../rgb2gray_kernel.cpp:68 [15]  (0.000 ns)
+	'add' operation 32 bit ('i', ../rgb2gray_kernel.cpp:68) [19]  (0.865 ns)
+	'muxlogic' operation 0 bit ('muxLogicData_to_store_ln68') [52]  (0.000 ns)
+	'store' operation 0 bit ('store_ln68', ../rgb2gray_kernel.cpp:68) of variable 'i', ../rgb2gray_kernel.cpp:68 on local variable 'i', ../rgb2gray_kernel.cpp:68 [54]  (0.400 ns)
+
+ <State 2>: 1.203ns
+The critical path consists of the following:
+	'muxlogic' operation 24 bit ('muxLogicCE_to_stream_rgb_read') [22]  (0.000 ns)
+	fifo read operation ('stream_rgb_read', ../rgb2gray_kernel.cpp:71) on port 'stream_rgb' (../rgb2gray_kernel.cpp:71) [23]  (0.808 ns)
+	'muxlogic' operation 20 bit ('muxLogicI0_to_mul_ln19') [30]  (0.000 ns)
+	'mul' operation 20 bit of DSP[41] ('mul_ln19', ../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72) [32]  (0.395 ns)
+
+ <State 3>: 0.791ns
+The critical path consists of the following:
+	'mul' operation 20 bit of DSP[41] ('mul_ln19', ../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72) [32]  (0.791 ns)
+
+ <State 4>: 2.807ns
+The critical path consists of the following:
+	'muxlogic' operation 21 bit ('muxLogicI0_to_mul_ln19_1') [34]  (0.000 ns)
+	'mul' operation 21 bit ('mul_ln19_1', ../rgb2gray_kernel.cpp:19->../rgb2gray_kernel.cpp:72) [36]  (2.015 ns)
+	'add' operation 22 bit of DSP[41] ('add_ln20_1', ../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72) [41]  (0.792 ns)
+
+ <State 5>: 1.568ns
+The critical path consists of the following:
+	'add' operation 22 bit of DSP[41] ('add_ln20_1', ../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72) [41]  (0.318 ns)
+	'add' operation 22 bit of DSP[48] ('add_ln20', ../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72) [44]  (0.855 ns)
+	'muxlogic' operation 45 bit ('muxLogicI0_to_mul_ln20') [46]  (0.000 ns)
+	'mul' operation 45 bit of DSP[48] ('mul_ln20', ../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72) [48]  (0.395 ns)
+
+ <State 6>: 0.758ns
+The critical path consists of the following:
+	'mul' operation 45 bit of DSP[48] ('mul_ln20', ../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72) [48]  (0.758 ns)
+
+ <State 7>: 0.758ns
+The critical path consists of the following:
+	'mul' operation 45 bit of DSP[48] ('mul_ln20', ../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72) [48]  (0.758 ns)
+
+ <State 8>: 0.662ns
+The critical path consists of the following:
+	'mul' operation 45 bit of DSP[48] ('mul_ln20', ../rgb2gray_kernel.cpp:20->../rgb2gray_kernel.cpp:72) [48]  (0.000 ns)
+	'muxlogic' operation 0 bit ('muxLogicData_to_write_ln73') [50]  (0.000 ns)
+	fifo write operation ('write_ln73', ../rgb2gray_kernel.cpp:73) on port 'stream_gray' (../rgb2gray_kernel.cpp:73) [51]  (0.662 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

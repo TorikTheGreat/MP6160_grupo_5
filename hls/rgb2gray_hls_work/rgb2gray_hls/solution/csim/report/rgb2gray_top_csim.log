@@ -1,0 +1,24 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+   Compiling ../../../../../tb_rgb2gray.cpp in debug mode
+   Compiling ../../../../../rgb2gray_kernel.cpp in debug mode
+   Generating csim.exe
+
+========================================
+ C Simulation: RGB -> Escala de Grises
+ P2 (kernel) + P3 (pragmas AXI)
+========================================
+TEST 1 (Pixeles):  PASS  (0 errores)
+TEST 2 (16x16):    PASS  (0 errores)
+TEST 3 (1920x1080): PASS  (0 errores)
+
+========================================
+ RESUMEN DE PRUEBAS
+========================================
+Errores totales: 0
+Resultado global: PASS
+========================================
+
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 2073600
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

@@ -1,0 +1,139 @@
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 65, Column: 0 }
+Function:        _Z12process_grayRN3hls6streamI5rgb_tLi0EEERNS0_I7ap_uintILi8EELi0EEES4_ILi32EE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'rgb_to_gray_pixel(ap_uint<8>, ap_uint<8>, ap_uint<8>)'
+    DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 13, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'process_gray(hls::stream<rgb_t, 0>&, hls::stream<ap_uint<8>, 0>&, ap_uint<32>)'
+    DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 65, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 134, Column: 21 }
+Function:        rgb2gray_top
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        'fifo (hls::stream)'
+  - String:          ' variable '''
+  - Name:            stream_rgb
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '24'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-burst-inference
+Name:            BurstInferred
+DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 37, Column: 18 }
+Function:        _Z8load_rgbPV7ap_uintILi32EES0_S0_RN3hls6streamI5rgb_tLi0EEE
+Args:            
+  - String:          'Sequential '
+  - Direction:       read
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length'
+  - String:          ' has been inferred'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        scevgepseq
+  - ArrayName:       m_axi_in
+  - String:          ' '
+  - BundleName:      gmem_in
+  - String:          ' '
+  - LoopName:        load_loop
+  - String:          ' '
+  - LoopLoc:         '../rgb2gray_kernel.cpp:37:13'
+  - String:          ' '
+  - Function:        'load_rgb(ap_uint<32> volatile*, ap_uint<32>, ap_uint<32>, hls::stream<rgb_t, 0>&)'
+    DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 34, Column: 0 }
+  - String:          ' '
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      load
+    DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 43, Column: 24 }
+  - OrigDirection:   read
+  - OrigID:          for.inc.load.9
+  - OrigAccess:      load
+    DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 44, Column: 24 }
+  - OrigDirection:   read
+  - OrigID:          for.inc.load.15
+  - OrigAccess:      load
+    DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 45, Column: 24 }
+  - OrigDirection:   read
+  - OrigID:          for.inc.load.21
+...
+--- !Missed
+Pass:            reflow-burst-inference
+Name:            NonSimpleMemoryAccess
+DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 95, Column: 29 }
+Function:        _Z10store_grayRN3hls6streamI7ap_uintILi8EELi0EEEPVS1_ILi32EES5_S5_
+Args:            
+  - String:          Volatile or Atomic access cannot be transformed
+  - String:          ' _XLX_SEP_ '
+  - OrigAccess:      store
+    DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 95, Column: 29 }
+  - OrigDirection:   write
+  - OrigID:          for.inc.store.8
+  - ArrayName:       m_axi_out
+  - String:          ' '
+  - BundleName:      gmem_out
+  - String:          ' '
+  - Function:        'store_gray(hls::stream<ap_uint<8>, 0>&, ap_uint<32> volatile*, ap_uint<32>, ap_uint<32>)'
+    DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 87, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredVerboseSummary
+DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 37, Column: 18 }
+Function:        _Z8load_rgbPV7ap_uintILi32EES0_S0_RN3hls6streamI5rgb_tLi0EEE.1
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '32'
+  - String:          ' has been inferred.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+  - String:          ' _XLX_SEP_ '
+  - AccessID:        seq
+  - ArrayName:       ''
+  - String:          ' '
+  - BundleName:      gmem_in
+  - String:          ' '
+  - LoopName:        load_loop
+  - String:          ' '
+  - LoopLoc:         '../rgb2gray_kernel.cpp:37:13'
+  - String:          ' '
+  - Function:        'load_rgb(ap_uint<32> volatile*, ap_uint<32>, ap_uint<32>, hls::stream<rgb_t, 0>&) (.1)'
+    DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 34, Column: 0 }
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-burst-summary
+Name:            BurstInferredSummary
+DebugLoc:        { File: ../rgb2gray_kernel.cpp, Line: 37, Column: 18 }
+Function:        _Z8load_rgbPV7ap_uintILi32EES0_S0_RN3hls6streamI5rgb_tLi0EEE.1
+Args:            
+  - String:          'Multiple burst '
+  - Direction:       reads
+  - String:          ' of '
+  - Length:          variable
+  - String:          ' length and bit width '
+  - Width:           '32'
+  - String:          ' in loop '''
+  - LoopName:        load_loop
+  - String:          '''('
+  - LoopLoc:         '../rgb2gray_kernel.cpp:37:13'
+  - String:          ')'
+  - String:          ' has been inferred on bundle '''
+  - BundleName:      gmem_in
+  - String:          '''.'
+  - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
+...
