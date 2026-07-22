@@ -64,7 +64,7 @@ board = ArmBoard(
 # (para que after_boot, que corre como el usuario 'gem5', pueda sudo sin contraseña y así
 # darle a acctest el root que /dev/mem exige). Kernel y bootloader vienen del cache original.
 # El disco original del cache queda intacto; NO se toca (gem5 re-verifica su md5).
-_CACHE = "/home/marco/.cache/gem5"
+_CACHE = "/home/usuariomarcelo/.cache/gem5"
 board.set_kernel_disk_workload(
     kernel=KernelResource(local_path=f"{_CACHE}/arm64-linux-kernel-6.8.12-1.0.0"),
     disk_image=DiskImageResource(
@@ -122,7 +122,12 @@ _here = os.path.dirname(os.path.abspath(__file__))
 _bin = os.environ.get("ACCTEST_BIN", "acctest")  # binario a inyectar (permite variar NPIX)
 with open(os.path.join(_here, _bin), "rb") as _f:
     _b64 = base64.encodebytes(_f.read()).decode()  # envuelto a 76 col
+_img_path = os.path.abspath(
+    os.path.join(_here, "..", "..", "tarea_2", "sapo_perro.rgb")
+)
 
+with open(_img_path, "rb") as _img_file:
+    _img_b64 = base64.encodebytes(_img_file.read()).decode()
 # after_boot corre como usuario NO-root y /root no es escribible por él; además /dev/mem
 # necesita root. Solución: el base64 va a /tmp (escribible por todos), y el binario se
 # decodifica y ejecuta como ROOT vía sudo -n, en /root (exec-able, no noexec como /tmp).
@@ -135,12 +140,17 @@ run_script = (
     "cat > /tmp/acctest.b64 << 'B64EOF'\n"
     f"{_b64}"
     "B64EOF\n"
+    "cat > /tmp/sapo_perro.rgb.b64 << 'RGBEOF'\n"
+    f"{_img_b64}"
+"RGBEOF\n"
+"base64 -d /tmp/sapo_perro.rgb.b64 > /tmp/sapo_perro.rgb\n"
     "echo ACCTEST_RUN\n"
     'if [ "$(id -u)" = "0" ]; then\n'
     "  base64 -d /tmp/acctest.b64 > /root/acctest && chmod +x /root/acctest && /root/acctest\n"
     "else\n"
     "  sudo -n sh -c 'base64 -d /tmp/acctest.b64 > /root/acctest && chmod +x /root/acctest && /root/acctest'\n"
     "fi\n"
+    "m5 writefile /tmp/sapo_perro_gray.raw sapo_perro_gray.raw\n"
     "echo ACCTEST_DONE rc=$?\n"
     "m5 exit\n"
 )

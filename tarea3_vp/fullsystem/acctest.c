@@ -19,7 +19,9 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include <sys/mman.h>
+
 
 #define ACC_BASE     0x10030000UL   /* base de registros (== accelerator.h) */
 #define REG_MAP_SIZE 0x1000UL
@@ -33,9 +35,12 @@
 #define OUT_OFF      0x00800000UL   /* salida 8 MB después de la entrada */
 #define BUF_MAP_SIZE 0x01000000UL   /* 16 MB */
 
-#ifndef NPIX
-#define NPIX 256
-#endif
+#define IMAGE_WIDTH  1920U
+#define IMAGE_HEIGHT 1080U
+#define NPIX         (IMAGE_WIDTH * IMAGE_HEIGHT)
+
+#define INPUT_FILE   "/tmp/sapo_perro.rgb"
+#define OUTPUT_FILE  "/tmp/sapo_perro_gray.raw"
 
 static inline uint8_t gray_golden(uint8_t r, uint8_t g, uint8_t b)
 {
@@ -73,11 +78,25 @@ int main(void)
 
     uint8_t *in  = buf + IN_OFF;
     uint8_t *out = buf + OUT_OFF;
-    for (uint32_t i = 0; i < n; i++) {
-        in[3 * i + 0] = (i * 7)  & 0xff;
-        in[3 * i + 1] = (i * 13) & 0xff;
-        in[3 * i + 2] = (i * 29) & 0xff;
-    }
+    FILE *input_file = fopen(INPUT_FILE, "rb");
+if (input_file == NULL) {
+    printf("ACCTEST_FAIL no se pudo abrir %s: %s\n",
+           INPUT_FILE, strerror(errno));
+    return 1;
+}
+
+const size_t input_bytes = (size_t)n * 3U;
+const size_t bytes_read = fread(in, 1, input_bytes, input_file);
+fclose(input_file);
+
+if (bytes_read != input_bytes) {
+    printf("ACCTEST_FAIL lectura incompleta: esperados=%zu leidos=%zu\n",
+           input_bytes, bytes_read);
+    return 1;
+}
+
+printf("ACCTEST_STEP imagen RGB cargada: %zu bytes desde %s\n",
+       bytes_read, INPUT_FILE);
     for (uint32_t i = 0; i < n; i++) out[i] = 0xAA;   /* marca previa */
     asm volatile("dsb sy" ::: "memory");
 
@@ -98,21 +117,53 @@ int main(void)
     printf("ACCTEST_STEP DONE observado (guard=%llu)\n", (unsigned long long)guard);
 
     /* --- verificar bit-exact --- */
-    uint32_t errors = 0; int first = -1;
-    for (uint32_t i = 0; i < n; i++) {
-        uint8_t r = (i * 7) & 0xff, g = (i * 13) & 0xff, b = (i * 29) & 0xff;
-        uint8_t exp = gray_golden(r, g, b);
-        if (out[i] != exp) { if (first < 0) first = (int)i; errors++; }
-    }
-    printf("ACCTEST_STEP muestras out[0..3]=%u,%u,%u,%u golden[0..3]=%u,%u,%u,%u\n",
-           out[0], out[1], out[2], out[3],
-           gray_golden(0,0,0), gray_golden(7,13,29),
-           gray_golden(14,26,58), gray_golden(21,39,87));
+    uint32_t errors = 0;
+int first = -1;
 
+for (uint32_t i = 0; i < n; i++) {
+    const uint8_t r = in[3U * i + 0U];
+    const uint8_t g = in[3U * i + 1U];
+    const uint8_t b = in[3U * i + 2U];
+    const uint8_t exp = gray_golden(r, g, b);
+
+    if (out[i] != exp) {
+        if (first < 0) {
+            first = (int)i;
+        }
+        errors++;
+    }
+}
+    printf("ACCTEST_STEP muestras out[0..3]=%u,%u,%u,%u golden[0..3]=%u,%u,%u,%u\n",
+       out[0], out[1], out[2], out[3],
+       gray_golden(in[0], in[1], in[2]),
+       gray_golden(in[3], in[4], in[5]),
+       gray_golden(in[6], in[7], in[8]),
+       gray_golden(in[9], in[10], in[11]));
+FILE *output_file = fopen(OUTPUT_FILE, "wb");
+if (output_file == NULL) {
+    printf("ACCTEST_FAIL no se pudo crear %s: %s\n",
+           OUTPUT_FILE, strerror(errno));
+    return 1;
+}
+
+const size_t output_bytes = (size_t)n;
+const size_t bytes_written = fwrite(out, 1, output_bytes, output_file);
+fclose(output_file);
+
+if (bytes_written != output_bytes) {
+    printf("ACCTEST_FAIL escritura incompleta: esperados=%zu escritos=%zu\n",
+           output_bytes, bytes_written);
+    return 1;
+}
+
+printf("ACCTEST_STEP imagen gris guardada: %zu bytes en %s\n",
+       bytes_written, OUTPUT_FILE);
     if (errors == 0)
         printf("ACCTEST_PASS %u pixeles bit-exact via MMIO+DMA\n", n);
     else {
-        uint8_t r = (first * 7) & 0xff, g = (first * 13) & 0xff, b = (first * 29) & 0xff;
+       uint8_t r = in[3U * first + 0U];
+       uint8_t g = in[3U * first + 1U];
+       uint8_t b = in[3U * first + 2U]; 
         printf("ACCTEST_FAIL %u/%u errores; primer px %d got=%u exp=%u\n",
                errors, n, first, out[first], gray_golden(r, g, b));
     }
