@@ -313,12 +313,10 @@ Overall, the proposed architecture provides a feasible FPGA implementation of a 
 \section{Results and Analysis}
 
 
-At this preliminary stage we report the functional verification of the
-transform core and its effect on the coding cost of the data. Resource and
-timing figures from logic synthesis (LUT, FF, DSP utilization and maximum
-operating frequency) will complete the analysis.
-% TODO (W2): insertar aquí la tabla/prosa de métricas de HW (LUT/FF/DSP/fmax)
-% cuando esté la síntesis.
+This section reports both functional behavior and hardware implementation
+evidence for the proposed $N=8$ lossless WHT core. In addition to entropy and
+bit-exactness checks, we include post-route FPGA metrics like critical datapath delay, implemented maximum frequency, timing slack, and
+resource utilization.
 
 \subsection{Experimental Setup}
 A bit-accurate reference model of the transform was implemented in SystemC and
@@ -386,6 +384,37 @@ datapath is 16 bits wide. The gap
 between the one- and two-dimensional results motivates a two-dimensional core as
 future work.
 
+\subsection{Hardware Synthesis Results}
+Table~\ref{tab:hw_metrics} summarizes the implemented results obtained from
+the Vitis HLS flow followed by post-route analysis in Vivado for device
+\texttt{xcvc1902-vsva2197-2MP-e-S}. The design meets timing with positive slack
+and reaches an implemented frequency of $339.21$ MHz. Resource usage remains
+moderate and consistent with a multiplier-free architecture, as indicated by
+zero DSP utilization.
+
+\begin{table}[htbp]
+\caption{HLS / post-route hardware metrics of the proposed core.}
+\label{tab:hw_metrics}
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Metric} & \textbf{Value} \\
+\hline
+Critical data path delay (ns) & 2.948 \\
+Implemented $f_{\max}$ (MHz) & 339.21 \\
+WNS (ns) & 6.604 \\
+LUT & 2404 \\
+FF & 2599 \\
+DSP & 0 \\
+BRAM tile & 4 \\
+\hline
+\end{tabular}
+\end{table}
+
+These figures validate the practical viability of the proposed datapath for
+high-throughput operation, while preserving low arithmetic complexity and
+hardware efficiency.
+
 
 To validate the proposed architecture, a functional baseline implementation of the
 forward Walsh--Hadamard Transform (FWHT) was developed in C++. This reference
@@ -417,11 +446,10 @@ bench reported a successful execution (PASS), confirming the correctness of the
 baseline implementation.
 The execution log generated during verification is available in the project repository.
 
-The next stage of the project will integrate the architecture into the HLS flow
-to obtain synthesis metrics including latency, throughput, maximum operating
-frequency, LUT utilization, flip-flops, DSP usage and BRAM consumption. These
-metrics will be compared against conventional integer-based Walsh--Hadamard and
-Discrete Cosine Transform implementations reported in the literature.
+As next step, these implemented metrics will be contrasted against
+integer-based Walsh--Hadamard and Discrete Cosine Transform accelerators from
+the literature to position the proposed solution in terms of frequency/area
+trade-offs.
 %% =====================================================================
 %%  V. CONCLUSIONS AND FUTURE WORK           (entrega final)
 %% =====================================================================

@@ -31,20 +31,23 @@ void wht_lossless_core(pixel_t block_in[N], pixel_t block_out[N]) {
     // -------------------------------------------------------------------------
     // DIRECTIVAS (PRAGMAS) DE OPTIMIZACIÓN HARDWARE
     // -------------------------------------------------------------------------
+    // Mantener interfaces compactas para el kernel exportado.
+    #pragma HLS INTERFACE m_axi port=block_in offset=slave bundle=gmem
+    #pragma HLS INTERFACE m_axi port=block_out offset=slave bundle=gmem
+    #pragma HLS INTERFACE s_axilite port=block_in bundle=control
+    #pragma HLS INTERFACE s_axilite port=block_out bundle=control
+    #pragma HLS INTERFACE s_axilite port=return bundle=control
+
     // Obliga al sintetizador a pipelinar el bloque completo.
     // II=1 (Initiation Interval) permite procesar un nuevo bloque N=8 en cada ciclo de reloj.
     #pragma HLS PIPELINE II=1
-    
-    // Rompe los arreglos en registros individuales (cables paralelos) en lugar de usar RAM.
-    // Esto permite leer/escribir los 8 datos simultáneamente en un solo ciclo de reloj.
-    #pragma HLS ARRAY_PARTITION variable=block_in complete dim=1
-    #pragma HLS ARRAY_PARTITION variable=block_out complete dim=1
 
     // -------------------------------------------------------------------------
     // REGISTRO DE ENTRADA
     // -------------------------------------------------------------------------
     // Copiar entrada a un arreglo interno para aislar los puertos físicos.
     pixel_t stage[N];
+    #pragma HLS ARRAY_PARTITION variable=stage complete dim=1
     for(int i = 0; i < N; i++) {
         // UNROLL clona el hardware; este for no toma múltiples ciclos, es cableado directo.
         #pragma HLS UNROLL
@@ -57,6 +60,7 @@ void wht_lossless_core(pixel_t block_in[N], pixel_t block_out[N]) {
     
     // -- Etapa 1 --
     pixel_t tmp1[N]; // Registros intermedios para la salida de la etapa 1
+    #pragma HLS ARRAY_PARTITION variable=tmp1 complete dim=1
     for(int i = 0; i < 4; i++) {
         #pragma HLS UNROLL
         lifting_butterfly(stage[i*2], stage[i*2+1], tmp1[i*2], tmp1[i*2+1]);
@@ -64,6 +68,7 @@ void wht_lossless_core(pixel_t block_in[N], pixel_t block_out[N]) {
 
     // -- Etapa 2 --
     pixel_t tmp2[N]; // Registros intermedios para la salida de la etapa 2
+    #pragma HLS ARRAY_PARTITION variable=tmp2 complete dim=1
     for(int i = 0; i < 2; i++) {
         #pragma HLS UNROLL
         lifting_butterfly(tmp1[i*4], tmp1[i*4+2], tmp2[i*4], tmp2[i*4+2]);
