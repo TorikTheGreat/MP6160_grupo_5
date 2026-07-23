@@ -1,0 +1,102 @@
+-------------------------------------
+| Tool Version : Vivado v.2024.1
+| Date         : Wed Jul 22 15:50:08 2026
+| Host         : sfv
+| Design       : design_1
+| Device       : xcvc1902-vsva2197-2MP-E-S
+-------------------------------------
+
+For more information on clockInfo.txt clock routing debug file see https://support.xilinx.com/s/article/000035660?language=en_US
+
+*************************************
+Constraining loads of Specific Clocks
+*************************************
+Constraining loads for clocks of types BUFG_GT 
+For clocks of type BUFG_GT: 
+	 Enforcing a fixed size of 4 horizontal clock regions
+	 Considering clock nets with loads with fanout less than 10000
+	 Accept cross-SLR move/constraining: Yes
+Design has no clock of the constrained type
+
+***********************
+Running Pre-CRP Checker
+***********************
+Number of global clocks: 1
+	Number of BUFGCE: 0
+	Number of BUFGCE_HDIO: 1
+	Number of BUFG_CTRL: 0
+	Number of BUFGCE_DIV: 0
+	Number of BUFG_GT: 0
+	Number of BUFG_PS: 0
+	Number of BUFG_FABRIC: 0
+	Running suboptimal placement checker for 1 clocks (and their loads) which do not have the CLOCK_LOW_FANOUT property but have a fanout less than 4000...
+Pre-CRP Checker took 0 secs
+
+********************************
+Clock Net Route Info (CRP Input)
+********************************
+Clock 1: ap_clk
+	Clock source type: BUFGCE_HDIO
+	Clock source region: X0Y4
+
+
+
+*****************
+User Constraints:
+*****************
+No user constraints found
+
+
+Checking conflicts w.r.t. CEW-Root restrictions:
+	 No conflict found
+Wall time on checkForRootRestrAndLockRegionConflict() is0 secs 
+**************************
+Dump ILP Clock Region Info
+**************************
+clock name: ap_clk
+  Source: X0Y4
+  HR regions: X0Y4, X1Y4, X2Y4, X3Y4, X4Y4, X5Y4
+  VR regions: X5Y3, X5Y4
+  Root: X5Y3
+  VD regions: X5Y1, X5Y2, X5Y3, X5Y4
+  HD regions: X0Y1, X0Y2, X0Y3, X0Y4, X1Y1, X1Y2, X1Y3, X1Y4, X2Y1, X2Y2, X2Y3, X2Y4, X3Y1, X3Y2, X3Y3, X3Y4, X4Y1, X4Y2, X4Y3, X4Y4, X5Y1, X5Y2, X5Y3, X5Y4, X6Y1, X6Y2, X6Y3, X6Y4, X7Y1, X7Y2, X7Y3, X7Y4, X8Y1, X8Y2, X8Y3, X8Y4, X9Y1, X9Y2, X9Y3, X9Y4
+
+
+Number of clock sources in each region:
+#BUFGCE, #BUFGCE_DIV, #BUFCTRL, #BUFG_GT, #BUFG_PS, #BUFG_FABRIC
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 5| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0|
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 4| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0|                X|                X|
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 3| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0|                X|                X|
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 2| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0|                X|                X|
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 1| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0|                X|                X|
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0| 0, 0, 0, 0, 0, 0|
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+               0                 1                 2                 3                 4                 5                 6                 7                 8                 9                10                11    
+
+
+*******************************************
+Clock Net Info After Depositing Clock Trees
+*******************************************
+Clock name: ap_clk
+Clock source: X0Y4
+Clock root: X5Y2
+Clock expansion window: CLOCKREGION_X6Y2:CLOCKREGION_X7Y3
+Clock region(s) of placed loads: X7Y2 X7Y3 X6Y2 X6Y3 
+
+
+
+*******************************************
+Clock Net Info After Depositing Clock Trees
+*******************************************
+Clock name: ap_clk
+Clock source: X0Y4
+Clock root: X5Y2
+Clock expansion window: CLOCKREGION_X6Y2:CLOCKREGION_X7Y3
+Clock region(s) of placed loads: X7Y2 X7Y3 X6Y2 X6Y3 
+
