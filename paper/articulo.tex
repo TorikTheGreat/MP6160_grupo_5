@@ -464,6 +464,14 @@ reported a successful execution (PASS), confirming the functional correctness
 of the baseline implementation for the evaluated input vector. The execution
 log generated during verification is available in the project repository.
 
+The C++ baseline serves as the functional reference for validating the proposed
+hardware implementation. Unlike the HLS accelerator, whose objective is to
+optimize hardware efficiency and throughput, the baseline focuses exclusively
+on numerical correctness. This separation allows the hardware implementation to
+be evaluated independently from algorithmic correctness before quantitative
+comparisons with related FPGA accelerators reported in the literature are
+performed during the final stage of the project.
+
 As future work, the reported metrics will be compared quantitatively against
 integer-based Walsh--Hadamard and Discrete Cosine Transform accelerators from
 the literature to position the proposed solution in terms of frequency--area
