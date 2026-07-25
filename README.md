@@ -63,7 +63,7 @@ MP6160_grupo_5/
 │   ├── articulo.pdf
 │   ├── wht_architecture.png
 │   └── Makefile
-└── video.mp4
+├── video.mp4                    # Unified hardware and software demonstration
 ```
 
 
@@ -258,24 +258,28 @@ Small timing variations may occur when different versions or patch levels of Vit
 
 ## Demonstration Video
 
-A short demonstration video of the reversible WHT accelerator is included in
-this repository:
+A unified demonstration video of the reversible WHT accelerator is included inthis repository:
 
 [Watch the demonstration video](video.mp4)
 
 The video presents:
 
-- Functional verification of the WHT core.
-- Bit-exact comparison against the SystemC reference model.
-- Lossless reconstruction and overflow verification.
-- Preliminary entropy-reduction experiments.
-- Synthesis and implementation metrics, including zero DSP utilization.
+- Execution of the software verification suite.
+- Bit-exact comparison between the accelerator core and the SystemC golden model.
+- Reversible forward and inverse transformation.
+- Visual comparison of the original and reconstructed images.
+- A zero-valued difference image, confirming lossless reconstruction.
+- Preliminary zero-order Shannon entropy analysis.
+- Execution of the Vitis HLS and Vivado implementation flow.
+- Preliminary synthesis and post-route results.
+- Timing, frequency, and resource-utilization metrics.
+- Confirmation of zero DSP utilization.
 
 ## Repository
 
 Source code and project materials:
 
-https://github.com/MP6160-Grupo-5/MP6160_grupo_5
+[https://github.com/MP6160-Grupo-5/MP6160_grupo_5](https://github.com/TorikTheGreat/MP6160_grupo_5/tree/proyecto_final_rev2)
 
 ## Use of Artificial Intelligence
 
