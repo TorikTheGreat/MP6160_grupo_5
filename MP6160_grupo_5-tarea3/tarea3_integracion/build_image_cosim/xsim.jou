@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# xsim v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Sat Jul 25 23:45:08 2026
+# Process ID: 50682
+# Current directory: /home/shark/Documents/MP6160_grupo_5-tarea3/tarea3_integracion/build_image_cosim
+# Command line: xsim -mode tcl -source {xsim.dir/image_dpi_axi_sim/xsim_script.tcl}
+# Log file: /home/shark/Documents/MP6160_grupo_5-tarea3/tarea3_integracion/build_image_cosim/xsim.log
+# Journal file: /home/shark/Documents/MP6160_grupo_5-tarea3/tarea3_integracion/build_image_cosim/xsim.jou
+# Running On        :linux
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 22.04.5 LTS
+# Processor Detail  :AMD Ryzen 9 3950X 16-Core Processor
+# CPU Frequency     :3493.448 MHz
+# CPU Physical cores:8
+# CPU Logical cores :8
+# Host memory       :16769 MB
+# Swap memory       :2147 MB
+# Total Virtual     :18916 MB
+# Available Virtual :14656 MB
+#-----------------------------------------------------------
+source xsim.dir/image_dpi_axi_sim/xsim_script.tcl
+run -all

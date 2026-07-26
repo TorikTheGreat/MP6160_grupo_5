@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shark/Documents/MP6160_grupo_5-tarea3/tarea3_rtl/rtl/axi4_ram.sv" into library work
+INFO: [VRFC 10-311] analyzing module axi4_ram
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shark/Documents/MP6160_grupo_5-tarea3/tarea3_integracion/sv/dpi_axi_master.sv" into library work
+INFO: [VRFC 10-311] analyzing module dpi_axi_master
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shark/Documents/MP6160_grupo_5-tarea3/tarea3_integracion/sv/axi_dpi_server.sv" into library work
+INFO: [VRFC 10-311] analyzing module axi_dpi_server
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/shark/Documents/MP6160_grupo_5-tarea3/tarea3_integracion/sv/tb_systemc_dpi_step_launcher.sv" into library work
+INFO: [VRFC 10-311] analyzing module tb_systemc_dpi_step_launcher

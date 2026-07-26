@@ -1,0 +1,7 @@
+Running: xsim.dir/image_dpi_axi_sim/xsimk -runall -simmode gui -wdb image_dpi_axi_sim.wdb -simrunnum 0 -socket 46771
+Design successfully loaded
+Design Loading Memory Usage: 25608 KB (Peak: 25608 KB)
+Design Loading CPU Usage: 70 ms
+Simulation completed
+Simulation Memory Usage: 501528 KB (Peak: 511660 KB)
+Simulation CPU Usage: 63010 ms

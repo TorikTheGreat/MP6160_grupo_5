@@ -1,0 +1,87 @@
+#-----------------------------------------------------------
+# xsim v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Sat Jul 25 23:45:08 2026
+# Process ID: 50682
+# Current directory: /home/shark/Documents/MP6160_grupo_5-tarea3/tarea3_integracion/build_image_cosim
+# Command line: xsim -mode tcl -source {xsim.dir/image_dpi_axi_sim/xsim_script.tcl}
+# Log file: /home/shark/Documents/MP6160_grupo_5-tarea3/tarea3_integracion/build_image_cosim/xsim.log
+# Journal file: /home/shark/Documents/MP6160_grupo_5-tarea3/tarea3_integracion/build_image_cosim/xsim.jou
+# Running On        :linux
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 22.04.5 LTS
+# Processor Detail  :AMD Ryzen 9 3950X 16-Core Processor
+# CPU Frequency     :3493.448 MHz
+# CPU Physical cores:8
+# CPU Logical cores :8
+# Host memory       :16769 MB
+# Swap memory       :2147 MB
+# Total Virtual     :18916 MB
+# Available Virtual :14656 MB
+#-----------------------------------------------------------
+source xsim.dir/image_dpi_axi_sim/xsim_script.tcl
+# xsim {image_dpi_axi_sim} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+
+======================================
+ RESET AXI FINALIZADO
+======================================
+
+======================================
+ INICIANDO CARGA DE IMAGEN POR DPI + AXI
+======================================
+[SYSTEMC DPI] Controlador de imagen creado.
+
+========================================
+ CARGA DE IMAGEN RGB POR DPI + AXI
+========================================
+[IMAGEN] Entrada: /home/shark/Documents/MP6160_grupo_5-tarea3/tarea3_integracion/input/sapo_perro.rgb
+[IMAGEN] Resolucion: 1920x1080
+[IMAGEN] Bytes RGB: 6220800
+[IMAGEN] Direccion RGB RAM: 0x0
+[IMAGEN] Direccion gris RAM: 0x800000
+[PROGRESO] Cargando RGB en RAM: 100000/1555200 palabras (6.43004 %)
+[PROGRESO] Cargando RGB en RAM: 200000/1555200 palabras (12.8601 %)
+[PROGRESO] Cargando RGB en RAM: 300000/1555200 palabras (19.2901 %)
+[PROGRESO] Cargando RGB en RAM: 400000/1555200 palabras (25.7202 %)
+[PROGRESO] Cargando RGB en RAM: 500000/1555200 palabras (32.1502 %)
+[PROGRESO] Cargando RGB en RAM: 600000/1555200 palabras (38.5802 %)
+[PROGRESO] Cargando RGB en RAM: 700000/1555200 palabras (45.0103 %)
+[PROGRESO] Cargando RGB en RAM: 800000/1555200 palabras (51.4403 %)
+[PROGRESO] Cargando RGB en RAM: 900000/1555200 palabras (57.8704 %)
+[PROGRESO] Cargando RGB en RAM: 1000000/1555200 palabras (64.3004 %)
+[PROGRESO] Cargando RGB en RAM: 1100000/1555200 palabras (70.7305 %)
+[PROGRESO] Cargando RGB en RAM: 1200000/1555200 palabras (77.1605 %)
+[PROGRESO] Cargando RGB en RAM: 1300000/1555200 palabras (83.5905 %)
+[PROGRESO] Cargando RGB en RAM: 1400000/1555200 palabras (90.0206 %)
+[PROGRESO] Cargando RGB en RAM: 1500000/1555200 palabras (96.4506 %)
+[PROGRESO] Cargando RGB en RAM: 1555200/1555200 palabras (100 %)
+[IMAGEN] Carga RGB finalizada. Calculando escala de grises...
+[PROGRESO] Escribiendo gris en RAM: 100000/518400 palabras (19.2901 %)
+[PROGRESO] Escribiendo gris en RAM: 200000/518400 palabras (38.5802 %)
+[PROGRESO] Escribiendo gris en RAM: 300000/518400 palabras (57.8704 %)
+[PROGRESO] Escribiendo gris en RAM: 400000/518400 palabras (77.1605 %)
+[PROGRESO] Escribiendo gris en RAM: 500000/518400 palabras (96.4506 %)
+[PROGRESO] Escribiendo gris en RAM: 518400/518400 palabras (100 %)
+[PROGRESO] Leyendo gris desde RAM: 100000/518400 palabras (19.2901 %)
+[PROGRESO] Leyendo gris desde RAM: 200000/518400 palabras (38.5802 %)
+[PROGRESO] Leyendo gris desde RAM: 300000/518400 palabras (57.8704 %)
+[PROGRESO] Leyendo gris desde RAM: 400000/518400 palabras (77.1605 %)
+[PROGRESO] Leyendo gris desde RAM: 500000/518400 palabras (96.4506 %)
+[PROGRESO] Leyendo gris desde RAM: 518400/518400 palabras (100 %)
+[TEST] Pixeles verificados: 2073600/2073600
+[TEST] IMAGE_AXI_LOAD_PASS
+[IMAGEN] Salida: /home/shark/Documents/MP6160_grupo_5-tarea3/tarea3_integracion/output/sapo_perro.pgm
+[SYSTEMC DPI] Controlador de imagen destruido.
+
+======================================
+ CARGA DE IMAGEN FINALIZADA CORRECTAMENTE
+======================================
+$finish called at time : 181440075 ns : File "/home/shark/Documents/MP6160_grupo_5-tarea3/tarea3_integracion/sv/tb_systemc_dpi_step_launcher.sv" Line 67
+run: Time (s): cpu = 00:00:02 ; elapsed = 00:01:03 . Memory (MB): peak = 1573.859 ; gain = 93.223 ; free physical = 3688 ; free virtual = 13451
+exit
+INFO: xsimkernel Simulation Memory Usage: 501528 KB (Peak: 511660 KB), Simulation CPU Usage: 63010 ms
+INFO: [Common 17-206] Exiting xsim at Sat Jul 25 23:46:16 2026...

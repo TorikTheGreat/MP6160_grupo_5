@@ -1,0 +1,1 @@
+"work.tb_systemc_dpi_step_launcher" --sv_lib "xsim.dir/work/xsc/dpi" --debug "typical" --timescale "1ns/1ps" --snapshot "image_dpi_axi_sim" 
