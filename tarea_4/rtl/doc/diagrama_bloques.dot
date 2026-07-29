@@ -1,0 +1,95 @@
+// =============================================================================
+// diagrama_bloques.dot -- organizacion interna del modulo.
+//
+// Criterio de dibujo:
+//   * DOS COLUMNAS: ruta de escritura a la izquierda, ruta de lectura a la
+//     derecha. Son independientes en el RTL, asi que dibujarlas entrelazadas
+//     era ilegible y ademas enganaba sobre el diseno.
+//   * Lineas ortogonales y filas alineadas con rank=same: sin curvas.
+//   * Los canales B y R NO vuelven hacia arriba. Dibujar el retorno al maestro
+//     obligaba a dos aristas que cruzaban el diagrama entero; se dice en la
+//     nota y se ahorran los cruces.
+//
+// Regenerar:  make doc
+// =============================================================================
+digraph axi4_ram_slave {
+  rankdir=TB; bgcolor="white"; pad=0.35;
+  nodesep=0.5; ranksep=0.45; splines=ortho; newrank=true;
+  node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=10,
+        margin="0.14,0.08"];
+  edge [fontname="DejaVu Sans", fontsize=9, color="#555555", arrowsize=0.75];
+
+  labelloc="t";
+  label=<<b>axi4_ram_slave — organización interna</b><br/>
+         <font point-size="9">izquierda: ruta de escritura   ·   derecha: ruta de lectura   ·   son independientes</font><br/> >;
+  fontname="DejaVu Sans"; fontsize=13;
+
+  ifz  [label="axi4_if.slave\nDATA_W=64 · ADDR_W=32 · ID_W=4", fillcolor="#ECECEC",
+        style="rounded,filled,dashed", width=4.0];
+  wrap [label="axi4_ram_slave_axi4if — wrapper\n31 puertos planos, mapeo 1:1", fillcolor="#E8E8E8",
+        width=4.0];
+
+  aw [label="canal AW\nawid awaddr awlen awsize\nawburst awvalid/awready", fillcolor="#D6E8F7"];
+  w  [label="canal W\nwdata wstrb wlast\nwvalid/wready",                   fillcolor="#D6E8F7"];
+  ar [label="canal AR\narid araddr arlen arsize\narburst arvalid/arready", fillcolor="#D6E8F7"];
+
+  capaw [label="captura de AW\naw_addr_q · aw_len_q · bid ← awid", fillcolor="#FBE6C2"];
+  capar [label="captura de AR\nar_addr_q · ar_len_q",              fillcolor="#FBE6C2"];
+
+  dec [label="decodificador de rango\naddr < MEM_BYTES = MEM_WORDS·8\nescritura: w_err_q pegajoso\nlectura: rresp por beat + r_oor_q\nawsize≠8B o awburst≠INCR → SLVERR",
+       fillcolor="#F7D6D6"];
+
+  fsmw [label="FSM de escritura\nW_IDLE → W_DATA → W_RESP\ncontador de beats hacia abajo\ntermina con WLAST", fillcolor="#FBE6C2"];
+  fsmr [label="FSM de lectura\nR_IDLE → R_DATA\ncontador de beats · rlast",                                   fillcolor="#FBE6C2"];
+
+  carr [label="escritura por carriles\nwstrb[k] → mem[idx][8k+7:8k]", fillcolor="#FBE6C2"];
+
+  mem  [label="mem [0:MEM_WORDS-1]\n64 b × 8 M = 64 MB · inicializada a cero\nescrita por UN SOLO always\nun puerto de lectura: mux de índice\n(R_IDLE: araddr · R_DATA: ar_addr_q)",
+        fillcolor="#CDEBCD", width=4.2];
+
+  b [label="canal B\nbid bresp\nbvalid/bready",                fillcolor="#D6E8F7"];
+  r [label="canal R\nrid rdata rresp rlast\nrvalid/rready",    fillcolor="#D6E8F7"];
+
+  ifz -> wrap;
+  wrap -> aw;   wrap -> w;   wrap -> ar;
+
+  aw -> capaw [label="handshake"];
+  ar -> capar [label="handshake"];
+
+  capaw -> dec  [label="addr"];
+  capar -> dec  [label="addr"];
+  capaw -> fsmw [label="addr, len"];
+  capar -> fsmr [label="addr, len"];
+  dec   -> fsmw [label="fuera de rango"];
+  dec   -> fsmr [label="rresp"];
+  w     -> fsmw [label="beat"];
+
+  fsmw -> carr [label="we"];
+  carr -> mem ;
+  fsmr -> mem  [label="idx"];
+  mem  -> fsmr [constraint=false];
+
+  fsmw -> b [label="una B por ráfaga"];
+  fsmr -> r [label="rdata registrado"];
+
+  { rank=same; aw; w; ar; }
+  { rank=same; capaw; capar; }
+  { rank=same; fsmw; fsmr; }
+  { rank=same; b; r; }
+  carr -> b [style=invis];
+  mem  -> r [style=invis];
+
+  nota [shape=note, style="filled", fillcolor="#FFFFE0", fontsize=9,
+        label=<Toda salida sale de un flip-flop: AXI prohíbe caminos<br align="left"/>
+               combinacionales entrada→salida (A3-36/A3-37).<br align="left"/>
+               <br align="left"/>
+               Las respuestas de B y R vuelven al maestro por la misma<br align="left"/>
+               interfaz; el retorno no se dibuja para no cruzar el diagrama.<br align="left"/>
+               <br align="left"/>
+               La regla de los 4 KB se asume, no se verifica: recae en el<br align="left"/>
+               maestro.<br align="left"/>
+               <br align="left"/>
+               awprot/awcache/awlock/awqos existen en la interfaz; el<br align="left"/>
+               núcleo no las declara.<br align="left"/>>];
+  { rank=same; dec; nota; }
+}

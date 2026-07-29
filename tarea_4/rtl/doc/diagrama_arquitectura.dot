@@ -1,0 +1,102 @@
+// =============================================================================
+// diagrama_arquitectura.dot -- arquitectura del sistema.
+//
+// Criterio de dibujo: las aristas llevan SOLO la estructura (quien habla con
+// quien). La secuencia del flujo va en numeros circulados y se explica en la
+// leyenda. Mezclar ambas cosas en las etiquetas es lo que vuelve ilegible un
+// diagrama de bloques.
+//
+// Alcance: en verde lo implementado y verificado en este directorio; es lo
+// unico que el diagrama describe con certeza. Lo discontinuo esta especificado
+// pero todavia no integrado.
+//
+// Regenerar:  make doc
+// =============================================================================
+digraph arquitectura {
+  rankdir=TB; bgcolor="white"; pad=0.4;
+  nodesep=0.5; ranksep=0.45; splines=true; newrank=true; compound=true;
+  node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=11,
+        margin="0.16,0.10", width=3.4];
+  edge [fontname="DejaVu Sans Bold", fontsize=12, color="#666666",
+        arrowsize=0.8, labeldistance=1.4, labelfloat=false];
+
+  labelloc="t";
+  label=<<b>Arquitectura del sistema</b><br/>
+         <font point-size="10" face="DejaVu Sans">la RAM del modelo SystemC pasa a ser RTL, accesible por DPI</font><br/> >;
+  fontname="DejaVu Sans"; fontsize=15;
+
+  // ------------------------------------------------------------- SystemC
+  subgraph cluster_sc {
+    label="Modelo SystemC";
+    labelloc="t"; style="rounded"; color="#AAAAAA"; bgcolor="#FCFCFC";
+    fontname="DejaVu Sans Bold"; fontsize=11;
+
+    disco [label="Almacenamiento persistente\ncarpeta en el computador", fillcolor="#ECECEC"];
+    cpu   [label="CPU", fillcolor="#D6E8F7"];
+    accel [label="Acelerador RGB → gris\nACC_BASE = 0x4000_0000", fillcolor="#D6E8F7"];
+    proxy [label="ram_rtl_proxy\nsustituye al modulo de RAM", fillcolor="#FBE6C2",
+           style="rounded,filled,dashed"];
+  }
+
+  dpi [label=<<b>Frontera DPI-C</b>   (lado C++ ↔ lado SystemVerilog)>,
+       shape=box, style="filled,dashed", fillcolor="#F7D6D6", width=3.4];
+
+  // -------------------------------------------------- SystemVerilog / Verilog
+  subgraph cluster_sv {
+    label="Simulador SystemVerilog / Verilog";
+    labelloc="t"; style="rounded"; color="#AAAAAA"; bgcolor="#FCFCFC";
+    fontname="DejaVu Sans Bold"; fontsize=11;
+
+    bfm  [label="BFM master AXI4\ntop de co-simulación", fillcolor="#FBE6C2",
+          style="rounded,filled,dashed"];
+    uvm  [label="Entorno UVM\nagente · scoreboard · SVA", fillcolor="#FBE6C2",
+          style="rounded,filled,dashed"];
+    ifz  [label="interface axi4_if", fillcolor="#ECECEC", style="rounded,filled,dashed"];
+    wrap [label="axi4_ram_slave_axi4if\nwrapper", fillcolor="#CDEBCD"];
+    dut  [label=<<b>axi4_ram_slave</b><br/>RAM 64 MB · esclavo AXI4 Full>,
+          fillcolor="#CDEBCD", penwidth=2.2];
+  }
+
+  // --------------------------------------------------------------- estructura
+  // Cadena principal, vertical y sin cruces.
+  disco -> cpu   [xlabel="①⑥"];
+  cpu   -> accel [xlabel="③", style=dotted];
+  cpu   -> proxy [xlabel="②⑤"];
+  accel -> proxy [xlabel="④"];
+  proxy -> dpi   [label=""];
+  dpi   -> bfm   [label=""];
+  bfm   -> ifz   [label=""];
+  uvm   -> ifz   [label="", style=dashed];
+  ifz   -> wrap  [label=""];
+  wrap  -> dut   [label=""];
+
+  // uvm al lado de bfm, no encima
+  { rank=same; bfm; uvm; }
+
+  { rank=same; cpu; leyenda; }
+
+  // ----------------------------------------------------------------- leyenda
+  leyenda [shape=note, style="filled", fillcolor="#FFFFE0", fontsize=10,
+           fontname="DejaVu Sans", width=0,
+           label=<<b>Flujo del sistema</b><br align="left"/>
+           <br align="left"/>
+           ① el CPU carga la imagen RAW RGB 1080p (6 220 800 B)<br align="left"/>
+           ② la escribe en la RAM,  SRC = 0x0001_0000<br align="left"/>
+           ③ configura el acelerador por MMIO: SRC, DST, NUM_PIXELS<br align="left"/>
+           ④ el acelerador lee RGB y escribe gris,  DST = 0x0100_0000<br align="left"/>
+           ⑤ el CPU relee el resultado (2 073 600 B)<br align="left"/>
+           ⑥ y lo guarda a disco<br align="left"/>
+           <br align="left"/>
+           <b>Cómo leer los bloques</b><br align="left"/>
+           Verde: implementado y verificado.<br align="left"/>
+           Discontinuo: especificado, pendiente de integrar.<br align="left"/>
+           <br align="left"/>
+           <b>Lo que cambia respecto al modelo previo</b><br align="left"/>
+           La RAM deja de ser un sc_module. Los dos iniciadores que la<br align="left"/>
+           usaban — el CPU y el acelerador — llegan ahora al mismo<br align="left"/>
+           esclavo AXI4 por el puente, serializados por el proxy.<br align="left"/>
+           <br align="left"/>
+           Los caminos de verificación (UVM) y de integración (DPI)<br align="left"/>
+           atacan el mismo DUT por la misma interfaz, pero no coexisten<br align="left"/>
+           en una misma simulación.<br align="left"/>>];
+}
