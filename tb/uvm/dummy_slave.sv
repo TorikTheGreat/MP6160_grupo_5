@@ -21,21 +21,33 @@ module dummy_slave (
         end
     end
 
-    // Lógica rvalid (muy simplificada, asume que solo mandan single-beats el andamio)
+   // Lógica rvalid con soporte de rafagas (cuenta beats usando arlen)
+    logic [7:0] beat_cnt;
+    logic [7:0] beat_total;
     always_ff @(posedge axi.aclk or negedge axi.aresetn) begin
         if (!axi.aresetn) begin
             axi.rvalid <= 1'b0;
             axi.rresp  <= 2'b00; // OKAY
             axi.rlast  <= 1'b0;
+            beat_cnt   <= 8'd0;
+            beat_total <= 8'd0;
         end else begin
-            if (axi.arvalid && axi.arready) begin
+            if (axi.arvalid && axi.arready && !axi.rvalid) begin
                 axi.rvalid <= 1'b1;
                 axi.rid    <= axi.arid;
                 axi.rdata  <= 64'hDEADBEEFCAFEBA00; // Basura amigable
-                axi.rlast  <= 1'b1; // Dummy no soporta ráfagas largas
+                beat_total <= axi.arlen;
+                beat_cnt   <= 8'd0;
+                axi.rlast  <= (axi.arlen == 8'd0);
             end else if (axi.rvalid && axi.rready) begin
-                axi.rvalid <= 1'b0;
-                axi.rlast  <= 1'b0;
+                if (axi.rlast) begin
+                    axi.rvalid <= 1'b0;
+                    axi.rlast  <= 1'b0;
+                end else begin
+                    beat_cnt  <= beat_cnt + 8'd1;
+                    axi.rlast <= (beat_cnt + 8'd1 == beat_total);
+                    axi.rdata <= 64'hDEADBEEFCAFEBA00;
+                end
             end
         end
     end

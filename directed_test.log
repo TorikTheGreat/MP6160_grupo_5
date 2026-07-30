@@ -1,0 +1,350 @@
+#-----------------------------------------------------------
+# xsim v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Thu Jul 30 12:41:23 2026
+# Process ID: 14200
+# Current directory: C:/dev/MP6160_grupo_5
+# Command line: xsim.exe -log directed_test.log -mode tcl -source {xsim.dir/rolC_snapshot/xsim_script.tcl}
+# Log file: C:/dev/MP6160_grupo_5/directed_test.log
+# Journal file: C:/dev/MP6160_grupo_5\xsim.jou
+# Running On        :DESKTOP-R2U5D5U
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26200
+# Processor Detail  :Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+# CPU Frequency     :2592 MHz
+# CPU Physical cores:6
+# CPU Logical cores :12
+# Host memory       :34109 MB
+# Swap memory       :2147 MB
+# Total Virtual     :36257 MB
+# Available Virtual :9621 MB
+#-----------------------------------------------------------
+source xsim.dir/rolC_snapshot/xsim_script.tcl
+# xsim {rolC_snapshot} -testplusarg UVM_TESTNAME=axi4_directed_test -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+UVM_INFO C:XilinxVivado‚4.1/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18601) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO C:XilinxVivado‚4.1/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18648) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+UVM_INFO @ 0: reporter [RNTST] Running test axi4_directed_test...
+UVM_INFO C:XilinxVivado‚4.1/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(20867) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 85000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x1000 beat=0 esperado=0xa5a51234 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10000 beat=0 esperado=0x11110000 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10008 beat=1 esperado=0x11110001 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10010 beat=2 esperado=0x11110002 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10018 beat=3 esperado=0x11110003 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10020 beat=4 esperado=0x11110004 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10028 beat=5 esperado=0x11110005 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10030 beat=6 esperado=0x11110006 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10038 beat=7 esperado=0x11110007 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10040 beat=8 esperado=0x11110008 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10048 beat=9 esperado=0x11110009 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10050 beat=10 esperado=0x1111000a obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10058 beat=11 esperado=0x1111000b obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10060 beat=12 esperado=0x1111000c obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10068 beat=13 esperado=0x1111000d obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10070 beat=14 esperado=0x1111000e obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10078 beat=15 esperado=0x1111000f obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10080 beat=16 esperado=0x11110010 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10088 beat=17 esperado=0x11110011 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10090 beat=18 esperado=0x11110012 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10098 beat=19 esperado=0x11110013 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x100a0 beat=20 esperado=0x11110014 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x100a8 beat=21 esperado=0x11110015 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x100b0 beat=22 esperado=0x11110016 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x100b8 beat=23 esperado=0x11110017 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x100c0 beat=24 esperado=0x11110018 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x100c8 beat=25 esperado=0x11110019 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x100d0 beat=26 esperado=0x1111001a obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x100d8 beat=27 esperado=0x1111001b obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x100e0 beat=28 esperado=0x1111001c obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x100e8 beat=29 esperado=0x1111001d obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x100f0 beat=30 esperado=0x1111001e obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x100f8 beat=31 esperado=0x1111001f obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10100 beat=32 esperado=0x11110020 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10108 beat=33 esperado=0x11110021 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10110 beat=34 esperado=0x11110022 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10118 beat=35 esperado=0x11110023 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10120 beat=36 esperado=0x11110024 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10128 beat=37 esperado=0x11110025 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10130 beat=38 esperado=0x11110026 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10138 beat=39 esperado=0x11110027 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10140 beat=40 esperado=0x11110028 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10148 beat=41 esperado=0x11110029 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10150 beat=42 esperado=0x1111002a obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10158 beat=43 esperado=0x1111002b obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10160 beat=44 esperado=0x1111002c obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10168 beat=45 esperado=0x1111002d obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10170 beat=46 esperado=0x1111002e obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10178 beat=47 esperado=0x1111002f obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10180 beat=48 esperado=0x11110030 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10188 beat=49 esperado=0x11110031 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10190 beat=50 esperado=0x11110032 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10198 beat=51 esperado=0x11110033 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x101a0 beat=52 esperado=0x11110034 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x101a8 beat=53 esperado=0x11110035 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x101b0 beat=54 esperado=0x11110036 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x101b8 beat=55 esperado=0x11110037 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x101c0 beat=56 esperado=0x11110038 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x101c8 beat=57 esperado=0x11110039 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x101d0 beat=58 esperado=0x1111003a obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x101d8 beat=59 esperado=0x1111003b obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x101e0 beat=60 esperado=0x1111003c obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x101e8 beat=61 esperado=0x1111003d obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x101f0 beat=62 esperado=0x1111003e obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x101f8 beat=63 esperado=0x1111003f obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10200 beat=64 esperado=0x11110040 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10208 beat=65 esperado=0x11110041 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10210 beat=66 esperado=0x11110042 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10218 beat=67 esperado=0x11110043 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10220 beat=68 esperado=0x11110044 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10228 beat=69 esperado=0x11110045 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10230 beat=70 esperado=0x11110046 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10238 beat=71 esperado=0x11110047 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10240 beat=72 esperado=0x11110048 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10248 beat=73 esperado=0x11110049 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10250 beat=74 esperado=0x1111004a obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10258 beat=75 esperado=0x1111004b obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10260 beat=76 esperado=0x1111004c obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10268 beat=77 esperado=0x1111004d obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10270 beat=78 esperado=0x1111004e obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10278 beat=79 esperado=0x1111004f obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10280 beat=80 esperado=0x11110050 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10288 beat=81 esperado=0x11110051 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10290 beat=82 esperado=0x11110052 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10298 beat=83 esperado=0x11110053 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x102a0 beat=84 esperado=0x11110054 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x102a8 beat=85 esperado=0x11110055 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x102b0 beat=86 esperado=0x11110056 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x102b8 beat=87 esperado=0x11110057 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x102c0 beat=88 esperado=0x11110058 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x102c8 beat=89 esperado=0x11110059 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x102d0 beat=90 esperado=0x1111005a obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x102d8 beat=91 esperado=0x1111005b obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x102e0 beat=92 esperado=0x1111005c obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x102e8 beat=93 esperado=0x1111005d obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x102f0 beat=94 esperado=0x1111005e obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x102f8 beat=95 esperado=0x1111005f obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10300 beat=96 esperado=0x11110060 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10308 beat=97 esperado=0x11110061 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10310 beat=98 esperado=0x11110062 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10318 beat=99 esperado=0x11110063 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10320 beat=100 esperado=0x11110064 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10328 beat=101 esperado=0x11110065 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10330 beat=102 esperado=0x11110066 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10338 beat=103 esperado=0x11110067 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10340 beat=104 esperado=0x11110068 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10348 beat=105 esperado=0x11110069 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10350 beat=106 esperado=0x1111006a obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10358 beat=107 esperado=0x1111006b obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10360 beat=108 esperado=0x1111006c obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10368 beat=109 esperado=0x1111006d obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10370 beat=110 esperado=0x1111006e obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10378 beat=111 esperado=0x1111006f obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10380 beat=112 esperado=0x11110070 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10388 beat=113 esperado=0x11110071 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10390 beat=114 esperado=0x11110072 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10398 beat=115 esperado=0x11110073 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x103a0 beat=116 esperado=0x11110074 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x103a8 beat=117 esperado=0x11110075 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x103b0 beat=118 esperado=0x11110076 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x103b8 beat=119 esperado=0x11110077 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x103c0 beat=120 esperado=0x11110078 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x103c8 beat=121 esperado=0x11110079 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x103d0 beat=122 esperado=0x1111007a obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x103d8 beat=123 esperado=0x1111007b obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x103e0 beat=124 esperado=0x1111007c obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x103e8 beat=125 esperado=0x1111007d obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x103f0 beat=126 esperado=0x1111007e obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x103f8 beat=127 esperado=0x1111007f obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10400 beat=128 esperado=0x11110080 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10408 beat=129 esperado=0x11110081 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10410 beat=130 esperado=0x11110082 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10418 beat=131 esperado=0x11110083 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10420 beat=132 esperado=0x11110084 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10428 beat=133 esperado=0x11110085 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10430 beat=134 esperado=0x11110086 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10438 beat=135 esperado=0x11110087 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10440 beat=136 esperado=0x11110088 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10448 beat=137 esperado=0x11110089 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10450 beat=138 esperado=0x1111008a obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10458 beat=139 esperado=0x1111008b obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10460 beat=140 esperado=0x1111008c obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10468 beat=141 esperado=0x1111008d obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10470 beat=142 esperado=0x1111008e obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10478 beat=143 esperado=0x1111008f obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10480 beat=144 esperado=0x11110090 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10488 beat=145 esperado=0x11110091 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10490 beat=146 esperado=0x11110092 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10498 beat=147 esperado=0x11110093 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x104a0 beat=148 esperado=0x11110094 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x104a8 beat=149 esperado=0x11110095 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x104b0 beat=150 esperado=0x11110096 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x104b8 beat=151 esperado=0x11110097 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x104c0 beat=152 esperado=0x11110098 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x104c8 beat=153 esperado=0x11110099 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x104d0 beat=154 esperado=0x1111009a obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x104d8 beat=155 esperado=0x1111009b obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x104e0 beat=156 esperado=0x1111009c obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x104e8 beat=157 esperado=0x1111009d obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x104f0 beat=158 esperado=0x1111009e obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x104f8 beat=159 esperado=0x1111009f obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10500 beat=160 esperado=0x111100a0 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10508 beat=161 esperado=0x111100a1 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10510 beat=162 esperado=0x111100a2 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10518 beat=163 esperado=0x111100a3 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10520 beat=164 esperado=0x111100a4 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10528 beat=165 esperado=0x111100a5 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10530 beat=166 esperado=0x111100a6 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10538 beat=167 esperado=0x111100a7 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10540 beat=168 esperado=0x111100a8 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10548 beat=169 esperado=0x111100a9 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10550 beat=170 esperado=0x111100aa obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10558 beat=171 esperado=0x111100ab obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10560 beat=172 esperado=0x111100ac obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10568 beat=173 esperado=0x111100ad obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10570 beat=174 esperado=0x111100ae obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10578 beat=175 esperado=0x111100af obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10580 beat=176 esperado=0x111100b0 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10588 beat=177 esperado=0x111100b1 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10590 beat=178 esperado=0x111100b2 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10598 beat=179 esperado=0x111100b3 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x105a0 beat=180 esperado=0x111100b4 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x105a8 beat=181 esperado=0x111100b5 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x105b0 beat=182 esperado=0x111100b6 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x105b8 beat=183 esperado=0x111100b7 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x105c0 beat=184 esperado=0x111100b8 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x105c8 beat=185 esperado=0x111100b9 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x105d0 beat=186 esperado=0x111100ba obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x105d8 beat=187 esperado=0x111100bb obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x105e0 beat=188 esperado=0x111100bc obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x105e8 beat=189 esperado=0x111100bd obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x105f0 beat=190 esperado=0x111100be obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x105f8 beat=191 esperado=0x111100bf obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10600 beat=192 esperado=0x111100c0 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10608 beat=193 esperado=0x111100c1 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10610 beat=194 esperado=0x111100c2 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10618 beat=195 esperado=0x111100c3 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10620 beat=196 esperado=0x111100c4 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10628 beat=197 esperado=0x111100c5 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10630 beat=198 esperado=0x111100c6 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10638 beat=199 esperado=0x111100c7 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10640 beat=200 esperado=0x111100c8 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10648 beat=201 esperado=0x111100c9 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10650 beat=202 esperado=0x111100ca obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10658 beat=203 esperado=0x111100cb obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10660 beat=204 esperado=0x111100cc obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10668 beat=205 esperado=0x111100cd obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10670 beat=206 esperado=0x111100ce obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10678 beat=207 esperado=0x111100cf obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10680 beat=208 esperado=0x111100d0 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10688 beat=209 esperado=0x111100d1 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10690 beat=210 esperado=0x111100d2 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10698 beat=211 esperado=0x111100d3 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x106a0 beat=212 esperado=0x111100d4 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x106a8 beat=213 esperado=0x111100d5 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x106b0 beat=214 esperado=0x111100d6 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x106b8 beat=215 esperado=0x111100d7 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x106c0 beat=216 esperado=0x111100d8 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x106c8 beat=217 esperado=0x111100d9 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x106d0 beat=218 esperado=0x111100da obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x106d8 beat=219 esperado=0x111100db obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x106e0 beat=220 esperado=0x111100dc obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x106e8 beat=221 esperado=0x111100dd obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x106f0 beat=222 esperado=0x111100de obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x106f8 beat=223 esperado=0x111100df obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10700 beat=224 esperado=0x111100e0 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10708 beat=225 esperado=0x111100e1 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10710 beat=226 esperado=0x111100e2 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10718 beat=227 esperado=0x111100e3 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10720 beat=228 esperado=0x111100e4 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10728 beat=229 esperado=0x111100e5 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10730 beat=230 esperado=0x111100e6 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10738 beat=231 esperado=0x111100e7 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10740 beat=232 esperado=0x111100e8 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10748 beat=233 esperado=0x111100e9 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10750 beat=234 esperado=0x111100ea obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10758 beat=235 esperado=0x111100eb obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10760 beat=236 esperado=0x111100ec obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10768 beat=237 esperado=0x111100ed obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10770 beat=238 esperado=0x111100ee obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10778 beat=239 esperado=0x111100ef obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10780 beat=240 esperado=0x111100f0 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10788 beat=241 esperado=0x111100f1 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10790 beat=242 esperado=0x111100f2 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x10798 beat=243 esperado=0x111100f3 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x107a0 beat=244 esperado=0x111100f4 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x107a8 beat=245 esperado=0x111100f5 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x107b0 beat=246 esperado=0x111100f6 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x107b8 beat=247 esperado=0x111100f7 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x107c0 beat=248 esperado=0x111100f8 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x107c8 beat=249 esperado=0x111100f9 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x107d0 beat=250 esperado=0x111100fa obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x107d8 beat=251 esperado=0x111100fb obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x107e0 beat=252 esperado=0x111100fc obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x107e8 beat=253 esperado=0x111100fd obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x107f0 beat=254 esperado=0x111100fe obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5255000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x107f8 beat=255 esperado=0x111100ff obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff000 beat=0 esperado=0x22220000 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff008 beat=1 esperado=0x22220001 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff010 beat=2 esperado=0x22220002 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff018 beat=3 esperado=0x22220003 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff020 beat=4 esperado=0x22220004 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff028 beat=5 esperado=0x22220005 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff030 beat=6 esperado=0x22220006 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff038 beat=7 esperado=0x22220007 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff040 beat=8 esperado=0x22220008 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff048 beat=9 esperado=0x22220009 obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff050 beat=10 esperado=0x2222000a obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff058 beat=11 esperado=0x2222000b obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff060 beat=12 esperado=0x2222000c obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff068 beat=13 esperado=0x2222000d obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff070 beat=14 esperado=0x2222000e obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(54) @ 5625000: uvm_test_top.sb [SB] MISMATCH lectura addr=0x3fff078 beat=15 esperado=0x2222000f obtenido=0xdeadbeefcafeba00
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(69) @ 5665000: uvm_test_top.sb [SB] Se esperaba SLVERR para addr=0x4000000 y se obtuvo resp=0
+UVM_INFO tb/uvm/axi4_rolC_sequences.sv(32) @ 5665000: uvm_test_top.env.agent.sqr@@seq [SEQ] === Directed sequence completada ===
+UVM_INFO C:XilinxVivado‚4.1/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 6165000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO tb/uvm/axi4_coverage.sv(62) @ 6165000: uvm_test_top.cov [COV] Cobertura funcional: 60.00%
+UVM_INFO tb/uvm/axi4_scoreboard.sv(78) @ 6165000: uvm_test_top.sb [SB] Resumen: writes=4 reads=3 beats_pass=0 beats_fail=273
+UVM_ERROR tb/uvm/axi4_scoreboard.sv(82) @ 6165000: uvm_test_top.sb [SB] SCOREBOARD_FAIL
+UVM_INFO C:XilinxVivado‚4.1/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 6165000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    8
+UVM_WARNING :    0
+UVM_ERROR :  275
+UVM_FATAL :    0
+** Report counts by id
+[COV]     1
+[NO_DPI_TSTNAME]     1
+[RNTST]     1
+[SB]   276
+[SEQ]     1
+[TEST_DONE]     1
+[UVM/COMP/NAMECHECK]     1
+[UVM/RELNOTES]     1
+
+$finish called at time : 6165 ns : File "C:\Xilinx\Vivado\2024.1/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Jul 30 12:41:26 2026...
