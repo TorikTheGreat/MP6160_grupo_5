@@ -1,0 +1,22 @@
+
+        SystemC 2.3.4-Accellera --- Jul 29 2026 19:57:40
+        Copyright (c) 1996-2022 by all Contributors,
+        ALL RIGHTS RESERVED
+RamRtlProxy: ram_rtl_proxy creado
+SystemC DPI bridge: proxy registrado
+
+========================================
+ Prueba portable del puente DPI
+========================================
+Transferencia DPI de 8 bytes: PASS | dirección=0x100 | bytes=8
+Transferencia DPI de 4096 bytes: PASS | dirección=0x2000 | bytes=4096
+Troceo DPI de 4104 bytes: PASS | dirección=0x4000 | bytes=4104
+Límite DPI de 4 KB: PASS | dirección=0xff8 | bytes=16
+Propagación de SLVERR: PASS
+Solicitudes atendidas: 13 / esperadas: 13
+========================================
+RESULTADO PUENTE DPI: PASS
+========================================
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+SystemC DPI bridge: proxy liberado
