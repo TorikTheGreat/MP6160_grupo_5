@@ -1,0 +1,56 @@
+
+        SystemC 2.3.4-Accellera --- Jul 29 2026 19:57:40
+        Copyright (c) 1996-2022 by all Contributors,
+        ALL RIGHTS RESERVED
+
+========================================
+ Prueba portable de systemc_dpi_wrapper
+========================================
+PersistentStorage: storage creado
+CPU: cpu creada con sockets para RAM y Acelerador
+RamRtlProxy: systemc_cosim_top.ram_rtl_proxy creado
+SystemC DPI bridge: proxy registrado
+systemc_create: sistema creado correctamente
+
+========================================
+ Sistema SystemC + RAM RTL mediante DPI
+========================================
+RAM declarada: 67108864 bytes
+Entrada 1080p: sapo_perro.rgb
+Salida 1080p: sapo_perro_gray.raw
+
+PersistentStorage: leidos 192 bytes desde input.rgb
+CPU: cargados 192 bytes en RAM desde input.rgb
+CPU: procesando job 'sintetica' src=0x0 dst=0x2000000 píxeles=64
+CPU: Acelerador ha terminado en 1 ciclos
+CPU: trabajo 'sintetica' completado
+PersistentStorage: escritos 64 bytes en output.gray
+CPU: guardados 64 bytes desde RAM en output.gray
+Prueba sintética: PASS (64/64 píxeles correctos)
+PersistentStorage: leidos 6220800 bytes desde sapo_perro.rgb
+CPU: cargados 6220800 bytes en RAM desde sapo_perro.rgb
+CPU: procesando job 'sapo_perro' src=0x10000 dst=0x1000000 píxeles=2073600
+CPU: Acelerador ha terminado en 21 ciclos
+CPU: trabajo 'sapo_perro' completado
+PersistentStorage: escritos 2073600 bytes en sapo_perro_gray.raw
+CPU: guardados 2073600 bytes desde RAM en sapo_perro_gray.raw
+Imagen 1080p procesada correctamente
+Entrada: sapo_perro.rgb
+Salida: sapo_perro_gray.raw
+Bytes de salida: 2073600
+
+========================================
+RESULTADO SYSTEMC COSIM: PASS
+========================================
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+
+Iteraciones de servicio: 4251
+Solicitudes DPI atendidas: 4056
+Ejecución terminada: SI
+Resultado reportado: PASS
+SystemC DPI bridge: proxy liberado
+systemc_destroy: sistema liberado
+========================================
+RESULTADO WRAPPER PORTABLE: PASS
+========================================
