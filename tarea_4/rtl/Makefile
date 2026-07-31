@@ -19,11 +19,14 @@
 
 RTL        := axi4_ram_slave.v
 FULL_WORDS := 8388608          # 64 MB: el tamano de entrega
-# Cuando el rol B publique su interfaz: make stage9 AXI4_IF=/ruta/axi4_if.sv
-AXI4_IF    ?= $(TBDIR)/stub/axi4_if_stub.sv
+# Interfaz AXI4 real del rol B (por defecto). Si no existe, cae al stub.
+AXI4_IF_REAL := ../../tb/interfaces/axi4_if.sv
+AXI4_IF_STUB := $(TBDIR)/stub/axi4_if_stub.sv
+AXI4_IF ?= $(if $(wildcard $(AXI4_IF_REAL)),$(AXI4_IF_REAL),$(AXI4_IF_STUB))
 TBDIR      := tb
 SIMDIR     := sim
 DOCDIR     := doc
+BRIDGE_DIR := ../bridge_dpi
 
 IVERILOG   := iverilog
 IVFLAGS    := -g2012 -Wall -I$(TBDIR) -s tb
@@ -45,9 +48,14 @@ STAGES     := $(IV_STAGES) $(VL_STAGES)
 help:
 	@echo "make lint            - lint permisivo (desarrollo)"
 	@echo "make lint-final      - lint estricto -Wall (el que usa regress)"
+	@echo "make cosim-lint      - lint del top real de co-simulacion DPI/SystemC"
+	@echo "make cosim-vl        - cosim completa en Verilator (wrapper + DPI C++)"
+	@echo "make cosim-vl-metric - igual que cosim-vl pero con tiempo y RSS"
+	@echo "                        (C++ DPI en $(BRIDGE_DIR)/dpi/)"
+	@echo "make dpi-gate        - puerta minima DPI SV<->C++ con consumo de ciclos"
 	@echo "make stage0..stage11 - corre una etapa (MEM_WORDS=N para cambiar tamano)"
 	@echo "make stage9          - etapa 9: wrapper sobre la axi4_if (Verilator)"
-	@echo "                       cuando exista la real: AXI4_IF=/ruta/axi4_if.sv"
+	@echo "                       por defecto usa $(AXI4_IF_REAL); override: AXI4_IF=/ruta/axi4_if.sv"
 	@echo "make regress         - todas las etapas en secuencia"
 	@echo "make wave-N          - abre la onda de la etapa N (N != 9: esa no genera VCD)"
 	@echo "make wave-hang       - la onda del cuelgue deliberado"
@@ -70,6 +78,33 @@ lint-final:
 	$(VERILATOR) --lint-only -Wall --top-module axi4_ram_slave $(RTL)
 	@$(MAKE) --no-print-directory check-single-writer
 	@echo "lint-final OK"
+
+cosim-lint:
+	$(VERILATOR) --lint-only --sv --timing -Wno-DECLFILENAME -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \
+	    -Itb --top-module tb \
+	    $(RTL) axi4_ram_slave_axi4if.sv $(AXI4_IF) \
+	    tb/systemc_dpi_pkg.sv tb/tb_systemc_dpi_top.sv
+	@echo "cosim-lint OK"
+
+cosim-vl: $(SIMDIR)
+	@echo "=== cosim Verilator: top DPI + wrapper + DUT ==="
+	rm -rf $(SIMDIR)/obj_cosim_vl
+	$(VERILATOR) --binary --timing --sv -Wno-DECLFILENAME -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \
+	    --top-module tb -I$(TBDIR) -Mdir $(SIMDIR)/obj_cosim_vl \
+	    $(RTL) axi4_ram_slave_axi4if.sv $(AXI4_IF) \
+	    $(TBDIR)/systemc_dpi_pkg.sv $(TBDIR)/tb_systemc_dpi_top.sv \
+	    $(abspath $(BRIDGE_DIR)/dpi/systemc_dpi_vl_stub.cpp) > /dev/null
+	$(TIMEOUT) $(SIMDIR)/obj_cosim_vl/Vtb
+
+cosim-vl-metric: $(SIMDIR)
+	@echo "=== cosim Verilator (metricas) ==="
+	rm -rf $(SIMDIR)/obj_cosim_vl
+	$(VERILATOR) --binary --timing --sv -Wno-DECLFILENAME -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC \
+	    --top-module tb -I$(TBDIR) -Mdir $(SIMDIR)/obj_cosim_vl \
+	    $(RTL) axi4_ram_slave_axi4if.sv $(AXI4_IF) \
+	    $(TBDIR)/systemc_dpi_pkg.sv $(TBDIR)/tb_systemc_dpi_top.sv \
+	    $(abspath $(BRIDGE_DIR)/dpi/systemc_dpi_vl_stub.cpp) > /dev/null
+	-/usr/bin/time -f "cosim-vl: %e s, RSS %M KB" $(TIMEOUT) $(SIMDIR)/obj_cosim_vl/Vtb
 
 # Verilator NO detecta dos always escribiendo la misma memoria (comprobado).
 # Este chequeo manual sustituye a la red de seguridad que no existe.
@@ -106,6 +141,18 @@ stage9: $(SIMDIR)
 	    $(RTL) axi4_ram_slave_axi4if.sv \
 	    $(AXI4_IF) $(TBDIR)/tb_stage9_wrapper.sv > /dev/null
 	$(TIMEOUT) $(SIMDIR)/obj_s9/Vtb
+
+# ---------------------------------------------------------------------------
+# Puerta de integracion DPI (rol D): ida y vuelta SV <-> C++ consumiendo
+# tiempo de simulacion real mediante callback entre SV y C++.
+# ---------------------------------------------------------------------------
+dpi-gate: $(SIMDIR)
+	@echo "=== puerta DPI: SV <-> C++ con avance de tiempo ==="
+	rm -rf $(SIMDIR)/obj_dpi_gate
+	$(VERILATOR) --binary --timing --sv -Wno-DECLFILENAME -Wno-WIDTHEXPAND \
+	    --top-module tb -I$(TBDIR) -Mdir $(SIMDIR)/obj_dpi_gate \
+	    $(RTL) $(TBDIR)/tb_stage12_dpi_gate.sv $(abspath $(BRIDGE_DIR)/dpi/dpi_gate.cpp) > /dev/null
+	$(TIMEOUT) $(SIMDIR)/obj_dpi_gate/Vtb
 
 # ---------------------------------------------------------------------------
 # Ejercicio de la etapa 0: cuelgue deliberado, para aprender a leer una onda

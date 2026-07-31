@@ -1,0 +1,20 @@
+
+        SystemC 2.3.4-Accellera --- Jul 29 2026 19:57:40
+        Copyright (c) 1996-2022 by all Contributors,
+        ALL RIGHTS RESERVED
+RamRtlProxy: ram_rtl_proxy creado
+
+====================================
+ Prueba local de RamRtlProxy
+====================================
+Transferencia de 8 bytes: PASS | dirección=0x100 | bytes=8
+Transferencia de 4096 bytes: PASS | dirección=0x2000 | bytes=4096
+Transferencia de 4104 bytes: PASS | dirección=0x4000 | bytes=4104
+Cruce controlado de límite de 4 KB: PASS | dirección=0xff8 | bytes=16
+Acceso fuera de rango: PASS
+Solicitudes atendidas: 13 / esperadas: 13
+====================================
+RESULTADO PROXY MOCK: PASS
+====================================
+
+Info: /OSCI/SystemC: Simulation stopped by user.
