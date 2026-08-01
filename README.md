@@ -40,15 +40,15 @@ make test-all
 ```
 
 ## Requirements and Compilation (Role D)
-> **Role D**: To run the integration scripts, you need **Vivado XSim** and `g++` (available via the Vivado `settings64.sh` environment). Execute the `./build_cosim.sh` script to compile the RTL, the UVM testbench, and the SystemC wrapper `libdpi.so`, and to automatically launch the co-simulation snapshot.
+To run the integration scripts, you need **Vivado XSim** and `g++` (available via the Vivado `settings64.sh` environment). Execute the `./build_cosim.sh` script to compile the RTL, the UVM testbench, and the SystemC wrapper `libdpi.so`, and to automatically launch the co-simulation snapshot.
 
 ### Role D Integration Report (Point 9)
 
 Measured on the Verilator flow using:
 
 - Role B real interface: `tb/interfaces/axi4_if.sv`
-- Role E real DUT + wrapper: `tarea_4/rtl/axi4_ram_slave.v` and `tarea_4/rtl/axi4_ram_slave_axi4if.sv`
-- Role D co-simulation top: `tarea_4/rtl/tb/tb_systemc_dpi_top.sv`
+- Role E real DUT + wrapper: `rtl/axi4_ram_slave.v` and `rtl/axi4_ram_slave_axi4if.sv`
+- Role D co-simulation top: `rtl/tb/tb_systemc_dpi_top.sv`
 
 Command executed:
 
@@ -87,10 +87,11 @@ Please refer to the [SystemC README](systemc/README.md) for full details.
 ## Diagrams
 
 ### Block Diagram (Role E)
-> [!NOTE]
-> **Role E**: Insert the RTL architecture block diagram here.
 
-### Sequence Diagram (Role D)
+![Block Diagram](rtl/doc/diagrama_arquitectura.svg)
+
+
+### Sequence Diagram VPI/DPI Bridge (Role D)
 
 ```mermaid
 sequenceDiagram
@@ -164,6 +165,6 @@ The generated output was checked against the baseline from Task 2, producing an 
   1) Discuss the skeleton structure for the `axi4_if` interface.
   2) Organize this README template.
 - **Role A:** Claude Opus was used to review code, organize tests, debug compilation errors, and improve documentation drafting (see `systemc/README.md`).
-- **Role C:** `[MISSING - To be completed]`
-- **Role D:** `[MISSING - To be completed]`
+- **Role C:** Google Gemini was used to make consultations about UVM and code debugging.
+- **Role D:** GitHub Copilot was used to review code and help with the debug process. Also to aid on the readme elaboration.
 - **Role E:** Claude Opus was used in interactive sessions for workload distribution planning, testbench generation, AXI4 protocol consultation, adversarial code review, mutation testing, and Graphviz diagram generation (see `rtl/README.md`).
