@@ -51,12 +51,12 @@ The UVM environment isolates the AXI4 Full protocol verification from the proces
 - **Active UVM Environment**: Includes a Driver that injects physical `axi4_item` into the bus, and a passive Monitor that observes read/write addresses and data to feed the Scoreboard.
 
 ### RTL Modules (Role E)
-> [!NOTE]
-> **Role E**: Describe the internal architecture of the Verilog RAM module, its AXI4 slave, response handling (SLVERR), and the estimated latency cost here.
+Role E has provided a comprehensive description of the RTL architecture, memory maps, latency metrics, and design decisions. 
+Please refer to the [RTL README](rtl/README.md) for full details.
 
 ### SystemC Modules (Role A)
-> [!NOTE]
-> **Role A**: Describe the TLM proxy adaptation, temporal adjustment, and transfer `delay` manipulation here.
+Role A has provided a comprehensive description of the TLM proxy, DPI bridge integration, and end-to-end tests.
+Please refer to the [SystemC README](systemc/README.md) for full details.
 
 ## Diagrams
 
@@ -128,7 +128,7 @@ sequenceDiagram
 - **Role B:** Google Gemini (Antigravity AI) was used through conversational prompts to:
   1) Discuss the skeleton structure for the `axi4_if` interface.
   2) Organize this README template.
-- **Role A:** `[To be completed]`
-- **Role C:** `[To be completed]`
-- **Role D:** `[To be completed]`
-- **Role E:** `[To be completed]`
+- **Role A:** Claude Opus was used to review code, organize tests, debug compilation errors, and improve documentation drafting (see `systemc/README.md`).
+- **Role C:** `[MISSING - To be completed]`
+- **Role D:** `[MISSING - To be completed]`
+- **Role E:** Claude Opus was used in interactive sessions for workload distribution planning, testbench generation, AXI4 protocol consultation, adversarial code review, mutation testing, and Graphviz diagram generation (see `rtl/README.md`).
