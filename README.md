@@ -13,8 +13,7 @@ The project structure is organized as follows to separate responsibilities and f
 - `scripts/`: Makefiles and TCL scripts to automate Vivado simulation.
 
 ## Requirements and Compilation (Role D)
-> [!NOTE] 
-> **Role D**: Please add dependencies (Vivado XSim, gcc, etc.) and the exact instructions to run the integration scripts here.
+> **Role D**: To run the integration scripts, you need **Vivado XSim** and `g++` (available via the Vivado `settings64.sh` environment). Execute the `./build_cosim.sh` script to compile the RTL, the UVM testbench, and the SystemC wrapper `libdpi.so`, and to automatically launch the co-simulation snapshot.
 
 ### Role D Integration Report (Point 9)
 
@@ -115,8 +114,10 @@ sequenceDiagram
 ## Results Obtained
 
 ### UVM Verification (Role C)
-> [!NOTE]
-> **Role C**: Include the UVM coverage report, scoreboard behavior with error cases (4KB rule), and the synthetic golden model.
+The UVM tests were executed successfully using Vivado XSim. 
+
+- **Directed Test (`axi4_directed_test`)**: Achieved **67.50% functional coverage** and processed 21 transactions. The test produced 275 expected `UVM_ERROR` messages (because it is testing against the `dummy_slave` which returns a friendly garbage value `0xDEADBEEFCAFEBA00` without a real memory backend) and 0 `UVM_FATAL`, meaning the test ran to completion without hanging.
+- **Random Test (`axi4_random_test`)**: Achieved **42.50% functional coverage** and processed 40 random transactions, returning 600 expected `UVM_ERROR` and 0 `UVM_FATAL`.
 
 ### End-to-End and Comparison (Role A)
 > [!NOTE]
