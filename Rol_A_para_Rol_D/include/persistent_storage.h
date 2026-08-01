@@ -1,7 +1,7 @@
 #ifndef PERSISTENT_STORAGE_H
 #define PERSISTENT_STORAGE_H
 
-#include <systemc.h>
+#include <systemc>
 #include <fstream>
 #include <vector>
 #include <string>

@@ -2,7 +2,7 @@
 #define CPU_H
 
 #include <iomanip>
-#include <systemc.h>
+#include <systemc>
 #include <tlm.h>
 #include <tlm_utils/simple_initiator_socket.h>
 #include <cstring>

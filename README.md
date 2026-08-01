@@ -16,6 +16,32 @@ The project structure is organized as follows to separate responsibilities and f
 > [!NOTE] 
 > **Role D**: Please add dependencies (Vivado XSim, gcc, etc.) and the exact instructions to run the integration scripts here.
 
+### Role D Integration Report (Point 9)
+
+Measured on the Verilator flow using:
+
+- Role B real interface: `tb/interfaces/axi4_if.sv`
+- Role E real DUT + wrapper: `tarea_4/rtl/axi4_ram_slave.v` and `tarea_4/rtl/axi4_ram_slave_axi4if.sv`
+- Role D co-simulation top: `tarea_4/rtl/tb/tb_systemc_dpi_top.sv`
+
+Command executed:
+
+```bash
+cd tarea_4/rtl
+make cosim-vl-metric
+```
+
+Observed result:
+
+| Item | Value |
+|---|---|
+| Functional result | PASS |
+| Simulated cycles | 1055 |
+| Wall time | 0.01 s |
+| Peak RSS | 5548 KB |
+
+This report corresponds to the complete Verilator integration path (SV + DPI + C++), over the real DUT and the real interface from Role B.
+
 ## Module Organization
 
 ### Verification Modules (Role B)
@@ -39,8 +65,52 @@ The UVM environment isolates the AXI4 Full protocol verification from the proces
 > **Role E**: Insert the RTL architecture block diagram here.
 
 ### Sequence Diagram (Role D)
-> [!NOTE]
-> **Role D**: Insert the DPI/VPI bridge sequence diagram here.
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant TB as SV Top (tb_systemc_dpi_top)
+  participant PKG as DPI Package (systemc_dpi_pkg)
+  participant CPP as C++ Backend (systemc_dpi_vl_stub)
+  participant BFM as AXI BFM (axi4_bfm_master)
+  participant DUT as AXI4 RAM Slave (Role E)
+
+  TB->>CPP: systemc_create()
+  CPP-->>TB: handle/status OK
+
+  loop Cada ciclo de simulacion
+    TB->>CPP: systemc_service(cycle)
+    TB->>CPP: dpi_poll_request()
+
+    alt Hay solicitud pendiente
+      CPP-->>TB: op, addr, len, req_id
+
+      alt Escritura
+        TB->>CPP: dpi_fetch(req_id, beat_data)
+        TB->>BFM: Lanzar write burst(s)
+        BFM->>DUT: AW/W...
+        DUT-->>BFM: B (resp)
+        BFM-->>TB: write_resp
+        TB->>CPP: dpi_complete(req_id, status)
+      else Lectura
+        TB->>BFM: Lanzar read burst(s)
+        BFM->>DUT: AR...
+        DUT-->>BFM: R (data, resp)
+        BFM-->>TB: read_data + status
+        TB->>CPP: dpi_store(req_id, beat_data)
+        TB->>CPP: dpi_complete(req_id, status)
+      end
+    else No hay solicitud
+      TB-->>TB: Continuar al siguiente ciclo
+    end
+  end
+
+  TB->>CPP: systemc_is_finished()
+  CPP-->>TB: done
+  TB->>CPP: systemc_passed()
+  CPP-->>TB: PASS/FAIL
+  TB->>CPP: systemc_destroy()
+```
 
 ## Results Obtained
 

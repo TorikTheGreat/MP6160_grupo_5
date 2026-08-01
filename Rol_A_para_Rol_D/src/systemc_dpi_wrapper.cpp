@@ -15,8 +15,8 @@
 //   dpi_complete()
 // =====================================================================
 
-#include <systemc.h>
-#include <tlm.h>
+#include <systemc>
+#include <tlm>
 
 #include "accelerator.h"
 #include "cpu.h"

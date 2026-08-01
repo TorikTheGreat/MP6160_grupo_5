@@ -1,7 +1,7 @@
 #ifndef ACCELERATOR_H
 #define ACCELERATOR_H
 
-#include <systemc.h>
+#include <systemc>
 #include <tlm.h>
 #include <tlm_utils/simple_initiator_socket.h>
 #include <tlm_utils/simple_target_socket.h>

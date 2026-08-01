@@ -247,10 +247,34 @@ contaminarlas — sin ese tope duplicaba la huella y el número que se reporta h
 
 Reproducir: `make full`.
 
+### Coste de integración completo (puente DPI, DUT real)
+
+Medición del punto 9 con la interfaz real del rol B (`../../tb/interfaces/axi4_if.sv`) y el DUT real del rol E:
+
+```bash
+cd tarea_4/rtl
+make cosim-vl-metric AXI4_IF=../../tb/interfaces/axi4_if.sv
+```
+
+Resultado observado:
+
+| Métrica | Valor |
+|---|---|
+| Estado funcional | PASS |
+| Ciclos simulados | 1055 |
+| Tiempo | 0.00 s |
+| RSS máximo | 5548 KB |
+
+Esta cifra corresponde al camino completo de integración en Verilator: top SV de cosim + contrato DPI + backend C++ + wrapper AXI + núcleo RTL real.
+
 ### Regresión
 
 `make regress` corre las doce etapas y termina en `=== TODOS LOS TESTS PASARON (N=12) ===`, con más
-de 2 400 comprobaciones (2 475 en la última corrida). Antes de las etapas ejecuta `lint-final`. Cada etapa aísla un concepto:
+de 2 400 comprobaciones (2 475 en la última corrida). Antes de las etapas ejecuta `lint-final`. Para el
+puente DPI/SystemC del rol D ya están además `tb/tb_systemc_dpi_top.sv`, `tb/axi4_bfm_master.sv`,
+`tb/systemc_dpi_pkg.sv` y `make cosim-lint`.
+
+Cada etapa aísla un concepto:
 
 | Etapa | Qué demuestra |
 |---|---|
@@ -301,12 +325,52 @@ No hace falta Vivado ni UVM para el DUT.
 cd tarea_4/rtl
 make lint            # lint permisivo (mientras se escribe codigo nuevo)
 make lint-final      # -Wall estricto, sin excepciones globales (lo usa regress)
+make cosim-lint      # lint del top de co-simulacion DPI/SystemC
+make cosim-vl        # co-simulacion completa en Verilator (DUT+wrapper+BFM+DPI)
+make cosim-vl-metric # igual que cosim-vl, reporta tiempo y RSS
 make regress         # las doce etapas
 make stage4          # una etapa suelta
 make stage6 MEM_WORDS=1024   # forzando el tamaño de memoria
 make wave-4          # abre la onda de la etapa 4 en gtkwave
 make full            # corrida a 64 MB en los dos simuladores, con tiempo y RSS
 make doc             # regenera los .png/.svg desde los .dot
+```
+
+Para el modelo completo DPI/SystemC se agregaron tres scripts, uno por entorno:
+
+```bash
+# Ubuntu Linux nativo (Vivado Linux en PATH)
+../bridge_dpi/scripts/run_cosim_ubuntu.sh
+
+# WSL lanzando Vivado de Windows por PowerShell
+../bridge_dpi/scripts/run_cosim_wsl.sh
+
+# Windows nativo (PowerShell)
+powershell -ExecutionPolicy Bypass -File ..\bridge_dpi\scripts\run_cosim_windows.ps1
+```
+
+Los artefactos de esos scripts (logs/binarios temporales del puente) quedan en
+`tarea_4/bridge_dpi/build/`, no en `tarea_4/rtl/`.
+
+Variables útiles para los tres flujos:
+
+- `ROL_A_DIR`: ruta a `Rol_A_para_Rol_D`.
+- `SNAPSHOT`: nombre del snapshot de `xelab`.
+- `SYSTEMC_INPUT_RGB`: archivo RGB de entrada.
+- `SYSTEMC_OUTPUT_GRAY`: archivo RAW de salida.
+
+Para la ruta Verilator del rol D (sin XSim), la cosim usa por defecto:
+
+- `tb/tb_systemc_dpi_top.sv`
+- `tb/tb_setup_axi4if.vh`
+- `tb/axi4_bfm_master.sv`
+- `tb/systemc_dpi_pkg.sv`
+- `../bridge_dpi/dpi/systemc_dpi_vl_stub.cpp`
+
+Cuando la interfaz real del rol B este publicada, reemplaza el stub con:
+
+```bash
+make cosim-vl AXI4_IF=/ruta/al/axi4_if.sv
 ```
 
 `make full` compila con `-DNO_VCD`: no porque la corrida sea larga en ciclos (son ~630), sino para
