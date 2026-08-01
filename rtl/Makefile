@@ -19,14 +19,14 @@
 
 RTL        := axi4_ram_slave.v
 FULL_WORDS := 8388608          # 64 MB: el tamano de entrega
-# Interfaz AXI4 real del rol B (por defecto). Si no existe, cae al stub.
-AXI4_IF_REAL := ../../tb/interfaces/axi4_if.sv
-AXI4_IF_STUB := $(TBDIR)/stub/axi4_if_stub.sv
-AXI4_IF ?= $(if $(wildcard $(AXI4_IF_REAL)),$(AXI4_IF_REAL),$(AXI4_IF_STUB))
 TBDIR      := tb
 SIMDIR     := sim
 DOCDIR     := doc
-BRIDGE_DIR := ../bridge_dpi
+BRIDGE_DIR := ../tb/bridge_dpi
+# Interfaz AXI4 real del rol B (por defecto). Si no existe, cae al stub.
+AXI4_IF_REAL := ../tb/interfaces/axi4_if.sv
+AXI4_IF_STUB := $(TBDIR)/stub/axi4_if_stub.sv
+AXI4_IF ?= $(if $(wildcard $(AXI4_IF_REAL)),$(AXI4_IF_REAL),$(AXI4_IF_STUB))
 
 IVERILOG   := iverilog
 IVFLAGS    := -g2012 -Wall -I$(TBDIR) -s tb

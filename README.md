@@ -27,7 +27,7 @@ Measured on the Verilator flow using:
 Command executed:
 
 ```bash
-cd tarea_4/rtl
+cd rtl
 make cosim-vl-metric
 ```
 
