@@ -1,0 +1,11 @@
+# Vivado / xsim build artifacts (Rol C UVM sim)
+xsim.dir/
+xsim.covdb/
+*.jou
+*.pb
+*.wdb
+tr_db.log
+xelab.log
+xvlog.log
+xsim.log
+.Xil/
