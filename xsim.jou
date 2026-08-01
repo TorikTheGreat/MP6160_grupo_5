@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# xsim v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Jul 29 22:48:41 2026
+# Process ID: 38840
+# Current directory: /home/diego/MP6160_grupo_5
+# Command line: xsim -mode tcl -source {xsim.dir/uvm_snapshot/xsim_script.tcl}
+# Log file: /home/diego/MP6160_grupo_5/xsim.log
+# Journal file: /home/diego/MP6160_grupo_5/xsim.jou
+# Running On        :diego-MS-7D48
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 22.04.5 LTS
+# Processor Detail  :12th Gen Intel(R) Core(TM) i5-12400F
+# CPU Frequency     :3345.085 MHz
+# CPU Physical cores:6
+# CPU Logical cores :12
+# Host memory       :33488 MB
+# Swap memory       :2147 MB
+# Total Virtual     :35635 MB
+# Available Virtual :30617 MB
+#-----------------------------------------------------------
+source xsim.dir/uvm_snapshot/xsim_script.tcl
+run -all

@@ -1,0 +1,49 @@
+---
+MainSourceFile:  /home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp
+Diagnostics:     
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1223_1:  '
+    FileOffset:      1223
+    FilePath:        /home/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_int_base.h
+    Replacements:    
+      - FilePath:        /home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp
+        Offset:          65887
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1223_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_676_1:  '
+    FileOffset:      676
+    FilePath:        /home/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp
+        Offset:          293113
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_676_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_690_1:  '
+    FileOffset:      690
+    FilePath:        /home/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp
+        Offset:          293577
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_690_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_704_1:  '
+    FileOffset:      704
+    FilePath:        /home/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp
+        Offset:          294042
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_704_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1247_1:  '
+    FileOffset:      1247
+    FilePath:        /home/Vitis_HLS/2024.1/common/technology/autopilot/etc/ap_fixed_base.h
+    Replacements:    
+      - FilePath:        /home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp
+        Offset:          576816
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1247_1: '
+...

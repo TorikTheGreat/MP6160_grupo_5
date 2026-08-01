@@ -1,0 +1,1 @@
+-L "uvm" "tb_top" -s "uvm_snapshot" -timescale "1ns/1ps" 

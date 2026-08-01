@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [HLS 214-450] Ignore address on register port 'out_ram' (tarea3_rgb2gray/rgb2gray_kernel.cpp:50:13)" projectName="tarea3_rgb2gray" solutionName="solution1" date="2026-07-11T13:45:47.588-0600" type="Warning"/>
+        <logs message="WARNING: [HLS 214-450] Ignore address on register port 'in_ram' (tarea3_rgb2gray/rgb2gray_kernel.cpp:19:19)" projectName="tarea3_rgb2gray" solutionName="solution1" date="2026-07-11T13:45:47.585-0600" type="Warning"/>
+        <logs message="WARNING: [HLS 214-450] Ignore address on register port 'in_ram' (tarea3_rgb2gray/rgb2gray_kernel.cpp:18:19)" projectName="tarea3_rgb2gray" solutionName="solution1" date="2026-07-11T13:45:47.583-0600" type="Warning"/>
+        <logs message="WARNING: [HLS 214-450] Ignore address on register port 'in_ram' (tarea3_rgb2gray/rgb2gray_kernel.cpp:17:19)" projectName="tarea3_rgb2gray" solutionName="solution1" date="2026-07-11T13:45:47.580-0600" type="Warning"/>
+        <logs message="WARNING: [HLS 200-2053] The vitis_hls executable is deprecated. Consider using vitis-run --mode hls --tcl&#xA;Sourcing Tcl script '/home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/csynth.tcl'" projectName="tarea3_rgb2gray" solutionName="solution1" date="2026-07-11T13:45:37.952-0600" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

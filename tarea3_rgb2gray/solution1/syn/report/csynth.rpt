@@ -1,0 +1,140 @@
+
+
+================================================================
+== Synthesis Summary Report of 'rgb2gray_top'
+================================================================
++ General Information: 
+    * Date:           Sat Jul 11 13:45:48 2026
+    * Version:        2024.1 (Build 5069499 on May 21 2024)
+    * Project:        tarea3_rgb2gray
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xck26-sfvc784-2LV-c
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +----------------------------------------+------+------+---------+--------+----------+---------+------+----------+------+---------+-----------+-----------+-----+
+    |                 Modules                | Issue|      | Latency | Latency| Iteration|         | Trip |          |      |         |           |           |     |
+    |                 & Loops                | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM |   DSP   |     FF    |    LUT    | URAM|
+    +----------------------------------------+------+------+---------+--------+----------+---------+------+----------+------+---------+-----------+-----------+-----+
+    |+ rgb2gray_top*                         |     -|  0.00|        -|       -|         -|        -|     -|  dataflow|     -|  3 (~0%)|  671 (~0%)|  932 (~0%)|    -|
+    | + load_rgb                             |     -|  1.05|        -|       -|         -|        -|     -|        no|     -|        -|   65 (~0%)|  185 (~0%)|    -|
+    |  + load_rgb_Pipeline_load_loop         |     -|  1.05|        -|       -|         -|        -|     -|        no|     -|        -|   35 (~0%)|  127 (~0%)|    -|
+    |   o load_loop                          |     -|  2.92|        -|       -|         2|        1|     -|       yes|     -|        -|          -|          -|    -|
+    | + process_gray                         |     -|  0.00|        -|       -|         -|        -|     -|        no|     -|  3 (~0%)|  120 (~0%)|  247 (~0%)|    -|
+    |  + process_gray_Pipeline_process_loop  |     -|  0.46|        -|       -|         -|        -|     -|        no|     -|  3 (~0%)|   82 (~0%)|  171 (~0%)|    -|
+    |   o process_loop                       |     -|  2.92|        -|       -|         6|        1|     -|       yes|     -|        -|          -|          -|    -|
+    | + store_gray                           |     -|  1.05|        -|       -|         -|        -|     -|        no|     -|        -|   90 (~0%)|  230 (~0%)|    -|
+    |  + store_gray_Pipeline_store_loop      |     -|  1.05|        -|       -|         -|        -|     -|        no|     -|        -|   43 (~0%)|  127 (~0%)|    -|
+    |   o store_loop                         |     -|  2.92|        -|       -|         2|        1|     -|       yes|     -|        -|          -|          -|    -|
+    +----------------------------------------+------+------+---------+--------+----------+---------+------+----------+------+---------+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* Other Ports
++------------+---------+-----------+----------+
+| Port       | Mode    | Direction | Bitwidth |
++------------+---------+-----------+----------+
+| image_in   | ap_none | in        | 8        |
+| image_out  | ap_vld  | out       | 8        |
+| num_pixels | ap_none | in        | 32       |
++------------+---------+-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++------------+-----------+-----------------------+
+| Argument   | Direction | Datatype              |
++------------+-----------+-----------------------+
+| image_in   | in        | unsigned char const * |
+| image_out  | out       | unsigned char*        |
+| num_pixels | in        | unsigned int          |
++------------+-----------+-----------------------+
+
+* SW-to-HW Mapping
++------------+------------------+---------+
+| Argument   | HW Interface     | HW Type |
++------------+------------------+---------+
+| image_in   | image_in         | port    |
+| image_out  | image_out        | port    |
+| image_out  | image_out_ap_vld | port    |
+| num_pixels | num_pixels       | port    |
++------------+------------------+---------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++-----------------------------------------+-----+--------+------------+-------+-----------+---------+
+| Name                                    | DSP | Pragma | Variable   | Op    | Impl      | Latency |
++-----------------------------------------+-----+--------+------------+-------+-----------+---------+
+| + rgb2gray_top                          | 3   |        |            |       |           |         |
+|  + load_rgb                             | 0   |        |            |       |           |         |
+|   + load_rgb_Pipeline_load_loop         | 0   |        |            |       |           |         |
+|     icmp_ln12_fu_61_p2                  |     |        | icmp_ln12  | seteq | auto      | 0       |
+|     add_ln12_fu_67_p2                   |     |        | add_ln12   | add   | fabric    | 0       |
+|  + process_gray                         | 3   |        |            |       |           |         |
+|   + process_gray_Pipeline_process_loop  | 3   |        |            |       |           |         |
+|     icmp_ln32_fu_83_p2                  |     |        | icmp_ln32  | seteq | auto      | 0       |
+|     i_2_fu_89_p2                        |     |        | i_2        | add   | fabric    | 0       |
+|     mac_muladd_13ns_8ns_23ns_23_4_1_U9  | 1   |        | mul_ln37   | mul   | dsp_slice | 3       |
+|     mac_muladd_13ns_8ns_23ns_23_4_1_U9  | 1   |        | zext_ln37  | zext  | dsp_slice | 3       |
+|     mul_8ns_16ns_23_1_1_U8              | 1   |        | mul_ln37_1 | mul   | auto      | 0       |
+|     mac_muladd_12ns_8ns_15ns_20_4_1_U10 | 1   |        | mul_ln37_2 | mul   | dsp_slice | 3       |
+|     mac_muladd_13ns_8ns_23ns_23_4_1_U9  | 1   |        | add_ln40_1 | add   | dsp_slice | 3       |
+|     mac_muladd_12ns_8ns_15ns_20_4_1_U10 | 1   |        | add_ln40_2 | add   | dsp_slice | 3       |
+|     add_ln40_fu_144_p2                  |     |        | add_ln40   | add   | fabric    | 0       |
+|  + store_gray                           | 0   |        |            |       |           |         |
+|    icmp_ln48_fu_61_p2                   |     |        | icmp_ln48  | seteq | auto      | 0       |
+|   + store_gray_Pipeline_store_loop      | 0   |        |            |       |           |         |
+|     icmp_ln48_fu_65_p2                  |     |        | icmp_ln48  | seteq | auto      | 0       |
+|     add_ln48_fu_71_p2                   |     |        | add_ln48   | add   | fabric    | 0       |
++-----------------------------------------+-----+--------+------------+-------+-----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-------------------+--------------+-------------+------+------+--------+---------------+------+---------+------------------+
+| Name              | Usage        | Type        | BRAM | URAM | Pragma | Variable      | Impl | Latency | Bitwidth, Depth, |
+|                   |              |             |      |      |        |               |      |         | Banks            |
++-------------------+--------------+-------------+------+------+--------+---------------+------+---------+------------------+
+| + rgb2gray_top    |              |             | 0    | 0    |        |               |      |         |                  |
+|   stream_rgb_U    | fifo channel | stream      |      |      |        | stream_rgb    | srl  | 0       | 24, 16, 1        |
+|   num_pixels_c1_U | fifo channel | scalar prop |      |      |        | num_pixels_c1 | srl  | 0       | 32, 2, 1         |
+|   stream_gray_U   | fifo channel | stream      |      |      |        | stream_gray   | srl  | 0       | 8, 16, 1         |
+|   num_pixels_c_U  | fifo channel | scalar prop |      |      |        | num_pixels_c  | srl  | 0       | 32, 2, 1         |
++-------------------+--------------+-------------+------+------+--------+---------------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++----------+-------------------------------+---------------------------------------------------------------------+
+| Type     | Options                       | Location                                                            |
++----------+-------------------------------+---------------------------------------------------------------------+
+| pipeline | II=1                          | tarea3_rgb2gray/rgb2gray_kernel.cpp:13 in load_rgb                  |
+| pipeline | II=1                          | tarea3_rgb2gray/rgb2gray_kernel.cpp:33 in process_gray              |
+| pipeline | II=1                          | tarea3_rgb2gray/rgb2gray_kernel.cpp:49 in store_gray                |
+| dataflow |                               | tarea3_rgb2gray/rgb2gray_kernel.cpp:58 in rgb2gray_top              |
+| stream   | variable=stream_rgb depth=16  | tarea3_rgb2gray/rgb2gray_kernel.cpp:65 in rgb2gray_top, stream_rgb  |
+| stream   | variable=stream_gray depth=16 | tarea3_rgb2gray/rgb2gray_kernel.cpp:66 in rgb2gray_top, stream_gray |
++----------+-------------------------------+---------------------------------------------------------------------+
+
+

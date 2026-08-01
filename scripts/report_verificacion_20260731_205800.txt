@@ -1,0 +1,38 @@
+==================================================================
+ Reporte de verificacion - EC4 MP6160 - Rol C
+ Fecha: 2026-07-31 20:58:00
+ Host:  diego-MS-7D48
+==================================================================
+
+[INFO] Imagen de entrada : ../systemc/sapo_perro.rgb
+
+---- Paso 1: Compilacion de herramientas ----
+[BUILD] Compilando golden_generate...
+[BUILD] golden_generate: OK
+[BUILD] Compilando compare_bitexact...
+[BUILD] compare_bitexact: OK
+
+---- Paso 2: Simulacion del sistema (opcional) ----
+[INFO] --run-sim no especificado. Se usa la salida ya existente del sistema.
+[INFO] Salida del sistema: ../systemc/sapo_perro_gray.raw
+
+---- Paso 3: Generacion del golden (independiente) ----
+[GOLDEN] Resolucion: 1920x1080
+[GOLDEN] Bytes RGB leidos: 6220800
+[GOLDEN] Bytes gris generados: 2073600
+[GOLDEN] Salida: golden_sapo_perro.gray
+[GOLDEN] GOLDEN_GENERATION_PASS
+[GOLDEN] Generado correctamente: golden_sapo_perro.gray
+
+---- Paso 4: Comparacion bit-exact ----
+[COMPARE] Resolucion: 1920x1080
+[COMPARE] Pixeles a verificar: 2073600
+[COMPARE] Pixeles verificados: 2073600/2073600
+[COMPARE] Diferencias encontradas: 0
+[COMPARE] GOLDEN_COMPARE_PASS
+
+==================================================================
+ RESULTADO FINAL: PASS (bit-exact)
+==================================================================
+
+Reporte completo guardado en: report_verificacion_20260731_205800.txt

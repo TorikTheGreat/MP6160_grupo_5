@@ -1,0 +1,95 @@
+{
+    "1": {
+        "name": "load_rgb_Pipeline_load_loop",
+        "file": "tarea3_rgb2gray\/rgb2gray_kernel.cpp",
+        "fileloc": "10",
+        "instructions": "16",
+        "total_instructions": "16",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "1"
+        },
+        "stores": {
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "2": {
+        "name": "load_rgb",
+        "file": "tarea3_rgb2gray\/rgb2gray_kernel.cpp",
+        "fileloc": "10",
+        "instructions": "9",
+        "total_instructions": "25",
+        "calls": "1",
+        "basicblocks": "1"
+    },
+    "3": {
+        "name": "store_gray",
+        "file": "tarea3_rgb2gray\/rgb2gray_kernel.cpp",
+        "fileloc": "47",
+        "instructions": "12",
+        "total_instructions": "31",
+        "calls": "5",
+        "basicblocks": "3",
+        "loads": {
+            "L": "1"
+        }
+    },
+    "4": {
+        "name": "process_gray_Pipeline_process_loop",
+        "file": "tarea3_rgb2gray\/rgb2gray_kernel.cpp",
+        "fileloc": "25",
+        "instructions": "32",
+        "total_instructions": "32",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "1"
+        },
+        "stores": {
+            "L": "2"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "5": {
+        "name": "store_gray_Pipeline_store_loop",
+        "file": "tarea3_rgb2gray\/rgb2gray_kernel.cpp",
+        "fileloc": "47",
+        "instructions": "19",
+        "total_instructions": "19",
+        "calls": "",
+        "basicblocks": "4",
+        "loads": {
+            "L": "2"
+        },
+        "stores": {
+            "L": "3"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "6": {
+        "name": "process_gray",
+        "file": "tarea3_rgb2gray\/rgb2gray_kernel.cpp",
+        "fileloc": "25",
+        "instructions": "9",
+        "total_instructions": "41",
+        "calls": "4",
+        "basicblocks": "1"
+    },
+    "0": {
+        "name": "rgb2gray_top",
+        "file": "rgb2gray_kernel.cpp",
+        "fileloc": "55",
+        "instructions": "25",
+        "total_instructions": "122",
+        "calls": "2 6 3",
+        "basicblocks": "1"
+    }
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="rgb2gray_kernel.h" path="/home/diego/MP6160_grupo_5/tarea3_rgb2gray/rgb2gray_kernel.h"/>
+    <originFiles name="rgb2gray_kernel.cpp" path="/home/diego/MP6160_grupo_5/tarea3_rgb2gray/rgb2gray_kernel.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="tb_kernel.cpp" path="/home/diego/MP6160_grupo_5/tarea3_rgb2gray/tb_kernel.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

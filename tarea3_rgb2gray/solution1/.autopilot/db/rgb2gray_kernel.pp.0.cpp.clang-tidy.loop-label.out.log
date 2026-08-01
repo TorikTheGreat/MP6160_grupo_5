@@ -1,0 +1,25 @@
+/home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp:1701:7: warning: Added loop label VITIS_LOOP_1223_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1223_1: 
+/home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp:1701:7: note: FIX-IT applied suggested code changes
+/home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp:2675:5: warning: Added loop label VITIS_LOOP_676_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_676_1: 
+/home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp:2675:5: note: FIX-IT applied suggested code changes
+/home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp:2689:5: warning: Added loop label VITIS_LOOP_690_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_690_1: 
+/home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp:2689:5: note: FIX-IT applied suggested code changes
+/home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp:2703:5: warning: Added loop label VITIS_LOOP_704_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_704_1: 
+/home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp:2703:5: note: FIX-IT applied suggested code changes
+/home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp:4320:7: warning: Added loop label VITIS_LOOP_1247_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1247_1: 
+/home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/.autopilot/db/rgb2gray_kernel.pp.0.cpp:4320:7: note: FIX-IT applied suggested code changes

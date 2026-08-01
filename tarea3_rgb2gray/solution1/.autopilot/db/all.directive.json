@@ -1,0 +1,23 @@
+[
+  {
+    "functionLabel": "",
+    "functionName": "rgb2gray_top",
+    "id": 0,
+    "ifcond": "",
+    "insert_position": "",
+    "label": "",
+    "pragma": {
+      "name": "TOP",
+      "option": [
+        {
+          "name": "name",
+          "value": "rgb2gray_top"
+        }
+      ]
+    },
+    "slx": false,
+    "sourceFile": "/home/diego/MP6160_grupo_5/tarea3_rgb2gray/solution1/csynth.tcl",
+    "sourceLine": 16,
+    "success": true
+  }
+]

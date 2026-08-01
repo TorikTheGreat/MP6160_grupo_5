@@ -1,0 +1,113 @@
+--- !Failure
+Pass:            reflow-syncheck
+Name:            AdderessOnRegister
+DebugLoc:        { File: tarea3_rgb2gray/rgb2gray_kernel.cpp, Line: 17, 
+                   Column: 19 }
+Function:        _Z8load_rgbPKhRN3hls6streamI5rgb_tLi0EEEj
+Args:            
+  - String:          Ignore address on register port
+  - String:          ' '''
+  - String:          in_ram
+  - String:          ''''
+...
+--- !Failure
+Pass:            reflow-syncheck
+Name:            AdderessOnRegister
+DebugLoc:        { File: tarea3_rgb2gray/rgb2gray_kernel.cpp, Line: 18, 
+                   Column: 19 }
+Function:        _Z8load_rgbPKhRN3hls6streamI5rgb_tLi0EEEj
+Args:            
+  - String:          Ignore address on register port
+  - String:          ' '''
+  - String:          in_ram
+  - String:          ''''
+...
+--- !Failure
+Pass:            reflow-syncheck
+Name:            AdderessOnRegister
+DebugLoc:        { File: tarea3_rgb2gray/rgb2gray_kernel.cpp, Line: 19, 
+                   Column: 19 }
+Function:        _Z8load_rgbPKhRN3hls6streamI5rgb_tLi0EEEj
+Args:            
+  - String:          Ignore address on register port
+  - String:          ' '''
+  - String:          in_ram
+  - String:          ''''
+...
+--- !Failure
+Pass:            reflow-syncheck
+Name:            AdderessOnRegister
+DebugLoc:        { File: tarea3_rgb2gray/rgb2gray_kernel.cpp, Line: 50, 
+                   Column: 13 }
+Function:        _Z10store_grayRN3hls6streamIhLi0EEEPhj
+Args:            
+  - String:          Ignore address on register port
+  - String:          ' '''
+  - String:          out_ram
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: tarea3_rgb2gray/rgb2gray_kernel.cpp, Line: 61, 
+                   Column: 21 }
+Function:        _Z12rgb2gray_topPKhPhj
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        'fifo (hls::stream)'
+  - String:          ' variable '''
+  - Name:            stream_rgb
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '24'
+  - String:          '-bits'
+...
+--- !Failure
+Pass:            reflow-syncheck
+Name:            AdderessOnRegister
+DebugLoc:        { File: tarea3_rgb2gray/rgb2gray_kernel.cpp, Line: 17, 
+                   Column: 19 }
+Function:        _Z8load_rgbPKhRN3hls6streamI5rgb_tLi0EEEj
+Args:            
+  - String:          Ignore address on register port
+  - String:          ' '''
+  - String:          in_ram
+  - String:          ''''
+...
+--- !Failure
+Pass:            reflow-syncheck
+Name:            AdderessOnRegister
+DebugLoc:        { File: tarea3_rgb2gray/rgb2gray_kernel.cpp, Line: 18, 
+                   Column: 19 }
+Function:        _Z8load_rgbPKhRN3hls6streamI5rgb_tLi0EEEj
+Args:            
+  - String:          Ignore address on register port
+  - String:          ' '''
+  - String:          in_ram
+  - String:          ''''
+...
+--- !Failure
+Pass:            reflow-syncheck
+Name:            AdderessOnRegister
+DebugLoc:        { File: tarea3_rgb2gray/rgb2gray_kernel.cpp, Line: 19, 
+                   Column: 19 }
+Function:        _Z8load_rgbPKhRN3hls6streamI5rgb_tLi0EEEj
+Args:            
+  - String:          Ignore address on register port
+  - String:          ' '''
+  - String:          in_ram
+  - String:          ''''
+...
+--- !Failure
+Pass:            reflow-syncheck
+Name:            AdderessOnRegister
+DebugLoc:        { File: tarea3_rgb2gray/rgb2gray_kernel.cpp, Line: 50, 
+                   Column: 13 }
+Function:        _Z10store_grayRN3hls6streamIhLi0EEEPhj
+Args:            
+  - String:          Ignore address on register port
+  - String:          ' '''
+  - String:          out_ram
+  - String:          ''''
+...
