@@ -1,0 +1,10 @@
+Verificación del paquete del rol A
+
+Comando ejecutado:
+  make test-all
+
+Resultado:
+  TODAS LAS PRUEBAS PORTABLES DEL ROL A FINALIZARON
+  RESULTADO WRAPPER PORTABLE: PASS
+  Solicitudes DPI atendidas: 4056
+  Comparación bit-exact: PASS
