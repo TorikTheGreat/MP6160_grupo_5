@@ -1,0 +1,15 @@
+tb/interfaces/axi4_if.sv
+tb/uvm/axi4_item.sv
+tb/uvm/axi4_sequencer.sv
+tb/uvm/axi4_driver.sv
+tb/uvm/axi4_monitor.sv
+tb/uvm/axi4_monitor_fixed.sv
+tb/uvm/axi4_scoreboard.sv
+tb/uvm/axi4_coverage.sv
+tb/uvm/axi4_agent.sv
+tb/uvm/axi4_env.sv
+tb/uvm/basic_test.sv
+tb/uvm/axi4_rolC_sequences.sv
+tb/uvm/axi4_rolC_tests.sv
+tb/uvm/dummy_slave.sv
+tb/tb_top_rolC.sv
