@@ -82,3 +82,79 @@ void wht_lossless_core(pixel_t block_in[N], pixel_t block_out[N]) {
         lifting_butterfly(tmp2[i], tmp2[i+4], block_out[i], block_out[i+4]);
     }
 }
+
+/**
+ * @brief Mariposa inversa basada en Lifting (S-Transform inversa).
+ * 
+ * Operación fundamental (datapath espacial) que revierte la mariposa original.
+ * Reconstruye los píxeles "a" y "b" a partir del promedio (s) y la diferencia (d)
+ * empleando sumas y restas exactas, sin multiplicadores, preservando el 
+ * enfoque de cero uso de DSPs.
+ * 
+ * El pragma HLS INLINE asegura que se expanda directamente como hardware combinacional.
+ * 
+ * @param s Entrada de baja frecuencia (promedio aproximado).
+ * @param d Entrada de alta frecuencia (diferencia).
+ * @param a Salida reconstruida superior.
+ * @param b Salida reconstruida inferior.
+ */
+inline void inverse_lifting_butterfly(pixel_t s, pixel_t d, pixel_t &a, pixel_t &b) {
+    #pragma HLS INLINE
+    
+    // Paso 1: Reconstruir "a" a partir de la aproximación
+    a = s + (d >> 1);
+    
+    // Paso 2: Reconstruir "b" a partir de la diferencia
+    b = a - d;
+}
+
+void wht_lossless_inverse(pixel_t block_in[N], pixel_t block_out[N]) {
+    // -------------------------------------------------------------------------
+    // DIRECTIVAS (PRAGMAS) DE OPTIMIZACIÓN HARDWARE
+    // -------------------------------------------------------------------------
+    #pragma HLS INTERFACE m_axi port=block_in offset=slave bundle=gmem
+    #pragma HLS INTERFACE m_axi port=block_out offset=slave bundle=gmem
+    #pragma HLS INTERFACE s_axilite port=block_in bundle=control
+    #pragma HLS INTERFACE s_axilite port=block_out bundle=control
+    #pragma HLS INTERFACE s_axilite port=return bundle=control
+
+    #pragma HLS PIPELINE II=1
+
+    // -------------------------------------------------------------------------
+    // REGISTRO DE ENTRADA
+    // -------------------------------------------------------------------------
+    pixel_t stage[N];
+    #pragma HLS ARRAY_PARTITION variable=stage complete dim=1
+    for(int i = 0; i < N; i++) {
+        #pragma HLS UNROLL
+        stage[i] = block_in[i];
+    }
+
+    // -------------------------------------------------------------------------
+    // DATAPATH INVERSO: 3 etapas de mariposas espaciales inversas
+    // Se invierte el orden de las etapas respecto a wht_lossless_core
+    // -------------------------------------------------------------------------
+    
+    // -- Etapa Inversa 1 (corresponde a Etapa 3 del forward) --
+    pixel_t tmp2[N]; 
+    #pragma HLS ARRAY_PARTITION variable=tmp2 complete dim=1
+    for(int i = 0; i < 4; i++) {
+        #pragma HLS UNROLL
+        inverse_lifting_butterfly(stage[i], stage[i+4], tmp2[i], tmp2[i+4]);
+    }
+
+    // -- Etapa Inversa 2 (corresponde a Etapa 2 del forward) --
+    pixel_t tmp1[N];
+    #pragma HLS ARRAY_PARTITION variable=tmp1 complete dim=1
+    for(int i = 0; i < 2; i++) {
+        #pragma HLS UNROLL
+        inverse_lifting_butterfly(tmp2[i*4], tmp2[i*4+2], tmp1[i*4], tmp1[i*4+2]);
+        inverse_lifting_butterfly(tmp2[i*4+1], tmp2[i*4+3], tmp1[i*4+1], tmp1[i*4+3]);
+    }
+
+    // -- Etapa Inversa 3 (corresponde a Etapa 1 del forward) --
+    for(int i = 0; i < 4; i++) {
+        #pragma HLS UNROLL
+        inverse_lifting_butterfly(tmp1[i*2], tmp1[i*2+1], block_out[i*2], block_out[i*2+1]);
+    }
+}

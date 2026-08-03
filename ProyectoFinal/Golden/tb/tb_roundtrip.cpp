@@ -17,7 +17,7 @@
 #include "wht_golden.h"
 
 int main() {
-    long long total = 0, rt_fail = 0, ovf = 0;
+    long long total = 0, rt_fail = 0, ovf = 0, ovf_inv = 0;
     std::srand(2025);
 
     // Corre round-trip (E5) siempre; overflow (E5b) solo si count_ovf.
@@ -30,11 +30,15 @@ int main() {
             if ((long long)rec[i] != (long long)blk[i]) { rt_fail++; break; }
 
         if (count_ovf) {                       // E5b: 16-bit vs precisión amplia
-            long long win[N], wout[N];
+            long long win[N], wout[N], wrec[N];
             for (int i = 0; i < N; i++) win[i] = (long long)blk[i];
             wht_forward_t<long long>(win, wout, N);
             for (int i = 0; i < N; i++)
                 if (wout[i] != (long long)fwd[i]) { ovf++; break; }
+                
+            wht_inverse_t<long long>(wout, wrec, N);
+            for (int i = 0; i < N; i++)
+                if (wrec[i] != (long long)rec[i]) { ovf_inv++; break; }
         }
     };
 
@@ -62,5 +66,8 @@ int main() {
     std::cout << "E5b overflow con entrada 8-bit        : " << ovf
               << (ovf ? "  HAY OVERFLOW (16 bits NO alcanzan)\n"
                       : "  0  (16 bits ALCANZAN para 8-bit)\n");
-    return (rt_fail || ovf) ? 1 : 0;
+    std::cout << "E5c overflow inverso con coefs 16-bit : " << ovf_inv
+              << (ovf_inv ? "  HAY OVERFLOW INVERSO\n"
+                          : "  0  (16 bits ALCANZAN en inverso)\n");
+    return (rt_fail || ovf || ovf_inv) ? 1 : 0;
 }

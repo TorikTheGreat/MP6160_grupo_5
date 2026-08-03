@@ -1,13 +1,13 @@
 #ifndef AP_INT_H_W3_SHIM
 #define AP_INT_H_W3_SHIM
 // =====================================================================
-//  Shim mínimo de ap_int<W> SOLO para verificación de W3 fuera de Vitis
+//  Shim mínimo de ap_int<W> SOLO para verificación fuera de Vitis
 // ---------------------------------------------------------------------
 //  He tenido algo de problemas para instalar vitis. Resulta que Vitis HLS 
 //  trae <ap_int.h> y lo necesito. Este header reemplaza ap_int<W> con un 
 //  entero nativo que hace wrap de complemento a 2 a W bits, replicando la 
 //  semántica de ap_int<W> para las unicas operaciones que usa el núcleo 
-//  de W1: + , - , >> (aritmético) y salida a std::ostream.
+//  del hardware: + , - , >> (aritmético) y salida a std::ostream.
 //
 //  Para esas operaciones con W<=16 (valores dentro de int) el resultado
 //  es BIT-IDENTICO a ap_int<W> de Vitis, así que no deberían haber problemas
@@ -18,7 +18,7 @@
 //  open-source de AMD (HLS_arbitrary_Precision_Types, MIT) mientras logro
 //  instalar vitis.
 //
-//  Este archivo no se sintetiza: es andamiaje de test. El código de W1
+//  Este archivo no se sintetiza: es andamiaje de test. El código de HLS
 //  queda intacto; se selecciona este header con -I .../Golden/compat.
 // =====================================================================
 

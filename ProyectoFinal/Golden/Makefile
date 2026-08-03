@@ -24,12 +24,15 @@ PGM      := $(addprefix $(DATA)/,flat.pgm ramp.pgm edges.pgm natural.pgm noise.p
 
 .PHONY: all verify systemc datasets entropy test clean
 
-all: $(BUILD)/tb_equivalence $(BUILD)/tb_roundtrip $(BUILD)/tb_sc $(BUILD)/entropy
+all: $(BUILD)/tb_equivalence $(BUILD)/tb_equivalence_inv $(BUILD)/tb_roundtrip $(BUILD)/tb_sc $(BUILD)/entropy
 
 $(BUILD):
 	mkdir -p $(BUILD)
 
 $(BUILD)/tb_equivalence: $(CORE)/wht_core.cpp src/wht_golden.cpp tb/tb_equivalence.cpp | $(BUILD)
+	$(CXX) $(CXXFLAGS) $(INC) $^ -o $@
+
+$(BUILD)/tb_equivalence_inv: $(CORE)/wht_core.cpp src/wht_golden.cpp tb/tb_equivalence_inv.cpp | $(BUILD)
 	$(CXX) $(CXXFLAGS) $(INC) $^ -o $@
 
 $(BUILD)/tb_roundtrip: src/wht_golden.cpp tb/tb_roundtrip.cpp | $(BUILD)
@@ -45,8 +48,9 @@ $(DATA)/.stamp: data/gen_datasets.py
 	python3 data/gen_datasets.py && touch $(DATA)/.stamp
 datasets: $(DATA)/.stamp
 
-verify: $(BUILD)/tb_equivalence $(BUILD)/tb_roundtrip
+verify: $(BUILD)/tb_equivalence $(BUILD)/tb_equivalence_inv $(BUILD)/tb_roundtrip
 	@echo "== E4: equivalencia golden vs nucleo W1 =="; ./$(BUILD)/tb_equivalence
+	@echo "== E4b: equivalencia golden inv vs nucleo W1 inv =="; ./$(BUILD)/tb_equivalence_inv
 	@echo "== E5/E5b: round-trip lossless + anti-overflow =="; ./$(BUILD)/tb_roundtrip
 
 systemc: $(BUILD)/tb_sc

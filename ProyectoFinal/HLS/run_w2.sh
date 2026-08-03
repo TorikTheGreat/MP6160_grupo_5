@@ -10,11 +10,11 @@ if ! command -v "$VITIS_HLS_EXE" >/dev/null 2>&1 && [[ ! -x "$VITIS_HLS_EXE" ]];
 fi
 
 pushd "$SCRIPT_DIR" >/dev/null
-echo "[W2] Running Vitis HLS synthesis..."
+echo "[HLS] Running Vitis HLS synthesis..."
 "$VITIS_HLS_EXE" -f "$SCRIPT_DIR/run_w2_hls.tcl"
 
-echo "[W2] Extracting preliminary metrics..."
+echo "[HLS] Extracting preliminary metrics..."
 "$SCRIPT_DIR/extract_metrics.sh"
 
-echo "[W2] Done"
+echo "[HLS] Done"
 popd >/dev/null

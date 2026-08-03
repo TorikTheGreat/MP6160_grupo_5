@@ -258,7 +258,7 @@ The proposed system performs an integer and reversible Walsh-Hadamard Transform 
 This design boundary allows the evaluation of only the hardware associated with the transform itself, quantifying its efficiency in terms of resource utilization and performance without being influenced by the compression ratio of a complete codec.
 \subsection{High-Level Architecture}
 
-The proposed architecture consists of four main functional blocks, as illustrated in Fig. 1.
+The proposed architecture consists of five main functional blocks, as illustrated in Fig. 1.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.42\textwidth]{wht_architecture.png}
@@ -276,17 +276,21 @@ The computational core of the accelerator was designed in Vitis HLS utilizing a 
 
 The fundamental spatial decorrelation step between two pixels $a$ and $b$ is implemented purely through high-frequency differences ($d = a - b$) and low-frequency shifted averages ($s = a - (d \gg 1)$). This specific subexpression routing is synthesized by the HLS compiler completely into LUTs and Flip-Flops, bypassing any DSP slice instantiation.
 
-To maximize datapath throughput for real-time video, the transform operations for a block size of $N=8$ were flattened into three pipeline stages. We enforce maximal hardware concurrency by applying the \texttt{\#pragma HLS PIPELINE II=1} and \texttt{\#pragma HLS UNROLL} directives. Additionally, variables were strictly constrained using HLS arbitrary precision integers (\texttt{ap\_int<16>}), which prevents the datapath from unnecessarily routing 32-bit standard C++ integer bounds, ensuring a highly resource-efficient mapping on the Kria KV260 architecture. The complete HLS source code for the transform core is publicly available in our repository \cite{repo_grupo5}.
+To maximize datapath throughput for real-time video, the transform operations for a block size of $N=8$ were flattened into three combinational butterfly stages. The reported processing latency of 150 cycles is not due to the combinational datapath itself, but rather arises from the \texttt{m\_axi} memory transactions required to read and write the data bursts. We enforce maximal hardware concurrency by applying the \texttt{\#pragma HLS PIPELINE II=1} and \texttt{\#pragma HLS UNROLL} directives. Additionally, variables were strictly constrained using HLS arbitrary precision integers (\texttt{ap\_int<16>}), which prevents the datapath from unnecessarily routing 32-bit standard C++ integer bounds, ensuring a highly resource-efficient mapping on the Kria KV260 architecture. The complete HLS source code for the transform core is publicly available in our repository \cite{repo_grupo5}.
 
 \subsubsection{Control Unit}
 
 The control unit manages the overall operation of the accelerator. Although it does not directly perform the WHT computation, it coordinates when pixel blocks enter the system, when temporary data are stored in registers, and when results are forwarded to the next pipeline stage. Furthermore, it synchronizes processing to prevent data conflicts and enables architectural parallelism through control signals such as enable, valid, and ready.
 
-\subsubsection{Memory Interface (AXI/TLM)}
+\subsubsection{Output Interface and Packaging}
 
-This module manages data transfers between the accelerator and the external memory subsystem. The use of AXI/TLM interfaces facilitates integration into FPGA-SoC platforms such as the Kria KV260 and Alveo U55C, allowing the accelerator to be incorporated into larger embedded processing systems.
+This module collects the transformed coefficients and packages them for transmission or subsequent entropy coding. Like the input buffer, it is part of the system-level integration.
 
-The current implementation and evaluation focus on the WHT computational core. The control unit, input buffering, and external-memory interfaces remain part of the proposed system-level integration and were not independently evaluated in the reported experiments.
+\subsubsection{Memory Interface (AXI4/AXI4-Lite)}
+
+This module manages data transfers between the accelerator and the external memory subsystem. The use of AXI4 and AXI4-Lite interfaces facilitates integration into FPGA-SoC platforms such as the Kria KV260 and Alveo U55C, allowing the accelerator to be incorporated into larger embedded processing systems.
+
+The current implementation and evaluation focus on the WHT computational core. The control unit, input buffering, output packaging, and external-memory interfaces remain part of the proposed system-level integration and were not independently evaluated in the reported experiments.
 
 \subsection{Challenge--Solution Mapping}
 

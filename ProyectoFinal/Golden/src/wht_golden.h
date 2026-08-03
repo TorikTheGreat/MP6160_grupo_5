@@ -3,20 +3,20 @@
 // =====================================================================
 //  Golden de referencia: FWHT lossless multiplier-free
 // 
-//  Reutiliza pixel_t (ap_int<16>) del núcleo de W1 para que la
+//  Reutiliza pixel_t (ap_int<16>) del núcleo HLS para que la
 //  comparación sea bit-exacta. El núcleo del algoritmo está templado por
 //  el tipo numérico T:
-//    - T = pixel_t (ap_int<16>) : replica bit-exacto a W1 (wrap 16-bit).
+//    - T = pixel_t (ap_int<16>) : replica bit-exacto al HW (wrap 16-bit).
 //    - T = long long            : precisión "amplia" sin wrap, usada como
 //                                 referencia anti-overflow.
 //
 //  Mariposa lifting (reversible, solo +,-,>>):
 //    Forward:  d = a - b ;  s = a - (d>>1)     out[bajo]=s, out[alto]=d
 //    Inverse:  a = s + (d>>1) ;  b = a - d      (deshace lo anterior)
-//  Convención (igual que W1): s (baja frec.) al índice bajo, d al alto.
+//  Convención (igual que HW): s (baja frec.) al índice bajo, d al alto.
 //
 //  Etapas: el tamaño de bloque m recorre 2,4,...,n en forward y n,...,4,2
-//  en inverse. En N=8 son las 3 etapas de W1 con strides 1,2,4.
+//  en inverse. En N=8 son las 3 etapas del HW con strides 1,2,4.
 // =====================================================================
 #include "wht_core.h"   // pixel_t, N
 

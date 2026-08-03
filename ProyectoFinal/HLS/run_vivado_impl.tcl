@@ -4,21 +4,30 @@
 #   vivado -mode batch -source run_vivado_impl.tcl
 #
 
+set top_name "wht_lossless_core"
+set solution_name "solution_kv260"
+set hls_work_dir_name "wht_hls_work"
+set vivado_out_dir_name "vivado_work"
+
+if {[info exists ::env(WHT_TOP)]} { set top_name $::env(WHT_TOP) }
+if {[info exists ::env(WHT_SOL)]} { set solution_name $::env(WHT_SOL) }
+if {[info exists ::env(WHT_DIR)]} { set hls_work_dir_name $::env(WHT_DIR) }
+if {[info exists ::env(WHT_VIV_DIR)]} { set vivado_out_dir_name $::env(WHT_VIV_DIR) }
+
 set script_dir [file normalize [file dirname [info script]]]
-set rtl_dir [file normalize "$script_dir/wht_hls_work/wht_hls/solution_kv260/syn/verilog"]
-set out_dir [file normalize "$script_dir/vivado_work"]
+set rtl_dir [file normalize "$script_dir/$hls_work_dir_name/wht_hls/$solution_name/syn/verilog"]
+set out_dir [file normalize "$script_dir/$vivado_out_dir_name"]
 
 file mkdir $out_dir
 
 set part_name xcvc1902-vsva2197-2MP-e-S
-set top_name wht_lossless_core
 
 # Reference clock only to enable timing analysis.
 # Final fmax is extracted from post-route critical data path delay.
 set analysis_clock_period_ns 10.000
 
-puts "\[W2/Vivado\] RTL dir: $rtl_dir"
-puts "\[W2/Vivado\] Output dir: $out_dir"
+puts "\[Vivado\] RTL dir: $rtl_dir"
+puts "\[Vivado\] Output dir: $out_dir"
 
 set rtl_files [glob -nocomplain "$rtl_dir/*.v"]
 if {[llength $rtl_files] == 0} {
@@ -64,6 +73,6 @@ puts $summary_file "wns_ns=$wns"
 puts $summary_file "datapath_delay_ns=$dpd"
 close $summary_file
 
-puts "\[W2/Vivado\] Implementation completed"
-puts "\[W2/Vivado\] Reports at: $out_dir"
+puts "\[Vivado\] Implementation completed"
+puts "\[Vivado\] Reports at: $out_dir"
 exit

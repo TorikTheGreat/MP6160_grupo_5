@@ -33,7 +33,7 @@ int main() {
     }
     
     // 4. Mensaje de confirmación
-    std::cout << "\n\nSimulacion Exitosa! El modelo esta documentado y listo para W2 y W3." << std::endl;
+    std::cout << "\n\nSimulacion Exitosa! El modelo esta documentado y listo." << std::endl;
     
     return 0; // Código 0 indica a Vitis HLS que el testbench no tuvo errores.
 }

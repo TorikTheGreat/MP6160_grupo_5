@@ -12,7 +12,7 @@
 #include <systemc.h>
 #include <cstdlib>
 #include "wht_golden_sc.h"   // DUT
-#include "wht_core.h"        // núcleo de W1 para comparar
+#include "wht_core.h"        // núcleo HLS para comparar
 #include "wht_golden.h"      // funciones puras (inverse para el round-trip)
 
 SC_MODULE(Driver) {
@@ -39,7 +39,7 @@ SC_MODULE(Driver) {
         run_block(in, coef);
         total++;
 
-        // mismo resultado que el núcleo de W1
+        // mismo resultado que el núcleo HLS
         pixel_t w_in[N], w[N];
         for (int i = 0; i < N; i++) w_in[i] = in[i];
         wht_lossless_core(w_in, w);
@@ -83,7 +83,7 @@ SC_MODULE(Driver) {
             check(b);
         }
 
-        std::cout << "E4 equivalencia vs nucleo W1 : " << (total - fail_eq) << "/" << total
+        std::cout << "E4 equivalencia vs nucleo HLS : " << (total - fail_eq) << "/" << total
                   << (fail_eq ? "  FALLA\n" : "  PASA\n");
         std::cout << "E5 round-trip lossless       : " << (total - fail_rt) << "/" << total
                   << (fail_rt ? "  FALLA\n" : "  PASA\n");
