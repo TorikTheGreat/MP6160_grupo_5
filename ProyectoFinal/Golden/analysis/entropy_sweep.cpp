@@ -199,6 +199,27 @@ static void run2d(const std::vector<int> &px, int w, int h, int n,
     band_out = mean_band_entropy(band, m_out);
 }
 
+// Cota exhaustiva del coeficiente maximo con entrada de 8 bits.
+// El forward es monotono en cada operando y en cada mariposa los dos operandos
+// dependen de subconjuntos DISJUNTOS de la entrada, asi que el extremo se
+// alcanza en una "esquina": un vector de {0,255}^n. Con n<=16 se barren las
+// 2^n esquinas de forma exhaustiva. Respalda la afirmacion del articulo de que
+// ap_int<16> basta (limite 32767).
+static long long corner_max(int n) {
+    long long mx = 0;
+    for (long long m = 0; m < (1LL << n); m++) {
+        pixel_t in[NMAX], out[NMAX];
+        for (int i = 0; i < n; i++) in[i] = ((m >> i) & 1) ? 255 : 0;
+        wht_forward(in, out, n);
+        for (int i = 0; i < n; i++) {
+            long long v = (long long)out[i];
+            if (v < 0) v = -v;
+            if (v > mx) mx = v;
+        }
+    }
+    return mx;
+}
+
 int main(int argc, char **argv) {
     if (argc < 2) { std::printf("uso: entropy_sweep img1.pgm [img2.pgm ...]\n"); return 1; }
 
@@ -270,6 +291,16 @@ int main(int argc, char **argv) {
         std::printf("%-11s | %6.3f %6.3f %6.3f | %.3f bits\n",
                     name, e1, e2, e4, e1 - e4);
     }
+
+    // --- Cota exhaustiva del rango dinamico -----------------------------
+    std::printf("\nCota exhaustiva del coeficiente maximo con entrada 8-bit\n");
+    std::printf("(barrido de las 2^N esquinas {0,255}^N; limite de ap_int<16> = 32767):\n");
+    for (int n = 8; n <= 16; n *= 2) {
+        long long mx = corner_max(n);
+        std::printf("  N=%-3d |c|max = %-6lld  margen = %.1fx\n",
+                    n, mx, 32767.0 / (double)mx);
+    }
+    std::printf("  N=32  cota por duplicacion = 4080 (2^32 esquinas: no exhaustivo)\n");
 
     std::printf("\nLectura:\n");
     std::printf(" - 'ovf' cuenta bloques donde ap_int<16> difiere de la aritmetica amplia.\n");

@@ -250,7 +250,7 @@ Based on the critical study of the state of the art, the fundamental architectur
 
 As a third challenge, there is a need to strongly justify the choice of the WHT over competing integer transforms such as the DCT or wavelets. Because the WHT exhibits inferior performance in lossy compression quality \cite{regorsek2024}, the proposed architecture must be empirically evaluated in terms of logic area cost and maximum operating frequency in a lossless environment. The fourth challenge focuses on ensuring real-time operational performance for high-frame-rate video streams, which forces the design of a datapath with a highly optimized transaction-level data flow that minimizes stall cycles under the strict thermal and power constraints of embedded systems \cite{amira2007}. Finally, the fifth challenge corresponds to the verification of bit-exact
 reproducibility. To ensure identical reconstruction of the original data, a
-bit-accurate SystemC reference model was developed and used as the verification
+bit-accurate reference model was developed and used as the verification
 oracle for deterministic and randomized comparisons against the HLS implementation.
 
 
@@ -347,8 +347,8 @@ post-route FPGA metrics.
 
 \subsection{Experimental Setup and Toolchain}
 A bit-accurate reference model of the transform was implemented in C++ with a
-SystemC~2.3.4 transaction-level wrapper, compiled with g++~13.3.0, and used as the
-verification oracle. The model reproduces
+SystemC~2.3.4 signal-level wrapper (clock and \texttt{start}/\texttt{done}
+handshake), compiled with g++~13.3.0. The model reproduces
 the integer lifting butterfly of both synthesizable cores, forward and inverse.
 The register-transfer implementation 
 was obtained through high-level synthesis with AMD Xilinx Vitis~HLS and synthesized 
@@ -406,8 +406,8 @@ both produce identical coefficients, with no divergence. Second,
 \emph{inverse equivalence}: the reference inverse and the synthesizable inverse
 core agree over a fixed vector and $10^5$ random coefficient vectors drawn from
 the full signed 16-bit range, a wider stimulus than the forward test uses.
-Both checks link the synthesizable sources directly, so a defect in either core
-would be caught. Third, \emph{losslessness}: cascading the two synthesizable cores recovers the
+Both checks link the synthesizable sources directly, so each core is exercised
+against an independent reference over its own input range. Third, \emph{losslessness}: cascading the two synthesizable cores recovers the
 input exactly over $4\times10^5$ blocks, including the full signed 16-bit range.
 This check is separate from the equivalence tests and necessary: the forward
 core is exercised on 8-bit inputs, whose coefficients occupy a small region of
@@ -428,8 +428,8 @@ register-transfer description itself is not covered. And the reference model and
 the core implement the lifting butterfly with the same two expressions, which
 means these checks detect indexing and stage-ordering errors --- as the
 inverse-equivalence check does by construction --- but would not detect an error
-in the shared formula. The SystemC wrapper is a transaction-level driver around
-the same reference functions and exercises $2001$ cases; the large-sample
+in the shared formula. The SystemC wrapper drives the same reference functions
+through a clocked interface and exercises $2001$ cases; the large-sample
 evidence above comes from the C++ test benches.
 
 \subsection{Entropy Reduction}
@@ -524,8 +524,8 @@ hardware efficiency.
 
 A conventional C++ implementation of the forward Walsh--Hadamard Transform
 (FWHT) was also developed as a functional baseline for future architectural and
-resource comparisons. This baseline is independent of the bit-accurate SystemC
-golden model used to verify the reversible lifting-based HLS core.
+resource comparisons. This baseline is independent of the bit-accurate golden
+model used to verify the reversible lifting-based HLS core.
 
 
 
@@ -594,8 +594,7 @@ trade-offs.
 % cores are compared against the reference model, but the generated RTL is not
 % covered by cosimulation, and the reference model and the cores share the same
 % lifting expressions, so an error in that shared formula would not be detected.
-% The reversibility check over $4\times10^5$ cases runs on the reference model
-% alone. All hardware figures come from a single device and a single family, and
+% All hardware figures come from a single device and a single family, and
 % from post-route reports only: no measurements on a physical board were taken,
 % and power was not estimated. Finally, the five images are synthetic and
 % generated from a fixed seed; the ``natural'' case is a $1/f$ surface with
