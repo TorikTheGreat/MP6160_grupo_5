@@ -331,25 +331,61 @@ Overall, the proposed architecture provides a feasible FPGA implementation of a 
 %% =====================================================================
 \section{Results and Analysis}
 
+This section presents the experimental methodology used to evaluate the proposed
+accelerator and to contrast it against the state of the art, covering the modeling
+and synthesis toolchain, the experiments and baselines, and the metrics collected
+for the comparison. In addition to entropy and bit-exactness checks, we report 
+post-route FPGA metrics.
 
-This section reports both functional behavior and hardware implementation
-evidence for the proposed $N=8$ lossless WHT core. In addition to entropy and
-bit-exactness checks, we include post-route FPGA metrics like critical datapath delay, implemented maximum frequency, timing slack, and
-resource utilization.
+\subsection{Experimental Setup and Toolchain}
+A bit-accurate reference model of the transform was implemented in SystemC~2.3.4
+compiled with g++~13.3.0, and used as the verification oracle. The model reproduces 
+the integer lifting butterfly of the HLS core and adds the inverse transform, 
+which the synthesizable core does not implement. The register-transfer implementation 
+was obtained through high-level synthesis with AMD Xilinx Vitis~HLS and synthesized 
+with Vivado, targeting the AMD Kria~KV260 (Zynq UltraScale+ MPSoC, part 
+\texttt{xck26-sfvc784-2LV-c}) platform. Synthesis was constrained with a 4~ns 
+clock period in HLS and a 10~ns clock period for out-of-context Vivado implementation. 
+All hardware metrics are extracted from post-route reports, as no on-board 
+measurements were performed.
 
-\subsection{Experimental Setup}
-A bit-accurate reference model of the transform was implemented in SystemC and
-used as the verification oracle. The model reproduces the integer lifting
-butterfly of the HLS core and adds the inverse transform, which the
-synthesizable core does not implement. All experiments are reproducible from the
-public repository \cite{repo_grupo5}: the reference model, the test benches, and
-the datasets are generated deterministically from a fixed seed. The evaluation
-uses five 8-bit grayscale $256\times256$ images spanning the range of spatial
-correlation: a constant field, a linear ramp, a piecewise-constant image with
-sharp edges, a $1/f$ surface with spatial correlation similar to natural images,
-and white noise as a control. The transform is applied over one-dimensional
-$N=8$ strips, matching the hardware; a separable two-dimensional variant
-(row then column) is also evaluated as a software-only extension.
+\subsection{Experiments and Baselines}
+All experiments are reproducible from the public repository \cite{repo_grupo5}: 
+the reference model, the test benches, and the datasets are generated 
+deterministically from a fixed seed. The evaluation uses five 8-bit grayscale 
+$256\times256$ images spanning the range of spatial correlation: a constant field, 
+a linear ramp, a piecewise-constant image with sharp edges, a $1/f$ surface with 
+spatial correlation similar to natural images, and white noise as a control. The 
+transform is applied over one-dimensional $N=8$ strips, matching the hardware; 
+a separable two-dimensional variant (row then column) is also evaluated as a 
+software-only extension.
+
+The proposed architecture is contrasted against a baseline consisting of a standard 
+lossless WHT realized with multipliers (a standard lifting/ladder mapping), 
+synthesized on the same target to isolate the DSP savings attributable to the 
+multiplier-free core.
+
+\subsection{Evaluation Metrics}
+Two metric axes were collected (Table~\ref{tab:expplan}). Hardware efficiency was 
+measured by look-up table (LUT), flip-flop (FF), and DSP-block utilization, the 
+maximum operating frequency ($f_{\max}$), processing latency, and throughput in 
+operations per second. 
+Compression behavior was assessed by bit-exact lossless verification against the 
+golden model and by the per-coefficient entropy reduction in bits per symbol.
+
+\begin{table}[htbp]
+\caption{Evaluation Metrics}
+\label{tab:expplan}
+\centering
+\begin{tabular}{@{}ll@{}}
+\hline
+\textbf{Axis} & \textbf{Metrics} \\
+\hline
+Hardware cost & LUT, FF, DSP, $f_{\max}$, latency, throughput (OP/s) \\
+Compression   & bit-exact verification, entropy reduction (bits/pixel) \\
+\hline
+\end{tabular}
+\end{table}
 
 \subsection{Functional Verification}
 Two properties were checked. First, source-level equivalence (at the C/C++ level, before synthesis) between the
