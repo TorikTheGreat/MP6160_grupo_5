@@ -64,10 +64,12 @@ and reversible Walsh--Hadamard Transform intended for lossless image
 compression. The proposed architecture uses a lifting-based formulation
 composed only of additions, subtractions, and arithmetic shifts, avoiding DSP
 blocks while preserving exact reconstruction. The transform core was
-implemented using Vitis HLS and evaluated through a bit-accurate SystemC
-reference model. Functional verification showed exact agreement between the
-reference model and the HLS implementation over more than 100,000 random input
-blocks, while lossless reconstruction was confirmed over 400,000 cases. For
+implemented using Vitis HLS and evaluated against a bit-accurate reference
+model. Source-level functional verification showed exact agreement between the
+reference model and the synthesizable forward and inverse cores over more than
+100,000 random blocks each, and exact reconstruction through the cascaded
+forward and inverse cores was confirmed over 400,000 cases; no C/RTL
+cosimulation was performed. For
 8-bit input data, a 16-bit datapath was sufficient without overflow. Entropy
 experiments showed reductions of approximately 20\% for spatially correlated
 natural-like data and up to 92\% for highly structured images. Post-route
@@ -324,7 +326,7 @@ A fully pipelined datapath was implemented with an initiation interval of one cy
 \\ \hline
 
 D5 -- Bit-Exact Lossless Reconstruction &
-The reversible lifting-based formulation guarantees exact reconstruction. A bit-accurate SystemC model was used to perform sample-by-sample comparisons against the HLS core.
+The reversible lifting-based formulation guarantees exact reconstruction. A bit-accurate reference model performs sample-by-sample comparisons against the forward and inverse HLS cores at the C/C++ source level; verification against the generated RTL is not covered and remains as future work.
 \\ \hline
 
 \end{tabular}
@@ -344,10 +346,11 @@ for the comparison. In addition to entropy and bit-exactness checks, we report
 post-route FPGA metrics.
 
 \subsection{Experimental Setup and Toolchain}
-A bit-accurate reference model of the transform was implemented in SystemC~2.3.4
-compiled with g++~13.3.0, and used as the verification oracle. The model reproduces 
-the integer lifting butterfly of the HLS core and adds the inverse transform, 
-which the synthesizable core does not implement. The register-transfer implementation 
+A bit-accurate reference model of the transform was implemented in C++ with a
+SystemC~2.3.4 transaction-level wrapper, compiled with g++~13.3.0, and used as the
+verification oracle. The model reproduces
+the integer lifting butterfly of both synthesizable cores, forward and inverse.
+The register-transfer implementation 
 was obtained through high-level synthesis with AMD Xilinx Vitis~HLS and synthesized 
 with Vivado, targeting the AMD Kria~KV260 (Zynq UltraScale+ MPSoC, part 
 \texttt{xck26-sfvc784-2LV-c}) platform. Synthesis was constrained with a 4~ns 
@@ -394,14 +397,40 @@ Compression   & bit-exact verification, entropy reduction (bits/pixel) \\
 \end{table}
 
 \subsection{Functional Verification}
-Two properties were checked. First, source-level equivalence (at the C/C++ level, before synthesis) between the
-reference model and the HLS core: over a fixed test vector and $10^5$ random
-8-bit blocks both produce identical coefficients, with no divergence. Second,
-losslessness: the inverse of the forward transform recovers the input exactly
-over $4\times10^5$ blocks, including the full signed 16-bit range, which confirms
-that the construction is exactly reversible. A separate check compares the
-16-bit datapath against an extended-precision (wide-integer) reference that cannot wrap and finds no overflow for
-8-bit input, so 16 bits are sufficient for the target dynamic range.
+Three properties were checked, and we state for each one what it does and does
+not cover.
+
+First, \emph{forward equivalence} between the reference model and the
+synthesizable core: over a fixed test vector and $10^5$ random 8-bit blocks,
+both produce identical coefficients, with no divergence. Second,
+\emph{inverse equivalence}: the reference inverse and the synthesizable inverse
+core agree over a fixed vector and $10^5$ random coefficient vectors drawn from
+the full signed 16-bit range, a wider stimulus than the forward test uses.
+Both checks link the synthesizable sources directly, so a defect in either core
+would be caught. Third, \emph{losslessness}: cascading the two synthesizable cores recovers the
+input exactly over $4\times10^5$ blocks, including the full signed 16-bit range.
+This check is separate from the equivalence tests and necessary: the forward
+core is exercised on 8-bit inputs, whose coefficients occupy a small region of
+the 16-bit space, while the inverse core is exercised on uniform 16-bit vectors,
+so neither equivalence test covers the composition. An equivalent check on the
+reference model confirms that the lifting construction itself is reversible.
+
+Regarding dynamic range, an 8-bit input cannot overflow the 16-bit datapath:
+exhaustive evaluation over the extreme inputs $\{0,255\}^8$ gives a largest
+coefficient magnitude of $1020$, well inside the range of a signed 16-bit word.
+The same bound holds for $N=16$ ($2040$), so the datapath width is not a
+constraint on larger block sizes.
+
+Two limits of this verification should be stated explicitly. It is
+\emph{source-level} equivalence, obtained by compiling the synthesizable sources
+with a host compiler: no C/RTL cosimulation was performed, so the generated
+register-transfer description itself is not covered. And the reference model and
+the core implement the lifting butterfly with the same two expressions, which
+means these checks detect indexing and stage-ordering errors --- as the
+inverse-equivalence check does by construction --- but would not detect an error
+in the shared formula. The SystemC wrapper is a transaction-level driver around
+the same reference functions and exercises $2001$ cases; the large-sample
+evidence above comes from the C++ test benches.
 
 \subsection{Entropy Reduction}
 Since the accelerator implements the transform stage only, its benefit is
@@ -433,11 +462,27 @@ Noise   & 8.00 & 8.75 & 8.20 & 8.77 & 7.84 \\
 \end{tabular}
 \end{table}
 
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=0.46\textwidth]{wht_reconstruction.png}}
+\caption{Energy compaction and exact reconstruction on the natural-like image,
+using the same one-dimensional $N{=}8$ transform that the synthesized core
+implements. (b) regroups the coefficients by frequency band into eight vertical
+strips on a square-root magnitude scale: the leftmost strip is the DC band and
+retains a recognizable, horizontally compressed version of the image, while the
+seven detail bands are close to zero. That concentration is what the entropy
+reduction of Table~\ref{tab:entropy} measures. (d) is identically zero, which is
+the lossless property.}
+\label{fig:reconstruction}
+\end{figure}
+
 The reduction tracks the spatial correlation of the input. Smooth images (ramp,
 edges) concentrate almost all information in the DC band and drive the detail
 bands to zero entropy, giving per-band reductions of $87$--$92\%$. For the
 natural-like image the per-band reduction is $20\%$ in one dimension and $27\%$
-for the separable two-dimensional transform. White noise, having no spatial
+for the separable two-dimensional transform; in absolute terms the second
+dimension adds $0.50$ bits/symbol on top of the $1.50$ that the
+one-dimensional transform already recovers. Fig.~\ref{fig:reconstruction}
+shows both effects on that image. White noise, having no spatial
 correlation, is not improved by the transform and serves as a control; its
 coefficient entropy even exceeds the 8 bits of the input because the
 coefficients span a wider dynamic range than the pixels, which is also why the
@@ -523,6 +568,45 @@ trade-offs.
 %% =====================================================================
 % \section{Conclusions and Future Work}
 % TODO (final): síntesis de hallazgos, limitaciones y trabajo futuro.
+%
+% ---------------------------------------------------------------------
+% BORRADOR DE LIMITACIONES (W3) — listo para insertar dentro de esta
+% sección cuando se escriba. Cubre el indicador de rúbrica "se identifican
+% limitaciones en la generalización del diseño" (5 pts).
+%
+% No se inserta ya por dos motivos: (a) la sección que lo contiene todavía
+% no existe, y (b) el cuerpo del artículo llega a la página 6, que es el
+% límite del enunciado sin contar referencias. Si hay que recortar, las
+% cuatro primeras son las que un tribunal pregunta.
+%
+% Cada afirmación está comprobada contra el repo; el detalle y la
+% justificación punto por punto están en proyecto/defensa-w3-limitaciones.md
+% ---------------------------------------------------------------------
+%
+% \subsection{Limitations}
+% The scope of these results should be read with the following limits in mind.
+% The synthesized core is fixed at $N=8$: the block size is a compile-time
+% constant, so the design-space exploration reported here is over the reference
+% model, not over synthesized variants. The core is one-dimensional; the
+% separable two-dimensional results are a software extension of the model, and
+% they recover an additional $0.50$ bits/symbol that the hardware does not
+% deliver. Verification is at the C/C++ source level: the forward and inverse
+% cores are compared against the reference model, but the generated RTL is not
+% covered by cosimulation, and the reference model and the cores share the same
+% lifting expressions, so an error in that shared formula would not be detected.
+% The reversibility check over $4\times10^5$ cases runs on the reference model
+% alone. All hardware figures come from a single device and a single family, and
+% from post-route reports only: no measurements on a physical board were taken,
+% and power was not estimated. Finally, the five images are synthetic and
+% generated from a fixed seed; the ``natural'' case is a $1/f$ surface with
+% image-like spatial correlation, not a camera frame, so the $20\%$ per-band
+% reduction should be read as representative of that correlation structure rather
+% than as a measurement on real video.
+%
+% OJO al insertarla: la limitación "forward-only" ya NO aplica (el núcleo
+% inverso existe), pero articulo.tex:350 todavía dice lo contrario. Las dos
+% cosas hay que arreglarlas juntas, y en ese orden importa: ver el aviso 4
+% en proyecto/avisos-grupo.md.
 
 %% --------------------- DECLARACIÓN DE USO DE IA ---------------------
 \section*{Declaration on the Use of Generative AI}
