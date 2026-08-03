@@ -407,7 +407,7 @@ both produce identical coefficients, with no divergence. Second,
 core agree over a fixed vector and $10^5$ random coefficient vectors drawn from
 the full signed 16-bit range, a wider stimulus than the forward test uses.
 Both checks link the synthesizable sources directly, so each core is exercised
-against an independent reference over its own input range. Third, \emph{losslessness}: cascading the two synthesizable cores recovers the
+over its own input range. Third, \emph{losslessness}: cascading the two synthesizable cores recovers the
 input exactly over $4\times10^5$ blocks, including the full signed 16-bit range.
 This check is separate from the equivalence tests and necessary: the forward
 core is exercised on 8-bit inputs, whose coefficients occupy a small region of
@@ -418,7 +418,7 @@ reference model confirms that the lifting construction itself is reversible.
 Regarding dynamic range, an 8-bit input cannot overflow the 16-bit datapath:
 exhaustive evaluation over the extreme inputs $\{0,255\}^8$ gives a largest
 coefficient magnitude of $1020$, well inside the range of a signed 16-bit word.
-The same bound holds for $N=16$ ($2040$), so the datapath width is not a
+The corresponding bound for $N=16$ is $2040$, so the datapath width is not a
 constraint on larger block sizes.
 
 Two limits of this verification should be stated explicitly. It is
@@ -569,43 +569,30 @@ trade-offs.
 % \section{Conclusions and Future Work}
 % TODO (final): síntesis de hallazgos, limitaciones y trabajo futuro.
 %
-% ---------------------------------------------------------------------
-% BORRADOR DE LIMITACIONES (W3) — listo para insertar dentro de esta
-% sección cuando se escriba. Cubre el indicador de rúbrica "se identifican
-% limitaciones en la generalización del diseño" (5 pts).
-%
-% No se inserta ya por dos motivos: (a) la sección que lo contiene todavía
-% no existe, y (b) el cuerpo del artículo llega a la página 6, que es el
-% límite del enunciado sin contar referencias. Si hay que recortar, las
-% cuatro primeras son las que un tribunal pregunta.
-%
-% Cada afirmación está comprobada contra el repo; el detalle y la
-% justificación punto por punto están en proyecto/defensa-w3-limitaciones.md
-% ---------------------------------------------------------------------
-%
-% \subsection{Limitations}
-% The scope of these results should be read with the following limits in mind.
-% The synthesized core is fixed at $N=8$: the block size is a compile-time
-% constant, so the design-space exploration reported here is over the reference
-% model, not over synthesized variants. The core is one-dimensional; the
-% separable two-dimensional results are a software extension of the model, and
-% they recover an additional $0.50$ bits/symbol that the hardware does not
-% deliver. Verification is at the C/C++ source level: the forward and inverse
-% cores are compared against the reference model, but the generated RTL is not
-% covered by cosimulation, and the reference model and the cores share the same
-% lifting expressions, so an error in that shared formula would not be detected.
-% All hardware figures come from a single device and a single family, and
-% from post-route reports only: no measurements on a physical board were taken,
-% and power was not estimated. Finally, the five images are synthetic and
-% generated from a fixed seed; the ``natural'' case is a $1/f$ surface with
-% image-like spatial correlation, not a camera frame, so the $20\%$ per-band
-% reduction should be read as representative of that correlation structure rather
-% than as a measurement on real video.
-%
-% OJO al insertarla: la limitación "forward-only" ya NO aplica (el núcleo
-% inverso existe), pero articulo.tex:350 todavía dice lo contrario. Las dos
-% cosas hay que arreglarlas juntas, y en ese orden importa: ver el aviso 4
-% en proyecto/avisos-grupo.md.
+
+\section{Limitations}
+The scope of these results should be read with the following limits in mind.
+The synthesized core is fixed at $N=8$: the block size is a compile-time
+constant, and the block-size sweep reported in this work was carried out on the
+reference model, not over synthesized variants. The core is one-dimensional;
+the separable two-dimensional results are a software extension of the model,
+and they recover an additional $0.50$ bits/symbol that the hardware does not
+deliver. Verification is at the C/C++ source level: the forward and inverse
+cores are compared against the reference model, but the generated RTL is not
+covered by cosimulation, and the reference model and the cores share the same
+lifting expressions, so an error in that shared formula would not be detected.
+All hardware figures come from a single device and a single family, and from
+post-route reports only: no measurements on a physical board were taken, and
+power was not estimated. Finally, the five images are synthetic and generated
+from a fixed seed; the ``natural'' case is a $1/f$ surface with image-like
+spatial correlation, not a camera frame, so the $20\%$ per-band reduction
+should be read as representative of that correlation structure rather than as a
+measurement on real video.
+
+% Nota para quien escriba las conclusiones: esta seccion puede fundirse dentro
+% de "Conclusions and Future Work" si se prefiere; se dejo aparte porque esa
+% seccion todavia no existe. El detalle y la justificacion punto por punto de
+% cada limitacion estan documentados fuera del repo.
 
 %% --------------------- DECLARACIÓN DE USO DE IA ---------------------
 \section*{Declaration on the Use of Generative AI}

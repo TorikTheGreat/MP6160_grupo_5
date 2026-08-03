@@ -42,6 +42,7 @@
 //  Uso:  entropy_sweep  img1.pgm img2.pgm ...
 // =====================================================================
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
 #include <cmath>
 #include <map>
@@ -300,7 +301,22 @@ int main(int argc, char **argv) {
         std::printf("  N=%-3d |c|max = %-6lld  margen = %.1fx\n",
                     n, mx, 32767.0 / (double)mx);
     }
-    std::printf("  N=32  cota por duplicacion = 4080 (2^32 esquinas: no exhaustivo)\n");
+    {   // N=32: 2^32 esquinas es inviable; busqueda aleatoria sobre esquinas.
+        long long mx = 0;
+        std::srand(3);
+        for (long long t = 0; t < 3000000; t++) {
+            pixel_t in[NMAX], out[NMAX];
+            for (int i = 0; i < 32; i++) in[i] = (std::rand() & 1) ? 255 : 0;
+            wht_forward(in, out, 32);
+            for (int i = 0; i < 32; i++) {
+                long long v = (long long)out[i]; if (v < 0) v = -v;
+                if (v > mx) mx = v;
+            }
+        }
+        std::printf("  N=32  |c|max = %-6lld  margen = %.1fx   (3e6 esquinas aleatorias;\n"
+                    "        cota superior por duplicacion = 4080, margen 8.0x)\n",
+                    mx, 32767.0 / (double)mx);
+    }
 
     std::printf("\nLectura:\n");
     std::printf(" - 'ovf' cuenta bloques donde ap_int<16> difiere de la aritmetica amplia.\n");

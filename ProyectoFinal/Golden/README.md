@@ -28,6 +28,9 @@ make test      # verificación completa: equivalencia + round-trip + entropía
 make verify    # solo equivalencia vs núcleos HLS + round-trip lossless
 make systemc   # demo del golden en SystemC (entrada -> coeficientes -> reconstrucción)
 make entropy   # experimento de reducción de entropía sobre los 5 datasets
+make sweep     # barrido de bloque N=8/16/32 + control de sesgo del estimador
+make visual    # figura original/coeficientes/reconstrucción/diferencia
+               #   (requiere python3 con Pillow y matplotlib)
 make datasets  # (re)genera los PGM
 make clean
 ```
