@@ -74,7 +74,7 @@ if ($datapathNs -ne "N/A") {
 }
 
 $lines = @(
-    "# W2 Implemented Hardware Metrics (Post-Route)",
+    "# Implemented Hardware Metrics (Post-Route)",
     "",
     "Source: Vivado 2024.1 post-route reports.",
     "",

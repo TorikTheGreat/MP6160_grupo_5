@@ -1,8 +1,4 @@
 # Resultados de reducción de entropía 
-Este documento se puede quedar en el feature branch. Cuando hagamos un merge a
-main, el compañero responsable de la integración puede tomar lo que considere
-importante para el readme del proyecto. Además nos servirá para la discución
-del paper.
 
 **Reproducir:**
 ```

@@ -36,15 +36,19 @@ MP6160_grupo_5/
 │   │   ├── wht_core.cpp
 │   │   └── wht_core.h
 │   ├── TB/                     # Basic core testbench
-│   │   └── wht_core_tb.cpp
+│   │   ├── wht_core_tb.cpp
+│   │   └── wht_core_inv_tb.cpp
 │   ├── Golden/                 # Reference model and verification
 │   │   ├── src/
 │   │   ├── tb/
+│   │   │   ├── tb_equivalence.cpp
+│   │   │   └── tb_equivalence_inv.cpp
 │   │   ├── systemc/
 │   │   ├── data/
 │   │   ├── analysis/
 │   │   ├── Makefile
 │   │   └── README.md
+│   ├── Makefile                # Top-level makefile for cleaning
 │   ├── HLS/                    # Reproducible synthesis and implementation flow
 │   │   ├── run_w2_hls.tcl
 │   │   ├── run_w2.ps1
@@ -104,7 +108,7 @@ make -C ProyectoFinal/Golden verify
 
 This test performs:
 
-- Bit-exact comparison between the golden model and the W1 core.
+- Bit-exact comparison between the golden model and the hardware core.
 - Evaluation using one fixed vector and 100,000 random blocks.
 - Lossless reconstruction verification using `inverse(forward(x)) == x`.
 - Evaluation of 400,000 blocks.
@@ -163,12 +167,25 @@ ProyectoFinal/HLS/README.md
 
 ### Linux Flow
 
-From `ProyectoFinal/HLS`:
+From `ProyectoFinal`:
 
 ```bash
+make clean
+cd HLS
 chmod +x ./run_w2.sh ./run_vivado_impl.sh \
   ./extract_metrics.sh ./extract_impl_metrics.sh
 
+export WHT_TOP="wht_lossless_core"
+export WHT_SOL="solution_forward"
+export WHT_DIR="wht_hls_forward"
+export WHT_VIV_DIR="vivado_forward"
+./run_w2.sh
+./run_vivado_impl.sh
+
+export WHT_TOP="wht_lossless_inverse"
+export WHT_SOL="solution_inverse"
+export WHT_DIR="wht_hls_inverse"
+export WHT_VIV_DIR="vivado_inverse"
 ./run_w2.sh
 ./run_vivado_impl.sh
 ```
@@ -209,15 +226,15 @@ powershell -ExecutionPolicy Bypass -File .\run_vivado_impl.ps1
 
 ### Post-Route Implementation
 
-| Metric | Result |
-|---|---:|
-| Implemented frequency | 339.21 MHz |
-| Critical-path delay | 2.948 ns |
-| WNS | 6.604 ns |
-| LUT | 2404 |
-| FF | 2599 |
-| DSP | 0 |
-| BRAM tiles | 4 |
+| Metric | Forward Core | Inverse Core |
+|---|---:|---:|
+| Implemented frequency | 346.26 MHz | 293.94 MHz |
+| Critical-path delay | 2.888 ns | 3.402 ns |
+| WNS | 6.678 ns | 6.238 ns |
+| LUT | 2404 | 2426 |
+| FF | 2599 | 2599 |
+| DSP | 0 | 0 |
+| BRAM tiles | 4 | 4 |
 
 The most relevant result is that the core maintains a multiplier-free architecture and reports **0 DSP usage** in both HLS synthesis and post-route implementation.
 

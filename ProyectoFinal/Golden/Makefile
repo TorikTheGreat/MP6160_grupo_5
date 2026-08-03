@@ -2,7 +2,7 @@
 #  Golden WHT. build, verificación y experimentos de entropía
 # 
 #   make            -> compila todo
-#   make verify     -> equivalencia vs núcleo W1 + round-trip
+#   make verify     -> equivalencia vs núcleo hardware + round-trip
 #   make systemc    -> demo/testbench SystemC 
 #   make datasets   -> genera los PGM deterministas 
 #   make entropy    -> experimento de reducción de entropía
@@ -49,8 +49,8 @@ $(DATA)/.stamp: data/gen_datasets.py
 datasets: $(DATA)/.stamp
 
 verify: $(BUILD)/tb_equivalence $(BUILD)/tb_equivalence_inv $(BUILD)/tb_roundtrip
-	@echo "== E4: equivalencia golden vs nucleo W1 =="; ./$(BUILD)/tb_equivalence
-	@echo "== E4b: equivalencia golden inv vs nucleo W1 inv =="; ./$(BUILD)/tb_equivalence_inv
+	@echo "== E4: equivalencia golden vs nucleo HLS =="; ./$(BUILD)/tb_equivalence
+	@echo "== E4b: equivalencia golden inv vs nucleo HLS inv =="; ./$(BUILD)/tb_equivalence_inv
 	@echo "== E5/E5b: round-trip lossless + anti-overflow =="; ./$(BUILD)/tb_roundtrip
 
 systemc: $(BUILD)/tb_sc

@@ -1,7 +1,7 @@
-# W2 - Vitis HLS synthesis flow for WHT core
+# Vitis HLS synthesis flow for WHT core
 
-This folder contains the reproducible W2 flow for HLS synthesis of:
-- Top function: wht_lossless_core
+This folder contains the reproducible flow for HLS synthesis of:
+- Top function: wht_lossless_core / wht_lossless_inverse
 - Source: ../Source/wht_core.cpp
 - Testbench: ../TB/wht_core_tb.cpp
 - Target part: xcvc1902-vsva2197-2MP-e-S (Kria KV260 flow reference)
@@ -89,8 +89,9 @@ Then execute the two commands from Quick start in order.
 Linux clean rerun equivalent:
 
 ```bash
-rm -rf ./wht_hls_work ./vivado_work
-rm -f ./metrics_prelim.md ./metrics_impl.md
+cd ..
+make clean
+cd HLS
 ```
 
 ## Outputs
@@ -103,7 +104,7 @@ rm -f ./metrics_prelim.md ./metrics_impl.md
 - Preliminary metrics summary (generated):
   - metrics_prelim.md
 
-## Post-HLS Vivado implementation (W2 close-out)
+## Post-HLS Vivado implementation
 
 This repository includes a scripted post-route flow to generate implemented metrics:
 
@@ -131,11 +132,10 @@ Important:
 
 ## Notes
 
-- This flow follows the same practical style used in your working tarea3_hls script.
-- metrics_prelim.md is intended for W2 section drafting (LUT, FF, DSP, latency, fmax).
+- metrics_prelim.md is intended for section drafting (LUT, FF, DSP, latency, fmax).
 - DSP should remain 0 for the multiplier-free lifting architecture.
 
-## Expected W2 results (reference)
+## Expected results (reference)
 
 If the environment and tool versions match, generated metrics should be close to:
 

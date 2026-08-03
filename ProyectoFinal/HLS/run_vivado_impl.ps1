@@ -11,19 +11,19 @@ if (-not (Test-Path $VivadoExe)) {
 
 Push-Location $scriptDir
 try {
-    Write-Host "[W2/Vivado] Running post-HLS implementation..."
+    Write-Host "[Vivado] Running post-HLS implementation..."
     & $VivadoExe -mode batch -source "$scriptDir\run_vivado_impl.tcl" -notrace
     if ($LASTEXITCODE -ne 0) {
         throw "Vivado implementation failed with exit code $LASTEXITCODE"
     }
 
-    Write-Host "[W2/Vivado] Extracting implemented metrics..."
+    Write-Host "[Vivado] Extracting implemented metrics..."
     & powershell -NoProfile -ExecutionPolicy Bypass -File "$scriptDir\extract_impl_metrics.ps1"
     if ($LASTEXITCODE -ne 0) {
         throw "extract_impl_metrics.ps1 failed with exit code $LASTEXITCODE"
     }
 
-    Write-Host "[W2/Vivado] Done"
+    Write-Host "[Vivado] Done"
 }
 finally {
     Pop-Location
