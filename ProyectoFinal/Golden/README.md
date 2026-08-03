@@ -57,26 +57,18 @@ Ver `ProyectoFinal/Golden/analysis/RESULTS.md` donde están documentados los res
 ## Uso de IA
 
 En el desarrollo de esta parte se utilizó un asistente de IA (Claude, de Anthropic) en sesiones
-interactivas con acceso al repositorio. El uso fue extenso y se declara aquí con el detalle que pide
-el checklist del curso: clase de utilización y prompts representativos.
+interactivas con acceso al repositorio. 
 
 **Clases de uso:**
 
-- **Generación de código**: el modelo de referencia y su envoltorio SystemC, los testbenches de
-  equivalencia y round-trip, el generador de datasets, el experimento de entropía y el barrido de
-  tamaño de bloque.
-- **Consulta de conceptos**: entropía de orden 0, sesgo del estimador *plug-in*, formulaciones de
-  *lifting* reversible, semántica de `ap_int<W>`.
-- **Revisión crítica**: varias rondas de crítica adversaria sobre el código y sobre los resultados,
-  con verificación de cada hallazgo antes de aceptarlo.
-- **Depuración**: los defectos que esas revisiones encontraron.
-- **Redacción**: las secciones de verificación y de resultados de entropía del artículo, y esta
-  documentación.
+- **Generación de código**
+- **Consulta de conceptos**
+- **Revisión crítica**
+- **Depuración**
+- **Redacción**
 
 **Prompts representativos:**
 
-- «escribe un modelo de referencia de la FWHT lossless que replique bit a bit el lifting del núcleo
-  HLS, templado por el tipo numérico»
 - «verifica si este test puede fallar alguna vez, y demuéstralo con un experimento en vez de
   razonarlo»
 - «extiende el experimento de entropía a N = 8, 16 y 32 sin tocar ficheros de otros roles»
