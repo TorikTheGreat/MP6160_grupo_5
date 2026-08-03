@@ -55,4 +55,36 @@ make clean
 Ver `ProyectoFinal/Golden/analysis/RESULTS.md` donde están documentados los resultados finales.
 
 ## Uso de IA
-En el desarrollo de esta parte se utilizó un asistente de IA como apoyo para el diseño y la implementación del modelo de referencia en SystemC, los testbenches de verificación, los datasets y el experimento de entropía.
+
+En el desarrollo de esta parte se utilizó un asistente de IA (Claude, de Anthropic) en sesiones
+interactivas con acceso al repositorio. El uso fue extenso y se declara aquí con el detalle que pide
+el checklist del curso: clase de utilización y prompts representativos.
+
+**Clases de uso:**
+
+- **Generación de código**: el modelo de referencia y su envoltorio SystemC, los testbenches de
+  equivalencia y round-trip, el generador de datasets, el experimento de entropía y el barrido de
+  tamaño de bloque.
+- **Consulta de conceptos**: entropía de orden 0, sesgo del estimador *plug-in*, formulaciones de
+  *lifting* reversible, semántica de `ap_int<W>`.
+- **Revisión crítica**: varias rondas de crítica adversaria sobre el código y sobre los resultados,
+  con verificación de cada hallazgo antes de aceptarlo.
+- **Depuración**: los defectos que esas revisiones encontraron.
+- **Redacción**: las secciones de verificación y de resultados de entropía del artículo, y esta
+  documentación.
+
+**Prompts representativos:**
+
+- «escribe un modelo de referencia de la FWHT lossless que replique bit a bit el lifting del núcleo
+  HLS, templado por el tipo numérico»
+- «verifica si este test puede fallar alguna vez, y demuéstralo con un experimento en vez de
+  razonarlo»
+- «extiende el experimento de entropía a N = 8, 16 y 32 sin tocar ficheros de otros roles»
+- «haz una pasada adversaria sobre estos resultados y refuta lo que puedas»
+- «revisa contra el enunciado si todo lo que se exige de este rol está cubierto»
+
+**Verificación de lo generado.** Todo el código entregado se comprobó ejecutándolo: `make verify`
+pasa 100 001 / 100 001 / 400 001 casos, y las cifras de `analysis/RESULTS.md` se reproducen con
+`make entropy` y `make sweep`. Varias propuestas del asistente se rechazaron por no resistir esa
+comprobación —entre ellas una explicación incorrecta de por qué el *lifting* es biyectivo, que un
+contraejemplo tumbó—. Se declara que se comprende el funcionamiento del código entregado.
