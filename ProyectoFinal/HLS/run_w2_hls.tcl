@@ -31,7 +31,7 @@ add_files "$src_dir/wht_core.cpp" -cflags "-I$src_dir --std=c++17"
 add_files -tb "$tb_dir/wht_core_tb.cpp" -cflags "-I$src_dir --std=c++17"
 
 open_solution -reset -flow_target vitis $solution_name
-set_part xcvc1902-vsva2197-2MP-e-S
+set_part xck26-sfvc784-2LV-c
 create_clock -period 4 -name default
 
 # Conservative HLS defaults similar to your functional T3 flow
@@ -41,6 +41,7 @@ config_rtl -deadlock_detection sim
 # Run C simulation + synthesis (required for metrics)
 csim_design -clean
 csynth_design
+cosim_design
 
 # Export IP for downstream Vivado integration
 export_design -format ip_catalog

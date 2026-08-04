@@ -1,0 +1,10 @@
+*.log
+*.jou
+
+wht_hls_work/
+vivado_work/
+.Xil/
+build/
+
+catalogo-tareas-pendientes.md
+

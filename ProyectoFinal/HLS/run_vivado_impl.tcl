@@ -20,7 +20,7 @@ set out_dir [file normalize "$script_dir/$vivado_out_dir_name"]
 
 file mkdir $out_dir
 
-set part_name xcvc1902-vsva2197-2MP-e-S
+set part_name xck26-sfvc784-2LV-c
 
 # Reference clock only to enable timing analysis.
 # Final fmax is extracted from post-route critical data path delay.
