@@ -28,6 +28,9 @@ make test      # verificación completa: equivalencia + round-trip + entropía
 make verify    # solo equivalencia vs núcleos HLS + round-trip lossless
 make systemc   # demo del golden en SystemC (entrada -> coeficientes -> reconstrucción)
 make entropy   # experimento de reducción de entropía sobre los 5 datasets
+make sweep     # barrido de bloque N=8/16/32 + control de sesgo del estimador
+make visual    # figura original/coeficientes/reconstrucción/diferencia
+               #   (requiere python3 con Pillow y matplotlib)
 make datasets  # (re)genera los PGM
 make clean
 ```
@@ -55,4 +58,28 @@ make clean
 Ver `ProyectoFinal/Golden/analysis/RESULTS.md` donde están documentados los resultados finales.
 
 ## Uso de IA
-En el desarrollo de esta parte se utilizó un asistente de IA como apoyo para el diseño y la implementación del modelo de referencia en SystemC, los testbenches de verificación, los datasets y el experimento de entropía.
+
+En el desarrollo de esta parte se utilizó un asistente de IA (Claude, de Anthropic) en sesiones
+interactivas con acceso al repositorio. 
+
+**Clases de uso:**
+
+- **Generación de código**
+- **Consulta de conceptos**
+- **Revisión crítica**
+- **Depuración**
+- **Redacción**
+
+**Prompts representativos:**
+
+- «verifica si este test puede fallar alguna vez, y demuéstralo con un experimento en vez de
+  razonarlo»
+- «extiende el experimento de entropía a N = 8, 16 y 32 sin tocar ficheros de otros roles»
+- «haz una pasada adversaria sobre estos resultados y refuta lo que puedas»
+- «revisa contra el enunciado si todo lo que se exige de este rol está cubierto»
+
+**Verificación de lo generado.** Todo el código entregado se comprobó ejecutándolo: `make verify`
+pasa 100 001 / 100 001 / 400 001 casos, y las cifras de `analysis/RESULTS.md` se reproducen con
+`make entropy` y `make sweep`. Varias propuestas del asistente se rechazaron por no resistir esa
+comprobación —entre ellas una explicación incorrecta de por qué el *lifting* es biyectivo, que un
+contraejemplo tumbó—. Se declara que se comprende el funcionamiento del código entregado.

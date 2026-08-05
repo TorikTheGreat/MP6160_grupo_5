@@ -30,16 +30,42 @@
 #include <string>
 #include "wht_golden.h"   // wht_forward, pixel_t, N
 
+// Lee un entero de la cabecera PGM saltando espacios y comentarios '#'.
+// Sin esto, cualquier PGM exportado por GIMP o ImageMagick —que insertan una
+// linea "# Created by ..."— no se puede leer.
+static int next_header_int(FILE *f, bool &ok) {
+    int c;
+    for (;;) {
+        do { c = std::fgetc(f); } while (c == ' ' || c == '\t' || c == '\n' || c == '\r');
+        if (c == '#') { do { c = std::fgetc(f); } while (c != '\n' && c != EOF); continue; }
+        break;
+    }
+    if (c == EOF || c < '0' || c > '9') { ok = false; return 0; }
+    int v = 0;
+    while (c >= '0' && c <= '9') { v = v * 10 + (c - '0'); c = std::fgetc(f); }
+    return v;
+}
+
 static bool read_pgm(const char *path, std::vector<int> &px, int &w, int &h) {
     FILE *f = std::fopen(path, "rb");
     if (!f) return false;
     char magic[3] = {0};
     if (std::fscanf(f, "%2s", magic) != 1 || std::string(magic) != "P5") { std::fclose(f); return false; }
-    int maxv;
-    if (std::fscanf(f, "%d %d %d", &w, &h, &maxv) != 3) { std::fclose(f); return false; }
-    std::fgetc(f);                       // un whitespace tras el header
+    bool ok = true;
+    w        = next_header_int(f, ok);
+    h        = next_header_int(f, ok);
+    int maxv = next_header_int(f, ok);
+    if (!ok || w <= 0 || h <= 0) { std::fclose(f); return false; }
+    if (maxv != 255) {   // con maxval>255 cada muestra son 2 bytes: no soportado
+        std::fprintf(stderr, "%s: maxval=%d no soportado (solo 255)\n", path, maxv);
+        std::fclose(f); return false;
+    }
     px.resize((size_t)w * h);
-    for (size_t i = 0; i < px.size(); i++) px[i] = std::fgetc(f);
+    for (size_t i = 0; i < px.size(); i++) {
+        int v = std::fgetc(f);
+        if (v == EOF) { std::fclose(f); return false; }   // fichero truncado
+        px[i] = v;
+    }
     std::fclose(f);
     return true;
 }
