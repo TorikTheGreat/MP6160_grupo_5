@@ -1,0 +1,187 @@
+
+
+================================================================
+== Synthesis Summary Report of 'wht_lossless_core'
+================================================================
++ General Information: 
+    * Date:           Thu Aug  6 02:47:52 2026
+    * Version:        2024.1 (Build 5069499 on May 21 2024)
+    * Project:        wht_main_forward
+    * Solution:       solution_main_forward (Vitis Kernel Flow Target)
+    * Product family: zynquplus
+    * Target device:  xck26-sfvc784-2LV-c
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------------+------+------+---------+---------+----------+---------+------+----------+---------+----+------------+-----------+-----+
+    |       Modules       | Issue|      | Latency | Latency | Iteration|         | Trip |          |         |    |            |           |     |
+    |       & Loops       | Type | Slack| (cycles)|   (ns)  |  Latency | Interval| Count| Pipelined|  BRAM   | DSP|     FF     |    LUT    | URAM|
+    +---------------------+------+------+---------+---------+----------+---------+------+----------+---------+----+------------+-----------+-----+
+    |+ wht_lossless_core  |     -|  0.00|      143|  572.000|         -|        1|     -|       yes|  16 (5%)|   -|  1847 (~0%)|  1773 (1%)|    -|
+    +---------------------+------+------+---------+---------+----------+---------+------+----------+---------+----+------------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface  | Read/Write | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|            |            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem | READ_WRITE | 16 -> 128  | 64            | 64      | slave  | 0        | 512       | 16           | 16           | 16          | 16          | BRAM=16           |
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+-------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| Interface     | Register    | Offset | Width | Access | Description                      | Bit Fields                                                                         |
++---------------+-------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| s_axi_control | CTRL        | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER        | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
+| s_axi_control | IP_IER      | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
+| s_axi_control | IP_ISR      | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
+| s_axi_control | block_in_1  | 0x10   | 32    | W      | Data signal of block_in          |                                                                                    |
+| s_axi_control | block_in_2  | 0x14   | 32    | W      | Data signal of block_in          |                                                                                    |
+| s_axi_control | block_out_1 | 0x1c   | 32    | W      | Data signal of block_out         |                                                                                    |
+| s_axi_control | block_out_2 | 0x20   | 32    | W      | Data signal of block_out         |                                                                                    |
++---------------+-------------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+---------------+-----------+
+| Interface | Type          | Ports     |
++-----------+---------------+-----------+
+| ap_clk    | clock         | ap_clk    |
+| ap_rst_n  | reset         | ap_rst_n  |
+| interrupt | interrupt     | interrupt |
+| ap_ctrl   | ap_ctrl_chain |           |
++-----------+---------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-----------+-----------+-------------+
+| Argument  | Direction | Datatype    |
++-----------+-----------+-------------+
+| block_in  | inout     | ap_int<16>* |
+| block_out | inout     | ap_int<16>* |
++-----------+-----------+-------------+
+
+* SW-to-HW Mapping
++-----------+---------------+-----------+----------+---------------------------------------+
+| Argument  | HW Interface  | HW Type   | HW Usage | HW Info                               |
++-----------+---------------+-----------+----------+---------------------------------------+
+| block_in  | m_axi_gmem    | interface |          | channel=0                             |
+| block_in  | s_axi_control | register  | offset   | name=block_in_1 offset=0x10 range=32  |
+| block_in  | s_axi_control | register  | offset   | name=block_in_2 offset=0x14 range=32  |
+| block_out | m_axi_gmem    | interface |          | channel=0                             |
+| block_out | s_axi_control | register  | offset   | name=block_out_1 offset=0x1c range=32 |
+| block_out | s_axi_control | register  | offset   | name=block_out_2 offset=0x20 range=32 |
++-----------+---------------+-----------+----------+---------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* All M_AXI Variable Accesses
++--------------+-----------+---------------------------------------+-----------+--------------+--------+
+| HW Interface | Variable  | Access Location                       | Direction | Burst Status | Length |
++--------------+-----------+---------------------------------------+-----------+--------------+--------+
+| m_axi_gmem   | block_out | ../../../../Source/wht_core.cpp:23:4  | write     | Widened      | 1      |
+| m_axi_gmem   | block_out | ../../../../Source/wht_core.cpp:23:4  | write     | Inferred     | 8      |
+| m_axi_gmem   | block_out | ../../../../Source/wht_core.cpp:27:7  | write     | Widened      | 1      |
+| m_axi_gmem   | block_out | ../../../../Source/wht_core.cpp:27:7  | write     | Inferred     | 8      |
+| m_axi_gmem   | block_in  | ../../../../Source/wht_core.cpp:54:11 | read      | Widened      | 1      |
+| m_axi_gmem   | block_in  | ../../../../Source/wht_core.cpp:54:11 | read      | Inferred     | 8      |
++--------------+-----------+---------------------------------------+-----------+--------------+--------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++------------------------+-----+--------+------------+-----+--------+---------+
+| Name                   | DSP | Pragma | Variable   | Op  | Impl   | Latency |
++------------------------+-----+--------+------------+-----+--------+---------+
+| + wht_lossless_core    | 0   |        |            |     |        |         |
+|   a_5_fu_246_p2        |     |        | a_5        | sub | fabric | 0       |
+|   a_4_fu_264_p2        |     |        | a_4        | sub | fabric | 0       |
+|   b_4_fu_269_p2        |     |        | b_4        | sub | fabric | 0       |
+|   a_7_fu_287_p2        |     |        | a_7        | sub | fabric | 0       |
+|   a_6_fu_305_p2        |     |        | a_6        | sub | fabric | 0       |
+|   b_5_fu_310_p2        |     |        | b_5        | sub | fabric | 0       |
+|   a_8_fu_377_p2        |     |        | a_8        | sub | fabric | 0       |
+|   a_11_fu_345_p2       |     |        | a_11       | sub | fabric | 0       |
+|   a_9_fu_365_p2        |     |        | a_9        | sub | fabric | 0       |
+|   b_7_fu_406_p2        |     |        | b_7        | sub | fabric | 0       |
+|   sub_ln27_fu_449_p2   |     |        | sub_ln27   | sub | fabric | 0       |
+|   sub_ln27_3_fu_479_p2 |     |        | sub_ln27_3 | sub | fabric | 0       |
+|   sub_ln23_9_fu_484_p2 |     |        | sub_ln23_9 | sub | fabric | 0       |
+|   sub_ln27_4_fu_503_p2 |     |        | sub_ln27_4 | sub | fabric | 0       |
+|   sub_ln23_fu_508_p2   |     |        | sub_ln23   | sub | fabric | 0       |
+|   sub_ln27_5_fu_527_p2 |     |        | sub_ln27_5 | sub | fabric | 0       |
++------------------------+-----+--------+------------+-----+--------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++---------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| Name                | Usage     | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                     |           |           |      |      |        |          |      |         | Banks            |
++---------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| + wht_lossless_core |           |           | 16   | 0    |        |          |      |         |                  |
+|   control_s_axi_U   | interface | s_axilite |      |      |        |          |      |         |                  |
+|   gmem_m_axi_U      | interface | m_axi     | 16   |      |        |          |      |         |                  |
++---------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+-----------------------------------------------+------------------------------------------------------------------------+
+| Type            | Options                                       | Location                                                               |
++-----------------+-----------------------------------------------+------------------------------------------------------------------------+
+| inline          |                                               | ../../../../Source/wht_core.cpp:20 in lifting_butterfly                |
+| interface       | m_axi port=block_in offset=slave bundle=gmem  | ../../../../Source/wht_core.cpp:35 in wht_lossless_core, block_in      |
+| interface       | m_axi port=block_out offset=slave bundle=gmem | ../../../../Source/wht_core.cpp:36 in wht_lossless_core, block_out     |
+| interface       | s_axilite port=block_in bundle=control        | ../../../../Source/wht_core.cpp:37 in wht_lossless_core, block_in      |
+| interface       | s_axilite port=block_out bundle=control       | ../../../../Source/wht_core.cpp:38 in wht_lossless_core, block_out     |
+| interface       | s_axilite port=return bundle=control          | ../../../../Source/wht_core.cpp:39 in wht_lossless_core, return        |
+| pipeline        | II=1                                          | ../../../../Source/wht_core.cpp:43 in wht_lossless_core                |
+| array_partition | variable=stage complete dim=1                 | ../../../../Source/wht_core.cpp:50 in wht_lossless_core, stage         |
+| unroll          |                                               | ../../../../Source/wht_core.cpp:53 in wht_lossless_core                |
+| array_partition | variable=tmp1 complete dim=1                  | ../../../../Source/wht_core.cpp:63 in wht_lossless_core, tmp1          |
+| unroll          |                                               | ../../../../Source/wht_core.cpp:65 in wht_lossless_core                |
+| array_partition | variable=tmp2 complete dim=1                  | ../../../../Source/wht_core.cpp:71 in wht_lossless_core, tmp2          |
+| unroll          |                                               | ../../../../Source/wht_core.cpp:73 in wht_lossless_core                |
+| unroll          |                                               | ../../../../Source/wht_core.cpp:81 in wht_lossless_core                |
+| inline          |                                               | ../../../../Source/wht_core.cpp:102 in inverse_lifting_butterfly       |
+| interface       | m_axi port=block_in offset=slave bundle=gmem  | ../../../../Source/wht_core.cpp:115 in wht_lossless_inverse, block_in  |
+| interface       | m_axi port=block_out offset=slave bundle=gmem | ../../../../Source/wht_core.cpp:116 in wht_lossless_inverse, block_out |
+| interface       | s_axilite port=block_in bundle=control        | ../../../../Source/wht_core.cpp:117 in wht_lossless_inverse, block_in  |
+| interface       | s_axilite port=block_out bundle=control       | ../../../../Source/wht_core.cpp:118 in wht_lossless_inverse, block_out |
+| interface       | s_axilite port=return bundle=control          | ../../../../Source/wht_core.cpp:119 in wht_lossless_inverse, return    |
+| pipeline        | II=1                                          | ../../../../Source/wht_core.cpp:121 in wht_lossless_inverse            |
+| array_partition | variable=stage complete dim=1                 | ../../../../Source/wht_core.cpp:127 in wht_lossless_inverse, stage     |
+| unroll          |                                               | ../../../../Source/wht_core.cpp:129 in wht_lossless_inverse            |
+| array_partition | variable=tmp2 complete dim=1                  | ../../../../Source/wht_core.cpp:140 in wht_lossless_inverse, tmp2      |
+| unroll          |                                               | ../../../../Source/wht_core.cpp:142 in wht_lossless_inverse            |
+| array_partition | variable=tmp1 complete dim=1                  | ../../../../Source/wht_core.cpp:148 in wht_lossless_inverse, tmp1      |
+| unroll          |                                               | ../../../../Source/wht_core.cpp:150 in wht_lossless_inverse            |
+| unroll          |                                               | ../../../../Source/wht_core.cpp:157 in wht_lossless_inverse            |
++-----------------+-----------------------------------------------+------------------------------------------------------------------------+
+
+

@@ -1,0 +1,44 @@
+{
+  "variant": "baseline_forward",
+  "top": "wht_multiplier_forward",
+  "part": "xck26-sfvc784-2LV-c",
+  "hls": {
+    "estimated_clock_ns": 2.383,
+    "latency_best_cycles": 17,
+    "latency_worst_cycles": 17,
+    "pipeline_depth_cycles": 18,
+    "ii_min_cycles": 9,
+    "ii_max_cycles": 9,
+    "lut": 926,
+    "ff": 823,
+    "dsp": 12,
+    "bram_18k": 0,
+    "estimated_frequency_mhz": 419.639110365086,
+    "estimated_block_throughput_mblocks_s": 46.62656781834289,
+    "estimated_sample_throughput_msamples_s": 373.01254254674313,
+    "available": true,
+    "source_xml": "${PROJECT_ROOT}/ProyectoFinal/HLS/reports/baseline_forward/hls/wht_multiplier_forward_csynth.xml"
+  },
+  "post_route": {
+    "available": true,
+    "part": "xck26-sfvc784-2LV-c",
+    "top": "wht_multiplier_forward",
+    "requested_period_ns": 10.0,
+    "wns_ns": 5.513,
+    "datapath_delay_ns": 3.879,
+    "wns_extrapolated_period_ns": 4.487,
+    "wns_extrapolated_frequency_mhz": 222.86605749944283,
+    "route_status": "",
+    "lut": 500,
+    "ff": 377,
+    "dsp": 11,
+    "bram_tiles": 1.5,
+    "requested_frequency_mhz": 100.0,
+    "timing_closed": true
+  },
+  "notes": [
+    "HLS timing is an estimate from csynth.",
+    "A Vivado requested clock is validated only when WNS is non-negative.",
+    "The WNS-extrapolated frequency is not a measured fmax; use the timing sweep for the smallest tested closing period."
+  ]
+}

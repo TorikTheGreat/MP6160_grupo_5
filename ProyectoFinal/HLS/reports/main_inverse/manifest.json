@@ -1,0 +1,19 @@
+{
+  "variant": "main_inverse",
+  "top": "wht_lossless_inverse",
+  "part": "xck26-sfvc784-2LV-c",
+  "hls_clock_ns": 4.0,
+  "source": "../Source/wht_core.cpp",
+  "testbench": "../TB/wht_core_inv_tb.cpp",
+  "project": "wht_main_inverse",
+  "solution": "solution_main_inverse",
+  "work_root": "${PROJECT_ROOT}/ProyectoFinal/HLS/work/main_inverse/hls",
+  "collected_at_utc": "2026-08-06T08:56:40.778938+00:00",
+  "files": [
+    "hls/csynth.rpt",
+    "hls/wht_lossless_inverse_csynth.rpt",
+    "hls/wht_lossless_inverse_csynth.xml",
+    "simulation/wht_lossless_inverse_csim.log",
+    "simulation/wht_lossless_inverse_cosim.rpt"
+  ]
+}

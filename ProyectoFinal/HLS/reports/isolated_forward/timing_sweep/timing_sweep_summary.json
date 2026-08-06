@@ -1,0 +1,55 @@
+{
+  "variant": "isolated_forward",
+  "runs": [
+    {
+      "period_ns": 6.0,
+      "requested_frequency_mhz": 166.66666666666666,
+      "wns_ns": 1.616,
+      "closed": true,
+      "report_dir": "${PROJECT_ROOT}/ProyectoFinal/HLS/reports/isolated_forward/timing_sweep/6p0ns"
+    },
+    {
+      "period_ns": 5.0,
+      "requested_frequency_mhz": 200.0,
+      "wns_ns": 0.882,
+      "closed": true,
+      "report_dir": "${PROJECT_ROOT}/ProyectoFinal/HLS/reports/isolated_forward/timing_sweep/5p0ns"
+    },
+    {
+      "period_ns": 4.5,
+      "requested_frequency_mhz": 222.22222222222223,
+      "wns_ns": 0.327,
+      "closed": true,
+      "report_dir": "${PROJECT_ROOT}/ProyectoFinal/HLS/reports/isolated_forward/timing_sweep/4p5ns"
+    },
+    {
+      "period_ns": 4.0,
+      "requested_frequency_mhz": 250.0,
+      "wns_ns": 0.157,
+      "closed": true,
+      "report_dir": "${PROJECT_ROOT}/ProyectoFinal/HLS/reports/isolated_forward/timing_sweep/4p0ns"
+    },
+    {
+      "period_ns": 3.5,
+      "requested_frequency_mhz": 285.7142857142857,
+      "wns_ns": -0.998,
+      "closed": false,
+      "report_dir": "${PROJECT_ROOT}/ProyectoFinal/HLS/reports/isolated_forward/timing_sweep/3p5ns"
+    },
+    {
+      "period_ns": 3.0,
+      "requested_frequency_mhz": 333.3333333333333,
+      "wns_ns": -0.505,
+      "closed": false,
+      "report_dir": "${PROJECT_ROOT}/ProyectoFinal/HLS/reports/isolated_forward/timing_sweep/3p0ns"
+    }
+  ],
+  "smallest_tested_closing_period": {
+    "period_ns": 4.0,
+    "requested_frequency_mhz": 250.0,
+    "wns_ns": 0.157,
+    "closed": true,
+    "report_dir": "${PROJECT_ROOT}/ProyectoFinal/HLS/reports/isolated_forward/timing_sweep/4p0ns"
+  },
+  "warning": "This is the smallest tested closing period, not an exact mathematical fmax."
+}

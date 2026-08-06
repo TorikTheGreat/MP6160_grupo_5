@@ -1,0 +1,146 @@
+
+
+================================================================
+== Synthesis Summary Report of 'wht_lossless_inverse_isolated'
+================================================================
++ General Information: 
+    * Date:           Thu Aug  6 02:22:05 2026
+    * Version:        2024.1 (Build 5069499 on May 21 2024)
+    * Project:        wht_isolated_inverse
+    * Solution:       solution_isolated_inverse (Vitis Kernel Flow Target)
+    * Product family: zynquplus
+    * Target device:  xck26-sfvc784-2LV-c
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |             Modules             | Issue|      | Latency | Latency| Iteration|         | Trip |          |      |    |           |           |     |
+    |             & Loops             | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF    |    LUT    | URAM|
+    +---------------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |+ wht_lossless_inverse_isolated  |    II|  0.36|       17|  68.000|         -|        9|     -|       yes|     -|   -|  607 (~0%)|  903 (~0%)|    -|
+    +---------------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| Interface     | Register | Offset | Width | Access | Description                      | Bit Fields                                                                         |
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| s_axi_control | CTRL     | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER     | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
+| s_axi_control | IP_IER   | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
+| s_axi_control | IP_ISR   | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+---------------+-----------+
+| Interface | Type          | Ports     |
++-----------+---------------+-----------+
+| ap_clk    | clock         | ap_clk    |
+| ap_rst_n  | reset         | ap_rst_n  |
+| interrupt | interrupt     | interrupt |
+| ap_ctrl   | ap_ctrl_chain |           |
++-----------+---------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-----------+-----------+-------------+
+| Argument  | Direction | Datatype    |
++-----------+-----------+-------------+
+| block_in  | in        | ap_int<16>* |
+| block_out | out       | ap_int<16>* |
++-----------+-----------+-------------+
+
+* SW-to-HW Mapping
++-----------+---------------+---------+-----------------------------------+
+| Argument  | HW Interface  | HW Type | HW Info                           |
++-----------+---------------+---------+-----------------------------------+
+| block_in  | s_axi_control | memory  | name=block_in offset=16 range=16  |
+| block_out | s_axi_control | memory  | name=block_out offset=32 range=16 |
++-----------+---------------+---------+-----------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++---------------------------------+-----+--------+------------+-----+--------+---------+
+| Name                            | DSP | Pragma | Variable   | Op  | Impl   | Latency |
++---------------------------------+-----+--------+------------+-----+--------+---------+
+| + wht_lossless_inverse_isolated | 0   |        |            |     |        |         |
+|   s_4_fu_266_p2                 |     |        | s_4        | add | fabric | 0       |
+|   s_5_fu_236_p2                 |     |        | s_5        | add | fabric | 0       |
+|   d_4_fu_246_p2                 |     |        | d_4        | add | fabric | 0       |
+|   d_6_fu_282_p2                 |     |        | d_6        | sub | fabric | 0       |
+|   d_5_fu_290_p2                 |     |        | d_5        | add | fabric | 0       |
+|   d_7_fu_295_p2                 |     |        | d_7        | sub | fabric | 0       |
+|   s_8_fu_303_p2                 |     |        | s_8        | add | fabric | 0       |
+|   d_8_fu_376_p2                 |     |        | d_8        | add | fabric | 0       |
+|   d_9_fu_381_p2                 |     |        | d_9        | sub | fabric | 0       |
+|   d_11_fu_390_p2                |     |        | d_11       | sub | fabric | 0       |
+|   add_ln21_fu_408_p2            |     |        | add_ln21   | add | fabric | 0       |
+|   sub_ln22_7_fu_414_p2          |     |        | sub_ln22_7 | sub | fabric | 0       |
+|   sub_ln22_8_fu_474_p2          |     |        | sub_ln22_8 | sub | fabric | 0       |
+|   add_ln21_8_fu_443_p2          |     |        | add_ln21_8 | add | fabric | 0       |
+|   sub_ln22_9_fu_478_p2          |     |        | sub_ln22_9 | sub | fabric | 0       |
+|   sub_ln22_fu_468_p2            |     |        | sub_ln22   | sub | fabric | 0       |
++---------------------------------+-----+--------+------------+-----+--------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++---------------------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| Name                            | Usage     | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                                 |           |           |      |      |        |          |      |         | Banks            |
++---------------------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| + wht_lossless_inverse_isolated |           |           | 0    | 0    |        |          |      |         |                  |
+|   control_s_axi_U               | interface | s_axilite |      |      |        |          |      |         |                  |
++---------------------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+-------------------------------+-----------------------------------------------------------------------------------------+
+| Type            | Options                       | Location                                                                                |
++-----------------+-------------------------------+-----------------------------------------------------------------------------------------+
+| inline          |                               | ../../../../Source/wht_core_isolated.cpp:9 in lifting_butterfly_isolated                |
+| inline          |                               | ../../../../Source/wht_core_isolated.cpp:20 in inverse_lifting_butterfly_isolated       |
+| interface       | ap_memory port=block_in       | ../../../../Source/wht_core_isolated.cpp:29 in wht_lossless_forward_isolated, block_in  |
+| interface       | ap_memory port=block_out      | ../../../../Source/wht_core_isolated.cpp:30 in wht_lossless_forward_isolated, block_out |
+| pipeline        | II=1                          | ../../../../Source/wht_core_isolated.cpp:31 in wht_lossless_forward_isolated            |
+| array_partition | variable=stage complete dim=1 | ../../../../Source/wht_core_isolated.cpp:37 in wht_lossless_forward_isolated, stage     |
+| array_partition | variable=tmp1 complete dim=1  | ../../../../Source/wht_core_isolated.cpp:38 in wht_lossless_forward_isolated, tmp1      |
+| array_partition | variable=tmp2 complete dim=1  | ../../../../Source/wht_core_isolated.cpp:39 in wht_lossless_forward_isolated, tmp2      |
+| unroll          |                               | ../../../../Source/wht_core_isolated.cpp:42 in wht_lossless_forward_isolated            |
+| unroll          |                               | ../../../../Source/wht_core_isolated.cpp:47 in wht_lossless_forward_isolated            |
+| unroll          |                               | ../../../../Source/wht_core_isolated.cpp:55 in wht_lossless_forward_isolated            |
+| unroll          |                               | ../../../../Source/wht_core_isolated.cpp:67 in wht_lossless_forward_isolated            |
+| interface       | ap_memory port=block_in       | ../../../../Source/wht_core_isolated.cpp:79 in wht_lossless_inverse_isolated, block_in  |
+| interface       | ap_memory port=block_out      | ../../../../Source/wht_core_isolated.cpp:80 in wht_lossless_inverse_isolated, block_out |
+| pipeline        | II=1                          | ../../../../Source/wht_core_isolated.cpp:81 in wht_lossless_inverse_isolated            |
+| array_partition | variable=stage complete dim=1 | ../../../../Source/wht_core_isolated.cpp:87 in wht_lossless_inverse_isolated, stage     |
+| array_partition | variable=tmp2 complete dim=1  | ../../../../Source/wht_core_isolated.cpp:88 in wht_lossless_inverse_isolated, tmp2      |
+| array_partition | variable=tmp1 complete dim=1  | ../../../../Source/wht_core_isolated.cpp:89 in wht_lossless_inverse_isolated, tmp1      |
+| unroll          |                               | ../../../../Source/wht_core_isolated.cpp:92 in wht_lossless_inverse_isolated            |
+| unroll          |                               | ../../../../Source/wht_core_isolated.cpp:97 in wht_lossless_inverse_isolated            |
+| unroll          |                               | ../../../../Source/wht_core_isolated.cpp:105 in wht_lossless_inverse_isolated           |
+| unroll          |                               | ../../../../Source/wht_core_isolated.cpp:117 in wht_lossless_inverse_isolated           |
++-----------------+-------------------------------+-----------------------------------------------------------------------------------------+
+
+

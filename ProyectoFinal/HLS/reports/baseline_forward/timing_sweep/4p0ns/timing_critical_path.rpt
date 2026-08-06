@@ -1,0 +1,80 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
+| Date              : Thu Aug  6 01:56:20 2026
+| Host              : linux running 64-bit Ubuntu 22.04.5 LTS
+| Command           : report_timing -delay_type max -max_paths 1 -file ${PROJECT_ROOT}/ProyectoFinal/HLS/reports/baseline_forward/timing_sweep/4p0ns/timing_critical_path.rpt
+| Design            : wht_multiplier_forward
+| Device            : xck26-sfvc784
+| Speed File        : -2LV  PRODUCTION 1.30 05-15-2022
+| Design State      : Routed
+| Temperature Grade : C
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.032ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[23]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.341ns  (logic 2.209ns (66.117%)  route 1.132ns (33.883%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.408     3.447    mul_16s_16s_31_1_1_U7/tmp_product/A[23]
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[23]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    mul_16s_16s_31_1_1_U7/tmp_product/CLK
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y0         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[23])
+                                                     -0.541     3.479    mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.479    
+                         arrival time                          -3.447    
+  -------------------------------------------------------------------
+                         slack                                  0.032    
+
+
+
+

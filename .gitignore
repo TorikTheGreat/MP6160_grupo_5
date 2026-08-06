@@ -1,0 +1,33 @@
+# LaTeX intermediate files
+paper/*.aux
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.synctex.gz
+
+# Vivado/Vitis logs and temporary work directories
+*.jou
+*.str
+.Xil/
+ProyectoFinal/HLS/wht_hls_work/
+ProyectoFinal/HLS/wht_hls_*/
+ProyectoFinal/HLS/vivado_work/
+ProyectoFinal/HLS/vivado_*/
+
+# Keep consolidated evidence under ProyectoFinal/HLS/reports/
+!ProyectoFinal/HLS/reports/
+!ProyectoFinal/HLS/reports/**
+
+# Local builds
+build/
+ProyectoFinal/Golden/build/
+
+# Internal planning files
+catalogo-tareas-pendientes.md
+
+# Unified parameterized HLS/Vivado work area
+ProyectoFinal/HLS/work/
+
+# Post-route checkpoints can be regenerated and may exceed repository limits
+ProyectoFinal/HLS/reports/**/post_route.dcp

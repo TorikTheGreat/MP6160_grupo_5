@@ -1,0 +1,55 @@
+{
+  "part": "xck26-sfvc784-2LV-c",
+  "hls_clock_ns": 4.0,
+  "vivado_clock_ns": 10.0,
+  "variants": {
+    "main_forward": {
+      "top": "wht_lossless_core",
+      "source": "../Source/wht_core.cpp",
+      "testbench": "../TB/wht_core_tb.cpp",
+      "project": "wht_main_forward",
+      "solution": "solution_main_forward",
+      "description": "Forward multiplier-free kernel with m_axi/s_axilite interfaces"
+    },
+    "main_inverse": {
+      "top": "wht_lossless_inverse",
+      "source": "../Source/wht_core.cpp",
+      "testbench": "../TB/wht_core_inv_tb.cpp",
+      "project": "wht_main_inverse",
+      "solution": "solution_main_inverse",
+      "description": "Inverse multiplier-free kernel with m_axi/s_axilite interfaces"
+    },
+    "isolated_forward": {
+      "top": "wht_lossless_forward_isolated",
+      "source": "../Source/wht_core_isolated.cpp",
+      "testbench": "../TB/wht_core_isolated_forward_tb.cpp",
+      "project": "wht_isolated_forward",
+      "solution": "solution_isolated_forward",
+      "description": "Forward multiplier-free datapath with ap_memory interfaces"
+    },
+    "isolated_inverse": {
+      "top": "wht_lossless_inverse_isolated",
+      "source": "../Source/wht_core_isolated.cpp",
+      "testbench": "../TB/wht_core_isolated_inverse_tb.cpp",
+      "project": "wht_isolated_inverse",
+      "solution": "solution_isolated_inverse",
+      "description": "Inverse multiplier-free datapath with ap_memory interfaces"
+    },
+    "baseline_forward": {
+      "top": "wht_multiplier_forward",
+      "source": "../Baseline/wht_multiplier_baseline.cpp",
+      "testbench": "../Baseline/wht_multiplier_baseline_tb.cpp",
+      "project": "wht_baseline_forward",
+      "solution": "solution_baseline_forward",
+      "description": "Forward reversible lifting baseline using multipliers"
+    },
+    "baseline_inverse": {
+      "top": "wht_multiplier_inverse",
+      "source": "../Baseline/wht_multiplier_baseline.cpp",
+      "testbench": "../Baseline/wht_multiplier_inverse_tb.cpp",
+      "project": "wht_baseline_inverse",
+      "solution": "solution_baseline_inverse",
+      "description": "Inverse reversible lifting baseline using multipliers"
+    }
+  }
+}

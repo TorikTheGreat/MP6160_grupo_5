@@ -1,0 +1,7 @@
+period_ns,requested_frequency_mhz,wns_ns,closed,report_dir
+6.0,166.66666666666666,1.647,True,${PROJECT_ROOT}/ProyectoFinal/HLS/reports/baseline_forward/timing_sweep/6p0ns
+5.0,200.0,0.872,True,${PROJECT_ROOT}/ProyectoFinal/HLS/reports/baseline_forward/timing_sweep/5p0ns
+4.5,222.22222222222223,0.039,True,${PROJECT_ROOT}/ProyectoFinal/HLS/reports/baseline_forward/timing_sweep/4p5ns
+4.0,250.0,0.032,True,${PROJECT_ROOT}/ProyectoFinal/HLS/reports/baseline_forward/timing_sweep/4p0ns
+3.5,285.7142857142857,0.089,True,${PROJECT_ROOT}/ProyectoFinal/HLS/reports/baseline_forward/timing_sweep/3p5ns
+3.0,333.3333333333333,-0.32,False,${PROJECT_ROOT}/ProyectoFinal/HLS/reports/baseline_forward/timing_sweep/3p0ns

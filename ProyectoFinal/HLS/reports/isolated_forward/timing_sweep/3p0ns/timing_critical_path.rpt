@@ -1,0 +1,89 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
+| Date              : Thu Aug  6 01:39:08 2026
+| Host              : linux running 64-bit Ubuntu 22.04.5 LTS
+| Command           : report_timing -delay_type max -max_paths 1 -file ${PROJECT_ROOT}/ProyectoFinal/HLS/reports/isolated_forward/timing_sweep/3p0ns/timing_critical_path.rpt
+| Design            : wht_lossless_forward_isolated
+| Device            : xck26-sfvc784
+| Speed File        : -2LV  PRODUCTION 1.30 05-15-2022
+| Design State      : Routed
+| Temperature Grade : C
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -0.505ns  (required time - arrival time)
+  Source:                 reg_214_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by ap_clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Destination:            control_s_axi_U/int_block_out/mem_reg/DINADIN[14]
+                            (rising edge-triggered cell RAMB18E2 clocked by ap_clk  {rise@0.000ns fall@1.500ns period=3.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3.000ns  (ap_clk rise@3.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.074ns  (logic 1.286ns (41.839%)  route 1.788ns (58.161%))
+  Logic Levels:           8  (CARRY8=4 LUT3=1 LUT6=3)
+  Clock Path Skew:        0.008ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.049ns = ( 3.049 - 3.000 ) 
+    Source Clock Delay      (SCD):    0.041ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=429, unset)          0.041     0.041    ap_clk
+    SLICE_X46Y153        FDRE                                         r  reg_214_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X46Y153        FDRE (Prop_BFF2_SLICEL_C_Q)
+                                                      0.115     0.156 r  reg_214_reg[3]/Q
+                         net (fo=7, routed)           0.321     0.477    control_s_axi_U/int_block_out/reg_238_reg[15][3]
+    SLICE_X45Y153        CARRY8 (Prop_CARRY8_SLICEM_DI[3]_O[7])
+                                                      0.279     0.756 r  control_s_axi_U/int_block_out/reg_238_reg[7]_i_1/O[7]
+                         net (fo=5, routed)           0.342     1.099    control_s_axi_U/int_block_out/O[7]
+    SLICE_X46Y154        LUT6 (Prop_H6LUT_SLICEL_I0_O)
+                                                      0.137     1.236 r  control_s_axi_U/int_block_out/b_6_reg_611[7]_i_9/O
+                         net (fo=1, routed)           0.015     1.251    control_s_axi_U/int_block_out/b_6_reg_611[7]_i_9_n_0
+    SLICE_X46Y154        CARRY8 (Prop_CARRY8_SLICEL_S[7]_CO[7])
+                                                      0.172     1.423 r  control_s_axi_U/int_block_out/b_6_reg_611_reg[7]_i_1/CO[7]
+                         net (fo=1, routed)           0.030     1.453    control_s_axi_U/int_block_out/b_6_reg_611_reg[7]_i_1_n_0
+    SLICE_X46Y155        CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.114     1.567 r  control_s_axi_U/int_block_out/b_6_reg_611_reg[15]_i_2/O[1]
+                         net (fo=4, routed)           0.307     1.874    control_s_axi_U/int_block_out/reg_214_reg[14]_0[1]
+    SLICE_X48Y153        LUT3 (Prop_H6LUT_SLICEL_I2_O)
+                                                      0.083     1.957 r  control_s_axi_U/int_block_out/trunc_ln11_8_reg_626[14]_i_7/O
+                         net (fo=1, routed)           0.228     2.185    control_s_axi_U/int_block_out/trunc_ln11_8_reg_626[14]_i_7_n_0
+    SLICE_X47Y155        CARRY8 (Prop_CARRY8_SLICEL_DI[1]_O[6])
+                                                      0.272     2.457 r  control_s_axi_U/int_block_out/trunc_ln11_8_reg_626_reg[14]_i_1/O[6]
+                         net (fo=2, routed)           0.217     2.674    control_s_axi_U/int_block_out/a_6_reg_581_reg[14][13]
+    SLICE_X47Y160        LUT6 (Prop_A6LUT_SLICEL_I0_O)
+                                                      0.058     2.732 r  control_s_axi_U/int_block_out/mem_reg_i_33/O
+                         net (fo=1, routed)           0.102     2.834    control_s_axi_U/int_block_out/mem_reg_i_33_n_0
+    SLICE_X47Y160        LUT6 (Prop_F6LUT_SLICEL_I4_O)
+                                                      0.056     2.890 r  control_s_axi_U/int_block_out/mem_reg_i_6/O
+                         net (fo=1, routed)           0.225     3.115    control_s_axi_U/int_block_out/mem_reg_i_6_n_0
+    RAMB18_X1Y62         RAMB18E2                                     r  control_s_axi_U/int_block_out/mem_reg/DINADIN[14]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     3.000     3.000 r  
+                                                      0.000     3.000 r  ap_clk (IN)
+                         net (fo=429, unset)          0.049     3.049    control_s_axi_U/int_block_out/ap_clk
+    RAMB18_X1Y62         RAMB18E2                                     r  control_s_axi_U/int_block_out/mem_reg/CLKBWRCLK
+                         clock pessimism              0.000     3.049    
+                         clock uncertainty           -0.035     3.014    
+    RAMB18_X1Y62         RAMB18E2 (Setup_RAMB18E2_L_RAMB180_CLKBWRCLK_DINADIN[14])
+                                                     -0.404     2.610    control_s_axi_U/int_block_out/mem_reg
+  -------------------------------------------------------------------
+                         required time                          2.610    
+                         arrival time                          -3.115    
+  -------------------------------------------------------------------
+                         slack                                 -0.505    
+
+
+
+

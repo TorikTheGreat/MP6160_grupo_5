@@ -1,0 +1,19 @@
+{
+  "variant": "main_forward",
+  "top": "wht_lossless_core",
+  "part": "xck26-sfvc784-2LV-c",
+  "hls_clock_ns": 4.0,
+  "source": "../Source/wht_core.cpp",
+  "testbench": "../TB/wht_core_tb.cpp",
+  "project": "wht_main_forward",
+  "solution": "solution_main_forward",
+  "work_root": "${PROJECT_ROOT}/ProyectoFinal/HLS/work/main_forward/hls",
+  "collected_at_utc": "2026-08-06T08:49:14.776555+00:00",
+  "files": [
+    "hls/csynth.rpt",
+    "hls/wht_lossless_core_csynth.rpt",
+    "hls/wht_lossless_core_csynth.xml",
+    "simulation/wht_lossless_core_csim.log",
+    "simulation/wht_lossless_core_cosim.rpt"
+  ]
+}

@@ -1,0 +1,8 @@
+part=xck26-sfvc784-2LV-c
+top=wht_lossless_forward_isolated
+requested_period_ns=6.0
+wns_ns=1.616
+datapath_delay_ns=3.755
+wns_extrapolated_period_ns=4.384
+wns_extrapolated_frequency_mhz=228.10218978102188
+route_status=

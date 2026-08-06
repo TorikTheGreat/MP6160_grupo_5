@@ -1,0 +1,82 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
+| Date         : Thu Aug  6 03:01:24 2026
+| Host         : linux running 64-bit Ubuntu 22.04.5 LTS
+| Command      : report_utilization -hierarchical -file ${PROJECT_ROOT}/ProyectoFinal/HLS/reports/main_inverse/post_route/utilization_hier_post_route.rpt
+| Design       : wht_lossless_inverse
+| Device       : xck26-sfvc784-2LV-c
+| Speed File   : -2LV
+| Design State : Routed
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++---------------------------+-----------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+|          Instance         |                           Module                          | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | URAM | DSP Blocks |
++---------------------------+-----------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+| wht_lossless_inverse      |                                                     (top) |       2366 |       1708 |       0 |  658 | 2716 |      4 |      0 |    0 |          0 |
+|   (wht_lossless_inverse)  |                                                     (top) |        383 |        203 |       0 |  180 |  580 |      0 |      0 |    0 |          0 |
+|   control_s_axi_U         |                        wht_lossless_inverse_control_s_axi |        185 |        185 |       0 |    0 |  183 |      0 |      0 |    0 |          0 |
+|   gmem_m_axi_U            |                           wht_lossless_inverse_gmem_m_axi |       1798 |       1320 |       0 |  478 | 1953 |      4 |      0 |    0 |          0 |
+|     bus_read              |                      wht_lossless_inverse_gmem_m_axi_read |        432 |        431 |       0 |    1 |  728 |      0 |      0 |    0 |          0 |
+|       fifo_burst          |    wht_lossless_inverse_gmem_m_axi_fifo__parameterized1_4 |         17 |         16 |       0 |    1 |   13 |      0 |      0 |    0 |          0 |
+|         (fifo_burst)      |    wht_lossless_inverse_gmem_m_axi_fifo__parameterized1_4 |         15 |         15 |       0 |    0 |   12 |      0 |      0 |    0 |          0 |
+|         U_fifo_srl        |     wht_lossless_inverse_gmem_m_axi_srl__parameterized0_8 |          2 |          1 |       0 |    1 |    1 |      0 |      0 |    0 |          0 |
+|       fifo_rctl           |    wht_lossless_inverse_gmem_m_axi_fifo__parameterized1_5 |          9 |          9 |       0 |    0 |    8 |      0 |      0 |    0 |          0 |
+|       rreq_burst_conv     |         wht_lossless_inverse_gmem_m_axi_burst_converter_6 |        271 |        271 |       0 |    0 |  444 |      0 |      0 |    0 |          0 |
+|         (rreq_burst_conv) |         wht_lossless_inverse_gmem_m_axi_burst_converter_6 |        161 |        161 |       0 |    0 |  315 |      0 |      0 |    0 |          0 |
+|         rs_req            |               wht_lossless_inverse_gmem_m_axi_reg_slice_7 |        110 |        110 |       0 |    0 |  129 |      0 |      0 |    0 |          0 |
+|       rs_rdata            | wht_lossless_inverse_gmem_m_axi_reg_slice__parameterized2 |        135 |        135 |       0 |    0 |  263 |      0 |      0 |    0 |          0 |
+|     bus_write             |                     wht_lossless_inverse_gmem_m_axi_write |        541 |        431 |       0 |  110 |  860 |      0 |      0 |    0 |          0 |
+|       (bus_write)         |                     wht_lossless_inverse_gmem_m_axi_write |          6 |          6 |       0 |    0 |   10 |      0 |      0 |    0 |          0 |
+|       fifo_burst          |      wht_lossless_inverse_gmem_m_axi_fifo__parameterized4 |         24 |         20 |       0 |    4 |   16 |      0 |      0 |    0 |          0 |
+|         (fifo_burst)      |      wht_lossless_inverse_gmem_m_axi_fifo__parameterized4 |          6 |          6 |       0 |    0 |   12 |      0 |      0 |    0 |          0 |
+|         U_fifo_srl        |       wht_lossless_inverse_gmem_m_axi_srl__parameterized2 |         18 |         14 |       0 |    4 |    4 |      0 |      0 |    0 |          0 |
+|       fifo_resp           |    wht_lossless_inverse_gmem_m_axi_fifo__parameterized1_2 |         17 |         16 |       0 |    1 |   13 |      0 |      0 |    0 |          0 |
+|         (fifo_resp)       |    wht_lossless_inverse_gmem_m_axi_fifo__parameterized1_2 |         13 |         13 |       0 |    0 |   12 |      0 |      0 |    0 |          0 |
+|         U_fifo_srl        |     wht_lossless_inverse_gmem_m_axi_srl__parameterized0_3 |          4 |          3 |       0 |    1 |    1 |      0 |      0 |    0 |          0 |
+|       rs_resp             | wht_lossless_inverse_gmem_m_axi_reg_slice__parameterized1 |          4 |          4 |       0 |    0 |    5 |      0 |      0 |    0 |          0 |
+|       wreq_burst_conv     |           wht_lossless_inverse_gmem_m_axi_burst_converter |        271 |        271 |       0 |    0 |  444 |      0 |      0 |    0 |          0 |
+|         (wreq_burst_conv) |           wht_lossless_inverse_gmem_m_axi_burst_converter |        161 |        161 |       0 |    0 |  315 |      0 |      0 |    0 |          0 |
+|         rs_req            |                 wht_lossless_inverse_gmem_m_axi_reg_slice |        110 |        110 |       0 |    0 |  129 |      0 |      0 |    0 |          0 |
+|       wreq_throttle       |                  wht_lossless_inverse_gmem_m_axi_throttle |        219 |        114 |       0 |  105 |  372 |      0 |      0 |    0 |          0 |
+|         (wreq_throttle)   |                  wht_lossless_inverse_gmem_m_axi_throttle |          1 |          1 |       0 |    0 |    6 |      0 |      0 |    0 |          0 |
+|         data_fifo         |      wht_lossless_inverse_gmem_m_axi_fifo__parameterized6 |         99 |         26 |       0 |   73 |  157 |      0 |      0 |    0 |          0 |
+|           (data_fifo)     |      wht_lossless_inverse_gmem_m_axi_fifo__parameterized6 |         16 |         16 |       0 |    0 |   12 |      0 |      0 |    0 |          0 |
+|           U_fifo_srl      |       wht_lossless_inverse_gmem_m_axi_srl__parameterized4 |         83 |         10 |       0 |   73 |  145 |      0 |      0 |    0 |          0 |
+|         req_fifo          |      wht_lossless_inverse_gmem_m_axi_fifo__parameterized5 |         48 |         16 |       0 |   32 |   76 |      0 |      0 |    0 |          0 |
+|           (req_fifo)      |      wht_lossless_inverse_gmem_m_axi_fifo__parameterized5 |         15 |         15 |       0 |    0 |   12 |      0 |      0 |    0 |          0 |
+|           U_fifo_srl      |       wht_lossless_inverse_gmem_m_axi_srl__parameterized3 |         34 |          2 |       0 |   32 |   64 |      0 |      0 |    0 |          0 |
+|         rs_req            | wht_lossless_inverse_gmem_m_axi_reg_slice__parameterized0 |         71 |         71 |       0 |    0 |  133 |      0 |      0 |    0 |          0 |
+|     load_unit_0           |                      wht_lossless_inverse_gmem_m_axi_load |        496 |        313 |       0 |  183 |  179 |      2 |      0 |    0 |          0 |
+|       (load_unit_0)       |                      wht_lossless_inverse_gmem_m_axi_load |          1 |          1 |       0 |    0 |   64 |      0 |      0 |    0 |          0 |
+|       buff_rdata          |      wht_lossless_inverse_gmem_m_axi_fifo__parameterized3 |        223 |        223 |       0 |    0 |   36 |      2 |      0 |    0 |          0 |
+|         (buff_rdata)      |      wht_lossless_inverse_gmem_m_axi_fifo__parameterized3 |         28 |         28 |       0 |    0 |   28 |      0 |      0 |    0 |          0 |
+|         U_fifo_mem        |       wht_lossless_inverse_gmem_m_axi_mem__parameterized0 |        195 |        195 |       0 |    0 |    8 |      2 |      0 |    0 |          0 |
+|       fifo_rreq           |                    wht_lossless_inverse_gmem_m_axi_fifo_0 |        274 |         91 |       0 |  183 |   79 |      0 |      0 |    0 |          0 |
+|         (fifo_rreq)       |                    wht_lossless_inverse_gmem_m_axi_fifo_0 |         28 |         28 |       0 |    0 |   18 |      0 |      0 |    0 |          0 |
+|         U_fifo_srl        |                     wht_lossless_inverse_gmem_m_axi_srl_1 |        247 |         64 |       0 |  183 |   61 |      0 |      0 |    0 |          0 |
+|     store_unit            |                     wht_lossless_inverse_gmem_m_axi_store |        330 |        146 |       0 |  184 |  186 |      2 |      0 |    0 |          0 |
+|       (store_unit)        |                     wht_lossless_inverse_gmem_m_axi_store |          1 |          1 |       0 |    0 |   63 |      0 |      0 |    0 |          0 |
+|       buff_wdata          |      wht_lossless_inverse_gmem_m_axi_fifo__parameterized0 |         17 |         17 |       0 |    0 |   20 |      2 |      0 |    0 |          0 |
+|         (buff_wdata)      |      wht_lossless_inverse_gmem_m_axi_fifo__parameterized0 |         15 |         15 |       0 |    0 |   16 |      0 |      0 |    0 |          0 |
+|         U_fifo_mem        |                       wht_lossless_inverse_gmem_m_axi_mem |          2 |          2 |       0 |    0 |    4 |      2 |      0 |    0 |          0 |
+|       fifo_wreq           |                      wht_lossless_inverse_gmem_m_axi_fifo |        276 |         93 |       0 |  183 |   79 |      0 |      0 |    0 |          0 |
+|         (fifo_wreq)       |                      wht_lossless_inverse_gmem_m_axi_fifo |         29 |         29 |       0 |    0 |   18 |      0 |      0 |    0 |          0 |
+|         U_fifo_srl        |                       wht_lossless_inverse_gmem_m_axi_srl |        247 |         64 |       0 |  183 |   61 |      0 |      0 |    0 |          0 |
+|       fifo_wrsp           |      wht_lossless_inverse_gmem_m_axi_fifo__parameterized1 |         18 |         17 |       0 |    1 |   13 |      0 |      0 |    0 |          0 |
+|         (fifo_wrsp)       |      wht_lossless_inverse_gmem_m_axi_fifo__parameterized1 |          5 |          5 |       0 |    0 |   12 |      0 |      0 |    0 |          0 |
+|         U_fifo_srl        |       wht_lossless_inverse_gmem_m_axi_srl__parameterized0 |         14 |         13 |       0 |    1 |    1 |      0 |      0 |    0 |          0 |
+|       user_resp           |      wht_lossless_inverse_gmem_m_axi_fifo__parameterized2 |         20 |         20 |       0 |    0 |   11 |      0 |      0 |    0 |          0 |
++---------------------------+-----------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

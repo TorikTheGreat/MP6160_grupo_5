@@ -1,0 +1,1518 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
+| Date              : Thu Aug  6 01:56:20 2026
+| Host              : linux running 64-bit Ubuntu 22.04.5 LTS
+| Command           : report_timing_summary -delay_type max -max_paths 20 -file ${PROJECT_ROOT}/ProyectoFinal/HLS/reports/baseline_forward/timing_sweep/4p0ns/timing_post_route.rpt
+| Design            : wht_multiplier_forward
+| Device            : xck26-sfvc784
+| Speed File        : -2LV  PRODUCTION 1.30 05-15-2022
+| Design State      : Routed
+| Temperature Grade : C
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+No report available as report_methodology has not been run prior. Run report_methodology on the current design for the summary of methodology violations.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (52)
+6. checking no_output_delay (38)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (52)
+-------------------------------
+ There are 52 input ports with no input delay specified. (HIGH)
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay (38)
+--------------------------------
+ There are 38 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      0.032        0.000                      0                 1870        1.423        0.000                       0                   401  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock   Waveform(ns)         Period(ns)      Frequency(MHz)
+-----   ------------         ----------      --------------
+ap_clk  {0.000 2.000}        4.000           250.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+ap_clk              0.032        0.000                      0                 1870        1.423        0.000                       0                   401  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  ap_clk
+  To Clock:  ap_clk
+
+Setup :            0  Failing Endpoints,  Worst Slack        0.032ns,  Total Violation        0.000ns
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack        1.423ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.032ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[23]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.341ns  (logic 2.209ns (66.117%)  route 1.132ns (33.883%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.408     3.447    mul_16s_16s_31_1_1_U7/tmp_product/A[23]
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[23]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    mul_16s_16s_31_1_1_U7/tmp_product/CLK
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y0         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[23])
+                                                     -0.541     3.479    mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.479    
+                         arrival time                          -3.447    
+  -------------------------------------------------------------------
+                         slack                                  0.032    
+
+Slack (MET) :             0.088ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[24]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.295ns  (logic 2.209ns (67.043%)  route 1.086ns (32.957%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.362     3.401    mul_16s_16s_31_1_1_U7/tmp_product/A[24]
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[24]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    mul_16s_16s_31_1_1_U7/tmp_product/CLK
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y0         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[24])
+                                                     -0.531     3.489    mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.489    
+                         arrival time                          -3.401    
+  -------------------------------------------------------------------
+                         slack                                  0.088    
+
+Slack (MET) :             0.090ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[29]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.301ns  (logic 2.209ns (66.915%)  route 1.092ns (33.085%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.368     3.407    mul_16s_16s_31_1_1_U7/tmp_product/A[29]
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[29]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    mul_16s_16s_31_1_1_U7/tmp_product/CLK
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y0         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[29])
+                                                     -0.522     3.498    mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.498    
+                         arrival time                          -3.407    
+  -------------------------------------------------------------------
+                         slack                                  0.090    
+
+Slack (MET) :             0.091ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[25]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.282ns  (logic 2.209ns (67.297%)  route 1.073ns (32.703%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.349     3.388    mul_16s_16s_31_1_1_U7/tmp_product/A[25]
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[25]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    mul_16s_16s_31_1_1_U7/tmp_product/CLK
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y0         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[25])
+                                                     -0.540     3.480    mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.480    
+                         arrival time                          -3.388    
+  -------------------------------------------------------------------
+                         slack                                  0.091    
+
+Slack (MET) :             0.095ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[28]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.262ns  (logic 2.209ns (67.727%)  route 1.053ns (32.273%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.329     3.368    trunc_ln15_5_reg_648_reg/A[28]
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[28]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    trunc_ln15_5_reg_648_reg/CLK
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y1         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[28])
+                                                     -0.557     3.463    trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.463    
+                         arrival time                          -3.368    
+  -------------------------------------------------------------------
+                         slack                                  0.095    
+
+Slack (MET) :             0.102ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[21]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.304ns  (logic 2.209ns (66.861%)  route 1.095ns (33.139%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.371     3.410    mul_16s_16s_31_1_1_U7/tmp_product/A[21]
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[21]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    mul_16s_16s_31_1_1_U7/tmp_product/CLK
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y0         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[21])
+                                                     -0.508     3.512    mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.512    
+                         arrival time                          -3.410    
+  -------------------------------------------------------------------
+                         slack                                  0.102    
+
+Slack (MET) :             0.103ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[13]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.284ns  (logic 2.208ns (67.228%)  route 1.076ns (32.772%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[5])
+                                                      0.349     3.038 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[5]
+                         net (fo=4, routed)           0.352     3.390    mul_16s_16s_31_1_1_U7/tmp_product/A[13]
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[13]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    mul_16s_16s_31_1_1_U7/tmp_product/CLK
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y0         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[13])
+                                                     -0.526     3.494    mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.494    
+                         arrival time                          -3.390    
+  -------------------------------------------------------------------
+                         slack                                  0.103    
+
+Slack (MET) :             0.123ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[15]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.264ns  (logic 2.209ns (67.671%)  route 1.055ns (32.329%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.331     3.370    mul_16s_16s_31_1_1_U7/tmp_product/A[15]
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[15]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    mul_16s_16s_31_1_1_U7/tmp_product/CLK
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y0         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[15])
+                                                     -0.526     3.494    mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.494    
+                         arrival time                          -3.370    
+  -------------------------------------------------------------------
+                         slack                                  0.123    
+
+Slack (MET) :             0.125ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[28]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.232ns  (logic 2.209ns (68.353%)  route 1.023ns (31.647%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.299     3.338    mul_16s_16s_31_1_1_U7/tmp_product/A[28]
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[28]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    mul_16s_16s_31_1_1_U7/tmp_product/CLK
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y0         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[28])
+                                                     -0.557     3.463    mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.463    
+                         arrival time                          -3.338    
+  -------------------------------------------------------------------
+                         slack                                  0.125    
+
+Slack (MET) :             0.129ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[27]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.251ns  (logic 2.209ns (67.948%)  route 1.042ns (32.052%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.318     3.357    trunc_ln15_5_reg_648_reg/A[27]
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[27]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    trunc_ln15_5_reg_648_reg/CLK
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y1         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[27])
+                                                     -0.534     3.486    trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.486    
+                         arrival time                          -3.357    
+  -------------------------------------------------------------------
+                         slack                                  0.129    
+
+Slack (MET) :             0.129ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[14]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.274ns  (logic 2.188ns (66.824%)  route 1.086ns (33.176%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[6])
+                                                      0.329     3.018 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[6]
+                         net (fo=4, routed)           0.362     3.380    trunc_ln15_5_reg_648_reg/A[14]
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[14]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    trunc_ln15_5_reg_648_reg/CLK
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y1         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[14])
+                                                     -0.510     3.510    trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.510    
+                         arrival time                          -3.380    
+  -------------------------------------------------------------------
+                         slack                                  0.129    
+
+Slack (MET) :             0.129ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[19]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.287ns  (logic 2.209ns (67.200%)  route 1.078ns (32.800%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.354     3.393    trunc_ln15_5_reg_648_reg/A[19]
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[19]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    trunc_ln15_5_reg_648_reg/CLK
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y1         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[19])
+                                                     -0.497     3.523    trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.523    
+                         arrival time                          -3.393    
+  -------------------------------------------------------------------
+                         slack                                  0.129    
+
+Slack (MET) :             0.134ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[29]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.258ns  (logic 2.209ns (67.811%)  route 1.049ns (32.189%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.325     3.364    trunc_ln15_5_reg_648_reg/A[29]
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[29]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    trunc_ln15_5_reg_648_reg/CLK
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y1         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[29])
+                                                     -0.522     3.498    trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.498    
+                         arrival time                          -3.364    
+  -------------------------------------------------------------------
+                         slack                                  0.134    
+
+Slack (MET) :             0.135ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[22]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.293ns  (logic 2.209ns (67.079%)  route 1.084ns (32.921%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.360     3.399    mul_16s_16s_31_1_1_U7/tmp_product/A[22]
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[22]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    mul_16s_16s_31_1_1_U7/tmp_product/CLK
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y0         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[22])
+                                                     -0.486     3.534    mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.534    
+                         arrival time                          -3.399    
+  -------------------------------------------------------------------
+                         slack                                  0.135    
+
+Slack (MET) :             0.146ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[26]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.230ns  (logic 2.209ns (68.397%)  route 1.021ns (31.603%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.297     3.336    mul_16s_16s_31_1_1_U7/tmp_product/A[26]
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[26]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    mul_16s_16s_31_1_1_U7/tmp_product/CLK
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y0         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[26])
+                                                     -0.538     3.482    mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.482    
+                         arrival time                          -3.336    
+  -------------------------------------------------------------------
+                         slack                                  0.146    
+
+Slack (MET) :             0.156ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[27]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.223ns  (logic 2.209ns (68.529%)  route 1.014ns (31.471%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.290     3.329    mul_16s_16s_31_1_1_U7/tmp_product/A[27]
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[27]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    mul_16s_16s_31_1_1_U7/tmp_product/CLK
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y0         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[27])
+                                                     -0.534     3.486    mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.486    
+                         arrival time                          -3.329    
+  -------------------------------------------------------------------
+                         slack                                  0.156    
+
+Slack (MET) :             0.165ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[16]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.253ns  (logic 2.209ns (67.900%)  route 1.044ns (32.100%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.320     3.359    mul_16s_16s_31_1_1_U7/tmp_product/A[16]
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/A[16]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    mul_16s_16s_31_1_1_U7/tmp_product/CLK
+    DSP48E2_X7Y0         DSP_A_B_DATA                                 r  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y0         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[16])
+                                                     -0.495     3.525    mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.525    
+                         arrival time                          -3.359    
+  -------------------------------------------------------------------
+                         slack                                  0.165    
+
+Slack (MET) :             0.174ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[15]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.214ns  (logic 2.209ns (68.739%)  route 1.005ns (31.261%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.281     3.320    trunc_ln15_5_reg_648_reg/A[15]
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[15]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    trunc_ln15_5_reg_648_reg/CLK
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y1         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[15])
+                                                     -0.526     3.494    trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.494    
+                         arrival time                          -3.320    
+  -------------------------------------------------------------------
+                         slack                                  0.174    
+
+Slack (MET) :             0.178ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[21]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.227ns  (logic 2.209ns (68.449%)  route 1.018ns (31.551%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.294     3.333    trunc_ln15_5_reg_648_reg/A[21]
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[21]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    trunc_ln15_5_reg_648_reg/CLK
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y1         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[21])
+                                                     -0.508     3.512    trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.512    
+                         arrival time                          -3.333    
+  -------------------------------------------------------------------
+                         slack                                  0.178    
+
+Slack (MET) :             0.179ns  (required time - arrival time)
+  Source:                 control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+                            (rising edge-triggered cell RAMB36E2 clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[20]
+                            (rising edge-triggered cell DSP_A_B_DATA clocked by ap_clk  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (ap_clk rise@4.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        3.220ns  (logic 2.209ns (68.602%)  route 1.011ns (31.398%))
+  Logic Levels:           5  (CARRY8=3 LUT2=1 LUT4=1)
+  Clock Path Skew:        -0.051ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.055ns = ( 4.055 - 4.000 ) 
+    Source Clock Delay      (SCD):    0.106ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.106     0.106    control_s_axi_U/int_input_r/ap_clk
+    RAMB36_X0Y0          RAMB36E2                                     r  control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+  -------------------------------------------------------------------    -------------------
+    RAMB36_X0Y0          RAMB36E2 (Prop_RAMB36E2_RAMB36_CLKBWRCLK_DOUTBDOUT[2])
+                                                      1.316     1.422 r  control_s_axi_U/int_input_r/mem_reg/DOUTBDOUT[2]
+                         net (fo=3, routed)           0.372     1.794    control_s_axi_U/int_input_r/int_input_r_q0[2]
+    SLICE_X27Y3          LUT4 (Prop_C6LUT_SLICEL_I1_O)
+                                                      0.136     1.930 r  control_s_axi_U/int_input_r/tmp_product_i_17__0/O
+                         net (fo=1, routed)           0.015     1.945    control_s_axi_U/int_input_r/tmp_product_i_17__0_n_0
+    SLICE_X27Y3          CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.219     2.164 r  control_s_axi_U/int_input_r/tmp_product_i_3__0/CO[7]
+                         net (fo=1, routed)           0.030     2.194    control_s_axi_U/int_input_r/tmp_product_i_3__0_n_0
+    SLICE_X27Y4          CARRY8 (Prop_CARRY8_SLICEL_CI_O[1])
+                                                      0.106     2.300 r  control_s_axi_U/int_input_r/tmp_product_i_2/O[1]
+                         net (fo=2, routed)           0.285     2.585    control_s_axi_U/int_input_r/A[9]
+    SLICE_X28Y4          LUT2 (Prop_B6LUT_SLICEM_I1_O)
+                                                      0.082     2.667 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10/O
+                         net (fo=1, routed)           0.022     2.689    control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_10_n_0
+    SLICE_X28Y4          CARRY8 (Prop_CARRY8_SLICEM_S[1]_O[7])
+                                                      0.350     3.039 r  control_s_axi_U/int_input_r/trunc_ln15_5_reg_648_reg_i_2/O[7]
+                         net (fo=32, routed)          0.287     3.326    trunc_ln15_5_reg_648_reg/A[20]
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/A[20]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     4.000     4.000 r  
+                                                      0.000     4.000 r  ap_clk (IN)
+                         net (fo=446, unset)          0.055     4.055    trunc_ln15_5_reg_648_reg/CLK
+    DSP48E2_X7Y1         DSP_A_B_DATA                                 r  trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST/CLK
+                         clock pessimism              0.000     4.055    
+                         clock uncertainty           -0.035     4.020    
+    DSP48E2_X7Y1         DSP_A_B_DATA (Setup_DSP_A_B_DATA_DSP48E2_CLK_A[20])
+                                                     -0.515     3.505    trunc_ln15_5_reg_648_reg/DSP_A_B_DATA_INST
+  -------------------------------------------------------------------
+                         required time                          3.505    
+                         arrival time                          -3.326    
+  -------------------------------------------------------------------
+                         slack                                  0.179    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         ap_clk
+Waveform(ns):       { 0.000 2.000 }
+Period(ns):         4.000
+Sources:            { ap_clk }
+
+Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
+Min Period        n/a     RAMB36E2/CLKARDCLK  n/a            1.960         4.000       2.040      RAMB36_X0Y0   control_s_axi_U/int_input_r/mem_reg/CLKARDCLK
+Min Period        n/a     RAMB18E2/CLKARDCLK  n/a            1.960         4.000       2.040      RAMB18_X0Y2   control_s_axi_U/int_output_r/mem_reg/CLKARDCLK
+Min Period        n/a     RAMB18E2/CLKBWRCLK  n/a            1.960         4.000       2.040      RAMB18_X0Y2   control_s_axi_U/int_output_r/mem_reg/CLKBWRCLK
+Min Period        n/a     RAMB36E2/CLKBWRCLK  n/a            1.709         4.000       2.291      RAMB36_X0Y0   control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+Min Period        n/a     DSP_OUTPUT/CLK      n/a            0.850         4.000       3.150      DSP48E2_X7Y0  mul_16s_16s_31_1_1_U7/tmp_product/DSP_OUTPUT_INST/CLK
+Min Period        n/a     DSP_OUTPUT/CLK      n/a            0.850         4.000       3.150      DSP48E2_X7Y5  mul_16s_16s_31_1_1_U9/tmp_product/DSP_OUTPUT_INST/CLK
+Min Period        n/a     DSP_OUTPUT/CLK      n/a            0.850         4.000       3.150      DSP48E2_X7Y2  trunc_ln15_10_reg_742_reg/DSP_OUTPUT_INST/CLK
+Min Period        n/a     DSP_OUTPUT/CLK      n/a            0.850         4.000       3.150      DSP48E2_X5Y0  trunc_ln15_2_reg_676_reg/DSP_OUTPUT_INST/CLK
+Min Period        n/a     DSP_OUTPUT/CLK      n/a            0.850         4.000       3.150      DSP48E2_X6Y4  trunc_ln15_4_reg_681_reg/DSP_OUTPUT_INST/CLK
+Min Period        n/a     DSP_OUTPUT/CLK      n/a            0.850         4.000       3.150      DSP48E2_X7Y1  trunc_ln15_5_reg_648_reg/DSP_OUTPUT_INST/CLK
+Min Period        n/a     DSP_OUTPUT/CLK      n/a            0.850         4.000       3.150      DSP48E2_X7Y6  trunc_ln15_8_reg_799_reg/DSP_OUTPUT_INST/CLK
+Min Period        n/a     DSP_OUTPUT/CLK      n/a            0.850         4.000       3.150      DSP48E2_X8Y2  trunc_ln15_9_reg_752_reg/DSP_OUTPUT_INST/CLK
+Min Period        n/a     DSP_OUTPUT/CLK      n/a            0.850         4.000       3.150      DSP48E2_X8Y3  trunc_ln15_s_reg_784_reg/DSP_OUTPUT_INST/CLK
+Min Period        n/a     DSP_OUTPUT/CLK      n/a            0.850         4.000       3.150      DSP48E2_X6Y0  trunc_ln_reg_615_reg/DSP_OUTPUT_INST/CLK
+Min Period        n/a     DSP_A_B_DATA/CLK    n/a            0.700         4.000       3.300      DSP48E2_X7Y3  mul_16s_16s_31_1_1_U2/tmp_product/DSP_A_B_DATA_INST/CLK
+Min Period        n/a     DSP_A_B_DATA/CLK    n/a            0.700         4.000       3.300      DSP48E2_X7Y0  mul_16s_16s_31_1_1_U7/tmp_product/DSP_A_B_DATA_INST/CLK
+Min Period        n/a     DSP_A_B_DATA/CLK    n/a            0.700         4.000       3.300      DSP48E2_X7Y5  mul_16s_16s_31_1_1_U9/tmp_product/DSP_A_B_DATA_INST/CLK
+Min Period        n/a     DSP_A_B_DATA/CLK    n/a            0.700         4.000       3.300      DSP48E2_X7Y2  trunc_ln15_10_reg_742_reg/DSP_A_B_DATA_INST/CLK
+Min Period        n/a     DSP_A_B_DATA/CLK    n/a            0.700         4.000       3.300      DSP48E2_X5Y0  trunc_ln15_2_reg_676_reg/DSP_A_B_DATA_INST/CLK
+Min Period        n/a     DSP_A_B_DATA/CLK    n/a            0.700         4.000       3.300      DSP48E2_X6Y4  trunc_ln15_4_reg_681_reg/DSP_A_B_DATA_INST/CLK
+Low Pulse Width   Slow    RAMB36E2/CLKARDCLK  n/a            0.577         2.000       1.423      RAMB36_X0Y0   control_s_axi_U/int_input_r/mem_reg/CLKARDCLK
+Low Pulse Width   Fast    RAMB36E2/CLKARDCLK  n/a            0.577         2.000       1.423      RAMB36_X0Y0   control_s_axi_U/int_input_r/mem_reg/CLKARDCLK
+Low Pulse Width   Slow    RAMB36E2/CLKBWRCLK  n/a            0.577         2.000       1.423      RAMB36_X0Y0   control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+Low Pulse Width   Fast    RAMB36E2/CLKBWRCLK  n/a            0.577         2.000       1.423      RAMB36_X0Y0   control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+Low Pulse Width   Slow    RAMB18E2/CLKARDCLK  n/a            0.577         2.000       1.423      RAMB18_X0Y2   control_s_axi_U/int_output_r/mem_reg/CLKARDCLK
+Low Pulse Width   Fast    RAMB18E2/CLKARDCLK  n/a            0.577         2.000       1.423      RAMB18_X0Y2   control_s_axi_U/int_output_r/mem_reg/CLKARDCLK
+Low Pulse Width   Slow    RAMB18E2/CLKBWRCLK  n/a            0.577         2.000       1.423      RAMB18_X0Y2   control_s_axi_U/int_output_r/mem_reg/CLKBWRCLK
+Low Pulse Width   Fast    RAMB18E2/CLKBWRCLK  n/a            0.577         2.000       1.423      RAMB18_X0Y2   control_s_axi_U/int_output_r/mem_reg/CLKBWRCLK
+Low Pulse Width   Slow    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y1   a_4_reg_625_reg[0]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y1   a_4_reg_625_reg[0]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[10]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[10]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[11]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[11]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[12]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[12]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[13]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[13]/C
+Low Pulse Width   Slow    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[14]/C
+Low Pulse Width   Fast    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[14]/C
+High Pulse Width  Slow    RAMB36E2/CLKARDCLK  n/a            0.577         2.000       1.423      RAMB36_X0Y0   control_s_axi_U/int_input_r/mem_reg/CLKARDCLK
+High Pulse Width  Fast    RAMB36E2/CLKARDCLK  n/a            0.577         2.000       1.423      RAMB36_X0Y0   control_s_axi_U/int_input_r/mem_reg/CLKARDCLK
+High Pulse Width  Slow    RAMB36E2/CLKBWRCLK  n/a            0.577         2.000       1.423      RAMB36_X0Y0   control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+High Pulse Width  Fast    RAMB36E2/CLKBWRCLK  n/a            0.577         2.000       1.423      RAMB36_X0Y0   control_s_axi_U/int_input_r/mem_reg/CLKBWRCLK
+High Pulse Width  Slow    RAMB18E2/CLKARDCLK  n/a            0.577         2.000       1.423      RAMB18_X0Y2   control_s_axi_U/int_output_r/mem_reg/CLKARDCLK
+High Pulse Width  Fast    RAMB18E2/CLKARDCLK  n/a            0.577         2.000       1.423      RAMB18_X0Y2   control_s_axi_U/int_output_r/mem_reg/CLKARDCLK
+High Pulse Width  Slow    RAMB18E2/CLKBWRCLK  n/a            0.577         2.000       1.423      RAMB18_X0Y2   control_s_axi_U/int_output_r/mem_reg/CLKBWRCLK
+High Pulse Width  Fast    RAMB18E2/CLKBWRCLK  n/a            0.577         2.000       1.423      RAMB18_X0Y2   control_s_axi_U/int_output_r/mem_reg/CLKBWRCLK
+High Pulse Width  Slow    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y1   a_4_reg_625_reg[0]/C
+High Pulse Width  Fast    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y1   a_4_reg_625_reg[0]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[10]/C
+High Pulse Width  Fast    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[10]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[11]/C
+High Pulse Width  Fast    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[11]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[12]/C
+High Pulse Width  Fast    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[12]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[13]/C
+High Pulse Width  Fast    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[13]/C
+High Pulse Width  Slow    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[14]/C
+High Pulse Width  Fast    FDRE/C              n/a            0.275         2.000       1.725      SLICE_X25Y2   a_4_reg_625_reg[14]/C
+
+
+

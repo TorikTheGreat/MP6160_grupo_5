@@ -1,0 +1,19 @@
+{
+  "variant": "isolated_forward",
+  "top": "wht_lossless_forward_isolated",
+  "part": "xck26-sfvc784-2LV-c",
+  "hls_clock_ns": 4.0,
+  "source": "../Source/wht_core_isolated.cpp",
+  "testbench": "../TB/wht_core_isolated_forward_tb.cpp",
+  "project": "wht_isolated_forward",
+  "solution": "solution_isolated_forward",
+  "work_root": "${PROJECT_ROOT}/ProyectoFinal/HLS/work/isolated_forward/hls",
+  "collected_at_utc": "2026-08-06T06:28:24.694571+00:00",
+  "files": [
+    "hls/csynth.rpt",
+    "hls/wht_lossless_forward_isolated_csynth.rpt",
+    "hls/wht_lossless_forward_isolated_csynth.xml",
+    "simulation/wht_lossless_forward_isolated_csim.log",
+    "simulation/wht_lossless_forward_isolated_cosim.rpt"
+  ]
+}

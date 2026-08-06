@@ -1,0 +1,164 @@
+
+
+================================================================
+== Synthesis Summary Report of 'wht_multiplier_forward'
+================================================================
++ General Information: 
+    * Date:           Thu Aug  6 00:38:53 2026
+    * Version:        2024.1 (Build 5069499 on May 21 2024)
+    * Project:        wht_baseline_forward
+    * Solution:       solution_baseline_forward (Vitis Kernel Flow Target)
+    * Product family: zynquplus
+    * Target device:  xck26-sfvc784-2LV-c
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------------------+------+------+---------+--------+----------+---------+------+----------+------+----------+-----------+-----------+-----+
+    |          Modules         | Issue|      | Latency | Latency| Iteration|         | Trip |          |      |          |           |           |     |
+    |          & Loops         | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM |    DSP   |     FF    |    LUT    | URAM|
+    +--------------------------+------+------+---------+--------+----------+---------+------+----------+------+----------+-----------+-----------+-----+
+    |+ wht_multiplier_forward  |    II|  0.54|       17|  68.000|         -|        9|     -|       yes|     -|  12 (~0%)|  823 (~0%)|  926 (~0%)|    -|
+    +--------------------------+------+------+---------+--------+----------+---------+------+----------+------+----------+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| Interface     | Register | Offset | Width | Access | Description                      | Bit Fields                                                                         |
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+| s_axi_control | CTRL     | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 4=AP_CONTINUE 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER     | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                                           |
+| s_axi_control | IP_IER   | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                                      |
+| s_axi_control | IP_ISR   | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                                      |
+| s_axi_control | half_q15 | 0x30   | 32    | W      | Data signal of half_q15          |                                                                                    |
++---------------+----------+--------+-------+--------+----------------------------------+------------------------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+---------------+-----------+
+| Interface | Type          | Ports     |
++-----------+---------------+-----------+
+| ap_clk    | clock         | ap_clk    |
+| ap_rst_n  | reset         | ap_rst_n  |
+| interrupt | interrupt     | interrupt |
+| ap_ctrl   | ap_ctrl_chain |           |
++-----------+---------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+-------------+
+| Argument | Direction | Datatype    |
++----------+-----------+-------------+
+| input    | in        | ap_int<16>* |
+| output   | out       | ap_int<16>* |
+| half_q15 | in        | ap_int<16>  |
++----------+-----------+-------------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+------------------------------------+
+| Argument | HW Interface  | HW Type   | HW Info                            |
++----------+---------------+-----------+------------------------------------+
+| input    | s_axi_control | interface |                                    |
+| output   | s_axi_control | interface |                                    |
+| half_q15 | s_axi_control | register  | name=half_q15 offset=0x30 range=32 |
++----------+---------------+-----------+------------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++--------------------------+-----+--------+-------------+-----+--------+---------+
+| Name                     | DSP | Pragma | Variable    | Op  | Impl   | Latency |
++--------------------------+-----+--------+-------------+-----+--------+---------+
+| + wht_multiplier_forward | 12  |        |             |     |        |         |
+|   grp_fu_240_p2          |     |        | value_12    | sub | fabric | 0       |
+|   mul_16s_16s_31_1_1_U1  | 1   |        | mul_ln13    | mul | auto   | 0       |
+|   a_4_fu_289_p2          |     |        | a_4         | sub | fabric | 0       |
+|   grp_fu_246_p2          |     |        | value_13    | sub | fabric | 0       |
+|   mul_16s_16s_31_1_1_U2  | 1   |        | mul_ln13_1  | mul | auto   | 0       |
+|   grp_fu_240_p2          |     |        | value_14    | sub | fabric | 0       |
+|   mul_16s_16s_31_1_1_U4  | 1   |        | mul_ln13_2  | mul | auto   | 0       |
+|   a_6_fu_383_p2          |     |        | a_6         | sub | fabric | 0       |
+|   grp_fu_246_p2          |     |        | value_15    | sub | fabric | 0       |
+|   mul_16s_16s_31_1_1_U6  | 1   |        | mul_ln13_3  | mul | auto   | 0       |
+|   mul_16s_16s_31_1_1_U5  | 1   |        | mul_ln13_4  | mul | auto   | 0       |
+|   a_8_fu_388_p2          |     |        | a_8         | sub | fabric | 0       |
+|   grp_fu_260_p2          |     |        | value_17    | sub | fabric | 0       |
+|   mul_16s_16s_31_1_1_U3  | 1   |        | mul_ln13_5  | mul | auto   | 0       |
+|   a_9_fu_341_p2          |     |        | a_9         | sub | fabric | 0       |
+|   mul_16s_16s_31_1_1_U9  | 1   |        | mul_ln13_6  | mul | auto   | 0       |
+|   grp_fu_260_p2          |     |        | value_19    | sub | fabric | 0       |
+|   mul_16s_16s_31_1_1_U7  | 1   |        | mul_ln13_7  | mul | auto   | 0       |
+|   mul_16s_16s_31_1_1_U12 | 1   |        | mul_ln13_8  | mul | auto   | 0       |
+|   sub_ln28_fu_571_p2     |     |        | sub_ln28    | sub | fabric | 0       |
+|   mul_16s_16s_31_1_1_U10 | 1   |        | mul_ln13_9  | mul | auto   | 0       |
+|   sub_ln28_3_fu_527_p2   |     |        | sub_ln28_3  | sub | fabric | 0       |
+|   value_11_fu_509_p2     |     |        | value_11    | sub | fabric | 0       |
+|   mul_16s_16s_31_1_1_U11 | 1   |        | mul_ln13_10 | mul | auto   | 0       |
+|   sub_ln28_4_fu_567_p2   |     |        | sub_ln28_4  | sub | fabric | 0       |
+|   value_fu_429_p2        |     |        | value       | sub | fabric | 0       |
+|   mul_16s_16s_31_1_1_U8  | 1   |        | mul_ln13_11 | mul | auto   | 0       |
+|   sub_ln28_5_fu_514_p2   |     |        | sub_ln28_5  | sub | fabric | 0       |
++--------------------------+-----+--------+-------------+-----+--------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++--------------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| Name                     | Usage     | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                          |           |           |      |      |        |          |      |         | Banks            |
++--------------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+| + wht_multiplier_forward |           |           | 0    | 0    |        |          |      |         |                  |
+|   control_s_axi_U        | interface | s_axilite |      |      |        |          |      |         |                  |
++--------------------------+-----------+-----------+------+------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+-------------------------------+------------------------------------------------------------------------------------------+
+| Type            | Options                       | Location                                                                                 |
++-----------------+-------------------------------+------------------------------------------------------------------------------------------+
+| inline          |                               | ../../../../Baseline/wht_multiplier_baseline.cpp:11 in multiply_half                     |
+| inline          |                               | ../../../../Baseline/wht_multiplier_baseline.cpp:25 in multiplier_butterfly              |
+| inline          |                               | ../../../../Baseline/wht_multiplier_baseline.cpp:38 in inverse_multiplier_butterfly      |
+| interface       | ap_memory port=input          | ../../../../Baseline/wht_multiplier_baseline.cpp:49 in wht_multiplier_forward, input     |
+| interface       | ap_memory port=output         | ../../../../Baseline/wht_multiplier_baseline.cpp:50 in wht_multiplier_forward, output    |
+| interface       | ap_none port=half_q15         | ../../../../Baseline/wht_multiplier_baseline.cpp:51 in wht_multiplier_forward, half_q15  |
+| pipeline        | II=1                          | ../../../../Baseline/wht_multiplier_baseline.cpp:52 in wht_multiplier_forward            |
+| array_partition | variable=stage complete dim=1 | ../../../../Baseline/wht_multiplier_baseline.cpp:58 in wht_multiplier_forward, stage     |
+| array_partition | variable=tmp1 complete dim=1  | ../../../../Baseline/wht_multiplier_baseline.cpp:59 in wht_multiplier_forward, tmp1      |
+| array_partition | variable=tmp2 complete dim=1  | ../../../../Baseline/wht_multiplier_baseline.cpp:60 in wht_multiplier_forward, tmp2      |
+| unroll          |                               | ../../../../Baseline/wht_multiplier_baseline.cpp:63 in wht_multiplier_forward            |
+| unroll          |                               | ../../../../Baseline/wht_multiplier_baseline.cpp:69 in wht_multiplier_forward            |
+| unroll          |                               | ../../../../Baseline/wht_multiplier_baseline.cpp:81 in wht_multiplier_forward            |
+| unroll          |                               | ../../../../Baseline/wht_multiplier_baseline.cpp:101 in wht_multiplier_forward           |
+| interface       | ap_memory port=input          | ../../../../Baseline/wht_multiplier_baseline.cpp:117 in wht_multiplier_inverse, input    |
+| interface       | ap_memory port=output         | ../../../../Baseline/wht_multiplier_baseline.cpp:118 in wht_multiplier_inverse, output   |
+| interface       | ap_none port=half_q15         | ../../../../Baseline/wht_multiplier_baseline.cpp:119 in wht_multiplier_inverse, half_q15 |
+| pipeline        | II=1                          | ../../../../Baseline/wht_multiplier_baseline.cpp:120 in wht_multiplier_inverse           |
+| array_partition | variable=stage complete dim=1 | ../../../../Baseline/wht_multiplier_baseline.cpp:126 in wht_multiplier_inverse, stage    |
+| array_partition | variable=tmp2 complete dim=1  | ../../../../Baseline/wht_multiplier_baseline.cpp:127 in wht_multiplier_inverse, tmp2     |
+| array_partition | variable=tmp1 complete dim=1  | ../../../../Baseline/wht_multiplier_baseline.cpp:128 in wht_multiplier_inverse, tmp1     |
+| unroll          |                               | ../../../../Baseline/wht_multiplier_baseline.cpp:131 in wht_multiplier_inverse           |
+| unroll          |                               | ../../../../Baseline/wht_multiplier_baseline.cpp:137 in wht_multiplier_inverse           |
+| unroll          |                               | ../../../../Baseline/wht_multiplier_baseline.cpp:149 in wht_multiplier_inverse           |
+| unroll          |                               | ../../../../Baseline/wht_multiplier_baseline.cpp:169 in wht_multiplier_inverse           |
++-----------------+-------------------------------+------------------------------------------------------------------------------------------+
+
+
