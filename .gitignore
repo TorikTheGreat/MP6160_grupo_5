@@ -23,9 +23,6 @@ ProyectoFinal/HLS/vivado_*/
 build/
 ProyectoFinal/Golden/build/
 
-# Internal planning files
-catalogo-tareas-pendientes.md
-
 # Unified parameterized HLS/Vivado work area
 ProyectoFinal/HLS/work/
 

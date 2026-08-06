@@ -427,7 +427,7 @@ The following limitations should be considered when interpreting the results:
 
 Project source and public history:
 
-[https://github.com/TorikTheGreat/MP6160_grupo_5/tree/proyecto_final_rev2](https://github.com/TorikTheGreat/MP6160_grupo_5/tree/proyecto_final_rev2)
+[https://github.com/TorikTheGreat/MP6160_grupo_5/tree/proyecto_final_rev2](https://github.com/TorikTheGreat/MP6160_grupo_5/tree/wht_accelerator_project)
 
 ## Use of generative tools
 
