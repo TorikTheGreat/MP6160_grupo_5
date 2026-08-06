@@ -1,0 +1,14 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+   Compiling ../../../../../../Baseline/wht_multiplier_baseline_tb.cpp in debug mode
+   Compiling ../../../../../../Baseline/wht_multiplier_baseline.cpp in debug mode
+   Generating csim.exe
+Entrada: 100 150 120 110 105 95 130 125 
+Salida baseline con multiplicadores: 117 -6 -9 -27 6 -28 38 -65 
+Esperado: 117 -6 -9 -27 6 -28 38 -65 
+Reconstruido: 100 150 120 110 105 95 130 125 
+
+Forward: PASS
+Round-trip: PASS
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************
