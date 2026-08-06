@@ -93,6 +93,17 @@ def report_table_value(text: str, labels: list[str]) -> float | int | None:
     return None
 
 
+def parse_power_value(path: Path, label: str) -> float | None:
+    if not path.exists():
+        return None
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    pattern = rf"\|\s*{re.escape(label)}\s*\|\s*([0-9,]+(?:\.[0-9]+)?)\s*\|"
+    match = re.search(pattern, text, flags=re.IGNORECASE)
+    if not match:
+        return None
+    return as_float(match.group(1))
+
+
 def parse_vivado(report_dir: Path) -> dict[str, Any]:
     post = report_dir / "post_route"
     if not post.exists():
@@ -104,6 +115,7 @@ def parse_vivado(report_dir: Path) -> dict[str, Any]:
         return {"available": False}
 
     util_text = util.read_text(encoding="utf-8", errors="ignore") if util.exists() else ""
+    power_report = post / "power_post_route.rpt"
     kv = parse_key_value(summary)
     timing_report = post / "timing_post_route.rpt"
     timing_text = timing_report.read_text(encoding="utf-8", errors="ignore") if timing_report.exists() else ""
@@ -129,6 +141,7 @@ def parse_vivado(report_dir: Path) -> dict[str, Any]:
         "ff": report_table_value(util_text, [r"CLB Registers", r"Slice Registers"]),
         "dsp": report_table_value(util_text, [r"DSP(?: Slices|s)?"]),
         "bram_tiles": report_table_value(util_text, [r"Block RAM Tile"]),
+        "total_on_chip_power_w": parse_power_value(power_report, "Total On-Chip Power (W)"),
     }
     period = result["requested_period_ns"]
     wns = result["wns_ns"]
@@ -196,6 +209,7 @@ def main() -> int:
         ("Post-route FF", vivado.get("ff")),
         ("Post-route DSP", vivado.get("dsp")),
         ("Post-route BRAM tiles", vivado.get("bram_tiles")),
+        ("Post-route total on-chip power (W)", vivado.get("total_on_chip_power_w")),
     ]
     lines = [
         f"# Metrics — {args.variant}",

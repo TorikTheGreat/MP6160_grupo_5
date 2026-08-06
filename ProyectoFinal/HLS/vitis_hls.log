@@ -1,0 +1,309 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2024.1 (64-bit)
+  **** SW Build 5069499 on May 21 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Thu Aug  6 11:06:34 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source C:/Xilinx/Vitis_HLS/2024.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] For user 'sfv02' on host 'sfv' (Windows NT_amd64 version 10.0) on Thu Aug 06 11:06:38 -0600 2026
+INFO: [HLS 200-10] In directory 'C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS'
+WARNING: [HLS 200-2053] The vitis_hls executable is deprecated. Consider using vitis-run --mode hls --tcl
+Sourcing Tcl script 'C:\Users\sfv02\Documents\TEC\Maestria\2026-2C\Alto_Nivel\Proyecto\MP6160_grupo_5\ProyectoFinal\HLS\run_w2_hls_iso.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset wht_hls_iso 
+INFO: [HLS 200-10] Opening and resetting project 'C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso'.
+INFO: [HLS 200-1510] Running: set_top wht_lossless_core_iso 
+INFO: [HLS 200-1510] Running: add_files C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/Source/wht_core_iso.cpp -cflags -IC:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/Source --std=c++17 
+INFO: [HLS 200-10] Adding design file 'C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/Source/wht_core_iso.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/TB/wht_core_iso_tb.cpp -cflags -IC:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/Source --std=c++17 
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/TB/wht_core_iso_tb.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution -reset -flow_target vitis solution_kv260 
+INFO: [HLS 200-10] Creating and opening solution 'C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_latency=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_rtl -register_reset_num=3
+INFO: [HLS 200-1510] Running: set_part xck26-sfvc784-2LV-c 
+INFO: [HLS 200-1611] Setting target device to 'xck26-sfvc784-2LV-c'
+INFO: [HLS 200-1510] Running: create_clock -period 4 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 4ns.
+INFO: [HLS 200-1510] Running: config_dataflow -strict_mode warning 
+INFO: [HLS 200-1510] Running: config_rtl -deadlock_detection sim 
+INFO: [HLS 200-1510] Running: csim_design -clean 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../../TB/wht_core_iso_tb.cpp in debug mode
+   Compiling ../../../../../../Source/wht_core_iso.cpp in debug mode
+   Generating csim.exe
+In file included from ../../../../../../TB/wht_core_iso_tb.cpp:2:
+In file included from C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/Source/wht_core_iso.h:4:
+In file included from C:/Xilinx/Vitis_HLS/2024.1/include/ap_int.h:10:
+In file included from C:/Xilinx/Vitis_HLS/2024.1/include/etc/ap_common.h:658:
+In file included from C:/Xilinx/Vitis_HLS/2024.1/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/Vitis_HLS/2024.1/include/hls_half.h:26:
+In file included from C:/Xilinx/Vitis_HLS/2024.1/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/Vitis_HLS/2024.1/include/hls_fpo.h:140:
+In file included from C:/Xilinx/Vitis_HLS/2024.1/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/Vitis_HLS/2024.1/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/Vitis_HLS/2024.1/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+In file included from ../../../../../../Source/wht_core_iso.cpp:1:
+In file included from C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/Source/wht_core_iso.h:4:
+In file included from C:/Xilinx/Vitis_HLS/2024.1/include/ap_int.h:10:
+In file included from C:/Xilinx/Vitis_HLS/2024.1/include/etc/ap_common.h:658:
+In file included from C:/Xilinx/Vitis_HLS/2024.1/include/etc/ap_private.h:68:
+In file included from C:/Xilinx/Vitis_HLS/2024.1/include/hls_half.h:26:
+In file included from C:/Xilinx/Vitis_HLS/2024.1/include/etc/hls_half_fpo.h:19:
+In file included from C:/Xilinx/Vitis_HLS/2024.1/include/hls_fpo.h:140:
+In file included from C:/Xilinx/Vitis_HLS/2024.1/include/floating_point_v7_1_bitacc_cmodel.h:150:
+C:/Xilinx/Vitis_HLS/2024.1/include/gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
+#define __GMP_LIBGMP_DLL  0
+        ^
+C:/Xilinx/Vitis_HLS/2024.1/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
+#define __GMP_LIBGMP_DLL 1
+        ^
+1 warning generated.
+--- PRUEBA WHT LOSSLESS AISLADO (N=8) ---
+Entrada original: 100 150 120 110 105 95 130 125 
+Coeficientes WHT: 117 -6 -9 -27 6 -28 38 -65 
+
+Simulacion Exitosa! El modelo esta documentado y listo.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-2161] Finished Command csim_design Elapsed time: 00:00:09; Allocated memory: 0.805 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.169 seconds; current allocated memory: 203.309 MB.
+INFO: [HLS 200-10] Analyzing design file '../../Source/wht_core_iso.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 5.613 seconds; current allocated memory: 205.973 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+INFO: [HLS 200-1995] There were 1,446 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 216 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 82 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 85 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 85 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 75 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 75 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 75 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 75 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 75 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 75 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 75 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 75 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 75 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 79 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 81 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report/csynth_design_size.rpt
+INFO: [HLS 214-131] Inlining function 'lifting_butterfly_iso(ap_int<16>, ap_int<16>, ap_int<16>&, ap_int<16>&)' into 'wht_lossless_core_iso(ap_int<16>*, ap_int<16>*)' (../../Source/wht_core_iso.cpp:32:2)
+INFO: [HLS 214-131] Inlining function 'lifting_butterfly_iso(ap_int<16>, ap_int<16>, ap_int<16>&, ap_int<16>&)' into 'wht_lossless_core_iso(ap_int<16>*, ap_int<16>*)' (../../Source/wht_core_iso.cpp:45:2)
+INFO: [HLS 214-131] Inlining function 'lifting_butterfly_iso(ap_int<16>, ap_int<16>, ap_int<16>&, ap_int<16>&)' into 'wht_lossless_core_iso(ap_int<16>*, ap_int<16>*)' (../../Source/wht_core_iso.cpp:40:9)
+INFO: [HLS 214-131] Inlining function 'lifting_butterfly_iso(ap_int<16>, ap_int<16>, ap_int<16>&, ap_int<16>&)' into 'wht_lossless_core_iso(ap_int<16>*, ap_int<16>*)' (../../Source/wht_core_iso.cpp:39:2)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_43_4' is marked as complete unroll implied by the pipeline pragma (../../Source/wht_core_iso.cpp:43:22)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_37_3' is marked as complete unroll implied by the pipeline pragma (../../Source/wht_core_iso.cpp:37:19)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_30_2' is marked as complete unroll implied by the pipeline pragma (../../Source/wht_core_iso.cpp:30:19)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_23_1' is marked as complete unroll implied by the pipeline pragma (../../Source/wht_core_iso.cpp:23:19)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_43_4' (../../Source/wht_core_iso.cpp:43:22) in function 'wht_lossless_core_iso' completely with a factor of 4 (../../Source/wht_core_iso.cpp:15:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_37_3' (../../Source/wht_core_iso.cpp:37:19) in function 'wht_lossless_core_iso' completely with a factor of 2 (../../Source/wht_core_iso.cpp:15:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_30_2' (../../Source/wht_core_iso.cpp:30:19) in function 'wht_lossless_core_iso' completely with a factor of 4 (../../Source/wht_core_iso.cpp:15:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_23_1' (../../Source/wht_core_iso.cpp:23:19) in function 'wht_lossless_core_iso' completely with a factor of 8 (../../Source/wht_core_iso.cpp:15:0)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 8.792 seconds; current allocated memory: 207.777 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.011 seconds; current allocated memory: 207.777 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.121 seconds; current allocated memory: 211.914 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.042 seconds; current allocated memory: 213.898 MB.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.069 seconds; current allocated memory: 234.473 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.066 seconds; current allocated memory: 234.500 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'wht_lossless_core_iso' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'wht_lossless_core_iso' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'wht_lossless_core_iso'.
+INFO: [HLS 200-876] Unable to schedule the whole 2 cycles 'store' operation 0 bit ('block_out_addr_write_ln5', ../../Source/wht_core_iso.cpp:5->../../Source/wht_core_iso.cpp:45) of variable 'add_ln5_2', ../../Source/wht_core_iso.cpp:5->../../Source/wht_core_iso.cpp:45 on array 'block_out' within the last cycle (II = 1). Simulation mismatch may occur if the testbench is not ready to receive the output when this operation occurs.
+Resolution: For help on HLS 200-876 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-876.html
+WARNING: [HLS 200-885] The II Violation in module 'wht_lossless_core_iso' (function 'wht_lossless_core_iso'): Unable to schedule 'load' operation 16 bit ('a', ../../Source/wht_core_iso.cpp:25) on array 'block_in' due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array 'block_in'.
+Resolution: For help on HLS 200-885 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'wht_lossless_core_iso' (function 'wht_lossless_core_iso'): Unable to schedule 'load' operation 16 bit ('b', ../../Source/wht_core_iso.cpp:25) on array 'block_in' due to limited memory ports (II = 2). Please consider using a memory core with more ports or partitioning the array 'block_in'.
+Resolution: For help on HLS 200-885 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'wht_lossless_core_iso' (function 'wht_lossless_core_iso'): Unable to schedule 'load' operation 16 bit ('a', ../../Source/wht_core_iso.cpp:25) on array 'block_in' due to limited memory ports (II = 3). Please consider using a memory core with more ports or partitioning the array 'block_in'.
+Resolution: For help on HLS 200-885 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'wht_lossless_core_iso' (function 'wht_lossless_core_iso'): Unable to schedule 'load' operation 16 bit ('b', ../../Source/wht_core_iso.cpp:25) on array 'block_in' due to limited memory ports (II = 4). Please consider using a memory core with more ports or partitioning the array 'block_in'.
+Resolution: For help on HLS 200-885 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'wht_lossless_core_iso' (function 'wht_lossless_core_iso'): Unable to schedule 'load' operation 16 bit ('a', ../../Source/wht_core_iso.cpp:25) on array 'block_in' due to limited memory ports (II = 7). Please consider using a memory core with more ports or partitioning the array 'block_in'.
+Resolution: For help on HLS 200-885 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-885.html
+WARNING: [HLS 200-885] The II Violation in module 'wht_lossless_core_iso' (function 'wht_lossless_core_iso'): Unable to schedule 'load' operation 16 bit ('b', ../../Source/wht_core_iso.cpp:25) on array 'block_in' due to limited memory ports (II = 8). Please consider using a memory core with more ports or partitioning the array 'block_in'.
+Resolution: For help on HLS 200-885 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-885.html
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 9, Depth = 18, function 'wht_lossless_core_iso'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.472 seconds; current allocated memory: 234.500 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.106 seconds; current allocated memory: 234.500 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'wht_lossless_core_iso' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'wht_lossless_core_iso/block_in' to 's_axilite & ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'wht_lossless_core_iso/block_out' to 's_axilite & ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'wht_lossless_core_iso' to 's_axilite & ap_ctrl_hs'.
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'wht_lossless_core_iso' pipeline 'wht_lossless_core_iso' pipeline type 'function pipeline'
+INFO: [RTGEN 206-100] Bundling port 'block_in', 'block_out' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'wht_lossless_core_iso'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.181 seconds; current allocated memory: 235.352 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.79 seconds; current allocated memory: 240.809 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 1.095 seconds; current allocated memory: 244.992 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for wht_lossless_core_iso.
+INFO: [VLOG 209-307] Generating Verilog RTL for wht_lossless_core_iso.
+INFO: [HLS 200-789] **** Estimated Fmax: 344.35 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:17; Allocated memory: 42.000 MB.
+INFO: [HLS 200-1510] Running: cosim_design 
+WARNING: [COSIM 212-318] Design path length is too long. If you encounter problems, please reduce path length.
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "C:/Xilinx/Vitis_HLS/2024.1/vcxx/libexec/clang++"
+   Compiling wht_core_iso.cpp_pre.cpp.tb.cpp
+   Compiling wht_core_iso_tb.cpp_pre.cpp.tb.cpp
+   Compiling apatb_wht_lossless_core_iso.cpp
+   Compiling apatb_wht_lossless_core_iso_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+--- PRUEBA WHT LOSSLESS AISLADO (N=8) ---
+Entrada original: 100 150 120 110 105 95 130 125 
+Coeficientes WHT: 117 -6 -9 -27 6 -28 38 -65 
+
+Simulacion Exitosa! El modelo esta documentado y listo.
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+
+C:\Users\sfv02\Documents\TEC\Maestria\2026-2C\Alto_Nivel\Proyecto\MP6160_grupo_5\ProyectoFinal\HLS\wht_hls_work_iso\wht_hls_iso\solution_kv260\sim\verilog>set PATH= 
+
+C:\Users\sfv02\Documents\TEC\Maestria\2026-2C\Alto_Nivel\Proyecto\MP6160_grupo_5\ProyectoFinal\HLS\wht_hls_work_iso\wht_hls_iso\solution_kv260\sim\verilog>call C:/Xilinx/Vivado/2024.1/bin/xelab xil_defaultlib.apatb_wht_lossless_core_iso_top glbl -Oenable_linking_all_libraries  -prj wht_lossless_core_iso.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm  -L floating_point_v7_0_23 -L floating_point_v7_1_18 --lib "ieee_proposed=./ieee_proposed" -s wht_lossless_core_iso  
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_wht_lossless_core_iso_top glbl -Oenable_linking_all_libraries -prj wht_lossless_core_iso.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_0_23 -L floating_point_v7_1_18 --lib ieee_proposed=./ieee_proposed -s wht_lossless_core_iso 
+Multi-threading is on. Using 14 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/sim/verilog/AESL_axi_slave_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/sim/verilog/wht_lossless_core_iso.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_wht_lossless_core_iso_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/sim/verilog/wht_lossless_core_iso.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module wht_lossless_core_iso
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/sim/verilog/wht_lossless_core_iso_control_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module wht_lossless_core_iso_control_s_axi
+INFO: [VRFC 10-311] analyzing module wht_lossless_core_iso_control_s_axi_ram
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 16 differs from formal bit length 32 for port 'd0' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/sim/verilog/wht_lossless_core_iso_control_s_axi.v:161]
+WARNING: [VRFC 10-3091] actual bit length 16 differs from formal bit length 32 for port 'd1' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/sim/verilog/wht_lossless_core_iso_control_s_axi.v:187]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.wht_lossless_core_iso_control_s_...
+Compiling module xil_defaultlib.wht_lossless_core_iso_control_s_...
+Compiling module xil_defaultlib.wht_lossless_core_iso_control_s_...
+Compiling module xil_defaultlib.wht_lossless_core_iso
+Compiling module xil_defaultlib.AESL_axi_slave_control
+WARNING: [XSIM 43-3373] "C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/sim/verilog/AESL_axi_slave_control.v" Line 642. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+WARNING: [XSIM 43-3373] "C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/sim/verilog/AESL_axi_slave_control.v" Line 651. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+WARNING: [XSIM 43-3373] "C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/sim/verilog/AESL_axi_slave_control.v" Line 692. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+Compiling module xil_defaultlib.nodf_module_intf_default
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_wht_lossless_core_iso_top
+Compiling module work.glbl
+Built simulation snapshot wht_lossless_core_iso
+
+****** xsim v2024.1 (64-bit)
+  **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Thu Aug  6 11:07:41 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/wht_lossless_core_iso/xsim_script.tcl
+# xsim {wht_lossless_core_iso} -autoloadwcfg -tclbatch {wht_lossless_core_iso.tcl}
+Time resolution is 1 ps
+source wht_lossless_core_iso.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "122000"
+// RTL Simulation : 1 / 1 [100.00%] @ "546000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 570 ns : File "C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/sim/verilog/wht_lossless_core_iso.autotb.v" Line 279
+## quit
+INFO: [Common 17-206] Exiting xsim at Thu Aug  6 11:07:46 2026...
+INFO: [COSIM 212-316] Starting C post checking ...
+--- PRUEBA WHT LOSSLESS AISLADO (N=8) ---
+Entrada original: 100 150 120 110 105 95 130 125 
+Coeficientes WHT: 117 -6 -9 -27 6 -28 38 -65 
+
+Simulacion Exitosa! El modelo esta documentado y listo.
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
+INFO: [HLS 200-2161] Finished Command cosim_design Elapsed time: 00:00:36; Allocated memory: 10.750 MB.
+INFO: [HLS 200-1510] Running: export_design -format ip_catalog 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2024.1 (64-bit)
+  **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Thu Aug  6 11:07:50 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: calling package_hls_ip ip_types=vitis sysgen json_file=C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/solution_kv260_data.json outdir=C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/impl/ip srcdir=C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260 sort_interfaces_ports=false
+INFO: Copied 1 ipmisc file(s) to C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/impl/ip/misc
+INFO: Copied 2 verilog file(s) to C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/impl/ip/hdl/verilog
+INFO: Copied 2 vhdl file(s) to C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/impl/ip/hdl/vhdl
+INFO: Copied 10 swdriver file(s) to C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/impl/ip/drivers
+ipx::create_core: Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 594.730 ; gain = 192.371
+INFO: Import ports from HDL: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/impl/ip/hdl/vhdl/wht_lossless_core_iso.vhd (wht_lossless_core_iso)
+INFO: Add axi4lite interface s_axi_control
+INFO: Add clock interface ap_clk
+INFO: Add reset interface ap_rst_n
+INFO: Add interrupt interface interrupt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
+INFO: Calling post_process_vitis to specialize IP
+INFO: Calling post_process_sysgen to specialize IP
+Generating sysgen info xml from json file
+INFO: Created IP C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/impl/ip/component.xml
+INFO: Created IP archive C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/impl/ip/xilinx_com_hls_wht_lossless_core_iso_1_0.zip
+INFO: [Common 17-206] Exiting Vivado at Thu Aug  6 11:08:14 2026...
+INFO: [HLS 200-802] Generated output file wht_hls_iso/solution_kv260/impl/export.zip
+INFO: [HLS 200-2161] Finished Command export_design Elapsed time: 00:00:27; Allocated memory: 0.000 MB.
+HLS completed successfully
+Reports at: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work_iso/wht_hls_iso/solution_kv260/syn/report
+INFO: [HLS 200-1510] Running: close_project 
+INFO: [HLS 200-112] Total CPU user time: 6 seconds. Total CPU system time: 4 seconds. Total elapsed time: 99.515 seconds; peak allocated memory: 255.762 MB.

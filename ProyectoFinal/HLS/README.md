@@ -95,6 +95,7 @@ The two timing sweeps also include one report folder per tested period and a sum
 | Post-route FF | 424 | 377 |
 | Post-route DSP | 0 | 11 |
 | Post-route BRAM | 1.5 tiles | 1.5 tiles |
+| Post-route total on-chip power | 0.292 W | 0.294 W |
 | Fastest closing period in the tested sweep | 4.0 ns | 3.5 ns |
 | Demonstrated frequency | 250.00 MHz | 285.71 MHz |
 
@@ -110,6 +111,7 @@ The designs use the same target part, interface style, HLS clock target, and imp
 | Post-route FF | 2716 | 2716 |
 | Post-route DSP | 0 | 0 |
 | Post-route BRAM | 4 tiles | 4 tiles |
+| Post-route total on-chip power | 0.327 W | 0.327 W |
 | WNS at 10 ns | 4.292 ns | 5.980 ns |
 
 These figures include the AXI interface logic and must not be compared directly with the isolated baseline.

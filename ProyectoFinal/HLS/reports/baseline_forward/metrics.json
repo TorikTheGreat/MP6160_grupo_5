@@ -33,6 +33,7 @@
     "ff": 377,
     "dsp": 11,
     "bram_tiles": 1.5,
+    "total_on_chip_power_w": 0.294,
     "requested_frequency_mhz": 100.0,
     "timing_closed": true
   },

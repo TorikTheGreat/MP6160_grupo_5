@@ -1,0 +1,1409 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Aug  5 14:12:19 2026
+# Process ID: 4844
+# Current directory: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS
+# Command line: vivado.exe -mode batch -source C:\Users\sfv02\Documents\TEC\Maestria\2026-2C\Alto_Nivel\Proyecto\MP6160_grupo_5\ProyectoFinal\HLS\run_vivado_impl.tcl -notrace
+# Log file: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/vivado.log
+# Journal file: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS\vivado.jou
+# Running On        :sfv
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26200
+# Processor Detail  :AMD Ryzen 9 5900HX with Radeon Graphics        
+# CPU Frequency     :3294 MHz
+# CPU Physical cores:8
+# CPU Logical cores :16
+# Host memory       :16540 MB
+# Swap memory       :6174 MB
+# Total Virtual     :22715 MB
+# Available Virtual :11482 MB
+#-----------------------------------------------------------
+source {C:\Users\sfv02\Documents\TEC\Maestria\2026-2C\Alto_Nivel\Proyecto\MP6160_grupo_5\ProyectoFinal\HLS\run_vivado_impl.tcl} -notrace
+[Vivado] RTL dir: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog
+[Vivado] Output dir: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/vivado_work
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 590.473 ; gain = 201.414
+Command: synth_design -mode out_of_context -top wht_lossless_core -part xck26-sfvc784-2LV-c
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xck26'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xck26'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 8544
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1047.434 ; gain = 453.980
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core.v:9]
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_control_s_axi' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_control_s_axi.v:9]
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 6 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_control_s_axi.v:220]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_control_s_axi' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_control_s_axi.v:9]
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:14]
+	Parameter CONSERVATIVE bound to: 1 - type: integer 
+	Parameter MAX_READ_BURST_LENGTH bound to: 16 - type: integer 
+	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
+	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXI_ADDR_WIDTH bound to: 64 - type: integer 
+	Parameter C_M_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_M_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXI_WUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXI_RUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXI_BUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_USER_VALUE bound to: 0 - type: integer 
+	Parameter C_PROT_VALUE bound to: 0 - type: integer 
+	Parameter C_CACHE_VALUE bound to: 3 - type: integer 
+	Parameter CH0_USER_DW bound to: 128 - type: integer 
+	Parameter CH0_USER_AW bound to: 64 - type: integer 
+	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
+	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
+	Parameter CH0_USER_RFIFONUM_WIDTH bound to: 9 - type: integer 
+	Parameter USER_MAXREQS bound to: 70 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_store' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:820]
+	Parameter C_TARGET_ADDR bound to: 0 - type: integer 
+	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
+	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
+	Parameter BUS_ADDR_WIDTH bound to: 64 - type: integer 
+	Parameter BUS_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter USER_DW bound to: 128 - type: integer 
+	Parameter USER_AW bound to: 64 - type: integer 
+	Parameter USER_MAXREQS bound to: 70 - type: integer 
+	Parameter BUFFER_IMPL bound to: block - type: string 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_fifo' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+	Parameter DATA_WIDTH bound to: 96 - type: integer 
+	Parameter ADDR_WIDTH bound to: 7 - type: integer 
+	Parameter DEPTH bound to: 70 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_srl' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2760]
+	Parameter DATA_WIDTH bound to: 96 - type: integer 
+	Parameter ADDR_WIDTH bound to: 7 - type: integer 
+	Parameter DEPTH bound to: 70 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_srl' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2760]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_fifo' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_fifo__parameterized0' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+	Parameter MEM_STYLE bound to: block - type: string 
+	Parameter DATA_WIDTH bound to: 144 - type: integer 
+	Parameter ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_mem' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2814]
+	Parameter MEM_STYLE bound to: block - type: string 
+	Parameter DATA_WIDTH bound to: 144 - type: integer 
+	Parameter ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_mem' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2814]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_fifo__parameterized0' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_fifo__parameterized1' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_srl__parameterized0' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2760]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_srl__parameterized0' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2760]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_fifo__parameterized1' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_fifo__parameterized2' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 7 - type: integer 
+	Parameter DEPTH bound to: 70 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_srl__parameterized1' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2760]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 7 - type: integer 
+	Parameter DEPTH bound to: 70 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_srl__parameterized1' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2760]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_fifo__parameterized2' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_store' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:820]
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_load' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:328]
+	Parameter C_TARGET_ADDR bound to: 0 - type: integer 
+	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
+	Parameter MAX_READ_BURST_LENGTH bound to: 16 - type: integer 
+	Parameter BUS_ADDR_WIDTH bound to: 64 - type: integer 
+	Parameter BUS_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter USER_DW bound to: 128 - type: integer 
+	Parameter USER_AW bound to: 64 - type: integer 
+	Parameter USER_MAXREQS bound to: 70 - type: integer 
+	Parameter USER_RFIFONUM_WIDTH bound to: 9 - type: integer 
+	Parameter BUFFER_IMPL bound to: block - type: string 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_fifo__parameterized3' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+	Parameter MEM_STYLE bound to: block - type: string 
+	Parameter DATA_WIDTH bound to: 130 - type: integer 
+	Parameter ADDR_WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 256 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_mem__parameterized0' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2814]
+	Parameter MEM_STYLE bound to: block - type: string 
+	Parameter DATA_WIDTH bound to: 130 - type: integer 
+	Parameter ADDR_WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 256 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_mem__parameterized0' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2814]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_fifo__parameterized3' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_load' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:328]
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_write' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:1628]
+	Parameter CONSERVATIVE bound to: 1 - type: integer 
+	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXI_WUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXI_BUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_USER_VALUE bound to: 0 - type: integer 
+	Parameter C_PROT_VALUE bound to: 0 - type: integer 
+	Parameter C_CACHE_VALUE bound to: 3 - type: integer 
+	Parameter BUS_ADDR_WIDTH bound to: 64 - type: integer 
+	Parameter BUS_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter NUM_WRITE_OUTSTANDING bound to: 16 - type: integer 
+	Parameter MAX_WRITE_BURST_LENGTH bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_burst_converter' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:1948]
+	Parameter DATA_WIDTH bound to: 128 - type: integer 
+	Parameter ADDR_WIDTH bound to: 64 - type: integer 
+	Parameter MAX_BURST_LEN bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_reg_slice' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2480]
+	Parameter DATA_WIDTH bound to: 96 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_reg_slice' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2480]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_burst_converter' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:1948]
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_fifo__parameterized4' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_srl__parameterized2' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2760]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_srl__parameterized2' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2760]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_fifo__parameterized4' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_throttle' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2254]
+	Parameter CONSERVATIVE bound to: 1 - type: integer 
+	Parameter USED_FIX bound to: 0 - type: integer 
+	Parameter ADDR_WIDTH bound to: 64 - type: integer 
+	Parameter DATA_WIDTH bound to: 128 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+	Parameter MAXREQS bound to: 16 - type: integer 
+	Parameter AVERAGE_MODE bound to: 0 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_reg_slice__parameterized0' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2480]
+	Parameter DATA_WIDTH bound to: 72 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_reg_slice__parameterized0' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2480]
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_fifo__parameterized5' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+	Parameter DATA_WIDTH bound to: 72 - type: integer 
+	Parameter ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_srl__parameterized3' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2760]
+	Parameter DATA_WIDTH bound to: 72 - type: integer 
+	Parameter ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_srl__parameterized3' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2760]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_fifo__parameterized5' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_fifo__parameterized6' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+	Parameter DATA_WIDTH bound to: 145 - type: integer 
+	Parameter ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_srl__parameterized4' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2760]
+	Parameter DATA_WIDTH bound to: 145 - type: integer 
+	Parameter ADDR_WIDTH bound to: 4 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_srl__parameterized4' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2760]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_fifo__parameterized6' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2582]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_throttle' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2254]
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_reg_slice__parameterized1' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2480]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_reg_slice__parameterized1' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2480]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:1939]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:1942]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_write' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:1628]
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_read' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:1436]
+	Parameter C_M_AXI_ID_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXI_RUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_USER_VALUE bound to: 0 - type: integer 
+	Parameter C_PROT_VALUE bound to: 0 - type: integer 
+	Parameter C_CACHE_VALUE bound to: 3 - type: integer 
+	Parameter BUS_ADDR_WIDTH bound to: 64 - type: integer 
+	Parameter BUS_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter NUM_READ_OUTSTANDING bound to: 16 - type: integer 
+	Parameter MAX_READ_BURST_LENGTH bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'wht_lossless_core_gmem_m_axi_reg_slice__parameterized2' [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2480]
+	Parameter DATA_WIDTH bound to: 129 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_reg_slice__parameterized2' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:2480]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:1620]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi_read' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:1436]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core_gmem_m_axi' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_gmem_m_axi.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'wht_lossless_core' (0#1) [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core.v:9]
+WARNING: [Synth 8-6014] Unused sequential element int_ap_done_reg was removed.  [C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/wht_hls_work/wht_hls/solution_kv260/syn/verilog/wht_lossless_core_control_s_axi.v:292]
+WARNING: [Synth 8-7129] Port in_BUS_RID[0] in module wht_lossless_core_gmem_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RRESP[1] in module wht_lossless_core_gmem_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RRESP[0] in module wht_lossless_core_gmem_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RUSER[0] in module wht_lossless_core_gmem_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BID[0] in module wht_lossless_core_gmem_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BRESP[1] in module wht_lossless_core_gmem_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BRESP[0] in module wht_lossless_core_gmem_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BUSER[0] in module wht_lossless_core_gmem_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AWADDR[1] in module wht_lossless_core_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AWADDR[0] in module wht_lossless_core_control_s_axi is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1201.973 ; gain = 608.520
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1201.973 ; gain = 608.520
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xck26-sfvc784-2LV-c
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xck26-sfvc784-2LV-c
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1201.973 ; gain = 608.520
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'wht_lossless_core_control_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'wht_lossless_core_control_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'wht_lossless_core_gmem_m_axi_reg_slice'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'wht_lossless_core_gmem_m_axi_reg_slice__parameterized0'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'wht_lossless_core_gmem_m_axi_reg_slice__parameterized1'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'wht_lossless_core_gmem_m_axi_reg_slice__parameterized2'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                               11
+*
+                  WRIDLE |                             0010 |                               00
+                  WRDATA |                             0100 |                               01
+                  WRRESP |                             1000 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding 'one-hot' in module 'wht_lossless_core_control_s_axi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              001 |                               10
+*
+                  RDIDLE |                              010 |                               00
+                  RDDATA |                              100 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rstate_reg' using encoding 'one-hot' in module 'wht_lossless_core_control_s_axi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'wht_lossless_core_gmem_m_axi_reg_slice'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'wht_lossless_core_gmem_m_axi_reg_slice__parameterized0'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'wht_lossless_core_gmem_m_axi_reg_slice__parameterized1'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'wht_lossless_core_gmem_m_axi_reg_slice__parameterized2'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1253.590 ; gain = 660.137
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   52 Bit       Adders := 2     
+	   2 Input   32 Bit       Adders := 4     
+	   3 Input   16 Bit       Adders := 12    
+	   5 Input   16 Bit       Adders := 2     
+	   4 Input   16 Bit       Adders := 5     
+	   2 Input   12 Bit       Adders := 4     
+	   2 Input    9 Bit       Adders := 2     
+	   2 Input    8 Bit       Adders := 9     
+	   2 Input    7 Bit       Adders := 3     
+	   2 Input    5 Bit       Adders := 19    
+	   2 Input    4 Bit       Adders := 11    
++---XORs : 
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	              145 Bit    Registers := 1     
+	              144 Bit    Registers := 1     
+	              130 Bit    Registers := 1     
+	              129 Bit    Registers := 2     
+	              128 Bit    Registers := 1     
+	               96 Bit    Registers := 6     
+	               72 Bit    Registers := 3     
+	               64 Bit    Registers := 6     
+	               60 Bit    Registers := 75    
+	               52 Bit    Registers := 2     
+	               32 Bit    Registers := 7     
+	               20 Bit    Registers := 2     
+	               16 Bit    Registers := 25    
+	               15 Bit    Registers := 2     
+	               13 Bit    Registers := 2     
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 17    
+	                7 Bit    Registers := 3     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 9     
+	                4 Bit    Registers := 11    
+	                2 Bit    Registers := 6     
+	                1 Bit    Registers := 229   
++---RAMs : 
+	              32K Bit	(255 X 130 bit)          RAMs := 1     
+	               2K Bit	(15 X 144 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input  129 Bit        Muxes := 1     
+	   2 Input  128 Bit        Muxes := 2     
+	   2 Input   96 Bit        Muxes := 2     
+	   2 Input   72 Bit        Muxes := 1     
+	   2 Input   64 Bit        Muxes := 6     
+	   2 Input   52 Bit        Muxes := 2     
+	   2 Input   20 Bit        Muxes := 2     
+	   2 Input   16 Bit        Muxes := 2     
+	   4 Input   13 Bit        Muxes := 2     
+	   4 Input   12 Bit        Muxes := 2     
+	   2 Input    9 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 14    
+	   4 Input    8 Bit        Muxes := 2     
+	   2 Input    5 Bit        Muxes := 16    
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 15    
+	   3 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 61    
+	   3 Input    2 Bit        Muxes := 15    
+	   4 Input    2 Bit        Muxes := 5     
+	   2 Input    1 Bit        Muxes := 95    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1248 (col length:96)
+BRAMs: 288 (col length: RAMB18 96 RAMB36 48)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port in_BUS_RID[0] in module wht_lossless_core_gmem_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RRESP[1] in module wht_lossless_core_gmem_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RRESP[0] in module wht_lossless_core_gmem_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RUSER[0] in module wht_lossless_core_gmem_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BID[0] in module wht_lossless_core_gmem_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BRESP[1] in module wht_lossless_core_gmem_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BRESP[0] in module wht_lossless_core_gmem_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BUSER[0] in module wht_lossless_core_gmem_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AWADDR[1] in module wht_lossless_core_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AWADDR[0] in module wht_lossless_core_control_s_axi is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_wstate_reg[0]) is unused and will be removed from module wht_lossless_core_control_s_axi.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_rstate_reg[0]) is unused and will be removed from module wht_lossless_core_control_s_axi.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:41 . Memory (MB): peak = 1984.883 ; gain = 1391.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++-------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|Module Name  | RTL Object                                | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | Cascade Heights | 
++-------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|gmem_m_axi_U | store_unit/buff_wdata/U_fifo_mem/mem_reg  | 15 x 144(READ_FIRST)   | W |   | 15 x 144(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      |                 | 
+|gmem_m_axi_U | load_unit_0/buff_rdata/U_fifo_mem/mem_reg | 255 x 130(READ_FIRST)  | W |   | 255 x 130(WRITE_FIRST) |   | R | Port A and B     | 0      | 2      |                 | 
++-------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:41 . Memory (MB): peak = 1984.883 ; gain = 1391.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++-------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|Module Name  | RTL Object                                | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | Cascade Heights | 
++-------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|gmem_m_axi_U | store_unit/buff_wdata/U_fifo_mem/mem_reg  | 15 x 144(READ_FIRST)   | W |   | 15 x 144(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      |                 | 
+|gmem_m_axi_U | load_unit_0/buff_rdata/U_fifo_mem/mem_reg | 255 x 130(READ_FIRST)  | W |   | 255 x 130(WRITE_FIRST) |   | R | Port A and B     | 0      | 2      |                 | 
++-------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance gmem_m_axi_U/load_unit_0/buff_rdata/U_fifo_mem/mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:43 . Memory (MB): peak = 1984.883 ; gain = 1391.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:48 . Memory (MB): peak = 1984.883 ; gain = 1391.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:48 . Memory (MB): peak = 1984.883 ; gain = 1391.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:48 . Memory (MB): peak = 1984.883 ; gain = 1391.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:48 . Memory (MB): peak = 1984.883 ; gain = 1391.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:48 . Memory (MB): peak = 1984.883 ; gain = 1391.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:48 . Memory (MB): peak = 1984.883 ; gain = 1391.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name       | RTL Name                                 | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|wht_lossless_core | trunc_ln2_reg_560_pp0_iter73_reg_reg[59] | 74     | 60    | NO           | NO                 | YES               | 0      | 180     | 
++------------------+------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+
+Dynamic Shift Register Report:
++------------+-------------+--------+------------+--------+---------+--------+--------+--------+
+|Module Name | RTL Name    | Length | Data Width | SRL16E | SRLC32E | Mux F7 | Mux F8 | Mux F9 | 
++------------+-------------+--------+------------+--------+---------+--------+--------+--------+
+|dsrl        | mem_reg[68] | 96     | 96         | 0      | 288     | 192    | 96     | 0      | 
+|dsrl__1     | mem_reg[14] | 1      | 1          | 1      | 0       | 0      | 0      | 0      | 
+|dsrl__2     | mem_reg[68] | 1      | 1          | 0      | 3       | 2      | 1      | 0      | 
+|dsrl__3     | mem_reg[14] | 8      | 8          | 8      | 0       | 0      | 0      | 0      | 
+|dsrl__4     | mem_reg[14] | 72     | 72         | 72     | 0       | 0      | 0      | 0      | 
+|dsrl__5     | mem_reg[14] | 145    | 145        | 145    | 0       | 0      | 0      | 0      | 
++------------+-------------+--------+------------+--------+---------+--------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY8   |    88|
+|2     |LUT1     |    43|
+|3     |LUT2     |   303|
+|4     |LUT3     |   624|
+|5     |LUT4     |   640|
+|6     |LUT5     |   198|
+|7     |LUT6     |   246|
+|8     |MUXF7    |   122|
+|9     |RAMB36E2 |     4|
+|10    |SRL16E   |   216|
+|11    |SRLC32E  |   546|
+|12    |FDRE     |  2710|
+|13    |FDSE     |     5|
++------+---------+------+
+
+Report Instance Areas: 
++------+----------------------+-------------------------------------------------------+------+
+|      |Instance              |Module                                                 |Cells |
++------+----------------------+-------------------------------------------------------+------+
+|1     |top                   |                                                       |  5745|
+|2     |  control_s_axi_U     |wht_lossless_core_control_s_axi                        |   439|
+|3     |  gmem_m_axi_U        |wht_lossless_core_gmem_m_axi                           |  4277|
+|4     |    bus_read          |wht_lossless_core_gmem_m_axi_read                      |  1264|
+|5     |      fifo_burst      |wht_lossless_core_gmem_m_axi_fifo__parameterized1_4    |    34|
+|6     |        U_fifo_srl    |wht_lossless_core_gmem_m_axi_srl__parameterized0_8     |     3|
+|7     |      fifo_rctl       |wht_lossless_core_gmem_m_axi_fifo__parameterized1_5    |    21|
+|8     |      rreq_burst_conv |wht_lossless_core_gmem_m_axi_burst_converter_6         |   809|
+|9     |        rs_req        |wht_lossless_core_gmem_m_axi_reg_slice_7               |   271|
+|10    |      rs_rdata        |wht_lossless_core_gmem_m_axi_reg_slice__parameterized2 |   400|
+|11    |    bus_write         |wht_lossless_core_gmem_m_axi_write                     |  1630|
+|12    |      fifo_burst      |wht_lossless_core_gmem_m_axi_fifo__parameterized4      |    48|
+|13    |        U_fifo_srl    |wht_lossless_core_gmem_m_axi_srl__parameterized2       |    26|
+|14    |      fifo_resp       |wht_lossless_core_gmem_m_axi_fifo__parameterized1_2    |    34|
+|15    |        U_fifo_srl    |wht_lossless_core_gmem_m_axi_srl__parameterized0_3     |     5|
+|16    |      rs_resp         |wht_lossless_core_gmem_m_axi_reg_slice__parameterized1 |    10|
+|17    |      wreq_burst_conv |wht_lossless_core_gmem_m_axi_burst_converter           |   810|
+|18    |        rs_req        |wht_lossless_core_gmem_m_axi_reg_slice                 |   271|
+|19    |      wreq_throttle   |wht_lossless_core_gmem_m_axi_throttle                  |   709|
+|20    |        data_fifo     |wht_lossless_core_gmem_m_axi_fifo__parameterized6      |   338|
+|21    |          U_fifo_srl  |wht_lossless_core_gmem_m_axi_srl__parameterized4       |   303|
+|22    |        req_fifo      |wht_lossless_core_gmem_m_axi_fifo__parameterized5      |   160|
+|23    |          U_fifo_srl  |wht_lossless_core_gmem_m_axi_srl__parameterized3       |   130|
+|24    |        rs_req        |wht_lossless_core_gmem_m_axi_reg_slice__parameterized0 |   204|
+|25    |    load_unit_0       |wht_lossless_core_gmem_m_axi_load                      |   777|
+|26    |      buff_rdata      |wht_lossless_core_gmem_m_axi_fifo__parameterized3      |   290|
+|27    |        U_fifo_mem    |wht_lossless_core_gmem_m_axi_mem__parameterized0       |   228|
+|28    |      fifo_rreq       |wht_lossless_core_gmem_m_axi_fifo_0                    |   420|
+|29    |        U_fifo_srl    |wht_lossless_core_gmem_m_axi_srl_1                     |   369|
+|30    |    store_unit        |wht_lossless_core_gmem_m_axi_store                     |   606|
+|31    |      buff_wdata      |wht_lossless_core_gmem_m_axi_fifo__parameterized0      |    46|
+|32    |        U_fifo_mem    |wht_lossless_core_gmem_m_axi_mem                       |    10|
+|33    |      fifo_wreq       |wht_lossless_core_gmem_m_axi_fifo                      |   421|
+|34    |        U_fifo_srl    |wht_lossless_core_gmem_m_axi_srl                       |   370|
+|35    |      fifo_wrsp       |wht_lossless_core_gmem_m_axi_fifo__parameterized1      |    37|
+|36    |        U_fifo_srl    |wht_lossless_core_gmem_m_axi_srl__parameterized0       |    19|
+|37    |      user_resp       |wht_lossless_core_gmem_m_axi_fifo__parameterized2      |    36|
++------+----------------------+-------------------------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:48 . Memory (MB): peak = 1984.883 ; gain = 1391.430
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 27 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:00:48 . Memory (MB): peak = 1984.883 ; gain = 1391.430
+Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:48 . Memory (MB): peak = 1984.883 ; gain = 1391.430
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.098 . Memory (MB): peak = 1989.250 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 210 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2044.996 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 13874c6
+INFO: [Common 17-83] Releasing license: Synthesis
+85 Infos, 27 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:55 . Memory (MB): peak = 2044.996 ; gain = 1454.523
+create_clock: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2044.996 ; gain = 0.000
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xck26'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xck26'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2044.996 ; gain = 0.000
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 1b469d0b4
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2659.543 ; gain = 614.547
+
+Starting Logic Optimization Task
+
+Phase 1 Initialization
+
+Phase 1.1 Core Generation And Design Setup
+Phase 1.1 Core Generation And Design Setup | Checksum: 1b469d0b4
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 3037.879 ; gain = 0.000
+
+Phase 1.2 Setup Constraints And Sort Netlist
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 1b469d0b4
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 3037.879 ; gain = 0.000
+Phase 1 Initialization | Checksum: 1b469d0b4
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 3037.879 ; gain = 0.000
+
+Phase 2 Timer Update And Timing Data Collection
+
+Phase 2.1 Timer Update
+Phase 2.1 Timer Update | Checksum: 1b469d0b4
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.168 . Memory (MB): peak = 3037.879 ; gain = 0.000
+
+Phase 2.2 Timing Data Collection
+Phase 2.2 Timing Data Collection | Checksum: 1b469d0b4
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.196 . Memory (MB): peak = 3037.879 ; gain = 0.000
+Phase 2 Timer Update And Timing Data Collection | Checksum: 1b469d0b4
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.198 . Memory (MB): peak = 3037.879 ; gain = 0.000
+
+Phase 3 Retarget
+INFO: [Opt 31-1834] Total Chains To Be Transformed Were: 0 AND Number of Transformed insts Created are: 0
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 3 Retarget | Checksum: 29aed6a02
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.294 . Memory (MB): peak = 3037.879 ; gain = 0.000
+Retarget | Checksum: 29aed6a02
+INFO: [Opt 31-389] Phase Retarget created 60 cells and removed 60 cells
+
+Phase 4 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 4 Constant propagation | Checksum: 22b46880d
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.333 . Memory (MB): peak = 3037.879 ; gain = 0.000
+Constant propagation | Checksum: 22b46880d
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 5 Sweep
+Phase 5 Sweep | Checksum: 29f647f4b
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.397 . Memory (MB): peak = 3037.879 ; gain = 0.000
+Sweep | Checksum: 29f647f4b
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 6 BUFG optimization
+INFO: [Opt 31-1077] Phase BUFG optimization inserted 0 global clock buffer(s) for CLOCK_LOW_FANOUT.
+Phase 6 BUFG optimization | Checksum: 29f647f4b
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.466 . Memory (MB): peak = 3037.879 ; gain = 0.000
+BUFG optimization | Checksum: 29f647f4b
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 7 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 7 Shift Register Optimization | Checksum: 29f647f4b
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.490 . Memory (MB): peak = 3037.879 ; gain = 0.000
+Shift Register Optimization | Checksum: 29f647f4b
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 8 Post Processing Netlist
+Phase 8 Post Processing Netlist | Checksum: 29f647f4b
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.510 . Memory (MB): peak = 3037.879 ; gain = 0.000
+Post Processing Netlist | Checksum: 29f647f4b
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+
+Phase 9 Finalization
+
+Phase 9.1 Finalizing Design Cores and Updating Shapes
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 1a5958ce5
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.738 . Memory (MB): peak = 3037.879 ; gain = 0.000
+
+Phase 9.2 Verifying Netlist Connectivity
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 3037.879 ; gain = 0.000
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 1a5958ce5
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.750 . Memory (MB): peak = 3037.879 ; gain = 0.000
+Phase 9 Finalization | Checksum: 1a5958ce5
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.752 . Memory (MB): peak = 3037.879 ; gain = 0.000
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |              60  |              60  |                                              0  |
+|  Constant propagation         |               0  |               0  |                                              0  |
+|  Sweep                        |               0  |               0  |                                              0  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              0  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: 1a5958ce5
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.755 . Memory (MB): peak = 3037.879 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 4 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 0 newly gated: 2 Total Ports: 8
+Ending PowerOpt Patch Enables Task | Checksum: 27ab261cb
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 3037.879 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 27ab261cb
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3037.879 ; gain = 0.000
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: 27ab261cb
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 3037.879 ; gain = 0.000
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 3037.879 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: 233df76ae
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 3037.879 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+109 Infos, 27 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 3037.879 ; gain = 992.883
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xck26'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xck26'
+INFO: [Common 17-83] Releasing license: Implementation
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 3037.879 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 190522181
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 3037.879 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 3037.879 ; gain = 0.000
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+WARNING: [Device 21-9073] RSS factor Speedmodel not found for intent code NODE_GLOBAL_VDISTR
+WARNING: [Device 21-9073] RSS factor Speedmodel not found for intent code NODE_GLOBAL_VROUTE
+WARNING: [Device 21-9073] RSS factor Speedmodel not found for intent code NODE_GLOBAL_HDISTR
+WARNING: [Device 21-9073] RSS factor Speedmodel not found for intent code NODE_GLOBAL_HROUTE
+WARNING: [Device 21-9073] RSS factor Speedmodel not found for intent code NODE_GLOBAL_BUFG
+WARNING: [Device 21-9073] RSS factor Speedmodel not found for intent code NODE_GLOBAL_LEAF
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 14ba41f85
+
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 233d7023a
+
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:23 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 233d7023a
+
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:23 . Memory (MB): peak = 3623.129 ; gain = 585.250
+Phase 1 Placer Initialization | Checksum: 233d7023a
+
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:23 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+
+Phase 2.1.1 Partition Driven Placement
+
+Phase 2.1.1.1 PBP: Partition Driven Placement
+Phase 2.1.1.1 PBP: Partition Driven Placement | Checksum: 1c7fd6b50
+
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:24 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 2.1.1.2 PBP: Clock Region Placement
+INFO: [Place 30-3164] Check ILP status : ILP-based clock placer is skipped.
+Phase 2.1.1.2 PBP: Clock Region Placement | Checksum: 224cc629a
+
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:24 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 2.1.1.3 PBP: Compute Congestion
+Phase 2.1.1.3 PBP: Compute Congestion | Checksum: 224cc629a
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:32 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 2.1.1.4 PBP: UpdateTiming
+Phase 2.1.1.4 PBP: UpdateTiming | Checksum: 1c836e89c
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:32 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 2.1.1.5 PBP: Add part constraints
+Phase 2.1.1.5 PBP: Add part constraints | Checksum: 1c836e89c
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:32 . Memory (MB): peak = 3623.129 ; gain = 585.250
+Phase 2.1.1 Partition Driven Placement | Checksum: 1c836e89c
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:32 . Memory (MB): peak = 3623.129 ; gain = 585.250
+Phase 2.1 Floorplanning | Checksum: 1c836e89c
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:32 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 1c836e89c
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:32 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 1c836e89c
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:32 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 2.4 Global Placement Core
+
+Phase 2.4.1 UpdateTiming Before Physical Synthesis
+Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 27337850c
+
+Time (s): cpu = 00:01:35 ; elapsed = 00:01:02 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 2.4.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 91 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 0, total 0, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 35 nets or LUTs. Breaked 0 LUT, combined 35 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-69] No nets found for rewiring optimization.
+INFO: [Physopt 32-661] Optimized 0 net.  Re-placed 0 instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-1408] Pass 1. Identified 1 candidate net for high-fanout optimization.
+INFO: [Physopt 32-81] Processed net ap_rst_n_inv. Replicated 9 times.
+INFO: [Physopt 32-232] Optimized 1 net. Created 9 new instances.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 1 net or cell. Created 9 new cells, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.080 . Memory (MB): peak = 3623.129 ; gain = 0.000
+INFO: [Physopt 32-670] No setup violation found.  DSP Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register to Pipeline Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  BRAM Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  URAM Register Optimization was not performed.
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 3623.129 ; gain = 0.000
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            0  |             35  |                    35  |           0  |           1  |  00:00:00  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Equivalent Driver Rewiring                       |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Very High Fanout                                 |            9  |              0  |                     1  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |            9  |             35  |                    36  |           0  |           5  |  00:00:00  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.4.2 Physical Synthesis In Placer | Checksum: 21a7304a4
+
+Time (s): cpu = 00:01:36 ; elapsed = 00:01:03 . Memory (MB): peak = 3623.129 ; gain = 585.250
+Phase 2.4 Global Placement Core | Checksum: 1e2c01965
+
+Time (s): cpu = 00:01:52 ; elapsed = 00:01:12 . Memory (MB): peak = 3623.129 ; gain = 585.250
+Phase 2 Global Placement | Checksum: 1e2c01965
+
+Time (s): cpu = 00:01:52 ; elapsed = 00:01:12 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 1dd263c27
+
+Time (s): cpu = 00:02:07 ; elapsed = 00:01:20 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 2675e771e
+
+Time (s): cpu = 00:02:08 ; elapsed = 00:01:21 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 3.3 Small Shape DP
+
+Phase 3.3.1 Small Shape Clustering
+Phase 3.3.1 Small Shape Clustering | Checksum: 2603d6612
+
+Time (s): cpu = 00:02:37 ; elapsed = 00:01:36 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 3.3.2 Slice Area Swap
+
+Phase 3.3.2.1 Slice Area Swap Initial
+Phase 3.3.2.1 Slice Area Swap Initial | Checksum: 1974c9122
+
+Time (s): cpu = 00:02:53 ; elapsed = 00:01:45 . Memory (MB): peak = 3623.129 ; gain = 585.250
+Phase 3.3.2 Slice Area Swap | Checksum: 1974c9122
+
+Time (s): cpu = 00:02:53 ; elapsed = 00:01:45 . Memory (MB): peak = 3623.129 ; gain = 585.250
+Phase 3.3 Small Shape DP | Checksum: 2452e9250
+
+Time (s): cpu = 00:03:24 ; elapsed = 00:02:02 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 3.4 Re-assign LUT pins
+Phase 3.4 Re-assign LUT pins | Checksum: 1f52f0a16
+
+Time (s): cpu = 00:03:24 ; elapsed = 00:02:02 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 3.5 Pipeline Register Optimization
+Phase 3.5 Pipeline Register Optimization | Checksum: 227fbc8b0
+
+Time (s): cpu = 00:03:24 ; elapsed = 00:02:02 . Memory (MB): peak = 3623.129 ; gain = 585.250
+Phase 3 Detail Placement | Checksum: 227fbc8b0
+
+Time (s): cpu = 00:03:24 ; elapsed = 00:02:02 . Memory (MB): peak = 3623.129 ; gain = 585.250
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 25888444e
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=0.271 | TNS=0.000 |
+Phase 1 Physical Synthesis Initialization | Checksum: 1e5404e74
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.114 . Memory (MB): peak = 3652.633 ; gain = 0.000
+INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: 244572eb0
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.156 . Memory (MB): peak = 3652.633 ; gain = 0.000
+Phase 4.1.1.1 BUFG Insertion | Checksum: 25888444e
+
+Time (s): cpu = 00:03:43 ; elapsed = 00:02:13 . Memory (MB): peak = 3652.633 ; gain = 614.754
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.522. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 23a362b9e
+
+Time (s): cpu = 00:03:46 ; elapsed = 00:02:16 . Memory (MB): peak = 3652.633 ; gain = 614.754
+
+Time (s): cpu = 00:03:46 ; elapsed = 00:02:16 . Memory (MB): peak = 3652.633 ; gain = 614.754
+Phase 4.1 Post Commit Optimization | Checksum: 23a362b9e
+
+Time (s): cpu = 00:03:47 ; elapsed = 00:02:16 . Memory (MB): peak = 3652.633 ; gain = 614.754
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 23a362b9e
+
+Time (s): cpu = 00:04:01 ; elapsed = 00:02:25 . Memory (MB): peak = 3673.613 ; gain = 635.734
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ________________________________________________________________________
+|           | Global Congestion | Long Congestion   | Short Congestion  |
+| Direction | Region Size       | Region Size       | Region Size       |
+|___________|___________________|___________________|___________________|
+|      North|                1x1|                1x1|                2x2|
+|___________|___________________|___________________|___________________|
+|      South|                1x1|                1x1|                1x1|
+|___________|___________________|___________________|___________________|
+|       East|                1x1|                1x1|                1x1|
+|___________|___________________|___________________|___________________|
+|       West|                1x1|                1x1|                2x2|
+|___________|___________________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 23a362b9e
+
+Time (s): cpu = 00:04:01 ; elapsed = 00:02:25 . Memory (MB): peak = 3673.613 ; gain = 635.734
+Phase 4.3 Placer Reporting | Checksum: 23a362b9e
+
+Time (s): cpu = 00:04:01 ; elapsed = 00:02:25 . Memory (MB): peak = 3673.613 ; gain = 635.734
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 3673.613 ; gain = 0.000
+
+Time (s): cpu = 00:04:01 ; elapsed = 00:02:25 . Memory (MB): peak = 3673.613 ; gain = 635.734
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 2642242d9
+
+Time (s): cpu = 00:04:01 ; elapsed = 00:02:26 . Memory (MB): peak = 3673.613 ; gain = 635.734
+Ending Placer Task | Checksum: 235377c0b
+
+Time (s): cpu = 00:04:01 ; elapsed = 00:02:26 . Memory (MB): peak = 3673.613 ; gain = 635.734
+143 Infos, 33 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:04:07 ; elapsed = 00:02:30 . Memory (MB): peak = 3673.613 ; gain = 635.734
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xck26'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xck26'
+
+Starting Initial Update Timing Task
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "ap_clk" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 3676.711 ; gain = 3.098
+INFO: [Vivado_Tcl 4-2279] Estimated Timing Summary | WNS= 0.522 | TNS= 0.000 | 
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.000 ns. All physical synthesis setup optimizations will be skipped.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+148 Infos, 34 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xck26'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xck26'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: ecda9274 ConstDB: 0 ShapeSum: 8245634b RouteDB: c617864c
+Nodegraph reading from file.  Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 3717.613 ; gain = 0.000
+WARNING: [Route 35-197] Clock port "ap_clk" does not have an associated HD.CLK_SRC. Without this constraint, timing analysis may not be accurate and upstream checks cannot be done to ensure correct clock placement.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[31]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[31]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WSTRB[3]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WSTRB[3]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[30]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[30]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_ARADDR[3]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_ARADDR[3]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[27]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[27]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[23]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[23]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WSTRB[2]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WSTRB[2]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_ARADDR[5]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_ARADDR[5]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_ARADDR[4]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_ARADDR[4]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[29]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[29]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[28]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[28]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_ARADDR[1]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_ARADDR[1]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_ARADDR[0]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_ARADDR[0]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_ARADDR[2]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_ARADDR[2]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[26]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[26]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[24]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[24]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[22]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[22]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[25]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[25]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[20]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[20]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[21]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[21]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[15]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[15]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WSTRB[1]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WSTRB[1]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[17]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[17]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[19]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[19]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[18]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[18]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[14]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[14]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[13]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[13]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[12]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[12]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[9]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[9]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[3]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[3]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WSTRB[0]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WSTRB[0]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_ARVALID" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_ARVALID". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_RREADY" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_RREADY". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[1]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[1]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[16]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[16]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WVALID" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WVALID". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[0]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[0]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[6]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[6]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[4]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[4]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[7]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[7]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[2]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[2]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_AWADDR[5]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_AWADDR[5]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_AWADDR[4]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_AWADDR[4]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_AWADDR[3]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_AWADDR[3]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_AWADDR[2]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_AWADDR[2]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_AWVALID" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_AWVALID". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_BREADY" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_BREADY". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[11]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[11]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[10]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[10]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[8]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[8]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "s_axi_control_WDATA[5]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "s_axi_control_WDATA[5]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_ARREADY" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_ARREADY". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_AWREADY" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_AWREADY". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "ap_rst_n" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "ap_rst_n". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[43]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[43]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[41]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[41]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[29]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[29]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[25]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[25]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[15]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[15]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[13]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[13]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[63]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[63]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[59]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[59]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[47]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[47]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[45]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[45]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[27]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[27]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[61]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[61]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[21]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[21]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[11]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[11]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RVALID" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RVALID". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_BVALID" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_BVALID". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[57]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[57]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[53]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[53]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[37]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[37]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[31]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[31]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[23]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[23]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[7]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[7]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[71]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[71]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[67]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[67]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[65]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[65]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[55]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[55]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[39]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[39]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[19]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[19]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[5]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[5]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[81]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[81]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[66]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[66]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[60]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[60]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[56]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[56]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[28]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[28]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[17]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[17]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[68]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[68]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[49]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[49]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[26]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[26]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[24]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[24]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[8]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[8]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[62]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[62]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[51]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[51]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[44]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[44]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[35]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[35]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_RDATA[1]" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_RDATA[1]". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+WARNING: [Route 35-198] Port "m_axi_gmem_WREADY" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "m_axi_gmem_WREADY". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+INFO: [Common 17-14] Message 'Route 35-198' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+Post Restoration Checksum: NetGraph: 6d2c3e73 | NumContArr: bf757de1 | Constraints: c2a8fa9d | Timing: c2a8fa9d
+Phase 1 Build RT Design | Checksum: 2b1f3b18e
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 3717.613 ; gain = 0.000
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 2b1f3b18e
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 3717.613 ; gain = 0.000
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 2b1f3b18e
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 3717.613 ; gain = 0.000
+
+Phase 2.3 Global Clock Net Routing
+Phase 2.3 Global Clock Net Routing | Checksum: 2b1f3b18e
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 3850.383 ; gain = 132.770
+
+Phase 2.4 Update Timing
+Phase 2.4 Update Timing | Checksum: 2982b75a8
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 3850.383 ; gain = 132.770
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.537  | TNS=0.000  | WHS=0.041  | THS=0.000  |
+
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 4181
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 3718
+  Number of Partially Routed Nets     = 463
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 2d41cd742
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:08 . Memory (MB): peak = 3878.074 ; gain = 160.461
+
+Phase 3 Global Routing
+Phase 3 Global Routing | Checksum: 2d41cd742
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:08 . Memory (MB): peak = 3878.074 ; gain = 160.461
+
+Phase 4 Initial Routing
+
+Phase 4.1 Initial Net Routing Pass
+Phase 4.1 Initial Net Routing Pass | Checksum: 32158ba68
+
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:09 . Memory (MB): peak = 3878.074 ; gain = 160.461
+Phase 4 Initial Routing | Checksum: 2df0aa263
+
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:09 . Memory (MB): peak = 3878.074 ; gain = 160.461
+
+Phase 5 Rip-up And Reroute
+
+Phase 5.1 Global Iteration 0
+ Number of Nodes with overlaps = 542
+ Number of Nodes with overlaps = 98
+ Number of Nodes with overlaps = 34
+ Number of Nodes with overlaps = 18
+ Number of Nodes with overlaps = 8
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.296  | TNS=0.000  | WHS=0.055  | THS=0.000  |
+
+Phase 5.1 Global Iteration 0 | Checksum: 1d37ee7a3
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:19 . Memory (MB): peak = 3878.074 ; gain = 160.461
+
+Phase 5.2 Additional Iteration for Hold
+Phase 5.2 Additional Iteration for Hold | Checksum: 15680254f
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:19 . Memory (MB): peak = 3878.074 ; gain = 160.461
+Phase 5 Rip-up And Reroute | Checksum: 15680254f
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:19 . Memory (MB): peak = 3878.074 ; gain = 160.461
+
+Phase 6 Delay and Skew Optimization
+
+Phase 6.1 Delay CleanUp
+Phase 6.1 Delay CleanUp | Checksum: 15680254f
+
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:19 . Memory (MB): peak = 3878.074 ; gain = 160.461
+
+Phase 6.2 Clock Skew Optimization
+Phase 6.2 Clock Skew Optimization | Checksum: 15680254f
+
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:19 . Memory (MB): peak = 3878.074 ; gain = 160.461
+Phase 6 Delay and Skew Optimization | Checksum: 15680254f
+
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:19 . Memory (MB): peak = 3878.074 ; gain = 160.461
+
+Phase 7 Post Hold Fix
+
+Phase 7.1 Hold Fix Iter
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.296  | TNS=0.000  | WHS=0.055  | THS=0.000  |
+
+Phase 7.1 Hold Fix Iter | Checksum: 15680254f
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:19 . Memory (MB): peak = 3878.074 ; gain = 160.461
+Phase 7 Post Hold Fix | Checksum: 15680254f
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:19 . Memory (MB): peak = 3878.074 ; gain = 160.461
+
+Phase 8 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.295441 %
+  Global Horizontal Routing Utilization  = 0.361728 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 8 Route finalize | Checksum: 15680254f
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:19 . Memory (MB): peak = 3878.074 ; gain = 160.461
+
+Phase 9 Verifying routed nets
+
+ Verification completed successfully
+Phase 9 Verifying routed nets | Checksum: 15680254f
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:19 . Memory (MB): peak = 3878.074 ; gain = 160.461
+
+Phase 10 Depositing Routes
+Phase 10 Depositing Routes | Checksum: 15680254f
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:20 . Memory (MB): peak = 3878.074 ; gain = 160.461
+
+Phase 11 Resolve XTalk
+Phase 11 Resolve XTalk | Checksum: 15680254f
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:20 . Memory (MB): peak = 3878.074 ; gain = 160.461
+
+Phase 12 Post Process Routing
+Phase 12 Post Process Routing | Checksum: 15680254f
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:20 . Memory (MB): peak = 3878.074 ; gain = 160.461
+
+Phase 13 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.296  | TNS=0.000  | WHS=0.055  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 13 Post Router Timing | Checksum: 15680254f
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:20 . Memory (MB): peak = 3878.074 ; gain = 160.461
+Total Elapsed time in route_design: 19.735 secs
+
+Phase 14 Post-Route Event Processing
+Phase 14 Post-Route Event Processing | Checksum: d9a28406
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:20 . Memory (MB): peak = 3878.074 ; gain = 160.461
+INFO: [Route 35-16] Router Completed Successfully
+Ending Routing Task | Checksum: d9a28406
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:20 . Memory (MB): peak = 3878.074 ; gain = 160.461
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+161 Infos, 135 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:23 . Memory (MB): peak = 3878.074 ; gain = 201.363
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 3878.074 ; gain = 0.000
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.292 . Memory (MB): peak = 3878.074 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3878.074 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.209 . Memory (MB): peak = 3878.074 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 3878.074 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 3878.074 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.559 . Memory (MB): peak = 3878.074 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/vivado_work/post_route.dcp' has been generated.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2LV, Temperature grade: C, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "ap_clk" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2LV, Temperature grade: C, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 1 -nworst 1 -delay_type max -sort_by slack.
+[Vivado] Implementation completed
+[Vivado] Reports at: C:/Users/sfv02/Documents/TEC/Maestria/2026-2C/Alto_Nivel/Proyecto/MP6160_grupo_5/ProyectoFinal/HLS/vivado_work
+INFO: [Common 17-206] Exiting Vivado at Wed Aug  5 14:17:09 2026...

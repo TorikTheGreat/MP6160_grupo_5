@@ -44,6 +44,7 @@ def main() -> int:
             "route_ff": get(data, "post_route", "ff"),
             "route_dsp": get(data, "post_route", "dsp"),
             "route_bram_tiles": get(data, "post_route", "bram_tiles"),
+            "route_power_w": get(data, "post_route", "total_on_chip_power_w"),
         })
 
     fields = list(rows[0].keys()) if rows else ["variant"]
@@ -57,8 +58,8 @@ def main() -> int:
         "",
         "HLS and post-route values are kept in separate columns. Compare designs only when interfaces, part, clock constraints, and report stages match.",
         "",
-        "| Variant | HLS lat. | HLS II | HLS LUT | HLS FF | HLS DSP | Route LUT | Route FF | Route DSP | Route BRAM | Period ns | WNS ns | Closed |",
-        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|",
+        "| Variant | HLS lat. | HLS II | HLS LUT | HLS FF | HLS DSP | Route LUT | Route FF | Route DSP | Route BRAM | Route power W | Period ns | WNS ns | Closed |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|",
     ]
     for row in rows:
         def v(name: str) -> str:
@@ -69,7 +70,7 @@ def main() -> int:
                 return "yes" if value else "no"
             return str(value)
         lines.append(
-            f"| {v('variant')} | {v('hls_latency_best')} | {v('hls_ii')} | {v('hls_lut')} | {v('hls_ff')} | {v('hls_dsp')} | {v('route_lut')} | {v('route_ff')} | {v('route_dsp')} | {v('route_bram_tiles')} | {v('route_period_ns')} | {v('route_wns_ns')} | {v('route_closed')} |"
+            f"| {v('variant')} | {v('hls_latency_best')} | {v('hls_ii')} | {v('hls_lut')} | {v('hls_ff')} | {v('hls_dsp')} | {v('route_lut')} | {v('route_ff')} | {v('route_dsp')} | {v('route_bram_tiles')} | {v('route_power_w')} | {v('route_period_ns')} | {v('route_wns_ns')} | {v('route_closed')} |"
         )
     lines += [
         "",

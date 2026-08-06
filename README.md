@@ -96,6 +96,7 @@ The forward and inverse functions were also verified through C/RTL cosimulation.
 | Post-route registers | 424 | 377 |
 | Post-route DSP | 0 | 11 |
 | Post-route BRAM | 1.5 tiles | 1.5 tiles |
+| Post-route total on-chip power | 0.292 W | 0.294 W |
 | Smallest tested period that closed timing | 4.0 ns | 3.5 ns |
 | Maximum demonstrated frequency in the sweep | 250.00 MHz | 285.71 MHz |
 
@@ -116,6 +117,7 @@ The frequency values are not presented as exact device limits. They correspond t
 | Post-route registers | 409 |
 | Post-route DSP | 0 |
 | Post-route BRAM | 1.5 tiles |
+| Post-route total on-chip power | 0.292 W |
 
 The inverse datapath therefore provides a synthesizable multiplier-free reconstruction path rather than leaving reconstruction exclusively to software.
 
@@ -129,6 +131,7 @@ The inverse datapath therefore provides a synthesizable multiplier-free reconstr
 | Post-route registers | 2,716 | 2,716 |
 | Post-route DSP | 0 | 0 |
 | Post-route BRAM | 4 tiles | 4 tiles |
+| Post-route total on-chip power | 0.327 W | 0.327 W |
 | WNS at a 10 ns constraint | 4.292 ns | 5.980 ns |
 
 These values include the memory and control interfaces and are therefore reported separately from the datapath comparison.

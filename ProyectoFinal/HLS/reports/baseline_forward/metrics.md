@@ -19,6 +19,7 @@
 | Post-route FF | 377 |
 | Post-route DSP | 11 |
 | Post-route BRAM tiles | 1.500 |
+| Post-route total on-chip power (W) | 0.294 |
 
 ## Interpretation
 

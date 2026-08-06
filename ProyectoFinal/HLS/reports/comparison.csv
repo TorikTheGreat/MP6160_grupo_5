@@ -1,6 +1,6 @@
-variant,top,hls_latency_best,hls_ii,hls_lut,hls_ff,hls_dsp,hls_bram18k,route_period_ns,route_wns_ns,route_closed,route_lut,route_ff,route_dsp,route_bram_tiles
-baseline_forward,wht_multiplier_forward,17,9,926,823,12,0,10.0,5.513,True,500,377,11,1.5
-isolated_forward,wht_lossless_forward_isolated,17,9,880,562,0,0,10.0,5.323,True,501,424,0,1.5
-isolated_inverse,wht_lossless_inverse_isolated,17,9,903,607,0,0,10.0,5.427,True,565,409,0,1.5
-main_forward,wht_lossless_core,143,1,1773,1847,0,16,10.0,4.292,True,2340,2716,0,4
-main_inverse,wht_lossless_inverse,143,1,1773,1907,0,16,10.0,5.98,True,2366,2716,0,4
+variant,top,hls_latency_best,hls_ii,hls_lut,hls_ff,hls_dsp,hls_bram18k,route_period_ns,route_wns_ns,route_closed,route_lut,route_ff,route_dsp,route_bram_tiles,route_power_w
+baseline_forward,wht_multiplier_forward,17,9,926,823,12,0,10.0,5.513,True,500,377,11,1.5,0.294
+isolated_forward,wht_lossless_forward_isolated,17,9,880,562,0,0,10.0,5.323,True,501,424,0,1.5,0.292
+isolated_inverse,wht_lossless_inverse_isolated,17,9,903,607,0,0,10.0,5.427,True,565,409,0,1.5,0.292
+main_forward,wht_lossless_core,143,1,1773,1847,0,16,10.0,4.292,True,2340,2716,0,4,0.327
+main_inverse,wht_lossless_inverse,143,1,1773,1907,0,16,10.0,5.98,True,2366,2716,0,4,0.327
